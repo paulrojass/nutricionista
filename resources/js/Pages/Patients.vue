@@ -1,24 +1,25 @@
 <template>
-  <div>
+    <layout>
     <!--begin::Dashboard-->
     <!--begin::Row-->
     <div class="row mt-0 mt-lg-8">
-      <div class="col-xl-12">
-        <PatientsList
-        v-for="patient in patients"
-        :key="patient.id"
-        :patient="patient"
-        ></PatientsList>
-      </div>
+        <div class="col-xl-12">
+            <PatientsList
+            v-for="patient in patients"
+            :key="patient.id"
+            :patient="patient"
+            ></PatientsList>
+        </div>
     </div>
     <!--end::Row-->
     <!--end::Dashboard-->
-  </div>
+    </layout>
 </template>
 
 <script>
 import { SET_BREADCRUMB } from "../src/core/services/store/breadcrumbs.module";
 import PatientsList from "./list/Patients.vue";
+import Layout from "../src/view/layout/Layout"
 
 export default {
     props: ['patients'],
@@ -28,12 +29,14 @@ export default {
     components: {
         PatientsList
     },
-/*
-  data(){
+    // Using a render function
+    layout: (h, page) => h(Layout, [page]),
+    metaInfo() {
       return {
-          patients:[]
+        title: `Panel de Inicio`,
       }
-  },
+    },
+/*
   mounted() {
       this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
       axios.get('patients').then((response) => {

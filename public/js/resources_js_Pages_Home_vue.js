@@ -16,12 +16,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home",
-  components: {
-    Layout: _src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_0__.default
-  }
+  // Using a render function
+  layout: function layout(h, page) {
+    return h(_src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_0__.default, [page]);
+  },
+  metaInfo: function metaInfo() {
+    return {
+      title: "Panel de Inicio"
+    };
+  } // Using the shorthand
+  //layout: Layout,
+
 });
 
 /***/ }),
@@ -696,6 +706,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -709,6 +724,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    title: String
+  },
+  watch: {
+    title: {
+      immediate: true,
+      handler: function handler(title) {
+        document.title = title;
+      }
+    }
+  },
   name: "Layout",
   components: {
     KTAside: _aside_Aside_vue__WEBPACK_IMPORTED_MODULE_1__.default,
@@ -780,15 +806,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
      */
     subheaderDisplay: function subheaderDisplay() {
       return !!this.layoutConfig("subheader.display");
-    },
-
+    }
     /**
      * Set the subheader display on dashboard page
      * @returns {boolean}
-     */
-    displaySubheaderOnDashboard: function displaySubheaderOnDashboard() {
-      return this.$route.name !== "dashboard";
+    displaySubheaderOnDashboard() {
+        return this.$route.name !== "panel";
     }
+    */
+
   })
 });
 
@@ -2744,6 +2770,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6918,7 +6971,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("Layout")
+  return _c("layout", [_c("h1", [_vm._v("Welcome")])])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -7704,25 +7757,24 @@ var render = function() {
                   attrs: { id: "kt_content" }
                 },
                 [
-                  _vm.subheaderDisplay && _vm.displaySubheaderOnDashboard
-                    ? _c("KTSubheader", {
-                        attrs: {
-                          breadcrumbs: _vm.breadcrumbs,
-                          title: _vm.pageTitle
-                        }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
                   _c("div", { staticClass: "d-flex flex-column-fluid" }, [
-                    _c("div", {
-                      class: {
-                        "container-fluid": _vm.contentFluid,
-                        container: !_vm.contentFluid
-                      }
-                    })
+                    _c(
+                      "div",
+                      {
+                        class: {
+                          "container-fluid": _vm.contentFluid,
+                          container: !_vm.contentFluid
+                        }
+                      },
+                      [
+                        _c("transition", { attrs: { name: "fade-in-up" } }, [
+                          _c("article", [_vm._t("default")], 2)
+                        ])
+                      ],
+                      1
+                    )
                   ])
-                ],
-                1
+                ]
               ),
               _vm._v(" "),
               _c("KTFooter"),
@@ -10568,7 +10620,43 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("ul", { staticClass: "menu-nav" })
+  return _c("ul", { staticClass: "menu-nav" }, [
+    _c(
+      "li",
+      {
+        staticClass: "menu-item",
+        class: [
+          _vm.isActive && "menu-item-active",
+          _vm.isExactActive && "menu-item-active"
+        ],
+        attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
+      },
+      [
+        _c("inertia-link", { attrs: { href: "/panel" } }, [
+          _c("span", { staticClass: "menu-text" }, [_vm._v(" Inicio ")])
+        ])
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "li",
+      {
+        staticClass: "menu-item",
+        class: [
+          _vm.isActive && "menu-item-active",
+          _vm.isExactActive && "menu-item-active"
+        ],
+        attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
+      },
+      [
+        _c("inertia-link", { attrs: { href: "/panel/pacientes" } }, [
+          _c("span", { staticClass: "menu-text" }, [_vm._v(" Pacientes ")])
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

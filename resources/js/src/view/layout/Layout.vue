@@ -21,11 +21,13 @@
           id="kt_content"
         >
           <!-- begin:: Content Head -->
+          <!--
           <KTSubheader
             v-if="subheaderDisplay && displaySubheaderOnDashboard"
             v-bind:breadcrumbs="breadcrumbs"
             v-bind:title="pageTitle"
           />
+      -->
           <!-- end:: Content Head -->
 
           <div class="d-flex flex-column-fluid">
@@ -35,11 +37,14 @@
                 container: !contentFluid
               }"
             >
-<!--
+
               <transition name="fade-in-up">
-                <router-view />
+                <!--<router-view />-->
+                <article>
+                  <slot />
+                </article>
               </transition>
--->              
+
             </div>
           </div>
         </div>
@@ -74,18 +79,29 @@ import {
 } from "../../core/services/store/htmlclass.module.js";
 
 export default {
-  name: "Layout",
-  components: {
-    KTAside,
-    KTSubheader,
-    KTHeaderMobile,
-    Loader,
-    KTHeader,
-    KTFooter,
-    KTStickyToolbar,
-    KTScrollTop,
-    KTSidebar
-  },
+    props: {
+      title: String,
+    },
+    watch: {
+      title: {
+        immediate: true,
+        handler(title) {
+          document.title = title
+        },
+      },
+    },
+    name: "Layout",
+    components: {
+        KTAside,
+        KTSubheader,
+        KTHeaderMobile,
+        Loader,
+        KTHeader,
+        KTFooter,
+        KTStickyToolbar,
+        KTScrollTop,
+        KTSidebar
+    },
   beforeMount() {
     // show page loading
     this.$store.dispatch(ADD_BODY_CLASSNAME, "page-loading");
@@ -157,10 +173,10 @@ export default {
     /**
      * Set the subheader display on dashboard page
      * @returns {boolean}
-     */
     displaySubheaderOnDashboard() {
-      return this.$route.name !== "dashboard";
+        return this.$route.name !== "panel";
     }
+    */
   }
 };
 </script>

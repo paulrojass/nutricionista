@@ -1,5 +1,32 @@
 <template>
-  <ul class="menu-nav">
+    <ul class="menu-nav">
+        <li
+        aria-haspopup="true"
+        data-menu-toggle="hover"
+        class="menu-item"
+        :class="[
+          isActive && 'menu-item-active',
+          isExactActive && 'menu-item-active'
+        ]"
+        >
+        <inertia-link href="/panel">
+          <span class="menu-text"> Inicio </span>
+        </inertia-link>
+        </li>
+        <li
+        aria-haspopup="true"
+        data-menu-toggle="hover"
+        class="menu-item"
+        :class="[
+          isActive && 'menu-item-active',
+          isExactActive && 'menu-item-active'
+        ]"
+        >
+        <inertia-link href="/panel/pacientes">
+          <span class="menu-text"> Pacientes </span>
+        </inertia-link>
+        </li>
+
 <!--
       <router-link
         to="/home"
