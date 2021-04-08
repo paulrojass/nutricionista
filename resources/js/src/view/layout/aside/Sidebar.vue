@@ -262,12 +262,12 @@
           <a
             href="#"
             class="card-title font-weight-bolder text-success text-hover-state-dark font-size-h6 mb-4 d-block"
-            >SAP UI Progress</a
+            >Pacientes activos</a
           >
           <div class="font-weight-bold text-muted font-size-sm">
             <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >67%</span
-            >Average
+              >{{active}}%</span
+            >Porcentaje
           </div>
           <div class="progress progress-xs mt-7 bg-success-o-60">
             <div
@@ -290,18 +290,18 @@
           <a
             href="#"
             class="card-title font-weight-bolder text-warning font-size-h6 mb-4 text-hover-state-dark d-block"
-            >Airplus Budget</a
+            >Pacientes inactivos</a
           >
           <div class="font-weight-bold text-muted font-size-sm">
             <span class="text-dark-75 font-weight-bolder font-size-h2 mr-2"
-              >87K%</span
-            >23k to goal
+              >10%</span
+            >pendientes por evaluar
           </div>
           <div class="progress progress-xs mt-7 bg-warning-o-60">
             <div
               class="progress-bar bg-warning"
               role="progressbar"
-              style="width: 87%;"
+              style="width: 10%;"
               aria-valuenow="50"
               aria-valuemin="0"
               aria-valuemax="100"
@@ -332,6 +332,13 @@ import ListWidget4 from "../../content/widgets/list/Widget4.vue";
 
 export default {
   name: "sidebar",
+  props:[
+      'active',
+      'inactive'
+  ],
+  data(){
+
+  },
   components: {
     ListWidget1,
     ListWidget4

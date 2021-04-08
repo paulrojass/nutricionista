@@ -1,30 +1,24 @@
 <template>
     <div>
-      <b-card
-        title="Card Title"
-        img-src="https://picsum.photos/600/300/?image=25"
-        img-alt="Image"
-        img-top
-        tag="article"
-        style="max-width: 20rem;"
-        class="mb-2"
-      >
-        <b-card-text
-        :v-text="patient.first_name_1"
-        >
-          Some quick example text to build on the card title and make up
-          the bulk of the card's content.2
-        </b-card-text>
+        <b-card title="Card title" sub-title="Card subtitle">
+            <b-card-text>
+                <em>{{patient.goal| truncate(60, '...') }}</em>
+            </b-card-text>
+            <b-card-text>
+                <strong>Fecha:</strong> {{patient.birth_date}}
+            </b-card-text>
+            <b-card-text>
+                <strong>Ubicación: </strong>{{patient.city.name}}
+            </b-card-text>
 
-        <b-button href="#" variant="primary">Go somewhere</b-button>
-      </b-card>
+            <a href="#" class="card-link">Card link</a>
+            <b-link href="#" class="card-link">Another link</b-link>
+        </b-card>
     </div>
 </template>
 
 <script>
-
-
 export default {
-  props: ['patient']
+  props: ['patient'],
 };
 </script>

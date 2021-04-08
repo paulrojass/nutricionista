@@ -56,7 +56,10 @@
         <KTScrollTop></KTScrollTop>
       </div>
 
-      <KTSidebar></KTSidebar>
+      <KTSidebar
+      :active = 'this.active'
+      :inactive = 'this.inactive'
+      ></KTSidebar>
     </div>
   </div>
 </template>
@@ -79,9 +82,11 @@ import {
 } from "../../core/services/store/htmlclass.module.js";
 
 export default {
-    props: {
-      title: String,
-    },
+    props: [
+      {title: String},
+      'active',
+      'inactive'
+    ],
     watch: {
       title: {
         immediate: true,

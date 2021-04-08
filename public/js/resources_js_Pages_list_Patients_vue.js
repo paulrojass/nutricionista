@@ -30,10 +30,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['patient']
 });
@@ -133,26 +129,30 @@ var render = function() {
     [
       _c(
         "b-card",
-        {
-          staticClass: "mb-2",
-          staticStyle: { "max-width": "20rem" },
-          attrs: {
-            title: "Card Title",
-            "img-src": "https://picsum.photos/600/300/?image=25",
-            "img-alt": "Image",
-            "img-top": "",
-            tag: "article"
-          }
-        },
+        { attrs: { title: "Card title", "sub-title": "Card subtitle" } },
         [
-          _c("b-card-text", { attrs: { "v-text": _vm.patient.first_name_1 } }, [
-            _vm._v(
-              "\n      Some quick example text to build on the card title and make up\n      the bulk of the card's content.2\n    "
-            )
+          _c("b-card-text", [
+            _c("em", [
+              _vm._v(_vm._s(_vm._f("truncate")(_vm.patient.goal, 60, "...")))
+            ])
           ]),
           _vm._v(" "),
-          _c("b-button", { attrs: { href: "#", variant: "primary" } }, [
-            _vm._v("Go somewhere")
+          _c("b-card-text", [
+            _c("strong", [_vm._v("Fecha:")]),
+            _vm._v(" " + _vm._s(_vm.patient.birth_date) + "\n        ")
+          ]),
+          _vm._v(" "),
+          _c("b-card-text", [
+            _c("strong", [_vm._v("Ubicación: ")]),
+            _vm._v(_vm._s(_vm.patient.city.name) + "\n        ")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
+            _vm._v("Card link")
+          ]),
+          _vm._v(" "),
+          _c("b-link", { staticClass: "card-link", attrs: { href: "#" } }, [
+            _vm._v("Another link")
           ])
         ],
         1

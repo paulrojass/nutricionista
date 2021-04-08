@@ -31,7 +31,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -105,10 +104,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
 //
 //
 //
@@ -809,6 +804,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -822,9 +820,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
+  props: [{
     title: String
-  },
+  }, 'active', 'inactive'],
   watch: {
     title: {
       immediate: true,
@@ -1466,6 +1464,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "sidebar",
+  props: ['active', 'inactive'],
+  data: function data() {},
   components: {
     ListWidget1: _content_widgets_list_Widget1_vue__WEBPACK_IMPORTED_MODULE_1__.default,
     ListWidget4: _content_widgets_list_Widget4_vue__WEBPACK_IMPORTED_MODULE_2__.default
@@ -7142,19 +7142,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("layout", [
-    _c("div", { staticClass: "row mt-0 mt-lg-8" }, [
-      _c(
-        "div",
-        { staticClass: "col-xl-12" },
-        _vm._l(_vm.patients, function(patient) {
-          return _c("PatientsList", {
-            key: patient.id,
-            attrs: { patient: patient }
-          })
-        }),
-        1
-      )
-    ])
+    _c(
+      "div",
+      { staticClass: "row mt-0 mt-lg-8" },
+      _vm._l(_vm.patients, function(patient) {
+        return _c("PatientsList", {
+          key: patient.id,
+          staticClass: "col-lg-4",
+          attrs: { patient: patient }
+        })
+      }),
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -7185,26 +7184,30 @@ var render = function() {
     [
       _c(
         "b-card",
-        {
-          staticClass: "mb-2",
-          staticStyle: { "max-width": "20rem" },
-          attrs: {
-            title: "Card Title",
-            "img-src": "https://picsum.photos/600/300/?image=25",
-            "img-alt": "Image",
-            "img-top": "",
-            tag: "article"
-          }
-        },
+        { attrs: { title: "Card title", "sub-title": "Card subtitle" } },
         [
-          _c("b-card-text", { attrs: { "v-text": _vm.patient.first_name_1 } }, [
-            _vm._v(
-              "\n      Some quick example text to build on the card title and make up\n      the bulk of the card's content.2\n    "
-            )
+          _c("b-card-text", [
+            _c("em", [
+              _vm._v(_vm._s(_vm._f("truncate")(_vm.patient.goal, 60, "...")))
+            ])
           ]),
           _vm._v(" "),
-          _c("b-button", { attrs: { href: "#", variant: "primary" } }, [
-            _vm._v("Go somewhere")
+          _c("b-card-text", [
+            _c("strong", [_vm._v("Fecha:")]),
+            _vm._v(" " + _vm._s(_vm.patient.birth_date) + "\n        ")
+          ]),
+          _vm._v(" "),
+          _c("b-card-text", [
+            _c("strong", [_vm._v("Ubicación: ")]),
+            _vm._v(_vm._s(_vm.patient.city.name) + "\n        ")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
+            _vm._v("Card link")
+          ]),
+          _vm._v(" "),
+          _c("b-link", { staticClass: "card-link", attrs: { href: "#" } }, [
+            _vm._v("Another link")
           ])
         ],
         1
@@ -8026,7 +8029,9 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("KTSidebar")
+          _c("KTSidebar", {
+            attrs: { active: this.active, inactive: this.inactive }
+          })
         ],
         1
       )
@@ -8561,7 +8566,44 @@ var render = function() {
             "sidebar-content flex-column-fluid pb-10 pt-9 px-5 px-lg-10"
         },
         [
-          _vm._m(4),
+          _c(
+            "div",
+            {
+              staticClass:
+                "card card-custom bg-light-success card-shadowless gutter-b"
+            },
+            [
+              _c("div", { staticClass: "card-body my-3" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "card-title font-weight-bolder text-success text-hover-state-dark font-size-h6 mb-4 d-block",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v("Pacientes activos")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "font-weight-bold text-muted font-size-sm" },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "text-dark-75 font-size-h2 font-weight-bolder mr-2"
+                      },
+                      [_vm._v(_vm._s(_vm.active) + "%")]
+                    ),
+                    _vm._v("Porcentaje\n        ")
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(4)
+              ])
+            ]
+          ),
           _vm._v(" "),
           _vm._m(5),
           _vm._v(" "),
@@ -8840,55 +8882,18 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass:
-          "card card-custom bg-light-success card-shadowless gutter-b"
-      },
+      { staticClass: "progress progress-xs mt-7 bg-success-o-60" },
       [
-        _c("div", { staticClass: "card-body my-3" }, [
-          _c(
-            "a",
-            {
-              staticClass:
-                "card-title font-weight-bolder text-success text-hover-state-dark font-size-h6 mb-4 d-block",
-              attrs: { href: "#" }
-            },
-            [_vm._v("SAP UI Progress")]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "font-weight-bold text-muted font-size-sm" },
-            [
-              _c(
-                "span",
-                {
-                  staticClass:
-                    "text-dark-75 font-size-h2 font-weight-bolder mr-2"
-                },
-                [_vm._v("67%")]
-              ),
-              _vm._v("Average\n        ")
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "progress progress-xs mt-7 bg-success-o-60" },
-            [
-              _c("div", {
-                staticClass: "progress-bar bg-success",
-                staticStyle: { width: "67%" },
-                attrs: {
-                  role: "progressbar",
-                  "aria-valuenow": "50",
-                  "aria-valuemin": "0",
-                  "aria-valuemax": "100"
-                }
-              })
-            ]
-          )
-        ])
+        _c("div", {
+          staticClass: "progress-bar bg-success",
+          staticStyle: { width: "67%" },
+          attrs: {
+            role: "progressbar",
+            "aria-valuenow": "50",
+            "aria-valuemin": "0",
+            "aria-valuemax": "100"
+          }
+        })
       ]
     )
   },
@@ -8911,7 +8916,7 @@ var staticRenderFns = [
                 "card-title font-weight-bolder text-warning font-size-h6 mb-4 text-hover-state-dark d-block",
               attrs: { href: "#" }
             },
-            [_vm._v("Airplus Budget")]
+            [_vm._v("Pacientes inactivos")]
           ),
           _vm._v(" "),
           _c(
@@ -8924,9 +8929,9 @@ var staticRenderFns = [
                   staticClass:
                     "text-dark-75 font-weight-bolder font-size-h2 mr-2"
                 },
-                [_vm._v("87K%")]
+                [_vm._v("10%")]
               ),
-              _vm._v("23k to goal\n        ")
+              _vm._v("pendientes por evaluar\n        ")
             ]
           ),
           _vm._v(" "),
@@ -8936,7 +8941,7 @@ var staticRenderFns = [
             [
               _c("div", {
                 staticClass: "progress-bar bg-warning",
-                staticStyle: { width: "87%" },
+                staticStyle: { width: "10%" },
                 attrs: {
                   role: "progressbar",
                   "aria-valuenow": "50",

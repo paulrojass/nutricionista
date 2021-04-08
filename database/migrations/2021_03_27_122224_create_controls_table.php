@@ -16,6 +16,8 @@ class CreateControlsTable extends Migration
         Schema::create('controls', function (Blueprint $table) {
             $table->id();
             $table->string('patient_id')->constrained()->onDelete('cascade');
+            $table->dateTime('date');
+            $table->text('note');
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\City;
 use App\Models\Patient;
+use App\Models\Control;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(CitySeeder::class);
         Patient::factory(30)->create();
+        Control::factory(50)->create();
     }
 }

@@ -15,7 +15,9 @@ class Control extends Model
          * @var array $fillable
          */
         protected $fillable = [
-            'patient_id'
+            'patient_id',
+            'date',
+            'note'
         ];
 
         /**

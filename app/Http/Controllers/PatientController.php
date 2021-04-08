@@ -16,7 +16,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::all();
+        $patients = Patient::orderBy('created_at', 'DESC')->with('city')->get();
         return Inertia::render('Patients', [
             'patients' => $patients
         ]);

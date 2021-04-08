@@ -21,6 +21,7 @@ class CreatePatientsTable extends Migration
             $table->string('last_name_1', 30);
             $table->string('last_name_2', 30);
             $table->date('birth_date');
+            $table->boolean('active')->default(0);
             $table->text('goal')->nullable();
             $table->string('avatar')->default('default.jpg');
             $table->timestamps();

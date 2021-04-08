@@ -22,7 +22,6 @@ class PatientFactory extends Factory
      */
     public function definition()
     {
-        echo 'accedimos a la definicion ';
         return [
             'city_id' => City::all()->random()->id,
             'first_name_1' => $this->faker->firstNameMale(),
@@ -30,6 +29,7 @@ class PatientFactory extends Factory
             'last_name_1' => $this->faker->lastName(),
             'last_name_2' => $this->faker->lastName(),
             'birth_date' => $this->faker->dateTimeBetween('-50 year', '-20 year'),
+            'active' => $this->faker->numberBetween(0, 1),
             'goal' => $this->faker->paragraph(),
             'avatar' => 'default.jpg'
         ];

@@ -10,6 +10,15 @@ import { VERIFY_AUTH } from "./core/services/store/auth.module";
 import { RESET_LAYOUT_CONFIG } from "./core/services/store/config.module";
 
 Vue.config.productionTip = false;
+/** Vue Filters Start */
+Vue.filter('truncate', function (text, length, suffix) {
+    if (text.length > length) {
+        return text.substring(0, length) + suffix;
+    } else {
+        return text;
+    }
+});
+/** Vue Filters End */
 
 // // Global 3rd party plugins
 import "popper.js";

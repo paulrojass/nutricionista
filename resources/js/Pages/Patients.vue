@@ -3,13 +3,12 @@
     <!--begin::Dashboard-->
     <!--begin::Row-->
     <div class="row mt-0 mt-lg-8">
-        <div class="col-xl-12">
             <PatientsList
+            class="col-lg-4"
             v-for="patient in patients"
             :key="patient.id"
             :patient="patient"
             ></PatientsList>
-        </div>
     </div>
     <!--end::Row-->
     <!--end::Dashboard-->
