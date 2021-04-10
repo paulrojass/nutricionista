@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Control;
 use App\Models\Patient;
-use Inertia\Inertia;
-
 use Carbon\Carbon;
+use Inertia\Inertia;
 
 class HomeController extends Controller
 {
@@ -31,12 +29,12 @@ class HomeController extends Controller
         $monthControls = Control::whereBetween('date', [
             Carbon::now()->startOfMonth(),
             Carbon::now()->endOfMonth()]
-            )->get();
+        )->where('date', '>=', Carbon::now())->with('patient')->get();
         $weekControls = Control::whereBetween('date', [
             Carbon::now()->startOfWeek(),
             Carbon::now()->endOfWeek()]
-            )->get();
-        $dayControls = Control::where('date', Carbon::today())->get();
+        )->where('date', '>=', Carbon::now())->with('patient')->get();
+        $dayControls = Control::where('date', Carbon::today())->with('patient')->get();
 
         $active = Patient::where('active', 1)->count();
         $inactive = Patient::where('active', 0)->count();
@@ -45,7 +43,8 @@ class HomeController extends Controller
             'weekControls' => $weekControls,
             'dayControls' => $dayControls,
             'active' => $active,
-            'inactive' => $inactive
+            'inactive' => $inactive,
         ]);
+
     }
 }

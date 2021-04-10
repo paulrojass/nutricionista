@@ -45,8 +45,8 @@ import { App, plugin } from '@inertiajs/inertia-vue'
 //import Vue from 'vue'
 
 InertiaProgress.init()
-
 Vue.use(plugin)
+Vue.mixin({methods:{route:window.route}})
 
 // // API service init
 //ApiService.init();

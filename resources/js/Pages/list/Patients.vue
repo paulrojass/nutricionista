@@ -1,8 +1,8 @@
 <template>
     <div>
-        <b-card title="Card title" sub-title="Card subtitle">
+        <b-card :title="patient.first_name_1+' '+patient.first_name_2" :sub-title="calcularEdad(patient.birth_date)+' años'">
             <b-card-text>
-                <em>{{patient.goal| truncate(60, '...') }}</em>
+                <em>{{patient.goal| truncate(20, '...') }}</em>
             </b-card-text>
             <b-card-text>
                 <strong>Fecha:</strong> {{patient.birth_date}}
@@ -20,5 +20,17 @@
 <script>
 export default {
   props: ['patient'],
+  methods: {
+        calcularEdad(fecha) {
+            var hoy = new Date()
+            var cumpleanos = new Date(fecha)
+            var edad = hoy.getFullYear() - cumpleanos.getFullYear()
+            var m = hoy.getMonth() - cumpleanos.getMonth()
+            if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+                edad--
+            }
+            return edad
+        }
+    }
 };
 </script>

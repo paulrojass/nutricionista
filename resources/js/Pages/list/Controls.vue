@@ -82,16 +82,16 @@
                     class="text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg"
                     >
 
-                    Nombre paciente
+                    {{item.patient.first_name_1}} {{item.patient.last_name_1}}
                     </a
                   >
                   <span class="text-muted font-weight-bold d-block">
-                    descripcion
+                    {{calcularEdad(item.patient.birth_date)+' años'}}
                   </span>
                 </td>
                 <td class="text-right">
                   <span class="text-muted font-weight-bold">
-                    {{item.note}}
+                    {{item.note| truncate(40, '...')}}
                   </span>
                 </td>
                 <td class="text-right">
@@ -132,9 +132,6 @@ export default {
       'weekControls',
       'dayControls'
     ],
-    created(){
-        console.log(this.monthControls)
-    },
     data() {
         return {
             show: "day",
@@ -142,6 +139,24 @@ export default {
             week: this.weekControls,
             day: this.dayControls
         }
+    },
+    created(){
+      console.log(this.monthControls)
+    },
+    methods:{
+        calcularEdad(fecha) {
+            var hoy = new Date()
+            var cumpleanos = new Date(fecha)
+            var edad = hoy.getFullYear() - cumpleanos.getFullYear()
+            var m = hoy.getMonth() - cumpleanos.getMonth()
+            if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+                edad--
+            }
+            return edad
+        },
+      dayOfWeekAsString(dayIndex) {
+        return ["Domingo", "Lunes","Martes","Miercoles","Jueves","Viernes","Sábado"][dayIndex] || '';
+      }
     },
 /*
   data() {

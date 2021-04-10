@@ -9,7 +9,7 @@
           isExactActive && 'menu-item-active'
         ]"
         >
-        <inertia-link href="/panel">
+        <inertia-link :href="route('home')">
           <span class="menu-text"> Inicio </span>
         </inertia-link>
         </li>
@@ -22,10 +22,21 @@
           isExactActive && 'menu-item-active'
         ]"
         >
-        <inertia-link href="/panel/pacientes">
+        <inertia-link :href="route('patients.index')">
           <span class="menu-text"> Pacientes </span>
         </inertia-link>
         </li>
+        <li
+        aria-haspopup="true"
+        data-menu-toggle="hover"
+        class="menu-item"
+        :class="[
+          isActive && 'menu-item-active',
+          isExactActive && 'menu-item-active'
+        ]"
+        >
+        </li>
+
 
 <!--
       <router-link
@@ -1716,6 +1727,7 @@ export default {
   name: "KTMenu",
   methods: {
     hasActiveChildren(match) {
+      console.log(route().current())
       return this.$route["path"].indexOf(match) !== -1;
     }
   }

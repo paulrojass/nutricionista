@@ -31,7 +31,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['patient']
+  props: ['patient'],
+  methods: {
+    calcularEdad: function calcularEdad(fecha) {
+      var hoy = new Date();
+      var cumpleanos = new Date(fecha);
+      var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+      var m = hoy.getMonth() - cumpleanos.getMonth();
+
+      if (m < 0 || m === 0 && hoy.getDate() < cumpleanos.getDate()) {
+        edad--;
+      }
+
+      return edad;
+    }
+  }
 });
 
 /***/ }),
@@ -129,11 +143,16 @@ var render = function() {
     [
       _c(
         "b-card",
-        { attrs: { title: "Card title", "sub-title": "Card subtitle" } },
+        {
+          attrs: {
+            title: _vm.patient.first_name_1 + " " + _vm.patient.first_name_2,
+            "sub-title": _vm.calcularEdad(_vm.patient.birth_date) + " años"
+          }
+        },
         [
           _c("b-card-text", [
             _c("em", [
-              _vm._v(_vm._s(_vm._f("truncate")(_vm.patient.goal, 60, "...")))
+              _vm._v(_vm._s(_vm._f("truncate")(_vm.patient.goal, 20, "...")))
             ])
           ]),
           _vm._v(" "),

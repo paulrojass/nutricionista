@@ -1,7 +1,8 @@
 <template>
   <layout
-    :active = 'this.active'
-    :inactive = 'this.inactive'
+    Title = "Panel de inicio"
+    :active = "active"
+    :inactive = "inactive"
   >
     <div>
         <ControlList
@@ -26,8 +27,14 @@ export default{
       'active',
       'inactive'
     ],
+    data(){
+      return {
+        'active': this.active,
+        'inactive': this.inactive
+      }
+    },
     created(){
-        console.log(this.inactive)
+        console.log('inactive '+this.inactive)
     },
     components: {
         ControlList
@@ -36,11 +43,9 @@ export default{
     layout: (h, page) => h(Layout, [page]),
     metaInfo() {
       return {
-        title: `Panel de Inicio`,
+        title: 'Panel de Inicio',
       }
     },
-
-    // Using the shorthand
-    //layout: Layout,
 }
+
 </script>

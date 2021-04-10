@@ -145,9 +145,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "widget-12",
   props: ['monthControls', 'weekControls', 'dayControls'],
-  created: function created() {
-    console.log(this.monthControls);
-  },
   data: function data() {
     return {
       show: "day",
@@ -155,6 +152,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       week: this.weekControls,
       day: this.dayControls
     };
+  },
+  created: function created() {
+    console.log(this.monthControls);
+  },
+  methods: {
+    calcularEdad: function calcularEdad(fecha) {
+      var hoy = new Date();
+      var cumpleanos = new Date(fecha);
+      var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+      var m = hoy.getMonth() - cumpleanos.getMonth();
+
+      if (m < 0 || m === 0 && hoy.getDate() < cumpleanos.getDate()) {
+        edad--;
+      }
+
+      return edad;
+    },
+    dayOfWeekAsString: function dayOfWeekAsString(dayIndex) {
+      return ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"][dayIndex] || '';
+    }
   },
 
   /*
@@ -451,7 +468,42 @@ var render = function() {
                     _c("tr", { key: i }, [
                       _vm._m(2, true),
                       _vm._v(" "),
-                      _vm._m(3, true),
+                      _c("td", { staticClass: "pl-0" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg",
+                            attrs: { href: "#" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\n                  " +
+                                _vm._s(item.patient.first_name_1) +
+                                " " +
+                                _vm._s(item.patient.last_name_1) +
+                                "\n                  "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass: "text-muted font-weight-bold d-block"
+                          },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(
+                                  _vm.calcularEdad(item.patient.birth_date) +
+                                    " años"
+                                ) +
+                                "\n                "
+                            )
+                          ]
+                        )
+                      ]),
                       _vm._v(" "),
                       _c("td", { staticClass: "text-right" }, [
                         _c(
@@ -460,7 +512,9 @@ var render = function() {
                           [
                             _vm._v(
                               "\n                  " +
-                                _vm._s(item.note) +
+                                _vm._s(
+                                  _vm._f("truncate")(item.note, 40, "...")
+                                ) +
                                 "\n                "
                             )
                           ]
@@ -566,26 +620,6 @@ var staticRenderFns = [
     return _c("td", { staticClass: "pl-0 py-5" }, [
       _c("div", { staticClass: "symbol symbol-50 symbol-light mr-2" }, [
         _c("span", { staticClass: "symbol-label" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pl-0" }, [
-      _c(
-        "a",
-        {
-          staticClass:
-            "text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg",
-          attrs: { href: "#" }
-        },
-        [_vm._v("\n\n                  Nombre paciente\n                  ")]
-      ),
-      _vm._v(" "),
-      _c("span", { staticClass: "text-muted font-weight-bold d-block" }, [
-        _vm._v("\n                  descripcion\n                ")
       ])
     ])
   }

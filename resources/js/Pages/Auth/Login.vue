@@ -1,4 +1,8 @@
 <template>
+    <Login></Login>
+
+
+<!--
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -47,27 +51,32 @@
             </div>
         </div>
     </div>
+-->
 </template>
 
 <script>
-export default{
-    data() {
-        return {
-            form : {
-                email : 'user@email.com',
+    import Login from '../../src/view/pages/auth/login_pages/Login-1.vue'
 
-                password: '12345678'
+    export default{
+        data() {
+            return {
+                form : {
+                    email : 'user@email.com',
+
+                    password: '12345678'
+                }
+            }
+        },
+        components:{
+            Login
+        },
+        methods: {
+            submit() {
+                this.$inertia.post('/login', {
+                    email: this.form.email,
+                    password: this.form.password
+                }).then(console.log("Hello"));
             }
         }
-    },
-
-    methods: {
-        submit() {
-            this.$inertia.post('/login', {
-                email: this.form.email,
-                password: this.form.password
-            }).then(console.log("Hello"));
-        }
     }
-}
 </script>

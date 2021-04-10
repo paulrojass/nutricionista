@@ -48,207 +48,8 @@
             data-offset="0px,1px"
           ></div>
           <!--end::Search Toggle-->
-          <!--begin::Dropdown-->
-          <div
-            class="dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-anim-up"
-          >
-            <div
-              class="quick-search-wrapper scroll"
-              data-scroll="true"
-              data-height="350"
-              data-mobile-height="200"
-            ></div>
-          </div>
-          <!--end::Dropdown-->
         </div>
         <!--end::Desktop Search-->
-        <!--begin::Dropdown-->
-        <div
-          class="dropdown dropdown-inline"
-          data-toggle="tooltip"
-          title="Quick actions"
-          data-placement="left"
-        >
-          <a
-            href="#"
-            class="btn btn-icon btn-light-info ml-3 h-40px w-40px flex-shrink-0"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <span class="svg-icon svg-icon-lg">
-              <!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
-              <inline-svg src="media/svg/icons/Media/Equalizer.svg" />
-              <!--end::Svg Icon-->
-            </span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-md dropdown-menu-right p-0">
-            <!--begin::Navigation-->
-            <ul class="navi navi-hover py-5">
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-icon">
-                    <i class="flaticon2-drop"></i>
-                  </span>
-                  <span class="navi-text">New Group</span>
-                </a>
-              </li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-icon">
-                    <i class="flaticon2-list-3"></i>
-                  </span>
-                  <span class="navi-text">Contacts</span>
-                </a>
-              </li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-icon">
-                    <i class="flaticon2-rocket-1"></i>
-                  </span>
-                  <span class="navi-text">Groups</span>
-                  <span class="navi-link-badge">
-                    <span
-                      class="label label-light-primary label-inline font-weight-bold"
-                      >new</span
-                    >
-                  </span>
-                </a>
-              </li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-icon">
-                    <i class="flaticon2-bell-2"></i>
-                  </span>
-                  <span class="navi-text">Calls</span>
-                </a>
-              </li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-icon">
-                    <i class="flaticon2-gear"></i>
-                  </span>
-                  <span class="navi-text">Settings</span>
-                </a>
-              </li>
-              <li class="navi-separator my-3"></li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-icon">
-                    <i class="flaticon2-magnifier-tool"></i>
-                  </span>
-                  <span class="navi-text">Help</span>
-                </a>
-              </li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-icon">
-                    <i class="flaticon2-bell-2"></i>
-                  </span>
-                  <span class="navi-text">Privacy</span>
-                  <span class="navi-link-badge">
-                    <span
-                      class="label label-light-danger label-rounded font-weight-bold"
-                      >5</span
-                    >
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <!--end::Navigation-->
-          </div>
-        </div>
-        <!--end::Dropdown-->
-        <!--begin::Dropdown-->
-        <div
-          class="dropdown dropdown-inline"
-          data-toggle="tooltip"
-          title="More links"
-          data-placement="left"
-        >
-          <a
-            href="#"
-            class="btn btn-icon btn-light-danger ml-3 h-40px w-40px flex-shrink-0"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <span class="svg-icon svg-icon-lg">
-              <inline-svg src="media/svg/icons/Layout/Layout-vertical.svg" />
-            </span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-md dropdown-menu-right p-0">
-            <!--begin::Navigation-->
-            <ul class="navi navi-hover">
-              <li class="navi-header font-weight-bold py-4">
-                <span class="font-size-lg">Choose Label:</span>
-                <i
-                  class="flaticon2-information icon-md text-muted"
-                  data-toggle="tooltip"
-                  data-placement="right"
-                  title="Click to learn more..."
-                ></i>
-              </li>
-              <li class="navi-separator mb-3 opacity-70"></li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-text">
-                    <span
-                      class="label label-xl label-inline label-light-success"
-                      >Customer</span
-                    >
-                  </span>
-                </a>
-              </li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-text">
-                    <span class="label label-xl label-inline label-light-danger"
-                      >Partner</span
-                    >
-                  </span>
-                </a>
-              </li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-text">
-                    <span
-                      class="label label-xl label-inline label-light-warning"
-                      >Suplier</span
-                    >
-                  </span>
-                </a>
-              </li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-text">
-                    <span
-                      class="label label-xl label-inline label-light-primary"
-                      >Member</span
-                    >
-                  </span>
-                </a>
-              </li>
-              <li class="navi-item">
-                <a href="#" class="navi-link">
-                  <span class="navi-text">
-                    <span class="label label-xl label-inline label-light-dark"
-                      >Staff</span
-                    >
-                  </span>
-                </a>
-              </li>
-              <li class="navi-separator mt-3 opacity-70"></li>
-              <li class="navi-footer py-4">
-                <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                  <i class="ki ki-plus icon-sm"></i>Add new</a
-                >
-              </li>
-            </ul>
-            <!--end::Navigation-->
-          </div>
-        </div>
-        <!--end::Dropdown-->
       </div>
       <!--end::Toolbar-->
     </div>
@@ -266,7 +67,7 @@
           >
           <div class="font-weight-bold text-muted font-size-sm">
             <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >{{active}}%</span
+              >{{this.active}}%</span
             >Porcentaje
           </div>
           <div class="progress progress-xs mt-7 bg-success-o-60">
@@ -336,12 +137,14 @@ export default {
       'active',
       'inactive'
   ],
-  data(){
-
+    created(){
+      console.log('hola '+this.active)
   },
-  components: {
-    ListWidget1,
-    ListWidget4
+  data(){
+    return{
+      'active': this.active,
+      'inactive': this.inactive
+    }
   },
   mounted() {
     this.$nextTick(() => {

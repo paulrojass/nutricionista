@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Inertia\Inertia;
+use Redirect;
 
 class WelcomeController extends Controller
 {
     public function __invoke()
     {
-        return Inertia::render('Welcome');
+        //return Inertia::render('Welcome');
+        return Redirect::route('login');
     }
 }

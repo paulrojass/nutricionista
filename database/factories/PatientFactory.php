@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Patient;
 use App\Models\City;
+use App\Models\Patient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PatientFactory extends Factory
@@ -28,10 +28,12 @@ class PatientFactory extends Factory
             'first_name_2' => $this->faker->firstNameMale(),
             'last_name_1' => $this->faker->lastName(),
             'last_name_2' => $this->faker->lastName(),
+            'phone' => $this->faker->phoneNumber(),
+            'email' => $this->faker->email(),
             'birth_date' => $this->faker->dateTimeBetween('-50 year', '-20 year'),
             'active' => $this->faker->numberBetween(0, 1),
             'goal' => $this->faker->paragraph(),
-            'avatar' => 'default.jpg'
+            'avatar' => 'default.jpg',
         ];
     }
 }

@@ -82,11 +82,15 @@ import {
 } from "../../core/services/store/htmlclass.module.js";
 
 export default {
+    name: "Layout",
     props: [
       {title: String},
       'active',
       'inactive'
     ],
+    created(){
+        console.log('hola layout '+this.active)
+    },
     watch: {
       title: {
         immediate: true,
@@ -95,7 +99,6 @@ export default {
         },
       },
     },
-    name: "Layout",
     components: {
         KTAside,
         KTSubheader,

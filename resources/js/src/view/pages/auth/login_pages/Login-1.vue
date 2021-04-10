@@ -46,6 +46,7 @@
               class="form"
               novalidate="novalidate"
               id="kt_login_signin_form"
+              @submit.prevent="submit"
             >
               <div class="pb-13 pt-lg-0 pt-5">
                 <h3
@@ -53,6 +54,7 @@
                 >
                   Welcome to Metronic
                 </h3>
+                  <!--
                 <span class="text-muted font-weight-bold font-size-h4"
                   >New Here?
                   <a
@@ -62,10 +64,11 @@
                     >Create an Account</a
                   ></span
                 >
+              -->
               </div>
               <div class="form-group">
                 <label class="font-size-h6 font-weight-bolder text-dark"
-                  >Email</label
+                  >Correo</label
                 >
                 <div
                   id="example-input-group-1"
@@ -79,12 +82,13 @@
                     ref="email"
                     v-model="form.email"
                   />
+
                 </div>
               </div>
               <div class="form-group">
                 <div class="d-flex justify-content-between mt-n5">
                   <label class="font-size-h6 font-weight-bolder text-dark pt-5"
-                    >Password</label
+                    >Contraseña</label
                   >
                   <a
                     class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5"
@@ -113,8 +117,9 @@
                   ref="kt_login_signin_submit"
                   class="btn btn-primary font-weight-bolder font-size-h6 px-15 py-4 my-3 mr-3"
                 >
-                  Sign In
+                  Acceder
                 </button>
+                <!--
                 <button
                   type="button"
                   class="btn btn-light-primary font-weight-bolder px-8 py-4 my-3 font-size-lg"
@@ -125,11 +130,13 @@
                     /> </span
                   >Sign in with Google
                 </button>
+              -->
               </div>
             </form>
           </div>
           <!--end::Signin-->
           <!--begin::Signup-->
+          <!--
           <div class="login-form login-signup">
             <form
               class="form"
@@ -213,6 +220,7 @@
               </div>
             </form>
           </div>
+        -->
           <!--end::Signup-->
           <!--begin::Forgot-->
           <div class="login-form login-forgot">
@@ -264,6 +272,7 @@
           <!--end::Forgot-->
         </div>
         <!--begin::Content footer-->
+        <!--
         <div
           class="d-flex justify-content-lg-start justify-content-center align-items-end py-7 py-lg-0"
         >
@@ -277,6 +286,7 @@
             >Contact Us</a
           >
         </div>
+      -->
         <!--end::Content footer-->
       </div>
       <!--end::Content-->
@@ -305,13 +315,15 @@ import Swal from "sweetalert2";
 
 export default {
   name: "login-1",
+
   data() {
     return {
       state: "signin",
       // Remove this dummy login info
-      form: {
-        email: "admin@demo.com",
-        password: "demo"
+      form : {
+          email : 'admin@admin.com',
+
+          password: '12345678'
       }
     };
   },
@@ -337,14 +349,14 @@ export default {
         email: {
           validators: {
             notEmpty: {
-              message: "Username is required"
+              message: "Correo es un campo obligatorio"
             }
           }
         },
         password: {
           validators: {
             notEmpty: {
-              message: "Password is required"
+              message: "Contraseña es un campo obligatorio"
             }
           }
         }
@@ -461,7 +473,7 @@ export default {
     this.fv.on("core.form.invalid", () => {
       Swal.fire({
         title: "",
-        text: "Please, provide correct data!",
+        text: "Por favor, ingrese los datos correctos",
         icon: "error",
         confirmButtonClass: "btn btn-secondary",
         heightAuto: false
@@ -500,7 +512,7 @@ export default {
     this.fv1.on("core.form.invalid", () => {
       Swal.fire({
         title: "",
-        text: "Please, provide correct data!",
+        text: "Por favor ingrese los datos!",
         icon: "error",
         confirmButtonClass: "btn btn-secondary",
         heightAuto: false
@@ -515,6 +527,12 @@ export default {
         KTUtil.getById(form_name),
         "animate__animated animate__backInUp"
       );
+    },
+    submit() {
+    this.$inertia.post('/login', {
+        email: this.form.email,
+        password: this.form.password
+      }).then(console.log("Hello"));
     }
   }
 };

@@ -17,7 +17,7 @@ class Image extends Model
     protected $fillable = [
         'patient_id',
         'name',
-        'location'
+        'location',
     ];
 
     /**
@@ -28,6 +28,6 @@ class Image extends Model
      */
     public function patient()
     {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(Patient::class);
     }
 }

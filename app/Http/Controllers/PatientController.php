@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Patient;
 use Illuminate\Http\Request;
-
 use Inertia\Inertia;
 
 class PatientController extends Controller
@@ -18,7 +18,20 @@ class PatientController extends Controller
     {
         $patients = Patient::orderBy('created_at', 'DESC')->with('city')->get();
         return Inertia::render('Patients', [
-            'patients' => $patients
+            'patients' => $patients,
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $cities = City::all();
+        return Inertia::render('form/NewPatient', [
+            'cities' => $cities,
         ]);
     }
 
@@ -31,8 +44,16 @@ class PatientController extends Controller
     public function store(Request $request)
     {
         $patient = new Patient();
+        $patient->city_id = $request->city_id;
+        $patient->first_name_1 = $request->first_name_1;
+        $patient->first_name_2 = $request->first_name_2;
+        $patient->last_name_1 = $request->last_name_1;
+        $patient->last_name_2 = $request->last_name_2;
         $patient->email = $request->email;
+        $patient->phone = $request->phone;
         $patient->save();
+
+        return $this->index();
     }
 
     /**
