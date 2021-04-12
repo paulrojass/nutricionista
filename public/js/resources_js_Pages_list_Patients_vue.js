@@ -30,6 +30,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['patient'],
   methods: {
@@ -143,36 +163,86 @@ var render = function() {
     [
       _c(
         "b-card",
-        {
-          attrs: {
-            title: _vm.patient.first_name_1 + " " + _vm.patient.first_name_2,
-            "sub-title": _vm.calcularEdad(_vm.patient.birth_date) + " años"
-          }
-        },
         [
-          _c("b-card-text", [
-            _c("em", [
-              _vm._v(_vm._s(_vm._f("truncate")(_vm.patient.goal, 20, "...")))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("b-card-text", [
-            _c("strong", [_vm._v("Fecha:")]),
-            _vm._v(" " + _vm._s(_vm.patient.birth_date) + "\n        ")
-          ]),
+          _c(
+            "v-list-item",
+            { attrs: { "three-line": "" } },
+            [
+              _c(
+                "v-list-item-content",
+                [
+                  _c("div", { staticClass: "overline mb-4" }, [
+                    _c("h3", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(
+                            _vm.patient.first_name_1 +
+                              " " +
+                              _vm.patient.first_name_2
+                          ) +
+                          "\n          "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-list-item-title", { staticClass: "headline mb-1" }, [
+                    _vm._v(
+                      "\n          " +
+                        _vm._s(
+                          _vm.calcularEdad(_vm.patient.birth_date) + " años"
+                        ) +
+                        "\n        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("v-list-item-subtitle", [
+                    _c("em", [
+                      _vm._v(
+                        _vm._s(_vm._f("truncate")(_vm.patient.goal, 20, "..."))
+                      )
+                    ])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-list-item-avatar", {
+                attrs: { tile: "", size: "80", color: "grey" }
+              })
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("b-card-text", [
             _c("strong", [_vm._v("Ubicación: ")]),
-            _vm._v(_vm._s(_vm.patient.city.name) + "\n        ")
+            _vm._v(_vm._s(_vm.patient.city.name) + "\n    ")
           ]),
           _vm._v(" "),
-          _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-            _vm._v("Card link")
-          ]),
-          _vm._v(" "),
-          _c("b-link", { staticClass: "card-link", attrs: { href: "#" } }, [
-            _vm._v("Another link")
-          ])
+          _c(
+            "v-col",
+            { staticClass: "text-center", attrs: { cols: "12", sm: "4" } },
+            [
+              _c(
+                "div",
+                { staticClass: "my-2" },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: {
+                        text: "",
+                        small: "",
+                        color: "primary",
+                        href: _vm.route("patients.show", _vm.patient.id)
+                      }
+                    },
+                    [_vm._v("Ver más")]
+                  )
+                ],
+                1
+              )
+            ]
+          )
         ],
         1
       )

@@ -488,8 +488,8 @@ export default {
       this.$store.dispatch(LOGOUT);
 
       // set spinner to submit button
-      const submitButton = this.$refs["kt_login_signup_submit"];
-      submitButton.classList.add("spinner", "spinner-light", "spinner-right");
+      //const submitButton = this.$refs["kt_login_signup_submit"];
+      //submitButton.classList.add("spinner", "spinner-light", "spinner-right");
 
       // dummy delay
       setTimeout(() => {
@@ -501,11 +501,11 @@ export default {
           })
           .then(() => this.$router.push({ name: "dashboard" }));
 
-        submitButton.classList.remove(
-          "spinner",
-          "spinner-light",
-          "spinner-right"
-        );
+        // submitButton.classList.remove(
+        //  "spinner",
+        //  "spinner-light",
+        //  "spinner-right"
+        // );
       }, 2000);
     });
 

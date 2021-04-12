@@ -2,7 +2,7 @@
 //import { App, plugin } from '@inertiajs/inertia-vue'
 import Vue from "vue";
 //import App from "./App.vue";
-//import router from "./router";
+// import router from "./router";
 import store from "./core/services/store";
 //import ApiService from "./core/services/api.service";
 //import MockService from "./core/mock/mock.service";
@@ -40,6 +40,7 @@ import "./core/plugins/apexcharts";
 import "./core/plugins/metronic";
 import "@mdi/font/css/materialdesignicons.css";
 import { InertiaProgress } from '@inertiajs/progress'
+import VueMeta from 'vue-meta'
 
 import { App, plugin } from '@inertiajs/inertia-vue'
 //import Vue from 'vue'
@@ -47,6 +48,7 @@ import { App, plugin } from '@inertiajs/inertia-vue'
 InertiaProgress.init()
 Vue.use(plugin)
 Vue.mixin({methods:{route:window.route}})
+Vue.use(VueMeta)
 
 // // API service init
 //ApiService.init();

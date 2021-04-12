@@ -25,33 +25,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['patients'],
-  created: function created() {
-    console.log(this.patients);
-  },
-  components: {
-    PatientsList: _list_Patients_vue__WEBPACK_IMPORTED_MODULE_1__.default
-  },
   // Using a render function
   layout: function layout(h, page) {
     return h(_src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_2__.default, [page]);
   },
   metaInfo: function metaInfo() {
     return {
-      title: "Panel de Inicio"
+      title: "Pacientes"
     };
   },
-
+  props: ['patients'],
+  components: {
+    PatientsList: _list_Patients_vue__WEBPACK_IMPORTED_MODULE_1__.default
+  }
   /*
     mounted() {
         this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
@@ -62,33 +52,34 @@ __webpack_require__.r(__webpack_exports__);
         console.log('Component mounted.')
     },
   */
-  methods: {
-    setActiveTab1: function setActiveTab1(event) {
-      this.tabIndex = this.setActiveTab(event);
-    },
-    setActiveTab2: function setActiveTab2(event) {
-      this.tabIndex2 = this.setActiveTab(event);
-    },
+  // methods: {
+  //   setActiveTab1(event) {
+  //     this.tabIndex = this.setActiveTab(event);
+  //   },
+  //   setActiveTab2(event) {
+  //     this.tabIndex2 = this.setActiveTab(event);
+  //   },
+  //   /**
+  //    * Set current active on click
+  //    * @param event
+  //    */
+  //   setActiveTab(event) {
+  //     // get all tab links
+  //     const tab = event.target.closest('[role="tablist"]');
+  //     const links = tab.querySelectorAll(".nav-link");
+  //     // remove active tab links
+  //     for (let i = 0; i < links.length; i++) {
+  //       links[i].classList.remove("active");
+  //     }
+  //
+  //     // set current active tab
+  //     event.target.classList.add("active");
+  //
+  //     // set clicked tab index to bootstrap tab
+  //     return parseInt(event.target.getAttribute("data-tab"));
+  //   }
+  // }
 
-    /**
-     * Set current active on click
-     * @param event
-     */
-    setActiveTab: function setActiveTab(event) {
-      // get all tab links
-      var tab = event.target.closest('[role="tablist"]');
-      var links = tab.querySelectorAll(".nav-link"); // remove active tab links
-
-      for (var i = 0; i < links.length; i++) {
-        links[i].classList.remove("active");
-      } // set current active tab
-
-
-      event.target.classList.add("active"); // set clicked tab index to bootstrap tab
-
-      return parseInt(event.target.getAttribute("data-tab"));
-    }
-  }
 });
 
 /***/ }),
@@ -104,6 +95,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -818,9 +829,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 
@@ -835,20 +843,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Layout",
-  props: [{
-    title: String
-  }, 'active', 'inactive'],
-  created: function created() {
-    console.log('hola layout ' + this.active);
-  },
-  watch: {
-    title: {
-      immediate: true,
-      handler: function handler(title) {
-        document.title = title;
-      }
-    }
-  },
+  props: ['title'],
   components: {
     KTAside: _aside_Aside_vue__WEBPACK_IMPORTED_MODULE_1__.default,
     KTSubheader: _subheader_Subheader_vue__WEBPACK_IMPORTED_MODULE_2__.default,
@@ -1282,15 +1277,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "sidebar",
-  props: ['active', 'inactive'],
-  created: function created() {
-    console.log('hola ' + this.active);
-  },
-  data: function data() {
-    return {
-      'active': this.active,
-      'inactive': this.inactive
-    };
+  components: {
+    ListWidget1: _content_widgets_list_Widget1_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+    ListWidget4: _content_widgets_list_Widget4_vue__WEBPACK_IMPORTED_MODULE_2__.default
   },
   mounted: function mounted() {
     var _this = this;
@@ -2629,1707 +2618,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -6871,20 +5159,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("layout", [
-    _c(
-      "div",
-      { staticClass: "row mt-0 mt-lg-8" },
-      _vm._l(_vm.patients, function(patient) {
-        return _c("PatientsList", {
-          key: patient.id,
-          staticClass: "col-lg-4",
-          attrs: { patient: patient }
-        })
-      }),
-      1
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "row mt-0 mt-lg-8" },
+    _vm._l(_vm.patients, function(patient) {
+      return _c("PatientsList", {
+        key: patient.id,
+        staticClass: "col-lg-4",
+        attrs: { patient: patient }
+      })
+    }),
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -6914,36 +5200,86 @@ var render = function() {
     [
       _c(
         "b-card",
-        {
-          attrs: {
-            title: _vm.patient.first_name_1 + " " + _vm.patient.first_name_2,
-            "sub-title": _vm.calcularEdad(_vm.patient.birth_date) + " años"
-          }
-        },
         [
-          _c("b-card-text", [
-            _c("em", [
-              _vm._v(_vm._s(_vm._f("truncate")(_vm.patient.goal, 20, "...")))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("b-card-text", [
-            _c("strong", [_vm._v("Fecha:")]),
-            _vm._v(" " + _vm._s(_vm.patient.birth_date) + "\n        ")
-          ]),
+          _c(
+            "v-list-item",
+            { attrs: { "three-line": "" } },
+            [
+              _c(
+                "v-list-item-content",
+                [
+                  _c("div", { staticClass: "overline mb-4" }, [
+                    _c("h3", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(
+                            _vm.patient.first_name_1 +
+                              " " +
+                              _vm.patient.first_name_2
+                          ) +
+                          "\n          "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-list-item-title", { staticClass: "headline mb-1" }, [
+                    _vm._v(
+                      "\n          " +
+                        _vm._s(
+                          _vm.calcularEdad(_vm.patient.birth_date) + " años"
+                        ) +
+                        "\n        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("v-list-item-subtitle", [
+                    _c("em", [
+                      _vm._v(
+                        _vm._s(_vm._f("truncate")(_vm.patient.goal, 20, "..."))
+                      )
+                    ])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-list-item-avatar", {
+                attrs: { tile: "", size: "80", color: "grey" }
+              })
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("b-card-text", [
             _c("strong", [_vm._v("Ubicación: ")]),
-            _vm._v(_vm._s(_vm.patient.city.name) + "\n        ")
+            _vm._v(_vm._s(_vm.patient.city.name) + "\n    ")
           ]),
           _vm._v(" "),
-          _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-            _vm._v("Card link")
-          ]),
-          _vm._v(" "),
-          _c("b-link", { staticClass: "card-link", attrs: { href: "#" } }, [
-            _vm._v("Another link")
-          ])
+          _c(
+            "v-col",
+            { staticClass: "text-center", attrs: { cols: "12", sm: "4" } },
+            [
+              _c(
+                "div",
+                { staticClass: "my-2" },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: {
+                        text: "",
+                        small: "",
+                        color: "primary",
+                        href: _vm.route("patients.show", _vm.patient.id)
+                      }
+                    },
+                    [_vm._v("Ver más")]
+                  )
+                ],
+                1
+              )
+            ]
+          )
         ],
         1
       )
@@ -7757,16 +6093,12 @@ var render = function() {
               _vm._v(" "),
               _c("KTFooter"),
               _vm._v(" "),
-              _vm.toolbarDisplay ? _c("KTStickyToolbar") : _vm._e(),
-              _vm._v(" "),
               _c("KTScrollTop")
             ],
             1
           ),
           _vm._v(" "),
-          _c("KTSidebar", {
-            attrs: { active: this.active, inactive: this.inactive }
-          })
+          _c("KTSidebar")
         ],
         1
       )
@@ -7844,7 +6176,9 @@ var render = function() {
                       [
                         _c("inline-svg", {
                           attrs: {
-                            src: "media/svg/icons/Layout/Layout-4-blocks.svg"
+                            src: _vm.direccion(
+                              "/media/svg/icons/Layout/Layout-4-blocks.svg"
+                            )
                           }
                         })
                       ],
@@ -7889,7 +6223,8 @@ var render = function() {
                       [
                         _c("inline-svg", {
                           attrs: {
-                            src: "media/svg/icons/Communication/Group.svg"
+                            src:
+                              "<%= BASE_URL %>/media/svg/icons/Communication/Group.svg"
                           }
                         })
                       ],
@@ -8215,44 +6550,7 @@ var render = function() {
             "sidebar-content flex-column-fluid pb-10 pt-9 px-5 px-lg-10"
         },
         [
-          _c(
-            "div",
-            {
-              staticClass:
-                "card card-custom bg-light-success card-shadowless gutter-b"
-            },
-            [
-              _c("div", { staticClass: "card-body my-3" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "card-title font-weight-bolder text-success text-hover-state-dark font-size-h6 mb-4 d-block",
-                    attrs: { href: "#" }
-                  },
-                  [_vm._v("Pacientes activos")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "font-weight-bold text-muted font-size-sm" },
-                  [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "text-dark-75 font-size-h2 font-weight-bolder mr-2"
-                      },
-                      [_vm._v(_vm._s(this.active) + "%")]
-                    ),
-                    _vm._v("Porcentaje\n        ")
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._m(1)
-              ])
-            ]
-          ),
+          _vm._m(1),
           _vm._v(" "),
           _vm._m(2),
           _vm._v(" "),
@@ -8284,18 +6582,55 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "progress progress-xs mt-7 bg-success-o-60" },
+      {
+        staticClass:
+          "card card-custom bg-light-success card-shadowless gutter-b"
+      },
       [
-        _c("div", {
-          staticClass: "progress-bar bg-success",
-          staticStyle: { width: "67%" },
-          attrs: {
-            role: "progressbar",
-            "aria-valuenow": "50",
-            "aria-valuemin": "0",
-            "aria-valuemax": "100"
-          }
-        })
+        _c("div", { staticClass: "card-body my-3" }, [
+          _c(
+            "a",
+            {
+              staticClass:
+                "card-title font-weight-bolder text-success text-hover-state-dark font-size-h6 mb-4 d-block",
+              attrs: { href: "#" }
+            },
+            [_vm._v("Pacientes activos")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "font-weight-bold text-muted font-size-sm" },
+            [
+              _c(
+                "span",
+                {
+                  staticClass:
+                    "text-dark-75 font-size-h2 font-weight-bolder mr-2"
+                },
+                [_vm._v("%")]
+              ),
+              _vm._v("Porcentaje\n        ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "progress progress-xs mt-7 bg-success-o-60" },
+            [
+              _c("div", {
+                staticClass: "progress-bar bg-success",
+                staticStyle: { width: "67%" },
+                attrs: {
+                  role: "progressbar",
+                  "aria-valuenow": "50",
+                  "aria-valuemin": "0",
+                  "aria-valuemax": "100"
+                }
+              })
+            ]
+          )
+        ])
       ]
     )
   },
@@ -10203,16 +8538,14 @@ var render = function() {
       "li",
       {
         staticClass: "menu-item",
-        class: [
-          _vm.isActive && "menu-item-active",
-          _vm.isExactActive && "menu-item-active"
-        ],
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },
       [
-        _c("inertia-link", { attrs: { href: _vm.route("home") } }, [
-          _c("span", { staticClass: "menu-text" }, [_vm._v(" Inicio ")])
-        ])
+        _c(
+          "inertia-link",
+          { staticClass: "menu-link", attrs: { href: _vm.route("home") } },
+          [_c("span", { staticClass: "menu-text" }, [_vm._v(" Inicio ")])]
+        )
       ],
       1
     ),
@@ -10221,28 +8554,20 @@ var render = function() {
       "li",
       {
         staticClass: "menu-item",
-        class: [
-          _vm.isActive && "menu-item-active",
-          _vm.isExactActive && "menu-item-active"
-        ],
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },
       [
-        _c("inertia-link", { attrs: { href: _vm.route("patients.index") } }, [
-          _c("span", { staticClass: "menu-text" }, [_vm._v(" Pacientes ")])
-        ])
+        _c(
+          "inertia-link",
+          {
+            staticClass: "menu-link",
+            attrs: { href: _vm.route("patients.index") }
+          },
+          [_c("span", { staticClass: "menu-text" }, [_vm._v(" Pacientes ")])]
+        )
       ],
       1
-    ),
-    _vm._v(" "),
-    _c("li", {
-      staticClass: "menu-item",
-      class: [
-        _vm.isActive && "menu-item-active",
-        _vm.isExactActive && "menu-item-active"
-      ],
-      attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
-    })
+    )
   ])
 }
 var staticRenderFns = []

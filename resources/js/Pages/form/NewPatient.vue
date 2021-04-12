@@ -98,28 +98,27 @@
 
 <script>
 import { SET_BREADCRUMB } from "../../src/core/services/store/breadcrumbs.module";
-
 import Layout from "../../src/view/layout/Layout"
 
 export default {
-    // Using a render function
-    layout: (h, page) => h(Layout, [page]),
-    metaInfo() {
-      return {
-        title: 'Panel de Inicio',
-      }
-    },
-    props: ['cities'],
-/*
-  mounted() {
-      this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
-      axios.get('patients').then((response) => {
-          console.log(response)
-          this.patients = response.data;
-      });
-      console.log('Component mounted.')
+  // Using a render function
+  layout: (h, page) => h(Layout, [page]),
+  metaInfo() {
+    return {
+      title: 'Crear Paciente',
+    }
   },
-*/
+  props: ['cities'],
+  /*
+    mounted() {
+        this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
+        axios.get('patients').then((response) => {
+            console.log(response)
+            this.patients = response.data;
+        });
+        console.log('Component mounted.')
+    },
+  */
   data() {
     return {
       form: {

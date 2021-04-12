@@ -52,14 +52,11 @@
         <!--begin::Footer-->
         <KTFooter></KTFooter>
         <!--end::Footer-->
-        <KTStickyToolbar v-if="toolbarDisplay"></KTStickyToolbar>
+        <!-- <KTStickyToolbar v-if="toolbarDisplay"></KTStickyToolbar> -->
         <KTScrollTop></KTScrollTop>
       </div>
 
-      <KTSidebar
-      :active = 'this.active'
-      :inactive = 'this.inactive'
-      ></KTSidebar>
+      <KTSidebar></KTSidebar>
     </div>
   </div>
 </template>
@@ -82,34 +79,21 @@ import {
 } from "../../core/services/store/htmlclass.module.js";
 
 export default {
-    name: "Layout",
-    props: [
-      {title: String},
-      'active',
-      'inactive'
-    ],
-    created(){
-        console.log('hola layout '+this.active)
-    },
-    watch: {
-      title: {
-        immediate: true,
-        handler(title) {
-          document.title = title
-        },
-      },
-    },
-    components: {
-        KTAside,
-        KTSubheader,
-        KTHeaderMobile,
-        Loader,
-        KTHeader,
-        KTFooter,
-        KTStickyToolbar,
-        KTScrollTop,
-        KTSidebar
-    },
+  name: "Layout",
+  props: [
+    'title'
+  ],
+  components: {
+      KTAside,
+      KTSubheader,
+      KTHeaderMobile,
+      Loader,
+      KTHeader,
+      KTFooter,
+      KTStickyToolbar,
+      KTScrollTop,
+      KTSidebar
+  },
   beforeMount() {
     // show page loading
     this.$store.dispatch(ADD_BODY_CLASSNAME, "page-loading");

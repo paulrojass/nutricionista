@@ -1,18 +1,12 @@
 <template>
-    <layout>
-    <!--begin::Dashboard-->
-    <!--begin::Row-->
-    <div class="row mt-0 mt-lg-8">
-            <PatientsList
-            class="col-lg-4"
-            v-for="patient in patients"
-            :key="patient.id"
-            :patient="patient"
-            ></PatientsList>
-    </div>
-    <!--end::Row-->
-    <!--end::Dashboard-->
-    </layout>
+  <div class="row mt-0 mt-lg-8">
+          <PatientsList
+          class="col-lg-4"
+          v-for="patient in patients"
+          :key="patient.id"
+          :patient="patient"
+          ></PatientsList>
+  </div>
 </template>
 
 <script>
@@ -21,19 +15,16 @@ import PatientsList from "./list/Patients.vue";
 import Layout from "../src/view/layout/Layout"
 
 export default {
-    props: ['patients'],
-    created() {
-        console.log(this.patients)
-    },
-    components: {
-        PatientsList
-    },
     // Using a render function
     layout: (h, page) => h(Layout, [page]),
     metaInfo() {
       return {
-        title: `Panel de Inicio`,
+        title: `Pacientes`,
       }
+    },
+    props: ['patients'],
+    components: {
+        PatientsList
     },
 /*
   mounted() {
@@ -45,32 +36,32 @@ export default {
       console.log('Component mounted.')
   },
 */
-  methods: {
-    setActiveTab1(event) {
-      this.tabIndex = this.setActiveTab(event);
-    },
-    setActiveTab2(event) {
-      this.tabIndex2 = this.setActiveTab(event);
-    },
-    /**
-     * Set current active on click
-     * @param event
-     */
-    setActiveTab(event) {
-      // get all tab links
-      const tab = event.target.closest('[role="tablist"]');
-      const links = tab.querySelectorAll(".nav-link");
-      // remove active tab links
-      for (let i = 0; i < links.length; i++) {
-        links[i].classList.remove("active");
-      }
-
-      // set current active tab
-      event.target.classList.add("active");
-
-      // set clicked tab index to bootstrap tab
-      return parseInt(event.target.getAttribute("data-tab"));
-    }
-  }
+  // methods: {
+  //   setActiveTab1(event) {
+  //     this.tabIndex = this.setActiveTab(event);
+  //   },
+  //   setActiveTab2(event) {
+  //     this.tabIndex2 = this.setActiveTab(event);
+  //   },
+  //   /**
+  //    * Set current active on click
+  //    * @param event
+  //    */
+  //   setActiveTab(event) {
+  //     // get all tab links
+  //     const tab = event.target.closest('[role="tablist"]');
+  //     const links = tab.querySelectorAll(".nav-link");
+  //     // remove active tab links
+  //     for (let i = 0; i < links.length; i++) {
+  //       links[i].classList.remove("active");
+  //     }
+  //
+  //     // set current active tab
+  //     event.target.classList.add("active");
+  //
+  //     // set clicked tab index to bootstrap tab
+  //     return parseInt(event.target.getAttribute("data-tab"));
+  //   }
+  // }
 };
 </script>

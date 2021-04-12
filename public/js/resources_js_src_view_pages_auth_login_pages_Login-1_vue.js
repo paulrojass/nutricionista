@@ -317,6 +317,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
  // FormValidation plugins
 
 
@@ -333,8 +343,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       state: "signin",
       // Remove this dummy login info
       form: {
-        email: "admin@demo.com",
-        password: "demo"
+        email: 'admin@admin.com',
+        password: '12345678'
       }
     };
   },
@@ -358,14 +368,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         email: {
           validators: {
             notEmpty: {
-              message: "Username is required"
+              message: "Correo es un campo obligatorio"
             }
           }
         },
         password: {
           validators: {
             notEmpty: {
-              message: "Password is required"
+              message: "Contraseña es un campo obligatorio"
             }
           }
         }
@@ -476,7 +486,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.fv.on("core.form.invalid", function () {
       sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
         title: "",
-        text: "Please, provide correct data!",
+        text: "Por favor, ingrese los datos correctos",
         icon: "error",
         confirmButtonClass: "btn btn-secondary",
         heightAuto: false
@@ -487,10 +497,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var password = _this.$refs.rpassword.value; // clear existing errors
 
       _this.$store.dispatch(_core_services_store_auth_module__WEBPACK_IMPORTED_MODULE_5__.LOGOUT); // set spinner to submit button
+      //const submitButton = this.$refs["kt_login_signup_submit"];
+      //submitButton.classList.add("spinner", "spinner-light", "spinner-right");
+      // dummy delay
 
-
-      var submitButton = _this.$refs["kt_login_signup_submit"];
-      submitButton.classList.add("spinner", "spinner-light", "spinner-right"); // dummy delay
 
       setTimeout(function () {
         // send register request
@@ -501,15 +511,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return _this.$router.push({
             name: "dashboard"
           });
-        });
+        }); // submitButton.classList.remove(
+        //  "spinner",
+        //  "spinner-light",
+        //  "spinner-right"
+        // );
 
-        submitButton.classList.remove("spinner", "spinner-light", "spinner-right");
       }, 2000);
     });
     this.fv1.on("core.form.invalid", function () {
       sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
         title: "",
-        text: "Please, provide correct data!",
+        text: "Por favor ingrese los datos!",
         icon: "error",
         confirmButtonClass: "btn btn-secondary",
         heightAuto: false
@@ -521,6 +534,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.state = form;
       var form_name = "kt_login_" + form + "_form";
       _assets_js_components_util__WEBPACK_IMPORTED_MODULE_4__.default.animateClass(_assets_js_components_util__WEBPACK_IMPORTED_MODULE_4__.default.getById(form_name), "animate__animated animate__backInUp");
+    },
+    submit: function submit() {
+      this.$inertia.post('/login', {
+        email: this.form.email,
+        password: this.form.password
+      }).then(console.log("Hello"));
     }
   }
 });
@@ -7571,47 +7590,16 @@ var render = function() {
                     attrs: {
                       novalidate: "novalidate",
                       id: "kt_login_signin_form"
+                    },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.submit($event)
+                      }
                     }
                   },
                   [
-                    _c("div", { staticClass: "pb-13 pt-lg-0 pt-5" }, [
-                      _c(
-                        "h3",
-                        {
-                          staticClass:
-                            "font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
-                        },
-                        [
-                          _vm._v(
-                            "\n                Welcome to Metronic\n              "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "text-muted font-weight-bold font-size-h4"
-                        },
-                        [
-                          _vm._v("New Here?\n                "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "text-primary font-weight-bolder",
-                              attrs: { id: "kt_login_signup" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.showForm("signup")
-                                }
-                              }
-                            },
-                            [_vm._v("Create an Account")]
-                          )
-                        ]
-                      )
-                    ]),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
                       _c(
@@ -7620,7 +7608,7 @@ var render = function() {
                           staticClass:
                             "font-size-h6 font-weight-bolder text-dark"
                         },
-                        [_vm._v("Email")]
+                        [_vm._v("Correo")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -7671,7 +7659,7 @@ var render = function() {
                               staticClass:
                                 "font-size-h6 font-weight-bolder text-dark pt-5"
                             },
-                            [_vm._v("Password")]
+                            [_vm._v("Contraseña")]
                           ),
                           _vm._v(" "),
                           _c(
@@ -7744,144 +7732,9 @@ var render = function() {
                           staticClass:
                             "btn btn-primary font-weight-bolder font-size-h6 px-15 py-4 my-3 mr-3"
                         },
-                        [_vm._v("\n                Sign In\n              ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "btn btn-light-primary font-weight-bolder px-8 py-4 my-3 font-size-lg",
-                          attrs: { type: "button" }
-                        },
-                        [
-                          _c(
-                            "span",
-                            { staticClass: "svg-icon svg-icon-md" },
-                            [
-                              _c("inline-svg", {
-                                attrs: {
-                                  src: "/media/svg/social-icons/google.svg"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v("Sign in with Google\n              ")
-                        ]
+                        [_vm._v("\n                Acceder\n              ")]
                       )
                     ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "login-form login-signup" }, [
-                _c(
-                  "form",
-                  {
-                    staticClass: "form",
-                    attrs: {
-                      novalidate: "novalidate",
-                      id: "kt_login_signup_form"
-                    }
-                  },
-                  [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("input", {
-                        ref: "fullname",
-                        staticClass:
-                          "form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6",
-                        attrs: {
-                          type: "text",
-                          placeholder: "Fullname",
-                          name: "fullname",
-                          autocomplete: "off"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("input", {
-                        ref: "remail",
-                        staticClass:
-                          "form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6",
-                        attrs: {
-                          type: "email",
-                          placeholder: "Email",
-                          name: "email",
-                          autocomplete: "off"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("input", {
-                        ref: "rpassword",
-                        staticClass:
-                          "form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6",
-                        attrs: {
-                          type: "password",
-                          placeholder: "Password",
-                          name: "password",
-                          autocomplete: "off"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("input", {
-                        ref: "cpassword",
-                        staticClass:
-                          "form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6",
-                        attrs: {
-                          type: "password",
-                          placeholder: "Confirm password",
-                          name: "cpassword",
-                          autocomplete: "off"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "form-group d-flex flex-wrap pb-lg-0 pb-3"
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            ref: "kt_login_signup_submit",
-                            staticClass:
-                              "btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4",
-                            staticStyle: { width: "150px" }
-                          },
-                          [_vm._v("\n                Submit\n              ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3",
-                            attrs: {
-                              type: "button",
-                              id: "kt_login_signup_cancel"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.showForm("signin")
-                              }
-                            }
-                          },
-                          [_vm._v("\n                Cancel\n              ")]
-                        )
-                      ]
-                    )
                   ]
                 )
               ]),
@@ -7898,9 +7751,9 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._m(3),
+                    _vm._m(2),
                     _vm._v(" "),
-                    _vm._m(4),
+                    _vm._m(3),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -7941,9 +7794,7 @@ var render = function() {
                   ]
                 )
               ])
-            ]),
-            _vm._v(" "),
-            _vm._m(5)
+            ])
           ]
         )
       ]
@@ -7993,31 +7844,8 @@ var staticRenderFns = [
           staticClass:
             "font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
         },
-        [_vm._v("\n                Sign Up\n              ")]
-      ),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-muted font-weight-bold font-size-h4" }, [
-        _vm._v(
-          "\n                Enter your details to create your account\n              "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { staticClass: "checkbox mb-0" }, [
-        _c("input", { attrs: { type: "checkbox", name: "agree" } }),
-        _vm._v(" "),
-        _c("span", { staticClass: "mr-2" }),
-        _vm._v("\n                I Agree the\n                "),
-        _c("a", { staticClass: "ml-2", attrs: { href: "#" } }, [
-          _vm._v("terms and conditions")
-        ]),
-        _vm._v(".\n              ")
-      ])
+        [_vm._v("\n                Welcome to Metronic\n              ")]
+      )
     ])
   },
   function() {
@@ -8057,46 +7885,6 @@ var staticRenderFns = [
         }
       })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "d-flex justify-content-lg-start justify-content-center align-items-end py-7 py-lg-0"
-      },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "text-primary font-weight-bolder font-size-h5",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Terms")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "text-primary ml-10 font-weight-bolder font-size-h5",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Plans")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "text-primary ml-10 font-weight-bolder font-size-h5",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Contact Us")]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true

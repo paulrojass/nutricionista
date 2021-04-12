@@ -67,7 +67,7 @@
           >
           <div class="font-weight-bold text-muted font-size-sm">
             <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >{{this.active}}%</span
+              >%</span
             >Porcentaje
           </div>
           <div class="progress progress-xs mt-7 bg-success-o-60">
@@ -133,18 +133,9 @@ import ListWidget4 from "../../content/widgets/list/Widget4.vue";
 
 export default {
   name: "sidebar",
-  props:[
-      'active',
-      'inactive'
-  ],
-    created(){
-      console.log('hola '+this.active)
-  },
-  data(){
-    return{
-      'active': this.active,
-      'inactive': this.inactive
-    }
+  components: {
+    ListWidget1,
+    ListWidget4
   },
   mounted() {
     this.$nextTick(() => {

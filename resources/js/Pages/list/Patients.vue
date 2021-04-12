@@ -1,21 +1,41 @@
 <template>
-    <div>
-        <b-card :title="patient.first_name_1+' '+patient.first_name_2" :sub-title="calcularEdad(patient.birth_date)+' años'">
-            <b-card-text>
-                <em>{{patient.goal| truncate(20, '...') }}</em>
-            </b-card-text>
-            <b-card-text>
-                <strong>Fecha:</strong> {{patient.birth_date}}
-            </b-card-text>
-            <b-card-text>
-                <strong>Ubicación: </strong>{{patient.city.name}}
-            </b-card-text>
+  <div>
+    <!-- <b-card :title="patient.first_name_1+' '+patient.first_name_2" :sub-title="calcularEdad(patient.birth_date)+' años'"> -->
+    <b-card >
+      <v-list-item three-line>
+        <v-list-item-content>
+          <div class="overline mb-4">
+            <h3>
+              {{`${patient.first_name_1} ${patient.first_name_2}`}}
+            </h3>
+          </div>
+          <v-list-item-title class="headline mb-1">
+            {{`${calcularEdad(patient.birth_date)} años`}}
+          </v-list-item-title>
+          <v-list-item-subtitle>
+            <em>{{patient.goal| truncate(20, '...') }}</em>
+          </v-list-item-subtitle>
+        </v-list-item-content>
 
-            <a href="#" class="card-link">Card link</a>
-            <b-link href="#" class="card-link">Another link</b-link>
-        </b-card>
-    </div>
+        <v-list-item-avatar
+          tile
+          size="80"
+          color="grey"
+        ></v-list-item-avatar>
+      </v-list-item>
+      <b-card-text>
+          <strong>Ubicación: </strong>{{patient.city.name}}
+      </b-card-text>
+
+      <v-col class="text-center" cols="12" sm="4">
+        <div class="my-2">
+          <v-btn text small color="primary" :href="route('patients.show', patient.id)">Ver más</v-btn>
+        </div>
+      </v-col>
+    </b-card>
+  </div>
 </template>
+
 
 <script>
 export default {

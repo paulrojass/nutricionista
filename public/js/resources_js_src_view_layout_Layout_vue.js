@@ -670,6 +670,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -684,6 +692,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Layout",
+  props: ['title', 'active', 'inactive'],
+  created: function created() {
+    console.log('hola layout ' + this.active);
+  },
   components: {
     KTAside: _aside_Aside_vue__WEBPACK_IMPORTED_MODULE_1__.default,
     KTSubheader: _subheader_Subheader_vue__WEBPACK_IMPORTED_MODULE_2__.default,
@@ -754,15 +766,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
      */
     subheaderDisplay: function subheaderDisplay() {
       return !!this.layoutConfig("subheader.display");
-    },
-
+    }
     /**
      * Set the subheader display on dashboard page
      * @returns {boolean}
-     */
-    displaySubheaderOnDashboard: function displaySubheaderOnDashboard() {
-      return this.$route.name !== "dashboard";
+    displaySubheaderOnDashboard() {
+        return this.$route.name !== "panel";
     }
+    */
+
   })
 });
 
@@ -1112,213 +1124,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "sidebar",
-  components: {
-    ListWidget1: _content_widgets_list_Widget1_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    ListWidget4: _content_widgets_list_Widget4_vue__WEBPACK_IMPORTED_MODULE_2__.default
+  props: ['active', 'inactive'],
+  created: function created() {
+    console.log('hola ' + this.active);
+  },
+  data: function data() {
+    return {
+      'active': this.active,
+      'inactive': this.inactive
+    };
   },
   mounted: function mounted() {
     var _this = this;
@@ -2392,67 +2211,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -4404,10 +4162,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "KTMenu",
   methods: {
     hasActiveChildren: function hasActiveChildren(match) {
+      console.log(route().current());
       return this.$route["path"].indexOf(match) !== -1;
     }
   }
@@ -5202,30 +4998,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/* hide default vue-bootstrap tab link
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=style&index=0&lang=scss&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=style&index=0&lang=scss& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".dropdown-menu {\n  outline: none;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/view/layout/subheader/Subheader.vue?vue&type=style&index=0&lang=scss&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/view/layout/subheader/Subheader.vue?vue&type=style&index=0&lang=scss& ***!
@@ -5856,17 +5628,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Dropdown2_vue_vue_type_template_id_1248be43___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dropdown2.vue?vue&type=template&id=1248be43& */ "./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=template&id=1248be43&");
 /* harmony import */ var _Dropdown2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Dropdown2.vue?vue&type=script&lang=js& */ "./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=script&lang=js&");
-/* harmony import */ var _Dropdown2_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Dropdown2.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=style&index=0&lang=scss&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
-;
 
 
 /* normalize component */
-
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
   _Dropdown2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
   _Dropdown2_vue_vue_type_template_id_1248be43___WEBPACK_IMPORTED_MODULE_0__.render,
   _Dropdown2_vue_vue_type_template_id_1248be43___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -6770,23 +6540,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=style&index=0&lang=scss&":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=style&index=0&lang=scss& ***!
-  \*********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Dropdown2_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-style-loader/index.js!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Dropdown2.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=style&index=0&lang=scss&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Dropdown2_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Dropdown2_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Dropdown2_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Dropdown2_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-
-
-/***/ }),
-
 /***/ "./resources/js/src/view/layout/subheader/Subheader.vue?vue&type=style&index=0&lang=scss&":
 /*!************************************************************************************************!*\
   !*** ./resources/js/src/view/layout/subheader/Subheader.vue?vue&type=style&index=0&lang=scss& ***!
@@ -7581,25 +7334,24 @@ var render = function() {
                   attrs: { id: "kt_content" }
                 },
                 [
-                  _vm.subheaderDisplay && _vm.displaySubheaderOnDashboard
-                    ? _c("KTSubheader", {
-                        attrs: {
-                          breadcrumbs: _vm.breadcrumbs,
-                          title: _vm.pageTitle
-                        }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
                   _c("div", { staticClass: "d-flex flex-column-fluid" }, [
-                    _c("div", {
-                      class: {
-                        "container-fluid": _vm.contentFluid,
-                        container: !_vm.contentFluid
-                      }
-                    })
+                    _c(
+                      "div",
+                      {
+                        class: {
+                          "container-fluid": _vm.contentFluid,
+                          container: !_vm.contentFluid
+                        }
+                      },
+                      [
+                        _c("transition", { attrs: { name: "fade-in-up" } }, [
+                          _c("article", [_vm._t("default")], 2)
+                        ])
+                      ],
+                      1
+                    )
                   ])
-                ],
-                1
+                ]
               ),
               _vm._v(" "),
               _c("KTFooter"),
@@ -7611,7 +7363,9 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("KTSidebar")
+          _c("KTSidebar", {
+            attrs: { active: this.active, inactive: this.inactive }
+          })
         ],
         1
       )
@@ -8046,93 +7800,7 @@ var render = function() {
                     "data-toggle": "dropdown",
                     "data-offset": "0px,1px"
                   }
-                }),
-                _vm._v(" "),
-                _vm._m(1)
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "dropdown dropdown-inline",
-                attrs: {
-                  "data-toggle": "tooltip",
-                  title: "Quick actions",
-                  "data-placement": "left"
-                }
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "btn btn-icon btn-light-info ml-3 h-40px w-40px flex-shrink-0",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "dropdown",
-                      "aria-haspopup": "true",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-lg" },
-                      [
-                        _c("inline-svg", {
-                          attrs: { src: "media/svg/icons/Media/Equalizer.svg" }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._m(2)
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "dropdown dropdown-inline",
-                attrs: {
-                  "data-toggle": "tooltip",
-                  title: "More links",
-                  "data-placement": "left"
-                }
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "btn btn-icon btn-light-danger ml-3 h-40px w-40px flex-shrink-0",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "dropdown",
-                      "aria-haspopup": "true",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-lg" },
-                      [
-                        _c("inline-svg", {
-                          attrs: {
-                            src: "media/svg/icons/Layout/Layout-vertical.svg"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._m(3)
+                })
               ]
             )
           ])
@@ -8146,9 +7814,46 @@ var render = function() {
             "sidebar-content flex-column-fluid pb-10 pt-9 px-5 px-lg-10"
         },
         [
-          _vm._m(4),
+          _c(
+            "div",
+            {
+              staticClass:
+                "card card-custom bg-light-success card-shadowless gutter-b"
+            },
+            [
+              _c("div", { staticClass: "card-body my-3" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "card-title font-weight-bolder text-success text-hover-state-dark font-size-h6 mb-4 d-block",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v("Pacientes activos")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "font-weight-bold text-muted font-size-sm" },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "text-dark-75 font-size-h2 font-weight-bolder mr-2"
+                      },
+                      [_vm._v(_vm._s(this.active) + "%")]
+                    ),
+                    _vm._v("Porcentaje\n        ")
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(1)
+              ])
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(5),
+          _vm._m(2),
           _vm._v(" "),
           _c("ListWidget4"),
           _vm._v(" "),
@@ -8178,302 +7883,18 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass:
-          "dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-anim-up"
-      },
+      { staticClass: "progress progress-xs mt-7 bg-success-o-60" },
       [
         _c("div", {
-          staticClass: "quick-search-wrapper scroll",
+          staticClass: "progress-bar bg-success",
+          staticStyle: { width: "67%" },
           attrs: {
-            "data-scroll": "true",
-            "data-height": "350",
-            "data-mobile-height": "200"
+            role: "progressbar",
+            "aria-valuenow": "50",
+            "aria-valuemin": "0",
+            "aria-valuemax": "100"
           }
         })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "dropdown-menu dropdown-menu-md dropdown-menu-right p-0" },
-      [
-        _c("ul", { staticClass: "navi navi-hover py-5" }, [
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-icon" }, [
-                _c("i", { staticClass: "flaticon2-drop" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "navi-text" }, [_vm._v("New Group")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-icon" }, [
-                _c("i", { staticClass: "flaticon2-list-3" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "navi-text" }, [_vm._v("Contacts")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-icon" }, [
-                _c("i", { staticClass: "flaticon2-rocket-1" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "navi-text" }, [_vm._v("Groups")]),
-              _vm._v(" "),
-              _c("span", { staticClass: "navi-link-badge" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "label label-light-primary label-inline font-weight-bold"
-                  },
-                  [_vm._v("new")]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-icon" }, [
-                _c("i", { staticClass: "flaticon2-bell-2" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "navi-text" }, [_vm._v("Calls")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-icon" }, [
-                _c("i", { staticClass: "flaticon2-gear" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "navi-text" }, [_vm._v("Settings")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-separator my-3" }),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-icon" }, [
-                _c("i", { staticClass: "flaticon2-magnifier-tool" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "navi-text" }, [_vm._v("Help")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-icon" }, [
-                _c("i", { staticClass: "flaticon2-bell-2" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "navi-text" }, [_vm._v("Privacy")]),
-              _vm._v(" "),
-              _c("span", { staticClass: "navi-link-badge" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "label label-light-danger label-rounded font-weight-bold"
-                  },
-                  [_vm._v("5")]
-                )
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "dropdown-menu dropdown-menu-md dropdown-menu-right p-0" },
-      [
-        _c("ul", { staticClass: "navi navi-hover" }, [
-          _c("li", { staticClass: "navi-header font-weight-bold py-4" }, [
-            _c("span", { staticClass: "font-size-lg" }, [
-              _vm._v("Choose Label:")
-            ]),
-            _vm._v(" "),
-            _c("i", {
-              staticClass: "flaticon2-information icon-md text-muted",
-              attrs: {
-                "data-toggle": "tooltip",
-                "data-placement": "right",
-                title: "Click to learn more..."
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-separator mb-3 opacity-70" }),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-text" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "label label-xl label-inline label-light-success"
-                  },
-                  [_vm._v("Customer")]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-text" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "label label-xl label-inline label-light-danger"
-                  },
-                  [_vm._v("Partner")]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-text" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "label label-xl label-inline label-light-warning"
-                  },
-                  [_vm._v("Suplier")]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-text" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "label label-xl label-inline label-light-primary"
-                  },
-                  [_vm._v("Member")]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-item" }, [
-            _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-              _c("span", { staticClass: "navi-text" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass: "label label-xl label-inline label-light-dark"
-                  },
-                  [_vm._v("Staff")]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-separator mt-3 opacity-70" }),
-          _vm._v(" "),
-          _c("li", { staticClass: "navi-footer py-4" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-clean font-weight-bold btn-sm",
-                attrs: { href: "#" }
-              },
-              [
-                _c("i", { staticClass: "ki ki-plus icon-sm" }),
-                _vm._v("Add new")
-              ]
-            )
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "card card-custom bg-light-success card-shadowless gutter-b"
-      },
-      [
-        _c("div", { staticClass: "card-body my-3" }, [
-          _c(
-            "a",
-            {
-              staticClass:
-                "card-title font-weight-bolder text-success text-hover-state-dark font-size-h6 mb-4 d-block",
-              attrs: { href: "#" }
-            },
-            [_vm._v("SAP UI Progress")]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "font-weight-bold text-muted font-size-sm" },
-            [
-              _c(
-                "span",
-                {
-                  staticClass:
-                    "text-dark-75 font-size-h2 font-weight-bolder mr-2"
-                },
-                [_vm._v("67%")]
-              ),
-              _vm._v("Average\n        ")
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "progress progress-xs mt-7 bg-success-o-60" },
-            [
-              _c("div", {
-                staticClass: "progress-bar bg-success",
-                staticStyle: { width: "67%" },
-                attrs: {
-                  role: "progressbar",
-                  "aria-valuenow": "50",
-                  "aria-valuemin": "0",
-                  "aria-valuemax": "100"
-                }
-              })
-            ]
-          )
-        ])
       ]
     )
   },
@@ -8496,7 +7917,7 @@ var staticRenderFns = [
                 "card-title font-weight-bolder text-warning font-size-h6 mb-4 text-hover-state-dark d-block",
               attrs: { href: "#" }
             },
-            [_vm._v("Airplus Budget")]
+            [_vm._v("Pacientes inactivos")]
           ),
           _vm._v(" "),
           _c(
@@ -8509,9 +7930,9 @@ var staticRenderFns = [
                   staticClass:
                     "text-dark-75 font-weight-bolder font-size-h2 mr-2"
                 },
-                [_vm._v("87K%")]
+                [_vm._v("10%")]
               ),
-              _vm._v("23k to goal\n        ")
+              _vm._v("pendientes por evaluar\n        ")
             ]
           ),
           _vm._v(" "),
@@ -8521,7 +7942,7 @@ var staticRenderFns = [
             [
               _c("div", {
                 staticClass: "progress-bar bg-warning",
-                staticStyle: { width: "87%" },
+                staticStyle: { width: "10%" },
                 attrs: {
                   role: "progressbar",
                   "aria-valuenow": "50",
@@ -10122,116 +9543,47 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "b-dropdown",
-    {
-      attrs: {
-        "toggle-class": "btn btn-dark font-weight-bold px-6",
-        "no-caret": "",
-        right: "",
-        "no-flip": "",
-        text: "Create"
-      }
-    },
+    "div",
     [
       _c(
-        "div",
-        { staticClass: "navi navi-hover min-w-md-250px" },
+        "b-button",
+        { attrs: { variant: "dark" } },
         [
           _c(
-            "b-dropdown-text",
-            { staticClass: "navi-header pb-1", attrs: { tag: "div" } },
+            "inertia-link",
+            { attrs: { href: _vm.route("patients.create") } },
             [
               _c(
                 "span",
-                { staticClass: "text-primary text-uppercase font-weight-bold" },
-                [_vm._v("\n        Add new:\n      ")]
+                { staticClass: "menu-text", staticStyle: { color: "white" } },
+                [_vm._v("Nuevo Paciente")]
               )
             ]
-          ),
-          _vm._v(" "),
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-button",
+        { attrs: { variant: "dark" } },
+        [
           _c(
-            "b-dropdown-text",
-            { staticClass: "navi-item", attrs: { tag: "div" } },
+            "inertia-link",
+            { attrs: { href: _vm.route("patients.create") } },
             [
-              _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-                _c("span", { staticClass: "navi-icon" }, [
-                  _c("i", { staticClass: "flaticon2-graph-1" })
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "navi-text" }, [
-                  _vm._v("\n          Order\n        ")
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-dropdown-text",
-            { staticClass: "navi-item", attrs: { tag: "div" } },
-            [
-              _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-                _c("span", { staticClass: "navi-icon" }, [
-                  _c("i", { staticClass: "flaticon2-calendar-4" })
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "navi-text" }, [
-                  _vm._v("\n          Event\n        ")
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-dropdown-text",
-            { staticClass: "navi-item", attrs: { tag: "div" } },
-            [
-              _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-                _c("span", { staticClass: "navi-icon" }, [
-                  _c("i", { staticClass: "flaticon2-layers-1" })
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "navi-text" }, [
-                  _vm._v("\n          Report\n        ")
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-dropdown-text",
-            { staticClass: "navi-item", attrs: { tag: "div" } },
-            [
-              _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-                _c("span", { staticClass: "navi-icon" }, [
-                  _c("i", { staticClass: "flaticon2-calendar-4" })
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "navi-text" }, [
-                  _vm._v("\n          Post\n        ")
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-dropdown-text",
-            { staticClass: "navi-item", attrs: { tag: "div" } },
-            [
-              _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
-                _c("span", { staticClass: "navi-icon" }, [
-                  _c("i", { staticClass: "flaticon2-file-1" })
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "navi-text" }, [
-                  _vm._v("\n          File\n        ")
-                ])
-              ])
+              _c(
+                "span",
+                { staticClass: "menu-text", staticStyle: { color: "white" } },
+                [_vm._v("Crear Cita")]
+              )
             ]
           )
         ],
         1
       )
-    ]
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -10445,9 +9797,4788 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("ul", { staticClass: "menu-nav" })
+  return _c(
+    "ul",
+    { staticClass: "menu-nav" },
+    [
+      _c(
+        "li",
+        {
+          staticClass: "menu-item",
+          class: [
+            _vm.isActive && "menu-item-active",
+            _vm.isExactActive && "menu-item-active"
+          ],
+          attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
+        },
+        [
+          _c("inertia-link", { attrs: { href: _vm.route("home") } }, [
+            _c("span", { staticClass: "menu-text" }, [_vm._v(" Inicio ")])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass: "menu-item",
+          class: [
+            _vm.isActive && "menu-item-active",
+            _vm.isExactActive && "menu-item-active"
+          ],
+          attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
+        },
+        [
+          _c("inertia-link", { attrs: { href: _vm.route("patients.index") } }, [
+            _c("span", { staticClass: "menu-text" }, [_vm._v(" Pacientes ")])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("li", {
+        staticClass: "menu-item",
+        class: [
+          _vm.isActive && "menu-item-active",
+          _vm.isExactActive && "menu-item-active"
+        ],
+        attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
+      }),
+      _vm._v(" "),
+      _c("router-link", {
+        attrs: { to: "/home" },
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(ref) {
+              var href = ref.href
+              var navigate = ref.navigate
+              var isActive = ref.isActive
+              var isExactActive = ref.isExactActive
+              return [
+                _c(
+                  "li",
+                  {
+                    staticClass: "menu-item",
+                    class: [
+                      isActive && "menu-item-active",
+                      isExactActive && "menu-item-active"
+                    ],
+                    attrs: {
+                      "aria-haspopup": "true",
+                      "data-menu-toggle": "hover"
+                    }
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "menu-link",
+                        attrs: { href: href },
+                        on: { click: navigate }
+                      },
+                      [
+                        _c("span", { staticClass: "menu-text" }, [
+                          _vm._v(" Home ")
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ]
+            }
+          }
+        ])
+      }),
+      _vm._v(" "),
+      _c("router-link", {
+        attrs: { to: "/pacientes" },
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(ref) {
+              var href = ref.href
+              var navigate = ref.navigate
+              var isActive = ref.isActive
+              var isExactActive = ref.isExactActive
+              return [
+                _c(
+                  "li",
+                  {
+                    staticClass: "menu-item",
+                    class: [
+                      isActive && "menu-item-active",
+                      isExactActive && "menu-item-active"
+                    ],
+                    attrs: {
+                      "aria-haspopup": "true",
+                      "data-menu-toggle": "hover"
+                    }
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "menu-link",
+                        attrs: { href: href },
+                        on: { click: navigate }
+                      },
+                      [
+                        _c("span", { staticClass: "menu-text" }, [
+                          _vm._v(" Pacientes ")
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ]
+            }
+          }
+        ])
+      }),
+      _vm._v(" "),
+      _c("router-link", {
+        attrs: { to: "/dashboard" },
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(ref) {
+              var href = ref.href
+              var navigate = ref.navigate
+              var isActive = ref.isActive
+              var isExactActive = ref.isExactActive
+              return [
+                _c(
+                  "li",
+                  {
+                    staticClass: "menu-item",
+                    class: [
+                      isActive && "menu-item-active",
+                      isExactActive && "menu-item-active"
+                    ],
+                    attrs: {
+                      "aria-haspopup": "true",
+                      "data-menu-toggle": "hover"
+                    }
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "menu-link",
+                        attrs: { href: href },
+                        on: { click: navigate }
+                      },
+                      [
+                        _c("span", { staticClass: "menu-text" }, [
+                          _vm._v(" Dashboard ")
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ]
+            }
+          }
+        ])
+      }),
+      _vm._v(" "),
+      _c("router-link", {
+        attrs: { to: "/builder" },
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(ref) {
+              var href = ref.href
+              var navigate = ref.navigate
+              var isActive = ref.isActive
+              var isExactActive = ref.isExactActive
+              return [
+                _c(
+                  "li",
+                  {
+                    staticClass: "menu-item",
+                    class: [
+                      isActive && "menu-item-active",
+                      isExactActive && "menu-item-active"
+                    ],
+                    attrs: {
+                      "aria-haspopup": "true",
+                      "data-menu-toggle": "hover"
+                    }
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "menu-link",
+                        attrs: { href: href },
+                        on: { click: navigate }
+                      },
+                      [
+                        _c("span", { staticClass: "menu-text" }, [
+                          _vm._v(" Builder ")
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ]
+            }
+          }
+        ])
+      }),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass: "menu-item menu-item-submenu menu-item-open-dropdown",
+          class: {
+            "menu-item-active": _vm.hasActiveChildren("/vue-bootstrap")
+          },
+          attrs: { "aria-haspopup": "true", "data-menu-toggle": "click" }
+        },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "menu-submenu menu-submenu-fixed" }, [
+            _c(
+              "div",
+              {
+                staticClass: "menu-subnav megamenu",
+                staticStyle: { "max-width": "1000px" }
+              },
+              [
+                _c("ul", { staticClass: "menu-content" }, [
+                  _c("li", { staticClass: "menu-item" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "menu-inner" },
+                      [
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/alert" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Alert ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/badge" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Badge ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/button" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Button ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/button-group" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Button Group ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/button-toolbar" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Button Toolbar ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/card" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Card ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/carousel" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Carousel ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "menu-item" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "menu-inner" },
+                      [
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/collapse" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Collapse ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/dropdown" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Dropdown ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/embed" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Embed ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/form" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Form ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/form-checkbox" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Form Checkbox ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/form-file" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Form File ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/form-group" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Form Group ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/form-input" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Form Input ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "menu-item" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "menu-inner" },
+                      [
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/form-radio" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Form Radio ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/form-select" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Form Select ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/form-textarea" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Form Textarea ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/image" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Image ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/input-group" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Input Group ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/jumbotron" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Jumbotron ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "layout-grid-system" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Layout Grid System ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "menu-item" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "menu-inner" },
+                      [
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/link" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Link ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/list-group" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" List Group ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/media" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Media ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/modal" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Modal ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/nav" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Nav ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/navbar" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Navbar ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/pagination" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Pagination ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/pagination-nav" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Pagination Nav ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "menu-item" }, [
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "menu-inner" },
+                      [
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/notify-popover" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Popover ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/progress" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Progress ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/progress-spinner" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Spinner ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/table" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Table ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/tabs" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Tabs ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/notify-toasts" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Toasts ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vue-bootstrap/notify-tooltip" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Tooltip ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass: "menu-item menu-item-submenu menu-item-open-dropdown",
+          class: { "menu-item-active": _vm.hasActiveChildren("vuetify") },
+          attrs: { "aria-haspopup": "true", "data-menu-toggle": "click" }
+        },
+        [
+          _vm._m(6),
+          _vm._v(" "),
+          _c("div", { staticClass: "menu-submenu menu-submenu-fixed" }, [
+            _c(
+              "div",
+              {
+                staticClass: "menu-subnav megamenu",
+                staticStyle: { "max-width": "800px" }
+              },
+              [
+                _c("ul", { staticClass: "menu-content" }, [
+                  _c("li", { staticClass: "menu-item" }, [
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "menu-inner" },
+                      [
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/alerts" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Alerts ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/avatars" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Avatars ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/badges" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Badges ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/buttons" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Buttons ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/calendars" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Calendars ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "menu-item" }, [
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "menu-inner" },
+                      [
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/cards" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Cards ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/chips" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Chips ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/dialog" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Dialog ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/forms-autocompletes" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Autocompletes ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/forms-file-inputs" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" File Inputs ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "menu-item" }, [
+                    _vm._m(9),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "menu-inner" },
+                      [
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/forms" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Forms ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/forms-selection-controls" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Selection Controls ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/forms-selects" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Selects ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/forms-textareas" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Textareas ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/forms-text-fields" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Text Fields ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "menu-item" }, [
+                    _vm._m(10),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "menu-inner" },
+                      [
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/tables-simple-tables" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Simple Tables ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/tables-data-tables" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Data Tables ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/tabs" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Tabs ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/timelines" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Timelines ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/tooltips" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Tooltips ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("router-link", {
+                          attrs: { to: "/vuetify/treeview" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var href = ref.href
+                                var navigate = ref.navigate
+                                var isActive = ref.isActive
+                                var isExactActive = ref.isExactActive
+                                return [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass: "menu-item",
+                                      class: [
+                                        isActive && "menu-item-active",
+                                        isExactActive && "menu-item-active"
+                                      ],
+                                      attrs: { "aria-haspopup": "true" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "menu-link",
+                                          attrs: { href: href },
+                                          on: { click: navigate }
+                                        },
+                                        [
+                                          _c(
+                                            "i",
+                                            {
+                                              staticClass:
+                                                "menu-bullet menu-bullet-dot"
+                                            },
+                                            [_c("span")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "menu-text" },
+                                            [_vm._v(" Treeview ")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ])
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass: "menu-item menu-item-submenu menu-item-open-dropdown",
+          class: { "menu-item-active": _vm.hasActiveChildren("/custom") },
+          attrs: { "aria-haspopup": "true", "data-menu-toggle": "click" }
+        },
+        [
+          _vm._m(11),
+          _vm._v(" "),
+          _c("div", { staticClass: "menu-submenu menu-submenu-classic" }, [
+            _c("ul", { staticClass: "menu-subnav" }, [
+              _c(
+                "li",
+                {
+                  staticClass: "menu-item menu-item-submenu",
+                  attrs: {
+                    "aria-haspopup": "true",
+                    "data-menu-toggle": "hover"
+                  }
+                },
+                [
+                  _vm._m(12),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "menu-submenu menu-submenu-classic menu-submenu-right"
+                    },
+                    [
+                      _c(
+                        "ul",
+                        { staticClass: "menu-subnav" },
+                        [
+                          _c("router-link", {
+                            attrs: { to: "/custom-error/error-1" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Error 1 ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/custom-error/error-2" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Error 2 ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/custom-error/error-3" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Error 3 ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/custom-error/error-4" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Error 4 ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/custom-error/error-5" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Error 5 ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/custom-error/error-6" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Error 6 ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  staticClass: "menu-item menu-item-submenu",
+                  class: {
+                    "menu-item-active": _vm.hasActiveChildren(
+                      "/custom-wizard/wizard"
+                    )
+                  },
+                  attrs: {
+                    "aria-haspopup": "true",
+                    "data-menu-toggle": "hover"
+                  }
+                },
+                [
+                  _vm._m(13),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "menu-submenu menu-submenu-classic menu-submenu-right"
+                    },
+                    [
+                      _c(
+                        "ul",
+                        { staticClass: "menu-subnav" },
+                        [
+                          _c("router-link", {
+                            attrs: { to: "/custom-wizard/wizard-1" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Wizard 1 ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/custom-wizard/wizard-2" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Wizard 2 ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/custom-wizard/wizard-3" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Wizard 3 ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/custom-wizard/wizard-4" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Wizard 4 ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  staticClass: "menu-item menu-item-submenu",
+                  class: {
+                    "menu-item-active": _vm.hasActiveChildren("/custom-plugins")
+                  },
+                  attrs: {
+                    "aria-haspopup": "true",
+                    "data-menu-toggle": "hover"
+                  }
+                },
+                [
+                  _vm._m(14),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "menu-submenu menu-submenu-classic menu-submenu-right"
+                    },
+                    [
+                      _c(
+                        "ul",
+                        { staticClass: "menu-subnav" },
+                        [
+                          _c("router-link", {
+                            attrs: { to: "/custom-plugins/cropper" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Cropper ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/custom-plugins/treeselect" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v(" Treeselect ")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  staticClass: "menu-item menu-item-submenu",
+                  class: {
+                    "menu-item-active": _vm.hasActiveChildren("/custom-pages")
+                  },
+                  attrs: {
+                    "aria-haspopup": "true",
+                    "data-menu-toggle": "hover"
+                  }
+                },
+                [
+                  _vm._m(15),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "menu-submenu menu-submenu-classic menu-submenu-right"
+                    },
+                    [
+                      _c(
+                        "ul",
+                        { staticClass: "menu-subnav" },
+                        [
+                          _c("router-link", {
+                            attrs: { to: "/profile/profile-1" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v("Profile 1")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/profile/profile-2" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v("Profile 2")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/profile/profile-3" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v("Profile 3")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", {
+                            attrs: { to: "/profile/profile-4" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "li",
+                                      {
+                                        staticClass: "menu-item",
+                                        class: [
+                                          isActive && "menu-item-active",
+                                          isExactActive && "menu-item-active"
+                                        ],
+                                        attrs: {
+                                          "aria-haspopup": "true",
+                                          "data-menu-toggle": "hover"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "menu-link",
+                                            attrs: { href: href },
+                                            on: { click: navigate }
+                                          },
+                                          [
+                                            _c(
+                                              "i",
+                                              {
+                                                staticClass:
+                                                  "menu-bullet menu-bullet-dot"
+                                              },
+                                              [_c("span")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              { staticClass: "menu-text" },
+                                              [_vm._v("Profile 4")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ]
+      )
+    ],
+    1
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "menu-link menu-toggle", attrs: { href: "#" } },
+      [_c("span", { staticClass: "menu-text" }, [_vm._v(" Vue Bootstrap ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "menu-heading menu-toggle" }, [
+      _c("i", { staticClass: "menu-bullet menu-bullet-dot" }, [_c("span")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "menu-text" }, [_vm._v(" Task Reports ")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "menu-arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "menu-heading menu-toggle" }, [
+      _c("i", { staticClass: "menu-bullet menu-bullet-dot" }, [_c("span")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "menu-text" }, [_vm._v(" Profit Margins ")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "menu-arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "menu-heading menu-toggle" }, [
+      _c("i", { staticClass: "menu-bullet menu-bullet-dot" }, [_c("span")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "menu-text" }, [_vm._v(" Staff Management ")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "menu-arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "menu-heading menu-toggle" }, [
+      _c("i", { staticClass: "menu-bullet menu-bullet-dot" }, [_c("span")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "menu-text" }, [_vm._v(" Tools ")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "menu-arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "menu-heading menu-toggle" }, [
+      _c("i", { staticClass: "menu-bullet menu-bullet-dot" }, [_c("span")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "menu-text" }, [_vm._v(" Misc ")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "menu-arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "menu-link menu-toggle", attrs: { href: "#" } },
+      [_c("span", { staticClass: "menu-text" }, [_vm._v(" Vuetify ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "menu-heading menu-toggle" }, [
+      _c("i", { staticClass: "menu-bullet menu-bullet-dot" }, [_c("span")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "menu-text" }, [_vm._v(" Task Reports ")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "menu-arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "menu-heading menu-toggle" }, [
+      _c("i", { staticClass: "menu-bullet menu-bullet-dot" }, [_c("span")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "menu-text" }, [_vm._v(" Profit Margins ")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "menu-arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "menu-heading menu-toggle" }, [
+      _c("i", { staticClass: "menu-bullet menu-bullet-dot" }, [_c("span")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "menu-text" }, [_vm._v(" Staff Management ")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "menu-arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "menu-heading menu-toggle" }, [
+      _c("i", { staticClass: "menu-bullet menu-bullet-dot" }, [_c("span")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "menu-text" }, [_vm._v(" Tools ")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "menu-arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "menu-link menu-toggle", attrs: { href: "#" } },
+      [_c("span", { staticClass: "menu-text" }, [_vm._v(" Custom ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "menu-link menu-toggle", attrs: { href: "#" } },
+      [
+        _c("i", { staticClass: "menu-icon flaticon2-list-2" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "menu-text" }, [_vm._v(" Error Pages ")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "menu-arrow" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "menu-link menu-toggle", attrs: { href: "#" } },
+      [
+        _c("i", { staticClass: "menu-icon flaticon2-mail-1" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "menu-text" }, [_vm._v(" Wizard ")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "menu-arrow" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "menu-link menu-toggle", attrs: { href: "#" } },
+      [
+        _c("i", { staticClass: "menu-icon flaticon2-image-file" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "menu-text" }, [_vm._v(" Plugins ")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "menu-arrow" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "menu-link menu-toggle", attrs: { href: "#" } },
+      [
+        _c("i", { staticClass: "menu-icon far fa-user" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "menu-text" }, [_vm._v("Profile")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "menu-arrow" })
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -10993,27 +15124,6 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! !../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("a73b1b7a", content, false, {});
-// Hot Module Replacement
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=style&index=0&lang=scss&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=style&index=0&lang=scss& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Dropdown2.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/src/view/layout/header/Dropdown2.vue?vue&type=style&index=0&lang=scss&");
-if(content.__esModule) content = content.default;
-if(typeof content === 'string') content = [[module.id, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(/*! !../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("122c0ed4", content, false, {});
 // Hot Module Replacement
 if(false) {}
 

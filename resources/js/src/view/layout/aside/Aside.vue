@@ -42,7 +42,7 @@
           >
             <span class="svg-icon svg-icon-xxl">
               <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
-              <inline-svg src="media/svg/icons/Layout/Layout-4-blocks.svg" />
+              <inline-svg :src="direccion('/media/svg/icons/Layout/Layout-4-blocks.svg')" />
               <!--end::Svg Icon-->
             </span>
           </a>
@@ -59,7 +59,7 @@
           >
             <span class="svg-icon svg-icon-xxl">
               <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group.svg-->
-              <inline-svg src="media/svg/icons/Communication/Group.svg" />
+              <inline-svg src="<%= BASE_URL %>/media/svg/icons/Communication/Group.svg" />
               <!--end::Svg Icon-->
             </span>
           </a>

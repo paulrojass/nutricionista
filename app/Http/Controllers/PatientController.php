@@ -35,6 +35,14 @@ class PatientController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+      $patient = Patient::find($id);
+      return Inertia::render('Profile',[
+        'patient' => $patient
+      ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

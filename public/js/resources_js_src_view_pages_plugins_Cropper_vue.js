@@ -3888,7 +3888,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ninput[type=\"file\"] {\n  display: none;\n}\n.content {\n  display: flex;\n  justify-content: space-between;\n}\n.actions {\n  margin-top: 1rem;\n}\n.preview-area p:last-of-type {\n  margin-top: 1rem;\n}\n.preview {\n  width: 100%;\n  height: calc(372px * (9 / 16));\n  overflow: hidden;\n}\n.cropped-image img {\n  max-width: 100%;\n}\n.cropper-bg {\n  background-repeat: repeat;\n}\n.cropper-min-height {\n  min-height: 400px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ninput[type=\"file\"] {\r\n  display: none;\n}\n.content {\r\n  display: flex;\r\n  justify-content: space-between;\n}\n.actions {\r\n  margin-top: 1rem;\n}\n.preview-area p:last-of-type {\r\n  margin-top: 1rem;\n}\n.preview {\r\n  width: 100%;\r\n  height: calc(372px * (9 / 16));\r\n  overflow: hidden;\n}\n.cropped-image img {\r\n  max-width: 100%;\n}\n.cropper-bg {\r\n  background-repeat: repeat;\n}\n.cropper-min-height {\r\n  min-height: 400px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

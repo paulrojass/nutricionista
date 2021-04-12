@@ -590,10 +590,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var password = _this.$refs.rpassword.value; // clear existing errors
 
       _this.$store.dispatch(_core_services_store_auth_module__WEBPACK_IMPORTED_MODULE_5__.LOGOUT); // set spinner to submit button
+      //const submitButton = this.$refs["kt_login_signup_submit"];
+      //submitButton.classList.add("spinner", "spinner-light", "spinner-right");
+      // dummy delay
 
-
-      var submitButton = _this.$refs["kt_login_signup_submit"];
-      submitButton.classList.add("spinner", "spinner-light", "spinner-right"); // dummy delay
 
       setTimeout(function () {
         // send register request
@@ -604,9 +604,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return _this.$router.push({
             name: "dashboard"
           });
-        });
+        }); // submitButton.classList.remove(
+        //  "spinner",
+        //  "spinner-light",
+        //  "spinner-right"
+        // );
 
-        submitButton.classList.remove("spinner", "spinner-light", "spinner-right");
       }, 2000);
     });
     this.fv1.on("core.form.invalid", function () {
