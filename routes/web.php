@@ -41,6 +41,20 @@ Route::prefix('panel')->group(function () {
             'destroy' => 'patients.destroy'
         ]
       ]);
+      Route::resource('pacientes/historial',
+        App\Http\Controllers\PollController::class,
+        [
+          'names' => [
+              'index' => 'poll.index',
+              'create' => 'poll.create',
+              'show' => 'poll.show',
+              'store' => 'poll.store',
+              'edit' => 'poll.edit',
+              'update' => 'poll.update',
+              'destroy' => 'poll.destroy'
+          ]
+        ]);
+
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

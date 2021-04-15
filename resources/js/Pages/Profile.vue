@@ -20,14 +20,15 @@
         </b-col>
         <b-col cols="12" lg="7">
           <h5 class="mt-0 font-weight-bolder text-dark">
-            {{patient.first_name_1}} {{patient.first_name_2}}
+            {{patient.first_name_1}} {{patient.last_name_1}}
           </h5>
           <p>
             {{patient.goal}}
+            {{patient.id}}
           </p>
         </b-col>
         <b-col col lg="3">
-          <a href="#" class="btn btn-info font-weight-bolder font-size-sm mr-3"
+          <a :href="route('poll.edit', patient.id)" class="btn btn-info font-weight-bolder font-size-sm mr-3"
             >Editar historial</a
           >
         </b-col>

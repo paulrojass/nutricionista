@@ -3,85 +3,198 @@
 
   <b-card >
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label font-weight-bolder text-dark"
-          >Nuevo Paciente</span
-        >
-        <span class="text-muted mt-3 font-weight-bold font-size-sm"
-          >Ingrese la informacíon básica para registrar un paciente</span
-        >
+        <span class="card-label font-weight-bolder text-dark">
+          Historial
+        </span>
+        <span class="text-muted mt-3 font-weight-bold font-size-sm">
+          Información detallada del paciente
+        </span>
       </h3>
    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-     <b-form-group id="input-group-1" label="Primer nombre:" label-for="input-1">
-       <b-form-input
-         id="input-1"
-         v-model="form.first_name_1"
-         required
-         placeholder="Ingrese un nombre"
-       ></b-form-input>
-     </b-form-group>
+     <h5><strong>Fecha: </strong>
+       {{patient.poll.created_at}}
+     </h5>
 
-     <b-form-group id="input-group-2" label="Segundo nombre:" label-for="input-2">
-       <b-form-input
-         id="input-2"
-         v-model="form.first_name_2"
-         placeholder="Ingrese un nombre"
-       ></b-form-input>
-     </b-form-group>
+     <h5><strong>Nombre: </strong>
+       {{patient.first_name_1}} {{patient.first_name_2}}
+       {{patient.last_name_1}} {{patient.last_name_2}}
+     </h5>
 
-     <b-form-group id="input-group-3" label="Primer apellido:" label-for="input-3">
-       <b-form-input
-         id="input-3"
-         v-model="form.last_name_1"
-         required
-         placeholder="Ingrese un apellido"
-       ></b-form-input>
-     </b-form-group>
+     <h5><strong>Fecha de nacimiento: </strong>
+       {{patient.birth_date}}
+     </h5>
 
-     <b-form-group id="input-group-4" label="Segundo apellido:" label-for="input-4">
-       <b-form-input
-         id="input-4"
-         v-model="form.last_name_2"
-         required
-         placeholder="Ingrese un apellido"
-       ></b-form-input>
-     </b-form-group>
-
-     <b-form-group id="input-group-5" label="Teléfono:" label-for="input-5">
-       <b-form-input
-         id="input-5"
-         v-model="form.phone"
-         required
-         placeholder="ej. 123456789"
-       ></b-form-input>
-     </b-form-group>
-
-     <b-form-group
-       id="input-group-6"
-       label="Correo electónico:"
-       label-for="input-6"
-       description="El campo email debe ser único."
-     >
-       <b-form-input
-         id="input-6"
-         v-model="form.email"
-         type="email"
-         required
-         placeholder="ej: usuario@correo.com"
-       ></b-form-input>
-     </b-form-group>
-
-     <b-form-group id="input-group-7" label="Cuidad:" label-for="input-7">
+     <b-form-group id="input-group-7" label="Objetivo:" label-for="input-7">
        <b-form-select
          id="input-7"
          name="city_id"
          v-model="form.city_id"
          required
        >
-         <option v-for="city in cities" :value="city.id">{{ city.name }}</option>
+       <option value="1">Perdida de peso</option>
+       <option value="2">Perdida de % graso</option>
+       <option value="3">Masa muscular</option>
+       <option value="4">Aumento de peso</option>
        <template v-slot:first>
-        <option :value="null">Seleccione ciudad...</option>
+         <option :value="null">Seleccione objetivo...</option>
       </template>
        </b-form-select>
+     </b-form-group>
+
+     <b-row id="convenio">
+       <b-col>
+         <b-form-group id="input-group-1" label="¿Cuál convenio?:" label-for="agreement_name">
+           <b-form-input
+             id="agreement_name"
+             v-model="form.agreement_name"
+            class="mb-2 mr-sm-2 mb-sm-0"
+             required
+           ></b-form-input>
+         </b-form-group>
+       </b-col>
+       <b-col>
+         <b-form-group id="input-group-2" label="Precio:" label-for="agreement_price">
+           <b-form-input
+           id="agreement_price"
+           v-model="form.agreement_price"
+           ></b-form-input>
+         </b-form-group>
+       </b-col>
+     </b-row>
+
+     <b-form-group label="Exámenes de laboratorio:" label-for="laboratory">
+       <b-form-input
+         id="laboratory"
+         v-model="form.laboratory"
+         required
+         placeholder="Mencione los exámenes si los tiene"
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="Este sería tu primer proceso nutricional? De no ser así, ¿cómo ha sido tu experiencia previa?" label-for="experience">
+       <b-form-input
+         id="experience"
+         v-model="form.experience"
+         required
+         placeholder="Explique detalladamente"
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="¿Sufre de alguna condición médica?" label-for="medical_condition">
+       <b-form-input
+         id="medical_condition"
+         v-model="form.medical_condition"
+         required
+         placeholder="Explique detalladamente"
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="¿Toma algún medicamento?" label-for="medicine">
+       <b-form-input
+         id="medicine"
+         v-model="form.medicine"
+         required
+         placeholder="Explique detalladamente"
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="¿Toma algún suplemento?" label-for="supplement">
+       <b-form-input
+         id="supplement"
+         v-model="form.supplement"
+         required
+         placeholder="Si es así, por favor indique"
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="¿Ha tomado suplemento previamente?" label-for="supplement_previous">
+       <b-form-input
+         id="supplement_previous"
+         v-model="form.supplement_previous"
+         required
+         placeholder="Si es así, por favor indique"
+       ></b-form-input>
+     </b-form-group>
+
+
+     <b-form-group label="Has variado mucho de peso el los últimos 2 años?" label-for="weight_change">
+       <b-form-input
+         id="weight_change"
+         v-model="form.weight_change"
+         required
+         placeholder="En caso de que sí, ¿por qué?"
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="¿A qué se dedica?" label-for="occupation">
+       <b-form-input
+         id="occupation"
+         v-model="form.occupation"
+         required
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group
+       label-cols-sm="3"
+       label="¿Es sedentario?"
+       label-align-sm="right" class="mb-0"
+     >
+       <b-form-radio-group
+         id="sedentary"
+         v-model="form.sedentary"
+         class="pt-2"
+         :options="['Si', 'No']"
+       ></b-form-radio-group>
+     </b-form-group>
+
+     <p>Describa un día frecuente de alimentación</p>
+
+     <b-form-group label="Desayuno" label-for="breakfast">
+       <b-form-input
+         id="breakfast"
+         v-model="form.breakfast"
+         required
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="Media mañana" label-for="brunch">
+       <b-form-input
+         id="brunch"
+         v-model="form.brunch"
+         required
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="Almuerzo" label-for="lunch">
+       <b-form-input
+         id="lunch"
+         v-model="form.lunch"
+         required
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="Merienda" label-for="snack">
+       <b-form-input
+         id="snack"
+         v-model="form.snack"
+         required
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="Cena" label-for="dinner">
+       <b-form-input
+         id="dinner"
+         v-model="form.dinner"
+         required
+       ></b-form-input>
+     </b-form-group>
+
+     <b-form-group label="Cuando come por fuera de casa, ¿qué suele comer?" label-for="street_food">
+       <b-form-input
+         id="street_food"
+         v-model="form.street_food"
+         required
+       ></b-form-input>
      </b-form-group>
 
      <b-button type="submit" variant="primary">Guardar</b-button>
@@ -108,7 +221,7 @@ export default {
       title: 'Crear Paciente',
     }
   },
-  props: ['cities'],
+  props: ['patient'],
   /*
     mounted() {
         this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
@@ -139,6 +252,9 @@ export default {
     },
     setActiveTab2(event) {
       this.tabIndex2 = this.setActiveTab(event);
+    },
+    habilitar(){
+
     },
     /**
      * Set current active on click

@@ -123,6 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -5317,7 +5318,7 @@ var render = function() {
                           "\n          " +
                             _vm._s(_vm.patient.first_name_1) +
                             " " +
-                            _vm._s(_vm.patient.first_name_2) +
+                            _vm._s(_vm.patient.last_name_1) +
                             "\n        "
                         )
                       ]
@@ -5325,7 +5326,11 @@ var render = function() {
                     _vm._v(" "),
                     _c("p", [
                       _vm._v(
-                        "\n          " + _vm._s(_vm.patient.goal) + "\n        "
+                        "\n          " +
+                          _vm._s(_vm.patient.goal) +
+                          "\n          " +
+                          _vm._s(_vm.patient.id) +
+                          "\n        "
                       )
                     ])
                   ]),
@@ -5336,7 +5341,7 @@ var render = function() {
                       {
                         staticClass:
                           "btn btn-info font-weight-bolder font-size-sm mr-3",
-                        attrs: { href: "#" }
+                        attrs: { href: _vm.route("poll.edit", _vm.patient.id) }
                       },
                       [_vm._v("Editar historial")]
                     )
@@ -5478,7 +5483,7 @@ var render = function() {
                           _vm._s(
                             _vm.patient.first_name_1 +
                               " " +
-                              _vm.patient.first_name_2
+                              _vm.patient.last_name_1
                           ) +
                           "\n          "
                       )

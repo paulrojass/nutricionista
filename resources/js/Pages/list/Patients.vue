@@ -6,7 +6,7 @@
         <v-list-item-content>
           <div class="overline mb-4">
             <h3>
-              {{`${patient.first_name_1} ${patient.first_name_2}`}}
+              {{`${patient.first_name_1} ${patient.last_name_1}`}}
             </h3>
           </div>
           <v-list-item-title class="headline mb-1">

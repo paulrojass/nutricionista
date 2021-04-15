@@ -16,6 +16,7 @@ class CreatePollsTable extends Migration
         Schema::create('polls', function (Blueprint $table) {
             $table->id();
             $table->string('patient_id')->constrained()->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

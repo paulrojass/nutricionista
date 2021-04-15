@@ -5215,7 +5215,7 @@ var render = function() {
                           _vm._s(
                             _vm.patient.first_name_1 +
                               " " +
-                              _vm.patient.first_name_2
+                              _vm.patient.last_name_1
                           ) +
                           "\n          "
                       )

@@ -29,13 +29,18 @@ class HomeController extends Controller
         $monthControls = Control::whereBetween('date', [
             Carbon::now()->startOfMonth(),
             Carbon::now()->endOfMonth()]
-        )->where('date', '>=', Carbon::now())->with('patient')->get();
+        )->where('date', '>=', Carbon::today())->with('patient')
+        ->orderByRaw('DATE_FORMAT(date, "%m-%d %h:%m:%s")')
+        ->get();
         $weekControls = Control::whereBetween('date', [
             Carbon::now()->startOfWeek(),
             Carbon::now()->endOfWeek()]
-        )->where('date', '>=', Carbon::now())->with('patient')->get();
-        $dayControls = Control::where('date', Carbon::today())->with('patient')->get();
-
+        )->where('date', '>=', Carbon::today())->with('patient')
+        ->orderByRaw('DATE_FORMAT(date, "%m-%d %h:%m:%s")')
+        ->get();
+        $dayControls = Control::whereDate('date', Carbon::today())->with('patient')
+        ->orderByRaw('DATE_FORMAT(date, "%m-%d %h:%m:%s")')
+        ->get();
         $active = Patient::where('active', 1)->count();
         $inactive = Patient::where('active', 0)->count();
         return Inertia::render('Home', [

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Patient;
 use App\Models\Poll;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PollController extends Controller
 {
@@ -55,9 +57,12 @@ class PollController extends Controller
      * @param  \App\Models\Poll  $poll
      * @return \Illuminate\Http\Response
      */
-    public function edit(Poll $poll)
+    public function edit($id)
     {
-        //
+      $patient = Patient::where('id', $id)->with('poll')->first();
+      return Inertia::render('form/History', [
+        'patient' => $patient
+      ]);
     }
 
     /**

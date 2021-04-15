@@ -111,6 +111,119 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -123,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
       title: 'Crear Paciente'
     };
   },
-  props: ['cities'],
+  props: ['patient'],
 
   /*
     mounted() {
@@ -156,6 +269,7 @@ __webpack_require__.r(__webpack_exports__);
     setActiveTab2: function setActiveTab2(event) {
       this.tabIndex2 = this.setActiveTab(event);
     },
+    habilitar: function habilitar() {},
 
     /**
      * Set current active on click
@@ -5148,7 +5262,7 @@ var render = function() {
               _c(
                 "span",
                 { staticClass: "card-label font-weight-bolder text-dark" },
-                [_vm._v("Nuevo Paciente")]
+                [_vm._v("\n        Historial\n      ")]
               ),
               _vm._v(" "),
               _c(
@@ -5156,11 +5270,7 @@ var render = function() {
                 {
                   staticClass: "text-muted mt-3 font-weight-bold font-size-sm"
                 },
-                [
-                  _vm._v(
-                    "Ingrese la informacíon básica para registrar un paciente"
-                  )
-                ]
+                [_vm._v("\n        Información detallada del paciente\n      ")]
               )
             ]
           ),
@@ -5170,181 +5280,39 @@ var render = function() {
                 "b-form",
                 { on: { submit: _vm.onSubmit, reset: _vm.onReset } },
                 [
-                  _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        id: "input-group-1",
-                        label: "Primer nombre:",
-                        "label-for": "input-1"
-                      }
-                    },
-                    [
-                      _c("b-form-input", {
-                        attrs: {
-                          id: "input-1",
-                          required: "",
-                          placeholder: "Ingrese un nombre"
-                        },
-                        model: {
-                          value: _vm.form.first_name_1,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form, "first_name_1", $$v)
-                          },
-                          expression: "form.first_name_1"
-                        }
-                      })
-                    ],
-                    1
-                  ),
+                  _c("h5", [
+                    _c("strong", [_vm._v("Fecha: ")]),
+                    _vm._v(
+                      "\n     " + _vm._s(_vm.patient.poll.created_at) + "\n   "
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        id: "input-group-2",
-                        label: "Segundo nombre:",
-                        "label-for": "input-2"
-                      }
-                    },
-                    [
-                      _c("b-form-input", {
-                        attrs: {
-                          id: "input-2",
-                          placeholder: "Ingrese un nombre"
-                        },
-                        model: {
-                          value: _vm.form.first_name_2,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form, "first_name_2", $$v)
-                          },
-                          expression: "form.first_name_2"
-                        }
-                      })
-                    ],
-                    1
-                  ),
+                  _c("h5", [
+                    _c("strong", [_vm._v("Nombre: ")]),
+                    _vm._v(
+                      "\n     " +
+                        _vm._s(_vm.patient.first_name_1) +
+                        " " +
+                        _vm._s(_vm.patient.first_name_2) +
+                        "\n     " +
+                        _vm._s(_vm.patient.last_name_1) +
+                        " " +
+                        _vm._s(_vm.patient.last_name_2) +
+                        "\n   "
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        id: "input-group-3",
-                        label: "Primer apellido:",
-                        "label-for": "input-3"
-                      }
-                    },
-                    [
-                      _c("b-form-input", {
-                        attrs: {
-                          id: "input-3",
-                          required: "",
-                          placeholder: "Ingrese un apellido"
-                        },
-                        model: {
-                          value: _vm.form.last_name_1,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form, "last_name_1", $$v)
-                          },
-                          expression: "form.last_name_1"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        id: "input-group-4",
-                        label: "Segundo apellido:",
-                        "label-for": "input-4"
-                      }
-                    },
-                    [
-                      _c("b-form-input", {
-                        attrs: {
-                          id: "input-4",
-                          required: "",
-                          placeholder: "Ingrese un apellido"
-                        },
-                        model: {
-                          value: _vm.form.last_name_2,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form, "last_name_2", $$v)
-                          },
-                          expression: "form.last_name_2"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        id: "input-group-5",
-                        label: "Teléfono:",
-                        "label-for": "input-5"
-                      }
-                    },
-                    [
-                      _c("b-form-input", {
-                        attrs: {
-                          id: "input-5",
-                          required: "",
-                          placeholder: "ej. 123456789"
-                        },
-                        model: {
-                          value: _vm.form.phone,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form, "phone", $$v)
-                          },
-                          expression: "form.phone"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        id: "input-group-6",
-                        label: "Correo electónico:",
-                        "label-for": "input-6",
-                        description: "El campo email debe ser único."
-                      }
-                    },
-                    [
-                      _c("b-form-input", {
-                        attrs: {
-                          id: "input-6",
-                          type: "email",
-                          required: "",
-                          placeholder: "ej: usuario@correo.com"
-                        },
-                        model: {
-                          value: _vm.form.email,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form, "email", $$v)
-                          },
-                          expression: "form.email"
-                        }
-                      })
-                    ],
-                    1
-                  ),
+                  _c("h5", [
+                    _c("strong", [_vm._v("Fecha de nacimiento: ")]),
+                    _vm._v("\n     " + _vm._s(_vm.patient.birth_date) + "\n   ")
+                  ]),
                   _vm._v(" "),
                   _c(
                     "b-form-group",
                     {
                       attrs: {
                         id: "input-group-7",
-                        label: "Cuidad:",
+                        label: "Objetivo:",
                         "label-for": "input-7"
                       }
                     },
@@ -5366,7 +5334,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { domProps: { value: null } },
-                                      [_vm._v("Seleccione ciudad...")]
+                                      [_vm._v("Seleccione objetivo...")]
                                     )
                                   ]
                                 },
@@ -5375,7 +5343,7 @@ var render = function() {
                             ],
                             null,
                             false,
-                            3390544709
+                            1938302813
                           ),
                           model: {
                             value: _vm.form.city_id,
@@ -5385,15 +5353,450 @@ var render = function() {
                             expression: "form.city_id"
                           }
                         },
-                        _vm._l(_vm.cities, function(city) {
-                          return _c(
-                            "option",
-                            { domProps: { value: city.id } },
-                            [_vm._v(_vm._s(city.name))]
-                          )
-                        }),
-                        0
+                        [
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v("Perdida de peso")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2" } }, [
+                            _vm._v("Perdida de % graso")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "3" } }, [
+                            _vm._v("Masa muscular")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "4" } }, [
+                            _vm._v("Aumento de peso")
+                          ])
+                        ]
                       )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-row",
+                    { attrs: { id: "convenio" } },
+                    [
+                      _c(
+                        "b-col",
+                        [
+                          _c(
+                            "b-form-group",
+                            {
+                              attrs: {
+                                id: "input-group-1",
+                                label: "¿Cuál convenio?:",
+                                "label-for": "agreement_name"
+                              }
+                            },
+                            [
+                              _c("b-form-input", {
+                                staticClass: "mb-2 mr-sm-2 mb-sm-0",
+                                attrs: { id: "agreement_name", required: "" },
+                                model: {
+                                  value: _vm.form.agreement_name,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "agreement_name", $$v)
+                                  },
+                                  expression: "form.agreement_name"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-col",
+                        [
+                          _c(
+                            "b-form-group",
+                            {
+                              attrs: {
+                                id: "input-group-2",
+                                label: "Precio:",
+                                "label-for": "agreement_price"
+                              }
+                            },
+                            [
+                              _c("b-form-input", {
+                                attrs: { id: "agreement_price" },
+                                model: {
+                                  value: _vm.form.agreement_price,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "agreement_price", $$v)
+                                  },
+                                  expression: "form.agreement_price"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        label: "Exámenes de laboratorio:",
+                        "label-for": "laboratory"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "laboratory",
+                          required: "",
+                          placeholder: "Mencione los exámenes si los tiene"
+                        },
+                        model: {
+                          value: _vm.form.laboratory,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "laboratory", $$v)
+                          },
+                          expression: "form.laboratory"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        label:
+                          "Este sería tu primer proceso nutricional? De no ser así, ¿cómo ha sido tu experiencia previa?",
+                        "label-for": "experience"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "experience",
+                          required: "",
+                          placeholder: "Explique detalladamente"
+                        },
+                        model: {
+                          value: _vm.form.experience,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "experience", $$v)
+                          },
+                          expression: "form.experience"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        label: "¿Sufre de alguna condición médica?",
+                        "label-for": "medical_condition"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "medical_condition",
+                          required: "",
+                          placeholder: "Explique detalladamente"
+                        },
+                        model: {
+                          value: _vm.form.medical_condition,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "medical_condition", $$v)
+                          },
+                          expression: "form.medical_condition"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        label: "¿Toma algún medicamento?",
+                        "label-for": "medicine"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "medicine",
+                          required: "",
+                          placeholder: "Explique detalladamente"
+                        },
+                        model: {
+                          value: _vm.form.medicine,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "medicine", $$v)
+                          },
+                          expression: "form.medicine"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        label: "¿Toma algún suplemento?",
+                        "label-for": "supplement"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "supplement",
+                          required: "",
+                          placeholder: "Si es así, por favor indique"
+                        },
+                        model: {
+                          value: _vm.form.supplement,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "supplement", $$v)
+                          },
+                          expression: "form.supplement"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        label: "¿Ha tomado suplemento previamente?",
+                        "label-for": "supplement_previous"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "supplement_previous",
+                          required: "",
+                          placeholder: "Si es así, por favor indique"
+                        },
+                        model: {
+                          value: _vm.form.supplement_previous,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "supplement_previous", $$v)
+                          },
+                          expression: "form.supplement_previous"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        label:
+                          "Has variado mucho de peso el los últimos 2 años?",
+                        "label-for": "weight_change"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "weight_change",
+                          required: "",
+                          placeholder: "En caso de que sí, ¿por qué?"
+                        },
+                        model: {
+                          value: _vm.form.weight_change,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "weight_change", $$v)
+                          },
+                          expression: "form.weight_change"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        label: "¿A qué se dedica?",
+                        "label-for": "occupation"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "occupation", required: "" },
+                        model: {
+                          value: _vm.form.occupation,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "occupation", $$v)
+                          },
+                          expression: "form.occupation"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      staticClass: "mb-0",
+                      attrs: {
+                        "label-cols-sm": "3",
+                        label: "¿Es sedentario?",
+                        "label-align-sm": "right"
+                      }
+                    },
+                    [
+                      _c("b-form-radio-group", {
+                        staticClass: "pt-2",
+                        attrs: { id: "sedentary", options: ["Si", "No"] },
+                        model: {
+                          value: _vm.form.sedentary,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "sedentary", $$v)
+                          },
+                          expression: "form.sedentary"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("Describa un día frecuente de alimentación")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    { attrs: { label: "Desayuno", "label-for": "breakfast" } },
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "breakfast", required: "" },
+                        model: {
+                          value: _vm.form.breakfast,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "breakfast", $$v)
+                          },
+                          expression: "form.breakfast"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    { attrs: { label: "Media mañana", "label-for": "brunch" } },
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "brunch", required: "" },
+                        model: {
+                          value: _vm.form.brunch,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "brunch", $$v)
+                          },
+                          expression: "form.brunch"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    { attrs: { label: "Almuerzo", "label-for": "lunch" } },
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "lunch", required: "" },
+                        model: {
+                          value: _vm.form.lunch,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "lunch", $$v)
+                          },
+                          expression: "form.lunch"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    { attrs: { label: "Merienda", "label-for": "snack" } },
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "snack", required: "" },
+                        model: {
+                          value: _vm.form.snack,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "snack", $$v)
+                          },
+                          expression: "form.snack"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    { attrs: { label: "Cena", "label-for": "dinner" } },
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "dinner", required: "" },
+                        model: {
+                          value: _vm.form.dinner,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "dinner", $$v)
+                          },
+                          expression: "form.dinner"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        label:
+                          "Cuando come por fuera de casa, ¿qué suele comer?",
+                        "label-for": "street_food"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "street_food", required: "" },
+                        model: {
+                          value: _vm.form.street_food,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "street_food", $$v)
+                          },
+                          expression: "form.street_food"
+                        }
+                      })
                     ],
                     1
                   ),

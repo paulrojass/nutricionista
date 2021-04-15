@@ -16,7 +16,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::orderBy('created_at', 'DESC')->with('city')->get();
+        $patients = Patient::orderBy('created_at', 'DESC')->where('active', 1)->with('city')->get();
         return Inertia::render('Patients', [
             'patients' => $patients,
         ]);
@@ -35,9 +35,23 @@ class PatientController extends Controller
         ]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createCandidate()
+    {
+        $cities = City::all();
+        return Inertia::render('form/NewPatient', [
+            'cities' => $cities,
+        ]);
+    }
+
+
     public function show($id)
     {
-      $patient = Patient::find($id);
+      $patient = Patient::where('id', $id)->with('poll')->first();
       return Inertia::render('Profile',[
         'patient' => $patient
       ]);
@@ -59,10 +73,32 @@ class PatientController extends Controller
         $patient->last_name_2 = $request->last_name_2;
         $patient->email = $request->email;
         $patient->phone = $request->phone;
+        $patient->active = 1;
+        $patient->save();
+
+        $poll = new Poll();
+        $poll->patient_id = $patient->id;
         $patient->save();
 
         return $this->index();
     }
+
+    public function storeCandidate(Request $request)
+    {
+        $patient = new Patient();
+        $patient->city_id = $request->city_id;
+        $patient->first_name_1 = $request->first_name_1;
+        $patient->first_name_2 = $request->first_name_2;
+        $patient->last_name_1 = $request->last_name_1;
+        $patient->last_name_2 = $request->last_name_2;
+        $patient->email = $request->email;
+        $patient->phone = $request->phone;
+        $patient->active = 0;
+        $patient->save();
+
+        return $this->index();
+    }
+
 
     /**
      * Update the specified resource in storage.
