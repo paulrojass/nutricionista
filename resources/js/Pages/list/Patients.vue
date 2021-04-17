@@ -1,41 +1,101 @@
 <template>
-  <div>
-    <!-- <b-card :title="patient.first_name_1+' '+patient.first_name_2" :sub-title="calcularEdad(patient.birth_date)+' años'"> -->
-    <b-card >
-      <v-list-item three-line>
-        <v-list-item-content>
-          <div class="overline mb-4">
-            <h3>
-              {{`${patient.first_name_1} ${patient.last_name_1}`}}
-            </h3>
-          </div>
-          <v-list-item-title class="headline mb-1">
-            {{`${calcularEdad(patient.birth_date)} años`}}
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            <em>{{patient.goal| truncate(20, '...') }}</em>
-          </v-list-item-subtitle>
-        </v-list-item-content>
+  <div class="col-lg-4">
 
-        <v-list-item-avatar
-          tile
-          size="80"
-          color="grey"
-        ></v-list-item-avatar>
-      </v-list-item>
-      <b-card-text>
-          <strong>Ubicación: </strong>{{patient.city.name}}
-      </b-card-text>
-
-      <v-col class="text-center" cols="12" sm="4">
-        <div class="my-2">
-          <v-btn text small color="primary" :href="route('patients.show', patient.id)">Ver más</v-btn>
+  <!--begin::List Widget 8-->
+  <div class="card card-custom card-stretch gutter-b">
+    <!--begin::Header-->
+    <div class="card-header border-0">
+      <!-- <h3 class="card-title font-weight-bolder text-dark">Trends</h3>
+      <div class="card-toolbar">
+        <Dropdown2><i class="ki ki-bold-more-hor"></i></Dropdown2>
+      </div> -->
+      <!--begin::Section-->
+      <div class="d-flex align-items-center">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-45 symbol-light mr-5">
+          <span class="symbol-label">
+            <inline-svg
+              src=""
+              class="h-50 align-self-center"
+            ></inline-svg>
+          </span>
         </div>
-      </v-col>
-    </b-card>
+        <!--end::Symbol-->
+        <!--begin::Text-->
+        <div class="d-flex flex-column flex-grow-1">
+          <a
+            href="#"
+            class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1"
+          >
+            {{`${patient.first_name_1} ${patient.last_name_1}`}}
+          </a>
+          <span class="text-muted font-weight-bold">
+            {{`${calcularEdad(patient.birth_date)} años`}}
+          </span>
+        </div>
+        <!--end::Text-->
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!--end::Header-->
+    <!--begin::Body-->
+    <div class="card-body pt-0">
+        <!--begin::Item-->
+        <div class="mb-10">
+          <!--begin::Desc-->
+          <p class="text-dark-50 m-0 pt-5 font-weight-normal">
+            <em>{{patient.goal| truncate(20, '...') }}</em>
+          </p>
+          <!--end::Desc-->
+          <!--begin::Desc-->
+          <p class="text-dark-50 m-0 pt-5 font-weight-normal">
+            <strong>Ubicación: </strong>{{patient.city.name}}
+          </p>
+          <!--end::Desc-->
+          <div class="my-2">
+            <v-btn text small color="primary" :href="route('patients.show', patient.id)">Ver más</v-btn>
+          </div>
+        </div>
+        <!--end::Item-->
+    </div>
+    <!--end::Body-->
+  </div>
+  <!--end: List Widget 8-->
   </div>
 </template>
-
 
 <script>
 export default {

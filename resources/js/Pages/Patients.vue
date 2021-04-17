@@ -1,7 +1,6 @@
 <template>
-  <div class="row mt-0 mt-lg-8">
+  <div class="row">
           <PatientsList
-          class="col-lg-4"
           v-for="patient in patients"
           :key="patient.id"
           :patient="patient"

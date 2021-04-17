@@ -50,6 +50,66 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['patient'],
   methods: {
@@ -158,97 +218,90 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "b-card",
-        [
-          _c(
-            "v-list-item",
-            { attrs: { "three-line": "" } },
-            [
-              _c(
-                "v-list-item-content",
-                [
-                  _c("div", { staticClass: "overline mb-4" }, [
-                    _c("h3", [
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(
-                            _vm.patient.first_name_1 +
-                              " " +
-                              _vm.patient.last_name_1
-                          ) +
-                          "\n          "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("v-list-item-title", { staticClass: "headline mb-1" }, [
-                    _vm._v(
-                      "\n          " +
-                        _vm._s(
-                          _vm.calcularEdad(_vm.patient.birth_date) + " años"
-                        ) +
-                        "\n        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("v-list-item-subtitle", [
-                    _c("em", [
-                      _vm._v(
-                        _vm._s(_vm._f("truncate")(_vm.patient.goal, 20, "..."))
-                      )
-                    ])
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("v-list-item-avatar", {
-                attrs: { tile: "", size: "80", color: "grey" }
-              })
-            ],
-            1
-          ),
+  return _c("div", { staticClass: "col-lg-4" }, [
+    _c("div", { staticClass: "card card-custom card-stretch gutter-b" }, [
+      _c("div", { staticClass: "card-header border-0" }, [
+        _c("div", { staticClass: "d-flex align-items-center" }, [
+          _c("div", { staticClass: "symbol symbol-45 symbol-light mr-5" }, [
+            _c(
+              "span",
+              { staticClass: "symbol-label" },
+              [
+                _c("inline-svg", {
+                  staticClass: "h-50 align-self-center",
+                  attrs: { src: "" }
+                })
+              ],
+              1
+            )
+          ]),
           _vm._v(" "),
-          _c("b-card-text", [
+          _c("div", { staticClass: "d-flex flex-column flex-grow-1" }, [
+            _c(
+              "a",
+              {
+                staticClass:
+                  "font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1",
+                attrs: { href: "#" }
+              },
+              [
+                _vm._v(
+                  "\n          " +
+                    _vm._s(
+                      _vm.patient.first_name_1 + " " + _vm.patient.last_name_1
+                    ) +
+                    "\n        "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("span", { staticClass: "text-muted font-weight-bold" }, [
+              _vm._v(
+                "\n          " +
+                  _vm._s(_vm.calcularEdad(_vm.patient.birth_date) + " años") +
+                  "\n        "
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body pt-0" }, [
+        _c("div", { staticClass: "mb-10" }, [
+          _c("p", { staticClass: "text-dark-50 m-0 pt-5 font-weight-normal" }, [
+            _c("em", [
+              _vm._v(_vm._s(_vm._f("truncate")(_vm.patient.goal, 20, "...")))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-dark-50 m-0 pt-5 font-weight-normal" }, [
             _c("strong", [_vm._v("Ubicación: ")]),
-            _vm._v(_vm._s(_vm.patient.city.name) + "\n    ")
+            _vm._v(_vm._s(_vm.patient.city.name) + "\n        ")
           ]),
           _vm._v(" "),
           _c(
-            "v-col",
-            { staticClass: "text-center", attrs: { cols: "12", sm: "4" } },
+            "div",
+            { staticClass: "my-2" },
             [
               _c(
-                "div",
-                { staticClass: "my-2" },
-                [
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: {
-                        text: "",
-                        small: "",
-                        color: "primary",
-                        href: _vm.route("patients.show", _vm.patient.id)
-                      }
-                    },
-                    [_vm._v("Ver más")]
-                  )
-                ],
-                1
+                "v-btn",
+                {
+                  attrs: {
+                    text: "",
+                    small: "",
+                    color: "primary",
+                    href: _vm.route("patients.show", _vm.patient.id)
+                  }
+                },
+                [_vm._v("Ver más")]
               )
-            ]
+            ],
+            1
           )
-        ],
-        1
-      )
-    ],
-    1
-  )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

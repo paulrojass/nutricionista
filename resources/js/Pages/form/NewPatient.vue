@@ -1,7 +1,12 @@
 <template>
     <layout>
 
-  <b-card >
+  <div class="card card-custom card-stretch gutter-b">
+    <!--begin::Header-->
+    <div class="card-header border-0 pt-5">
+
+
+
       <h3 class="card-title align-items-start flex-column">
         <span class="card-label font-weight-bolder text-dark"
           >Nuevo Paciente</span
@@ -10,6 +15,14 @@
           >Ingrese la informacíon básica para registrar un paciente</span
         >
       </h3>
+    </div>
+    <div class="card-body pt-2 pb-0">
+
+
+
+
+
+
    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
      <b-form-group id="input-group-1" label="Primer nombre:" label-for="input-1">
        <b-form-input
@@ -19,6 +32,7 @@
          placeholder="Ingrese un nombre"
        ></b-form-input>
      </b-form-group>
+
 
      <b-form-group id="input-group-2" label="Segundo nombre:" label-for="input-2">
        <b-form-input
@@ -87,9 +101,10 @@
      <b-button type="submit" variant="primary">Guardar</b-button>
      <b-button type="reset" variant="danger">Borrar</b-button>
    </b-form>
+ </div>
 
 
-  </b-card>
+ </div>
 
 
 
