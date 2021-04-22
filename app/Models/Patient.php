@@ -7,79 +7,145 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
-    use HasFactory;
-
-    /**
-     * Lista de atributos que pueden ser asignados masivamente
-     *
-     * @var array $fillable
-     */
-    protected $fillable = [
-        'city_id',
-        'first_name_1',
-        'first_name_2',
-        'last_name_1',
-        'last_name_2',
-        'birth_date',
-        'phone',
-        'email',
-        'active',
-        'goal',
-        'avatar',
-    ];
-
-    /**
-     * Método que obtiene la ciudad asociada a un paciente
-     *
-     * @author  Paúl Rojas <paul.rojase@gmail.com>
-     * @return object Objeto con los registros relacionados al modelo Paciente
-     */
-    public function city()
-    {
-        return $this->belongsTo(City::class);
-    }
-
-    /**
-     * Método que obtiene la encuesta asociada con el paciente
-     *
-     * @author  Paúl Rojas <paul.rojase@gmail.com>
-     * @return object Objeto con los registros relacionados al modelo Paciente
-     */
-    public function poll()
-    {
-        return $this->hasOne(Poll::class);
-    }
-
-    /**
-     * Método que obtiene los controles asociadas con el paciente
-     *
-     * @author  Paúl Rojas <paul.rojase@gmail.com>
-     * @return object Objeto con los registros relacionados al modelo Paciente
-     */
-    public function controls()
-    {
-        return $this->hasMany(Control::class);
-    }
-
-    /**
-     * Método que obtiene las imagenes asociadas con el paciente
-     *
-     * @author  Paúl Rojas <paul.rojase@gmail.com>
-     * @return object Objeto con los registros relacionados al modelo Paciente
-     */
-    public function images()
-    {
-        return $this->hasMany(Image::class);
-    }
-
-    /**
-     * Método que obtiene los archivos asociadas con el paciente
-     *
-     * @author  Paúl Rojas <paul.rojase@gmail.com>
-     * @return object Objeto con los registros relacionados al modelo Paciente
-     */
-    public function files()
-    {
-        return $this->hasMany(File::class);
-    }
+  use HasFactory;
+  
+  /**
+  * Lista de atributos que pueden ser asignados masivamente
+  *
+  * @var array $fillable
+  */
+  protected $fillable = [
+    'first_name_1',
+    'first_name_2',
+    'last_name_1',
+    'last_name_2',
+    'birth_date',
+    'phone',
+    'email',
+    'active',
+    'aspiration',
+    'goal',
+    'avatar',
+    'plan_id',
+    'online',
+    'city',
+    'agreement_name',
+    'agreement_price',
+    'laboratory',
+    'previous_experience',
+    'medical_condition',
+    'medicine',
+    'supplement',
+    'previous_supplement',
+    'weight_variation',
+    'job',
+    'sedentary',
+    'athletic_discipline',
+    'training_description',
+    'training_hours',
+    'training_days',
+    'breakfast',
+    'brunch',
+    'lunch',
+    'snack',
+    'dinner',
+    'street_food',
+    'pollo',
+    'pescado_blanco',
+    'carne_de_res',
+    'lomo_de_cerdo',
+    'atun',
+    'huevos',
+    'claras_de_huevos',
+    'whey_protein',
+    'arroz',
+    'arroz_integral',
+    'pasta',
+    'pasta_integral',
+    'platano',
+    'papa',
+    'arepa',
+    'pan',
+    'avena',
+    'tostadas_de_arroz',
+    'frutos_rojos',
+    'frutos_amarillos',
+    'frutos_verdes',
+    'banano',
+    'frutas_deshidratadas',
+    'verduras_cocidas',
+    'vegetales_frescos',
+    'quesos_frescos',
+    'quesos_madurados',
+    'yogures',
+    'leche',
+    'crema_de_leche',
+    'mantequilla',
+    'grasas',
+    'aguacate',
+    'frutos_secos',
+    'aceites_adicionados',
+    'crema_de_mani',
+    'unwanted_food',
+    'desired_food',
+    'water',
+    'soda',
+    'alcoholic_drinks',
+    'coffee',
+    'tea',
+    'bajo_consumo_energetico',
+    'bajo_consumo_proteico',
+    'bajo_consumo_carbohidratos',
+    'bajo_consumo_grasas_escenciales',
+    'bajo_consumo_micronutrientes',
+    'alto_consumo_ultraprcesados',
+    'inadecuado_timming_ingestas',
+    'esquema_hidratacion_inadecuado',
+    'dieta_alta_fodmaps',
+    'excedente_calorico',
+    'workplan',
+  ];
+  
+  /**
+  * Método que obtiene los controles asociadas con el paciente
+  *
+  * @author  Paúl Rojas <paul.rojase@gmail.com>
+  * @return object Objeto con los registros relacionados al modelo Paciente
+  */
+  public function controls()
+  {
+    return $this->hasMany(Control::class);
+  }
+  
+  /**
+  * Método que obtiene las imagenes asociadas con el paciente
+  *
+  * @author  Paúl Rojas <paul.rojase@gmail.com>
+  * @return object Objeto con los registros relacionados al modelo Paciente
+  */
+  public function images()
+  {
+    return $this->hasMany(Image::class);
+  }
+  
+  /**
+  * Método que obtiene los archivos asociadas con el paciente
+  *
+  * @author  Paúl Rojas <paul.rojase@gmail.com>
+  * @return object Objeto con los registros relacionados al modelo Paciente
+  */
+  public function files()
+  {
+    return $this->hasMany(File::class);
+  }
+  /**
+  * Método que obtiene las notas asociadas con el paciente
+  *
+  * @author  Paúl Rojas <paul.rojase@gmail.com>
+  * @return object Objeto con los registros relacionados al modelo Patient
+  */
+  public function notes()
+  {
+    return $this->hasMany(Note::class);
+  }
 }

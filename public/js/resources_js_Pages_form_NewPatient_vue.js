@@ -112,20 +112,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -141,14 +127,14 @@ __webpack_require__.r(__webpack_exports__);
   props: ['cities'],
 
   /*
-    mounted() {
-        this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
-        axios.get('patients').then((response) => {
-            console.log(response)
-            this.patients = response.data;
-        });
-        console.log('Component mounted.')
-    },
+  mounted() {
+  this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
+  axios.get('patients').then((response) => {
+  console.log(response)
+  this.patients = response.data;
+  });
+  console.log('Component mounted.')
+  },
   */
   data: function data() {
     return {
@@ -173,9 +159,9 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     /**
-     * Set current active on click
-     * @param event
-     */
+    * Set current active on click
+    * @param event
+    */
     setActiveTab: function setActiveTab(event) {
       // get all tab links
       var tab = event.target.closest('[role="tablist"]');
@@ -5347,65 +5333,6 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        id: "input-group-7",
-                        label: "Cuidad:",
-                        "label-for": "input-7"
-                      }
-                    },
-                    [
-                      _c(
-                        "b-form-select",
-                        {
-                          attrs: {
-                            id: "input-7",
-                            name: "city_id",
-                            required: ""
-                          },
-                          scopedSlots: _vm._u(
-                            [
-                              {
-                                key: "first",
-                                fn: function() {
-                                  return [
-                                    _c(
-                                      "option",
-                                      { domProps: { value: null } },
-                                      [_vm._v("Seleccione ciudad...")]
-                                    )
-                                  ]
-                                },
-                                proxy: true
-                              }
-                            ],
-                            null,
-                            false,
-                            3390544709
-                          ),
-                          model: {
-                            value: _vm.form.city_id,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "city_id", $$v)
-                            },
-                            expression: "form.city_id"
-                          }
-                        },
-                        _vm._l(_vm.cities, function(city) {
-                          return _c(
-                            "option",
-                            { domProps: { value: city.id } },
-                            [_vm._v(_vm._s(city.name))]
-                          )
-                        }),
-                        0
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
                     "b-button",
                     { attrs: { type: "submit", variant: "primary" } },
                     [_vm._v("Guardar")]
@@ -6315,9 +6242,7 @@ var render = function() {
                       [
                         _c("inline-svg", {
                           attrs: {
-                            src: _vm.direccion(
-                              "/media/svg/icons/Layout/Layout-4-blocks.svg"
-                            )
+                            src: "/media/svg/icons/Layout/Layout-4-blocks.svg"
                           }
                         })
                       ],

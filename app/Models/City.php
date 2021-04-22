@@ -7,23 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class City extends Model
 {
-    use HasFactory;
-
-    /**
-     * Lista de atributos que pueden ser asignados masivamente
-     *
-     * @var array $fillable
-     */
-    protected $fillable = ['name'];
-
-    /**
-     * Método que obtiene los pacientes asociado con el perfil
-     *
-     * @author  Paúl Rojas <paul.rojase@gmail.com>
-     * @return object Objeto con los registros relacionados al modelo City
-     */
-    public function patients()
-    {
-        return $this->hasMany(Patient::class);
-    }
+  use HasFactory;
+  
+  /**
+  * Lista de atributos que pueden ser asignados masivamente
+  *
+  * @var array $fillable
+  */
+  protected $fillable = [
+    'name',
+    'online',
+    'currency'
+  ];
+  
+  /**
+  * Método que obtiene los planes asociadas con la ciudad
+  *
+  * @author  Paúl Rojas <paul.rojase@gmail.com>
+  * @return object Objeto con los registros relacionados al modelo City
+  */
+  public function plans()
+  {
+    return $this->hasMany(Plan::class);
+  }
 }

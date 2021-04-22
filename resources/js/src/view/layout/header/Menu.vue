@@ -1,23 +1,23 @@
 <template>
-<ul class="menu-nav">
+  <ul class="menu-nav">
     <li
     aria-haspopup="true"
     data-menu-toggle="hover"
     class="menu-item"
     >
-      <inertia-link :href="route('home')" class="menu-link">
-        <span class="menu-text"> Inicio </span>
-      </inertia-link>
-    </li>
-    <li
-    aria-haspopup="true"
-    data-menu-toggle="hover"
-    class="menu-item"
-    >
-      <inertia-link :href="route('patients.index')" class="menu-link">
-        <span class="menu-text"> Pacientes </span>
-      </inertia-link>
-    </li>
+    <inertia-link :href="route('home')" class="menu-link">
+      <span class="menu-text"> Inicio </span>
+    </inertia-link>
+  </li>
+  <li
+  aria-haspopup="true"
+  data-menu-toggle="hover"
+  class="menu-item"
+  >
+  <inertia-link :href="route('patients.index')" class="menu-link">
+    <span class="menu-text"> Pacientes </span>
+  </inertia-link>
+</li>
 </ul>
 </template>
 

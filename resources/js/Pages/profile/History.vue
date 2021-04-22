@@ -1,0 +1,1007 @@
+<template>
+  <div class="card card-custom">
+    <div class="card-body p-0">
+      <!--begin: Wizard-->
+      <div
+      class="wizard wizard-3"
+      id="kt_wizard_v3"
+      data-wizard-state="step-first"
+      data-wizard-clickable="true"
+      >
+      <!--begin: Wizard Nav -->
+      <div class="wizard-nav border-bottom mb-1 mb-lg-5">
+        <div class="wizard-steps px-8 py-8 px-lg-15 py-lg-3">
+          <div
+          class="wizard-step"
+          data-wizard-type="step"
+          data-wizard-state="current"
+          >
+          <div class="wizard-label">
+            <h3 class="wizard-title"><span>1</span>Información Básica</h3>
+            <div class="wizard-bar"></div>
+          </div>
+        </div>
+        <div class="wizard-step" data-wizard-type="step">
+          <div class="wizard-label">
+            <h3 class="wizard-title"><span>2</span>Estado físico</h3>
+            <div class="wizard-bar"></div>
+          </div>
+        </div>
+        <div class="wizard-step" data-wizard-type="step">
+          <div class="wizard-label">
+            <h3 class="wizard-title"><span>3</span>Alimentación</h3>
+            <div class="wizard-bar"></div>
+          </div>
+        </div>
+        <div class="wizard-step" data-wizard-type="step">
+          <div class="wizard-label">
+            <h3 class="wizard-title"><span>4</span> Adjuntos</h3>
+            <div class="wizard-bar"></div>
+          </div>
+        </div>
+        <div class="wizard-step" data-wizard-type="step">
+          <div class="wizard-label">
+            <h3 class="wizard-title"><span>5</span>Diagnóstico y Plan</h3>
+            <div class="wizard-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end: Wizard Nav -->
+    
+    <!--begin: Wizard Body-->
+    <div class="row justify-content-center py-12 px-8 py-lg-15 px-lg-10">
+      <div class="col-xl-12 col-xxl-7">
+        <!--begin: Wizard Form-->
+        <form class="form" id="kt_form" v-if="show">
+          <!--begin: Wizard Step 1-->
+          <div
+          class="pb-5"
+          data-wizard-type="step-content"
+          data-wizard-state="current"
+          >
+          <h4 class="mb-10 font-weight-bold text-dark">
+            Datos básicos del paciente
+          </h4>
+          
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="form-group">
+                <label>Primer nombre</label>
+                <input
+                v-model="form.first_name_1"
+                type="text"
+                class="form-control form-control-solid form-control-lg"
+                name="first_name_1"
+                placeholder="Primer nombre"
+                />
+                <span class="form-text text-muted"
+                >Por favor ingrese el primer nombre.</span
+                >
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="form-group">
+                <label>Segundo nombre</label>
+                <input
+                type="text"
+                v-model="form.first_name_2"
+                class="form-control form-control-solid form-control-lg"
+                name="first_name_2"
+                placeholder="segundo nombre"
+                />
+                <span class="form-text text-muted"
+                >Por favor ingrese el segundo nombre.</span
+                >
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="form-group">
+                <label>Primer apellido</label>
+                <input
+                type="text"
+                v-model="form.last_name_1"
+                class="form-control form-control-solid form-control-lg"
+                name="last_name_1"
+                placeholder="Primer apellido"
+                />
+                <span class="form-text text-muted"
+                >Por favor ingrese el primer apellido.</span
+                >
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="form-group">
+                <label>Segundo apellido</label>
+                <input
+                type="text"
+                v-model="form.last_name_2"
+                class="form-control form-control-solid form-control-lg"
+                name="last_name_2"
+                placeholder="segundo apellido"
+                />
+                <span class="form-text text-muted"
+                >Por favor ingrese el segundo apellido.</span
+                >
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="form-group">
+                <label>Teléfono</label>
+                <input
+                type="text"
+                v-model="form.phone"
+                class="form-control form-control-solid form-control-lg"
+                name="phone"
+                />
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="form-group">
+                <label>Correo electrónico</label>
+                <input
+                type="email"
+                v-model="form.email"
+                class="form-control form-control-solid form-control-lg"
+                name="email"
+                />
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="form-group">
+                <label>Fecha de nacimiento</label>
+                <input
+                type="text"
+                v-model="form.birth_date"
+                class="form-control form-control-solid form-control-lg"
+                name="birth_date"
+                />
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Describa sus aspiraciones</label>
+            <textarea
+            type="text"
+            v-model="form.aspiration"
+            class="form-control form-control-solid form-control-lg"
+            name="aspiration"
+            ></textarea>
+          </div>
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="form-group">
+                <label>Objetivo</label>
+                <select
+                name="goal"
+                v-model="form.goal"
+                class="form-control form-control-solid form-control-lg"
+                >
+                <option value="">Selecccionar</option>
+                <option value="perdida de peso">Perdida de peso</option>
+                <option value="Perdida de % graso">Perdida de % graso</option>
+                <option value="Masa muscular">Masa muscular</option>
+                <option value="Aumento de peso">Aumento de peso</option>
+              </select>
+            </div>
+          </div></div>
+          
+          <h4 class="mb-10 font-weight-bold text-dark">
+            Datos de la consulta
+          </h4>
+          
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="form-group">
+                <label>Ciudad</label>
+                <select
+                name="city"
+                v-model="form.city"
+                class="form-control form-control-solid form-control-lg">
+                <option :value="null">Seleccione ciudad...</option>
+                <option v-for="city in cities" :value="city.name">{{ city.name }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xl-6" v-if="form.city == 'Extranjero (online)'">
+            <div class="form-group">
+              <label>Especifique: Cuidad - País</label>
+              <input
+              type="text"
+              v-model="form.city_text"
+              class="form-control form-control-solid form-control-lg"
+              name="city_text"
+              />
+              <span class="form-text text-muted"
+              >Ejemplo: Caracas - Venezuela.</span
+              >
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Tipo de consulta</label>
+          <select
+          name="plan"
+          v-model="form.plan"
+          class="form-control form-control-solid form-control-lg"
+          >
+          <option value="">Select</option>
+          <option value="Control">Control</option>
+          <option value="1ra vez paquete 2">1ra vez paquete 2</option>
+          <option value="1ra vez paquete 3">1ra vez paquete 3</option>
+          <option value="Control 1/2">Control 1/2</option>
+          <option value="Control 2/2">Control 2/2</option>
+          <option value="Control 1/3">Control 1/3</option>
+          <option value="Control 2/3">Control 2/3</option>
+          <option value="Control 3/3">Control 3/3</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="col-xl-12">
+          <div>
+            <b-form-checkbox
+            id="agreement"
+            v-model="agreement"
+            name="agreement"
+            value="1"
+            unchecked-value="0"
+            :checked="form.agreement_name"
+            >
+            ¿Tiene convenio?
+          </b-form-checkbox>
+        </div>
+      </div>
+      <div class="col-xl-6" v-if="agreement == 1">
+        <div class="form-group">
+          <label>Nombre del convenio</label>
+          <input
+          type="text"
+          v-model="form.agreement_name"
+          class="form-control form-control-solid form-control-lg"
+          name="agreement_name"
+          />
+        </div>
+      </div>
+      <div class="col-xl-6" v-if="agreement == 1">
+        <div class="form-group">
+          <label>Precio del convenio</label>
+          <input
+          type="text"
+          v-model="form.agreement_price"
+          class="form-control form-control-solid form-control-lg"
+          name="agreement_price"
+          />
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <!--end: Wizard Step 1-->
+  
+  <!--begin: Wizard Step 2-->
+  <div class="pb-5" data-wizard-type="step-content">
+    
+    <h4 class="mb-10 font-weight-bold text-dark">
+      Estado físico del paciente
+    </h4>
+    
+    <div class="row">
+      <div class="col-xl-12">
+        <b-form-checkbox
+        id="chk_laboratory"
+        v-model="chk_laboratory"
+        name="chk_laboratory"
+        value="1"
+        unchecked-value="0"
+        :checked="patient.laboratory == 'varios'"
+        >
+        Exámenes de laboatorio
+      </b-form-checkbox>
+    </div>
+    <div class="col-xl-12" v-if="chk_laboratory == 1">
+      <div class="form-group">
+        <label>Mencione los examenes</label>
+        <input
+        type="text"
+        class="form-control form-control-solid form-control-lg"
+        name="laboratory"
+        v-model="form.laboratory"
+        />
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xl-12">
+      <b-form-checkbox
+      id="chk_previous_experience"
+      v-model="chk_previous_experience"
+      name="chk_previous_experience"
+      value="1"
+      unchecked-value="0"
+      >
+      ¿Ha tenido otro proceso nutricional anteriormente?
+    </b-form-checkbox>
+  </div>
+  <div class="col-xl-12" v-if="chk_previous_experience == 1">
+    <div class="form-group">
+      <label>¿Cómo ha sido tu experiencia previa?</label>
+      <input
+      type="text"
+      v-model="form.previous_experience"
+      class="form-control form-control-solid form-control-lg"
+      name="previous_experience"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <b-form-checkbox
+    id="chk_medical_condition"
+    v-model="chk_medical_condition"
+    name="chk_medical_condition"
+    value="1"
+    unchecked-value="0"
+    >
+    ¿Sufre de alguna condición médica?
+  </b-form-checkbox>
+</div>
+<div class="col-xl-12" v-if="chk_medical_condition == 1">
+  <div class="form-group">
+    <label>Por favor describa</label>
+    <input
+    type="text"
+    v-model="form.medical_condition"
+    class="form-control form-control-solid form-control-lg"
+    name="medical_condition"
+    />
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <b-form-checkbox
+    id="chk_medicine"
+    v-model="chk_medicine"
+    name="chk_medicine"
+    value="1"
+    unchecked-value="0"
+    >
+    ¿Toma algún medicamento?
+  </b-form-checkbox>
+</div>
+<div class="col-xl-12" v-if="chk_medicine == 1">
+  <div class="form-group">
+    <label>Indique cuales toma</label>
+    <input
+    type="text"
+    v-model="form.medicine"
+    class="form-control form-control-solid form-control-lg"
+    name="medicine"
+    />
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <b-form-checkbox
+    id="chk_supplement"
+    v-model="chk_supplement"
+    name="chk_supplement"
+    value="1"
+    unchecked-value="0"
+    >
+    ¿Toma algún suplemento?
+  </b-form-checkbox>
+</div>
+<div class="col-xl-12" v-if="chk_supplement == 1">
+  <div class="form-group">
+    <label>Indique cual toma</label>
+    <input
+    type="text"
+    v-model="form.supplement"
+    class="form-control form-control-solid form-control-lg"
+    name="supplement"
+    />
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <b-form-checkbox
+    id="chk_previous_supplement"
+    v-model="chk_previous_supplement"
+    name="chk_previous_supplement"
+    value="1"
+    unchecked-value="0"
+    >
+    ¿Toma algún suplemento previamente?
+  </b-form-checkbox>
+</div>
+<div class="col-xl-12" v-if="chk_previous_supplement == 1">
+  <div class="form-group">
+    <label>Indique cual toma</label>
+    <input
+    type="text"
+    v-model="form.previous_supplement"
+    class="form-control form-control-solid form-control-lg"
+    name="previous_supplement"
+    />
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <b-form-checkbox
+    id="chk_weight_variation"
+    v-model="chk_weight_variation"
+    name="chk_weight_variation"
+    value="1"
+    unchecked-value="0"
+    >
+    ¿Ha variado mucho de peso en los últimos 2 años?
+  </b-form-checkbox>
+</div>
+<div class="col-xl-12" v-if="chk_weight_variation == 1">
+  <div class="form-group">
+    <label>¿Por qué?</label>
+    <input
+    type="text"
+    v-model="form.weight_variation"
+    class="form-control form-control-solid form-control-lg"
+    name="weight_variation"
+    />
+  </div>
+</div>
+</div>
+
+<h4 class="mb-10 mt-10 font-weight-bold text-dark">
+  Actividad física
+</h4>
+
+<div class="form-group">
+  <label>¿A qué se dedica?</label>
+  <input
+  type="text"
+  v-model="form.job"
+  class="form-control form-control-solid form-control-lg"
+  name="job"
+  />
+</div>
+
+<b-form-checkbox
+id="sedentary"
+v-model="form.sedentary"
+name="sedentary"
+value="1"
+unchecked-value="0"
+>
+¿Es sedentario?
+</b-form-checkbox>
+
+
+<b-form-group label="Disciplina deportiva">
+  <b-form-radio-group
+  id="rad_athletic_discipline"
+  v-model="rad_athletic_discipline"
+  :options="athletic_discipline_options"
+  name="rad_athletic_discipline"
+  ></b-form-radio-group>
+</b-form-group>
+<div class="form-group" v-if="rad_athletic_discipline == 'Otra'">
+  <label>Espeifique otra Disciplina</label>
+  <input
+  type="text"
+  class="form-control form-control-solid form-control-lg"
+  name="athletic_discipline"
+  v-model="form.athletic_discipline"
+  />
+</div>
+
+<div class="form-group">
+  <label>Describa el entrenamiento</label>
+  <textarea
+  class="form-control form-control-solid form-control-lg"
+  name="training_description"
+  v-model="form.training_description"
+  ></textarea>
+</div>
+
+<div class="row">
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Cantidad de horas diaras de entrenamiento</label>
+      <input
+      type="number"
+      min="0"
+      max="24"
+      class="form-control form-control-solid form-control-lg"
+      name="training_hours"
+      v-model="form.training_hours"
+      />
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Cantidad de días de entrenamiento semanal</label>
+      <input
+      type="number"
+      min="0"
+      max="7"
+      class="form-control form-control-solid form-control-lg"
+      name="training_days"
+      v-model="form.training_days"
+      />
+    </div>
+  </div>
+</div>
+</div>
+<!--end: Wizard Step 2-->
+
+<!--begin: Wizard Step 3-->
+<div class="pb-5" data-wizard-type="step-content">
+  <h4 class="mb-10 font-weight-bold text-dark">
+    Hábitos alimenticios
+  </h4>
+  
+  <div class="form-group">
+    <label>Desayuno</label>
+    <input
+    type="text"
+    class="form-control form-control-solid form-control-lg"
+    name="breakfast"
+    v-model="form.breakfast"
+    />
+  </div>
+  <div class="form-group">
+    <label>Media mañana</label>
+    <input
+    type="text"
+    class="form-control form-control-solid form-control-lg"
+    name="brunch"
+    v-model="form.brunch"
+    />
+  </div>
+  <div class="form-group">
+    <label>Almuerzo</label>
+    <input
+    type="text"
+    class="form-control form-control-solid form-control-lg"
+    name="lunch"
+    v-model="form.lunch"
+    />
+  </div>
+  <div class="form-group">
+    <label>Merienda</label>
+    <input
+    type="text"
+    class="form-control form-control-solid form-control-lg"
+    name="snack"
+    v-model="form.snack"
+    />
+  </div>
+  <div class="form-group">
+    <label>Cena</label>
+    <input
+    type="text"
+    class="form-control form-control-solid form-control-lg"
+    name="dinner"
+    v-model="form.dinner"
+    />
+  </div>
+  <div class="form-group">
+    <label>Cuando come fuera de casa ¿Qué suele comer?</label>
+    <input
+    type="text"
+    class="form-control form-control-solid form-control-lg"
+    name="street_food"
+    v-model="form.street_food"
+    />
+  </div>
+  
+  <h4 class="mb-10 mt-10 font-weight-bold text-dark">
+    Haga una descripción de sus comidas por grupo
+  </h4>
+  
+  <b-form-group label="Proteinas:">
+    <b-form-checkbox inline  name="pollo" v-model="form.pollo">Pollo</b-form-checkbox>
+    <b-form-checkbox inline  name="pescado_blanco" v-model="form.pescado_blanco">Pescado blanco</b-form-checkbox>
+    <b-form-checkbox inline  name="carne_de_res" v-model="form.carne_de_res">Carne de res</b-form-checkbox>
+    <b-form-checkbox inline  name="lomo_de_cerdo" v-model="form.lomo_de_cerdo">Lomo de cerdo</b-form-checkbox>
+    <b-form-checkbox inline  name="atun" v-model="form.atun">Atún</b-form-checkbox>
+    <b-form-checkbox inline  name="huevos" v-model="form.huevos">Huevos</b-form-checkbox>
+    <b-form-checkbox inline  name="claras_de_huevos" v-model="form.claras_de_huevos">Claras de huevos</b-form-checkbox>
+    <b-form-checkbox inline  name="whey_protein" v-model="form.whey_protein">Whey Protein</b-form-checkbox>
+  </b-form-group>
+  
+  <b-form-group label="Harinas / Carbohidratos:">
+    <b-form-checkbox inline v-model="form.arroz" name="arroz">Arroz</b-form-checkbox>
+    <b-form-checkbox inline v-model="form.arroz_integral" name="arroz_integral">Arroz integral</b-form-checkbox>
+    <b-form-checkbox inline v-model="form.pasta" name="pasta">Pasta</b-form-checkbox>
+    <b-form-checkbox inline v-model="form.pasta_integral" name="pasta_integral">Pasta integral</b-form-checkbox>
+    <b-form-checkbox inline v-model="form.platano" name="platano">Plátano</b-form-checkbox>
+    <b-form-checkbox inline v-model="form.papa" name="papa">Papa</b-form-checkbox>
+    <b-form-checkbox inline v-model="form.arepa" name="arepa">Arepa</b-form-checkbox>
+    <b-form-checkbox inline v-model="form.pan" name="pan">Pan</b-form-checkbox>
+    <b-form-checkbox inline v-model="form.tostadas_de_arroz" name="tostadas_de_arroz">Tostadas de arroz</b-form-checkbox>
+  </b-form-group>
+  
+  <b-form-group label="Frutas:">
+    <b-form-checkbox inline name="frutos_rojos" v-model="form.frutos_rojos">Frutos rojos</b-form-checkbox>
+    <b-form-checkbox inline name="frutos_amarillos" v-model="form.frutos_amarillos">Frutos amarillos</b-form-checkbox>
+    <b-form-checkbox inline name="frutos_verdes" v-model="form.frutos_verdes">Frutos verdes</b-form-checkbox>
+    <b-form-checkbox inline name="banano" v-model="form.banano">Banano</b-form-checkbox>
+    <b-form-checkbox inline name="frutos_deshidratadas" v-model="form.frutos_deshidratadas">Frutos ddeshidratadas</b-form-checkbox>
+  </b-form-group>
+  
+  <b-form-group label="Vegetales:">
+    <b-form-checkbox inline name="verduras_cocidas" v-model="form.verduras_cocidas">Verduras cocidas</b-form-checkbox>
+    <b-form-checkbox inline name="vegetales_frescos" v-model="form.vegetales_frescos">Vegetales frescos</b-form-checkbox>
+  </b-form-group>
+  
+  <b-form-group label="Lacteos:">
+    <b-form-checkbox inline name="quesos_frescos" v-model="form.quesos_frescos">Quesos frescos</b-form-checkbox>
+    <b-form-checkbox inline name="quesos_madurados" v-model="form.quesos_madurados">Quesos madurados</b-form-checkbox>
+    <b-form-checkbox inline name="yogures" v-model="form.yogures">Yogures</b-form-checkbox>
+    <b-form-checkbox inline name="leche" v-model="form.leche">Leche</b-form-checkbox>
+    <b-form-checkbox inline name="crema_de_leche" v-model="form.crema_de_leche">Crema de leche</b-form-checkbox>
+    <b-form-checkbox inline name="mantequilla" v-model="form.mantequilla">Mantequilla</b-form-checkbox>
+  </b-form-group>
+  
+  <b-form-group label="Grasas:">
+    <b-form-checkbox inline name="aguacate" v-model="form.aguacate">Aguacate</b-form-checkbox>
+    <b-form-checkbox inline name="frutos_secos" v-model="form.frutos_secos">Frutos secos</b-form-checkbox>
+    <b-form-checkbox inline name="aceites_adicionados" v-model="form.aceites_adicionados">Aceites adicionados</b-form-checkbox>
+    <b-form-checkbox inline name="crema_de_mani" v-model="form.crema_de_mani">Crema de maní</b-form-checkbox>
+  </b-form-group>
+  
+  <div class="form-group">
+    <label>Menciona los alimentos que no toleras, no te gustan o no prefieras</label>
+    <input
+    type="text"
+    class="form-control form-control-solid form-control-lg"
+    v-model="form.unwanted_food"
+    name="unwanted_food"
+    />
+  </div>
+  
+  <div class="form-group">
+    <label>Menciona alimentos que son indispensables para ti, que si se eliminan de su dieta, los volvería a comer</label>
+    <input
+    type="text"
+    class="form-control form-control-solid form-control-lg"
+    v-model="form.desired_food"
+    name="desired_food"
+    />
+  </div>
+  
+  
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="form-group">
+        <label>¿Cuánto de agua toma al dia?</label>
+        <select
+        name="water"
+        v-model="form.water"
+        class="form-control form-control-solid form-control-lg"
+        >
+        <option value="" selected>-- Seleccione --</option>
+        <option value="Menos de 1 litro">Menos de 1 litro</option>
+        <option value="Entre 1 y 2 litros">Entre 1 y 2 litros</option>
+        <option value="Más de 2 litros">Más de 2 litros</option>
+        <option value="No sabe cuanto toma">No sabe cuanto toma</option>
+      </select>
+    </div>
+  </div></div>
+  
+  <b-form-group label="Otra bebidas:">
+    <b-form-checkbox inline name="soda" v-model="form.soda">Gaseosas</b-form-checkbox>
+    <b-form-checkbox inline name="alcoholic_drinks" v-model="form.alcoholic_drinks">Bebidas alchoolicas</b-form-checkbox>
+    <b-form-checkbox inline name="coffee" v-model="form.coffee">Café</b-form-checkbox>
+    <b-form-checkbox inline name="tea" v-model="form.tea">Tés / Aromáticas</b-form-checkbox>
+  </b-form-group>
+</div>
+<!--end: Wizard Step 3-->
+
+<!--begin: Wizard Step 4-->
+<div class="pb-5" data-wizard-type="step-content">
+  <h4 class="mb-10 font-weight-bold text-dark">
+    Archivos Adjuntos
+  </h4>
+  
+</div>
+<!--end: Wizard Step 4-->
+
+<!--begin: Wizard Step 5-->
+<div class="pb-5" data-wizard-type="step-content">
+  <h4 class="mb-10 font-weight-bold text-dark">
+    Diagnóstico
+  </h4>
+  
+  <b-form-group label="Diagnósticos dietarios:">
+    <b-form-checkbox name="bajo_consumo_energetico" v-model="form.bajo_consumo_energetico">Bajo cosumo energético</b-form-checkbox>
+    <b-form-checkbox name="bajo_consumo_proteico" v-model="form.bajo_consumo_proteico">Bajo consumo proteico</b-form-checkbox>
+    <b-form-checkbox name="bajo_consumo_carbohidratos" v-model="form.bajo_consumo_carbohidratos">Bajo consumo de carbohidratos</b-form-checkbox>
+    <b-form-checkbox name="bajo_consumo_grasas_escenciales" v-model="form.bajo_consumo_grasas_escenciales">Bajo consumo de grasas escenciales</b-form-checkbox>
+    <b-form-checkbox name="bajo_consumo_micronutrientes" v-model="form.bajo_consumo_micronutrientes">Bajo consumo de micronutrientes</b-form-checkbox>
+    <b-form-checkbox name="alto_consumo_ultraprcesados" v-model="form.alto_consumo_ultraprcesados">Alto consumo de ultraprocesados</b-form-checkbox>
+    <b-form-checkbox name="inadecuado_timming_ingestas" v-model="form.inadecuado_timming_ingestas">Inadecuando TIMMING de ingestas</b-form-checkbox>
+    <b-form-checkbox name="esquema_hidratacion_inadecuado" v-model="form.esquema_hidratacion_inadecuado">Esquea de hidratación inadecuado</b-form-checkbox>
+    <b-form-checkbox name="dieta_alta_fodmaps" v-model="form.dieta_alta_fodmaps">Dieta alta en FODMAPS</b-form-checkbox>
+    <b-form-checkbox name="excedente_calorico" v-model="form.excedente_calorico">Excedente calórico</b-form-checkbox>
+  </b-form-group>
+  
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="form-group">
+        <label>Plan de trabajo</label>
+        <select
+        name="workplan"
+        v-model="form.workplan"
+        class="form-control form-control-solid form-control-lg"
+        >
+        <option value="" selected>-- Seleccione --</option>
+        <option value="Dieta alta en proteinas">Dieta alta en proteinas</option>
+        <option value="Déficit calórico">Déficit calórico</option>
+        <option value="Superavit calórico">Superavit calórico</option>
+        <option value="Ayuno intermitente">Ayuno intermitente</option>
+        <option value="Dietas Keto">Dietas Keto</option>
+        <option value="Dieta baja en FODMAPS">Dieta baja en FODMAPS</option>
+        <option value="Medidas anti inflamatorias">Medidas anti inflamatorias</option>
+        <option value="Deta muy baja en carbohidratos">Deta muy baja en carbohidratos</option>
+        <option value="Esquema de suplementación">Esquema de suplementación</option>
+      </select>
+    </div>
+  </div></div>
+</div>
+<!--end: Wizard Step 5-->
+
+<!--begin: Wizard Actions -->
+<div class="d-flex justify-content-between border-top pt-10">
+  <div class="mr-2">
+    <button
+    class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4"
+    data-wizard-type="action-prev"
+    >
+    Anterior
+  </button>
+</div>
+<div>
+  <button
+  v-on:click="submit"
+  class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
+  data-wizard-type="action-submit"
+  >
+  Guardar
+</button>
+<button
+class="btn btn-primary font-weight-bold text-uppercase px-9 py-4"
+data-wizard-type="action-next"
+>
+Siguiente paso
+</button>
+</div>
+</div>
+<!--end: Wizard Actions -->
+</form>
+<!--end: Wizard Form-->
+</div>
+</div>
+<!--end: Wizard Body-->
+</div>
+<!--end: Wizard-->
+</div>
+</div>
+</template>
+
+<style lang="scss">
+@import "../../src/assets/sass/pages/wizard/wizard-3.scss";
+</style>
+
+<script>
+import { SET_BREADCRUMB } from "../../src/core/services/store/breadcrumbs.module";
+import KTUtil from "../../src/assets/js/components/util";
+import KTWizard from "../../src/assets/js/components/wizard";
+import Swal from "sweetalert2";
+import Layout from "../../src/view/layout/Layout"
+
+export default {
+  name: "History",
+  // Using a render function
+  layout: (h, page) => h(Layout, [page]),
+  metaInfo() {
+    return {
+      title: `Historial del paciente ${this.patient.first_name_1} ${this.patient.last_name_1}`,
+    }
+  },
+  props: ['patient', 'cities'],
+  created(){
+    console.log(this.patient.id)
+  },
+  data() {
+    return {
+      form: {
+        first_name_1 : this.patient.first_name_1,
+        first_name_2 : this.patient.first_name_2,
+        last_name_1 : this.patient.last_name_1,
+        last_name_2 : this.patient.last_name_2,
+        birth_date : this.patient.birth_date,
+        phone : this.patient.phone,
+        email : this.patient.email,
+        active : this.patient.active,
+        aspiration : this.patient.aspiration,
+        goal : this.patient.goal,
+        avatar : this.patient.avatar,
+        plan : this.patient.plan,
+        online : this.patient.omline,
+        city : this.extranjero(this.patient.city),
+        city_text : this.patient.city,
+        agreement_name : this.patient.agreement_name,
+        agreement_price : this.patient.agreement_price,
+        laboratory : this.patient.laboratory,
+        previous_experience : this.patient.previous_experience,
+        medical_condition : this.patient.medical_condition,
+        medicine : this.patient.medicine,
+        supplement : this.patient.supplement,
+        previous_supplement : this.patient.previous_supplement,
+        weight_variation : this.patient.weight_variation,
+        job : this.patient.job,
+        sedentary : this.patient.sedentary,
+        athletic_discipline : this.patient.athletic_discipline,
+        training_description : this.patient.training_description,
+        training_hours : this.patient.training_hours,
+        training_days : this.patient.training_days,
+        breakfast : this.patient.breakfast,
+        brunch : this.patient.brunch,
+        lunch : this.patient.lunch,
+        snack : this.patient.snack,
+        dinner : this.patient.dinner,
+        street_food : this.patient.street_food,
+        pollo : this.patient.pollo,
+        pescado_blanco : this.patient.pescado_blanco,
+        carne_de_res : this.patient.carne_de_res,
+        lomo_de_cerdo : this.patient.lomo_de_cerdo,
+        atun : this.patient.atun,
+        huevos : this.patient.huevos,
+        claras_de_huevos : this.patient.claras_de_huevos,
+        whey_protein : this.patient.whey_protein,
+        arroz : this.patient.arroz,
+        arroz_integral : this.patient.arroz_integral,
+        pasta : this.patient.pasta,
+        pasta_integral : this.patient.pasta_integral,
+        platano : this.patient.platano,
+        papa : this.patient.papa,
+        arepa : this.patient.arepa,
+        pan : this.patient.pan,
+        avena : this.patient.avena,
+        tostadas_de_arroz : this.patient.tostadas_de_arroz,
+        frutos_rojos : this.patient.frutos_rojos,
+        frutos_amarillos : this.patient.frutos_amarillos,
+        frutos_verdes : this.patient.frutos_verdes,
+        banano : this.patient.banano,
+        frutas_deshidratadas : this.patient.frutas_deshidratadas,
+        verduras_cocidas : this.patient.verduras_cocidas,
+        vegetales_frescos : this.patient.vegetales_frescos,
+        quesos_frescos : this.patient.quesos_frescos,
+        quesos_madurados : this.patient.quesos_madurados,
+        yogures : this.patient.yogures,
+        leche : this.patient.leche,
+        crema_de_leche : this.patient.crema_de_leche,
+        mantequilla : this.patient.mantequilla,
+        grasas : this.patient.grasas,
+        aguacate : this.patient.aguacate,
+        frutos_secos : this.patient.frutos_secos,
+        aceites_adicionados : this.patient.aceites_adicionados,
+        crema_de_mani : this.patient.crema_de_mani,
+        unwanted_food : this.patient.unwanted_food,
+        desired_food : this.patient.desired_food,
+        water : this.patient.water,
+        soda : this.patient.soda,
+        alcoholic_drinks : this.patient.alcoholic_drinks,
+        coffee : this.patient.coffee,
+        tea : this.patient.tea,
+        bajo_consumo_energetico : this.patient.bajo_consumo_energetico,
+        bajo_consumo_proteico : this.patient.bajo_consumo_proteico,
+        bajo_consumo_carbohidratos : this.patient.bajo_consumo_carbohidratos,
+        bajo_consumo_grasas_escenciales : this.patient.bajo_consumo_grasas_escenciales,
+        bajo_consumo_micronutrientes : this.patient.bajo_consumo_micronutrientes,
+        alto_consumo_ultraprcesados : this.patient.alto_consumo_ultraprcesados,
+        inadecuado_timming_ingestas : this.patient.inadecuado_timming_ingestas,
+        esquema_hidratacion_inadecuado : this.patient.esquema_hidratacion_inadecuado,
+        dieta_alta_fodmaps : this.patient.dieta_alta_fodmaps,
+        excedente_calorico : this.patient.excedente_calorico,
+        workplan : this.patient.workplan,
+      },
+      show:true,
+      online: '',
+      agreement: this.habilitado(this.patient.agreement_name),
+      chk_laboratory: this.habilitado(this.patient.laboratory),
+      chk_previous_experience: this.habilitado(this.patient.previous_experience),
+      chk_medical_condition: this.habilitado(this.patient.medical_condition),
+      chk_medicine: this.habilitado(this.patient.medicine),
+      chk_supplement: this.habilitado(this.patient.supplement),
+      chk_previous_supplement: this.habilitado(this.patient.supplement),
+      chk_weight_variation: this.habilitado(this.patient.weight_variation),
+      rad_athletic_discipline: this.habilitado(this.patient.athletic_discipline),
+      athletic_discipline_options: [
+        { text: 'Crossfit', value: 'Crossfit' },
+        { text: 'Programación de atleta', value: 'Programación de atleta' },
+        { text: 'Gimnasio', value: 'Gimnasio'},
+        { text: 'Entrenamiento funcional', value: 'Entrenamiento funcional'},
+        { text: 'Entrenamiento en casa', value: 'Entrenamiento en casa'},
+        { text: 'Otra', value: 'Otra' }
+      ]
+    }
+  },
+  mounted() {
+    // Initialize form wizard
+    const wizard = new KTWizard("kt_wizard_v3", {
+      startStep: 1, // initial active step number
+      clickableSteps: true // allow step clicking
+    });
+    
+    // Validation before going to next page
+    wizard.on("beforeNext", function(/*wizardObj*/) {
+      // validate the form and use below function to stop the wizard's step
+      // wizardObj.stop();
+    });
+    
+    // Change event
+    wizard.on("change", function(/*wizardObj*/) {
+      setTimeout(() => {
+        KTUtil.scrollTop();
+      }, 500);
+    });
+  },
+  methods: {
+    habilitado(v){
+      if(v === '' || v === null) return 0
+      else return 1
+    },
+    extranjero(v){
+      let c = 'Extranjero (online)'
+      this.cities.forEach((city) => {
+        if (v == city.name) {
+          c = city.name
+        }
+      })
+      return c
+    },
+    submit: function(e) {
+      e.preventDefault();
+      console.log('si '+ this.patient.id)
+      var request = this.form
+      var patient = this.patient.id
+      //this.$inertia.patch(route('patients.update', request, {paciente : patient} ))
+      this.$inertia.put(route('patients.update', this.patient.id), this.form,
+      {
+        onSuccess: () => {
+          Swal.fire({
+            title: "",
+            text: "La información fue actualizada exitosamente",
+            icon: "success",
+            confirmButtonClass: "btn btn-secondary"
+          })
+        }
+      })
+    }
+  }
+}
+</script>

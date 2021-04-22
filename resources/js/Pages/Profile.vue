@@ -1,166 +1,131 @@
 <template>
   <div>
-    <b-alert
-      show
-      variant="light"
-      class="alert alert-custom alert-white alert-shadow fade show gutter-b"
-    >
-    <b-container class="bv-example-row">
-      <b-row>
-        <b-col col lg="2">
-          <div class="symbol symbol-50 symbol-light mr-4">
-            <span class="symbol-label">
-              <img
-                src="../../../public/media/svg/avatars/001-boy.svg"
-                class="h-75 align-self-end"
-                alt=""
-              />
+    <!--begin::Card-->
+    <div class="card card-custom gutter-b">
+      <div class="card-body">
+        <!--begin::Details-->
+        <div class="d-flex mb-9">
+          <!--begin: Pic-->
+          <div class="flex-shrink-0 mr-7 mt-lg-0 mt-3">
+            <div class="symbol symbol-50 symbol-lg-120">
+              <img :src="currentUserPhoto" alt="image" />
+            </div>
+            
+            <div class="symbol symbol-50 symbol-lg-120 symbol-primary d-none">
+              <span class="font-size-h3 symbol-label font-weight-boldest">
+                JM
+              </span>
+            </div>
+          </div>
+          <!--end::Pic-->
+          
+          <!--begin::Info-->
+          <div class="flex-grow-1">
+            <!--begin::Title-->
+            <div class="d-flex justify-content-between flex-wrap mt-1">
+              <div class="d-flex mr-3">
+                <a
+                href="#"
+                class="text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3"
+                >
+                {{patient.first_name_1}} {{patient.last_name_1}}
+              </a>
+              <a href="#"
+              ><i class="flaticon2-correct text-success font-size-h5"></i
+                ></a>
+              </div>
+              
+              <div class="my-lg-0 my-3">
+                <a
+                :href="route('patients.edit', patient.id)"
+                class="btn btn-sm btn-info font-weight-bolder text-uppercase"
+                >Editar Historial</a
+                >
+              </div>
+            </div>
+            <!--end::Title-->
+            
+            <!--begin::Content-->
+            <div class="d-flex flex-wrap justify-content-between mt-1">
+              <div class="d-flex flex-column flex-grow-1 pr-8">
+                <div class="d-flex flex-wrap mb-4">
+                  <a
+                  href="#"
+                  class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
+                  ><i class="flaticon2-new-email mr-2 font-size-lg"></i
+                    >{{patient.email}}
+                  </a>
+                  <a
+                  href="#"
+                  class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
+                  ><i class="flaticon2-calendar-3 mr-2 font-size-lg"></i>
+                  {{patient.phone}}
+                </a>
+                <a
+                href="#"
+                class="text-dark-50 text-hover-primary font-weight-bold"
+                ><i class="flaticon2-placeholder mr-2 font-size-lg"></i>
+                {{patient.city}}
+              </a>
+            </div>
+            
+            <span class="font-weight-bold text-dark-50">
+              {{patient.aspiration}}
             </span>
           </div>
-        </b-col>
-        <b-col cols="12" lg="7">
-          <h5 class="mt-0 font-weight-bolder text-dark">
-            {{patient.first_name_1}} {{patient.last_name_1}}
-          </h5>
-          <p>
-            {{patient.goal}}
-            {{patient.id}}
-          </p>
-        </b-col>
-        <b-col col lg="3">
-          <a :href="route('poll.edit', patient.id)" class="btn btn-info font-weight-bolder font-size-sm mr-3"
-            >Editar historial</a
-          >
-        </b-col>
-      </b-row>
-    </b-container>
-    </b-alert>
-
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="card card-custom card-stretch card-shadowless gutter-b">
-          <!--begin::Header-->
-          <div class="card-header border-0 pt-5">
-            <div class="card-title font-weight-bolder">
-              <div class="card-label">
-                Anuncios
-                <div class="font-size-sm text-muted mt-2">
-
-
-                </div>
-              </div>
-            </div>
-            <div class="card-toolbar">
-
-            </div>
-          </div>
-          <div class="card-body">
-          </div>
         </div>
-
-
-
-                <div class="card card-custom card-stretch card-shadowless gutter-b">
-                  <div class="card-header border-0 pt-5">
-                    <div class="card-title font-weight-bolder">
-                      <div class="card-label">
-                        Nombre
-                        <div class="font-size-sm text-muted mt-2">
-
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-toolbar">
-
-                    </div>
-                  </div>
-                  <div class="card-body">
-                  </div>
-                </div>
-
-
-
+        <!--end::Content-->
       </div>
-      <div class="col-lg-8">
-        <div class="card card-custom card-stretch card-shadowless gutter-b">
-          <div class="card-header border-0 pt-5">
-            <div class="card-title font-weight-bolder">
-              <div class="card-label">
-                Notas
-                <div class="font-size-sm text-muted mt-2">
-
-
-                </div>
-              </div>
-            </div>
-            <div class="card-toolbar">
-
-            </div>
-          </div>
-          <div class="card-body">
-          </div>
-        </div>
-      </div>
+      <!--end::Info-->
     </div>
-
-
+    <!--end::Details-->
   </div>
+  <!--end::Item-->
+</div>
+
+<!--begin::Row-->
+<div class="row">
+  <div class="col-lg-4">
+    <Widget2></Widget2>
+  </div>
+  <div class="col-lg-8">
+    <WidgetNotes></WidgetNotes>
+  </div>
+</div>
+<!--end::Row-->
+</div>
 </template>
 
 <script>
-import { SET_BREADCRUMB } from "../src/core/services/store/breadcrumbs.module";
-import PatientsList from "./list/Patients.vue";
 import Layout from "../src/view/layout/Layout"
+import { mapGetters } from "vuex";
+import WidgetNotes from "./profile/Notes"
+import Widget2 from "../src/view/pages/profile/profile-comp-3/Widget2";
+import Widget13 from "../src/view/pages/profile/profile-comp-3/Widget13";
+import Widget15 from "../src/view/pages/profile/profile-comp-3/Widget15";
+import Widget3 from "../src/view/pages/profile/profile-comp-3/Widget3";
 
 export default {
-    // Using a render function
-    layout: (h, page) => h(Layout, [page]),
-    metaInfo() {
-      return {
-        title: `Paciente ${patient.first_name_1} ${patient.last_name_1}`,
-      }
-    },
-    props: ['patient'],
-    components: {
-        PatientsList
-    },
-/*
-  mounted() {
-      this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
-      axios.get('patients').then((response) => {
-          console.log(response)
-          this.patients = response.data;
-      });
-      console.log('Component mounted.')
+  // Using a render function
+  layout: (h, page) => h(Layout, [page]),
+  metaInfo() {
+    return {
+      title: `Paciente ${patient.first_name_1} ${patient.last_name_1}`,
+    }
   },
-*/
-  // methods: {
-  //   setActiveTab1(event) {
-  //     this.tabIndex = this.setActiveTab(event);
-  //   },
-  //   setActiveTab2(event) {
-  //     this.tabIndex2 = this.setActiveTab(event);
-  //   },
-  //   /**
-  //    * Set current active on click
-  //    * @param event
-  //    */
-  //   setActiveTab(event) {
-  //     // get all tab links
-  //     const tab = event.target.closest('[role="tablist"]');
-  //     const links = tab.querySelectorAll(".nav-link");
-  //     // remove active tab links
-  //     for (let i = 0; i < links.length; i++) {
-  //       links[i].classList.remove("active");
-  //     }
-  //
-  //     // set current active tab
-  //     event.target.classList.add("active");
-  //
-  //     // set clicked tab index to bootstrap tab
-  //     return parseInt(event.target.getAttribute("data-tab"));
-  //   }
-  // }
+  props: ['patient'],
+  components: {
+    WidgetNotes,
+    Widget2,
+    Widget3,
+    Widget13,
+    Widget15
+  },
+  computed: {
+    ...mapGetters(["currentUserPhoto"])
+  },
+  data() {
+    return {};
+  },
 };
 </script>

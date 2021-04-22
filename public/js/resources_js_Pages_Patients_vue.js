@@ -42,14 +42,14 @@ __webpack_require__.r(__webpack_exports__);
     PatientsList: _list_Patients_vue__WEBPACK_IMPORTED_MODULE_1__.default
   }
   /*
-    mounted() {
-        this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
-        axios.get('patients').then((response) => {
-            console.log(response)
-            this.patients = response.data;
-        });
-        console.log('Component mounted.')
-    },
+  mounted() {
+  this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
+  axios.get('patients').then((response) => {
+  console.log(response)
+  this.patients = response.data;
+  });
+  console.log('Component mounted.')
+  },
   */
   // methods: {
   //   setActiveTab1(event) {
@@ -94,6 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../src/view/layout/Layout */ "./resources/js/src/view/layout/Layout.vue");
 //
 //
 //
@@ -137,63 +138,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  // Using a render function
+  layout: function layout(h, page) {
+    return h(_src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_0__.default, [page]);
+  },
+  metaInfo: function metaInfo() {
+    return {
+      title: "Pacientes"
+    };
+  },
   props: ['patient'],
   methods: {
     calcularEdad: function calcularEdad(fecha) {
@@ -5277,24 +5232,24 @@ var render = function() {
               {
                 staticClass:
                   "font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1",
-                attrs: { href: "#" }
+                attrs: { href: _vm.route("patients.show", _vm.patient.id) }
               },
               [
                 _vm._v(
-                  "\n          " +
+                  "\n            " +
                     _vm._s(
                       _vm.patient.first_name_1 + " " + _vm.patient.last_name_1
                     ) +
-                    "\n        "
+                    "\n          "
                 )
               ]
             ),
             _vm._v(" "),
             _c("span", { staticClass: "text-muted font-weight-bold" }, [
               _vm._v(
-                "\n          " +
+                "\n            " +
                   _vm._s(_vm.calcularEdad(_vm.patient.birth_date) + " años") +
-                  "\n        "
+                  "\n          "
               )
             ])
           ])
@@ -5305,13 +5260,15 @@ var render = function() {
         _c("div", { staticClass: "mb-10" }, [
           _c("p", { staticClass: "text-dark-50 m-0 pt-5 font-weight-normal" }, [
             _c("em", [
-              _vm._v(_vm._s(_vm._f("truncate")(_vm.patient.goal, 20, "...")))
+              _vm._v(
+                _vm._s(_vm._f("truncate")(_vm.patient.aspiration, 20, "..."))
+              )
             ])
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "text-dark-50 m-0 pt-5 font-weight-normal" }, [
             _c("strong", [_vm._v("Ubicación: ")]),
-            _vm._v(_vm._s(_vm.patient.city.name) + "\n        ")
+            _vm._v(_vm._s(_vm.patient.city) + "\n        ")
           ]),
           _vm._v(" "),
           _c(
@@ -6227,9 +6184,7 @@ var render = function() {
                       [
                         _c("inline-svg", {
                           attrs: {
-                            src: _vm.direccion(
-                              "/media/svg/icons/Layout/Layout-4-blocks.svg"
-                            )
+                            src: "/media/svg/icons/Layout/Layout-4-blocks.svg"
                           }
                         })
                       ],

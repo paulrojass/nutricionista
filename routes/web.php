@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
- */
+*/
 /*
 /Route::get('/', function () {
 return view('welcome');
 });
- */
+*/
 
 //Auth::routes();
 
@@ -27,34 +27,20 @@ Route::post('login')->name('login.attempt')->uses([App\Http\Controllers\Auth\Log
 Route::get('/', App\Http\Controllers\WelcomeController::class);
 
 Route::prefix('panel')->group(function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::resource('pacientes',
-      App\Http\Controllers\PatientController::class,
-      [
-        'names' => [
-            'index' => 'patients.index',
-            'create' => 'patients.create',
-            'show' => 'patients.show',
-            'store' => 'patients.store',
-            'edit' => 'patients.edit',
-            'update' => 'patients.update',
-            'destroy' => 'patients.destroy'
-        ]
-      ]);
-      Route::resource('pacientes/historial',
-        App\Http\Controllers\PollController::class,
-        [
-          'names' => [
-              'index' => 'poll.index',
-              'create' => 'poll.create',
-              'show' => 'poll.show',
-              'store' => 'poll.store',
-              'edit' => 'poll.edit',
-              'update' => 'poll.update',
-              'destroy' => 'poll.destroy'
-          ]
-        ]);
-
+  Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+  Route::resource('pacientes',
+  App\Http\Controllers\PatientController::class,
+  [
+    'names' => [
+      'index' => 'patients.index',
+      'create' => 'patients.create',
+      'show' => 'patients.show',
+      'store' => 'patients.store',
+      'edit' => 'patients.edit',
+      'update' => 'patients.update',
+      'destroy' => 'patients.destroy'
+    ]
+  ]);
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

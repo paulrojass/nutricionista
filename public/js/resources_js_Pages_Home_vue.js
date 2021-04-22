@@ -6502,9 +6502,7 @@ var render = function() {
                       [
                         _c("inline-svg", {
                           attrs: {
-                            src: _vm.direccion(
-                              "/media/svg/icons/Layout/Layout-4-blocks.svg"
-                            )
+                            src: "/media/svg/icons/Layout/Layout-4-blocks.svg"
                           }
                         })
                       ],
