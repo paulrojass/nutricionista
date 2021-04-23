@@ -141,9 +141,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "widget-12",
+  name: "controls",
   props: ['monthControls', 'weekControls', 'dayControls'],
   data: function data() {
     return {
@@ -152,9 +157,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       week: this.weekControls,
       day: this.dayControls
     };
-  },
-  created: function created() {
-    console.log(this.monthControls);
   },
   methods: {
     calcularEdad: function calcularEdad(fecha) {
@@ -173,125 +175,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"][dayIndex] || '';
     }
   },
-
-  /*
-    data() {
-      return {
-        show: "day",
-        month: [
-          {
-            title: "Bestseller Theme",
-            desc: "Amazing Templates",
-            desc2: "ReactJS, Ruby",
-            users: "354 Users",
-            img: "media/svg/misc/014-kickstarter.svg"
-          },
-          {
-            title: "Top Authors",
-            desc: "Successful Fellas",
-            desc2: "ReactJs, HTML",
-            users: "4600 Users",
-            img: "media/svg/misc/006-plurk.svg"
-          },
-          {
-            title: "New Users",
-            desc: "Awesome Users",
-            desc2: "Laravel, Metronic",
-            users: "890 Users",
-            img: "media/svg/misc/003-puzzle.svg"
-          },
-          {
-            title: "Popular Authors",
-            desc: "Most Successful",
-            desc2: "Python, MySQL",
-            users: "7200 Users",
-            img: "media/svg/misc/015-telegram.svg"
-          },
-          {
-            title: "Active Customers",
-            desc: "Best Customers",
-            desc2: "AngularJS, C#",
-            users: "6370 Users",
-            img: "media/svg/misc/005-bebo.svg"
-          }
-        ],
-        week: [
-          {
-            title: "Popular Authors",
-            desc: "Most Successful",
-            desc2: "Python, MySQL",
-            users: "7200 Users",
-            img: "media/svg/misc/015-telegram.svg"
-          },
-          {
-            title: "Top Authors",
-            desc: "Successful Fellas",
-            desc2: "ReactJs, HTML",
-            users: "4600 Users",
-            img: "media/svg/misc/006-plurk.svg"
-          },
-          {
-            title: "New Users",
-            desc: "Awesome Users",
-            desc2: "Laravel, Metronic",
-            users: "890 Users",
-            img: "media/svg/misc/003-puzzle.svg"
-          },
-          {
-            title: "Active Customers",
-            desc: "Best Customers",
-            desc2: "AngularJS, C#",
-            users: "6370 Users",
-            img: "media/svg/misc/005-bebo.svg"
-          },
-          {
-            title: "Bestseller Theme",
-            desc: "Amazing Templates",
-            desc2: "ReactJS, Ruby",
-            users: "354 Users",
-            img: "media/svg/misc/014-kickstarter.svg"
-          }
-        ],
-        day: [
-          {
-            title: "Popular Authors",
-            desc: "Most Successful",
-            desc2: "Python, MySQL",
-            users: "7200 Users",
-            img: "media/svg/misc/015-telegram.svg"
-          },
-          {
-            title: "Top Authors",
-            desc: "Successful Fellas",
-            desc2: "ReactJs, HTML",
-            users: "4600 Users",
-            img: "media/svg/misc/006-plurk.svg"
-          },
-          {
-            title: "New Users",
-            desc: "Awesome Users",
-            desc2: "Laravel, Metronic",
-            users: "890 Users",
-            img: "media/svg/misc/003-puzzle.svg"
-          },
-          {
-            title: "Bestseller Theme",
-            desc: "Amazing Templates",
-            desc2: "ReactJS, Ruby",
-            users: "354 Users",
-            img: "media/svg/misc/014-kickstarter.svg"
-          },
-          {
-            title: "Active Customers",
-            desc: "Best Customers",
-            desc2: "AngularJS, C#",
-            users: "6370 Users",
-            img: "media/svg/misc/005-bebo.svg"
-          }
-        ]
-      };
-    },
-  */
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig"])), {}, {
     dataToShow: function dataToShow() {
       if (this.show === "month") return this.month;
@@ -466,46 +349,103 @@ var render = function() {
                 _vm._l(_vm.dataToShow, function(item, i) {
                   return [
                     _c("tr", { key: i }, [
-                      _vm._m(2, true),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "pl-0" }, [
+                      _c("td", { staticClass: "pr-0" }, [
                         _c(
-                          "a",
+                          "div",
                           {
                             staticClass:
-                              "text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg",
-                            attrs: { href: "#" }
+                              "symbol symbol-60 symbol-xxl-100 mr-5 align-self-start align-self-xxl-center"
                           },
                           [
-                            _vm._v(
-                              "\n\n                  " +
-                                _vm._s(item.patient.first_name_1) +
-                                " " +
-                                _vm._s(item.patient.last_name_1) +
-                                "\n                  "
-                            )
+                            _c("div", {
+                              staticClass: "symbol-label",
+                              style: {
+                                backgroundImage:
+                                  "url(/storage/avatars/" +
+                                  item.patient.avatar +
+                                  ")"
+                              }
+                            })
                           ]
-                        ),
-                        _vm._v(" "),
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        { staticClass: "pl-0" },
+                        [
+                          _c(
+                            "inertia-link",
+                            {
+                              staticClass:
+                                "text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg",
+                              attrs: {
+                                href: _vm.route(
+                                  "patients.show",
+                                  item.patient.id
+                                )
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(item.patient.first_name_1) +
+                                  " " +
+                                  _vm._s(item.patient.last_name_1) +
+                                  "\n                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass: "text-muted font-weight-bold d-block"
+                            },
+                            [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(
+                                    _vm.calcularEdad(item.patient.birth_date) +
+                                      " años"
+                                  ) +
+                                  "\n                "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("td", [
                         _c(
                           "span",
-                          {
-                            staticClass: "text-muted font-weight-bold d-block"
-                          },
+                          { staticClass: "text-muted font-weight-bold" },
                           [
                             _vm._v(
                               "\n                  " +
-                                _vm._s(
-                                  _vm.calcularEdad(item.patient.birth_date) +
-                                    " años"
-                                ) +
+                                _vm._s(_vm._f("formatDate")(item.date)) +
                                 "\n                "
                             )
                           ]
                         )
                       ]),
                       _vm._v(" "),
-                      _c("td", { staticClass: "text-right" }, [
+                      _c("td", [
+                        _c(
+                          "span",
+                          { staticClass: "text-muted font-weight-bold" },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm._f("formatTime")(item.time)) +
+                                "\n                "
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
                         _c(
                           "span",
                           { staticClass: "text-muted font-weight-bold" },
@@ -521,47 +461,43 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("td", { staticClass: "text-right" }, [
-                        _c(
-                          "span",
-                          { staticClass: "text-muted font-weight-bold" },
-                          [
-                            _vm._v(
-                              "\n                  " +
-                                _vm._s(item.date) +
-                                "\n                "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "text-right pr-0" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-icon btn-light btn-sm",
-                            attrs: { href: "#" }
-                          },
-                          [
-                            _c(
-                              "span",
-                              {
-                                staticClass:
-                                  "svg-icon svg-icon-md svg-icon-success"
-                              },
-                              [
-                                _c("inline-svg", {
-                                  attrs: {
-                                    src:
-                                      "media/svg/icons/Navigation/Arrow-right.svg"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ]
-                        )
-                      ])
+                      _c(
+                        "td",
+                        { staticClass: "text-right pr-0" },
+                        [
+                          _c(
+                            "inertia-link",
+                            {
+                              staticClass: "btn btn-icon btn-light btn-sm",
+                              attrs: {
+                                href: _vm.route(
+                                  "patients.show",
+                                  item.patient.id
+                                )
+                              }
+                            },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "svg-icon svg-icon-md svg-icon-success"
+                                },
+                                [
+                                  _c("inline-svg", {
+                                    attrs: {
+                                      src:
+                                        "/media/svg/icons/Navigation/Arrow-right.svg"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
                     ])
                   ]
                 })
@@ -603,23 +539,13 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { staticClass: "p-0", staticStyle: { width: "50px" } }),
         _vm._v(" "),
-        _c("th", { staticClass: "p-0", staticStyle: { "min-width": "150px" } }),
+        _c("th", { staticClass: "p-0", staticStyle: { "min-width": "100px" } }),
         _vm._v(" "),
-        _c("th", { staticClass: "p-0", staticStyle: { "min-width": "140px" } }),
+        _c("th", { staticClass: "p-0", staticStyle: { "min-width": "60px" } }),
         _vm._v(" "),
-        _c("th", { staticClass: "p-0", staticStyle: { "min-width": "120px" } }),
+        _c("th", { staticClass: "p-0", staticStyle: { "min-width": "40px" } }),
         _vm._v(" "),
-        _c("th", { staticClass: "p-0", staticStyle: { "min-width": "40px" } })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pl-0 py-5" }, [
-      _c("div", { staticClass: "symbol symbol-50 symbol-light mr-2" }, [
-        _c("span", { staticClass: "symbol-label" })
+        _c("th", { staticClass: "p-0", staticStyle: { "min-width": "100px" } })
       ])
     ])
   }

@@ -16,7 +16,9 @@ class Control extends Model
   */
   protected $fillable = [
     'patient_id',
+    'plan_id',
     'date',
+    'time',
     'note',
   ];
   

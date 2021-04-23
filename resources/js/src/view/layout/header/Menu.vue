@@ -4,8 +4,9 @@
     aria-haspopup="true"
     data-menu-toggle="hover"
     class="menu-item"
+    :class="route().current('home') && 'menu-item-active'"
     >
-    <inertia-link :href="route('home')" class="menu-link">
+    <inertia-link :href="$route('home')" class="menu-link">
       <span class="menu-text"> Inicio </span>
     </inertia-link>
   </li>
@@ -13,8 +14,9 @@
   aria-haspopup="true"
   data-menu-toggle="hover"
   class="menu-item"
+  :class="route().current('patients.*') && 'menu-item-active'"
   >
-  <inertia-link :href="route('patients.index')" class="menu-link">
+  <inertia-link :href="$route('patients.index')" class="menu-link">
     <span class="menu-text"> Pacientes </span>
   </inertia-link>
 </li>
@@ -24,9 +26,12 @@
 <script>
 export default {
   name: "KTMenu",
+  created(){
+    console.log('La ruta')
+    console.log(route().current())
+  },
   methods: {
     hasActiveChildren(match) {
-      console.log(route().current())
       return this.$route["path"].indexOf(match) !== -1;
     }
   }

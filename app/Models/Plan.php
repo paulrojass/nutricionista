@@ -28,4 +28,16 @@ class Plan extends Model
   {
     return $this->belongsTo(City::class);
   }
+  
+  /**
+  * Método que obtiene los controles asociadas con el plan
+  *
+  * @author  Paúl Rojas <paul.rojase@gmail.com>
+  * @return object Objeto con los registros relacionados al modelo Plan
+  */
+  public function controls()
+  {
+    return $this->hasMany(Control::class);
+  }
+  
 }

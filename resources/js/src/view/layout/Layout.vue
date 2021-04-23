@@ -3,62 +3,62 @@
     <!-- begin:: Header Mobile -->
     <KTHeaderMobile></KTHeaderMobile>
     <!-- end:: Header Mobile -->
-
+    
     <Loader v-if="loaderEnabled" v-bind:logo="loaderLogo"></Loader>
-
+    
     <div class="d-flex flex-row flex-column-fluid page">
       <!--begin::Aside-->
       <KTAside></KTAside>
       <!--end::Aside-->
-
+      
       <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
         <!--begin::Header-->
         <KTHeader></KTHeader>
         <!--end::Header-->
         <!--begin::Content-->
         <div
-          class="content d-flex flex-column flex-column-fluid"
-          id="kt_content"
+        class="content d-flex flex-column flex-column-fluid"
+        id="kt_content"
         >
-          <!-- begin:: Content Head -->
-          <!--
-          <KTSubheader
-            v-if="subheaderDisplay && displaySubheaderOnDashboard"
-            v-bind:breadcrumbs="breadcrumbs"
-            v-bind:title="pageTitle"
-          />
+        <!-- begin:: Content Head -->
+        <!--
+        <KTSubheader
+        v-if="subheaderDisplay && displaySubheaderOnDashboard"
+        v-bind:breadcrumbs="breadcrumbs"
+        v-bind:title="pageTitle"
+        />
       -->
-          <!-- end:: Content Head -->
-
-          <div class="d-flex flex-column-fluid">
-            <div
-              :class="{
-                'container-fluid': contentFluid,
-                container: !contentFluid
-              }"
-            >
-
-              <transition name="fade-in-up">
-                <!--<router-view />-->
-                <article>
-                  <slot />
-                </article>
-              </transition>
-
-            </div>
-          </div>
+      <!-- end:: Content Head -->
+      
+      <div class="d-flex flex-column-fluid">
+        <div
+        :class="{
+          'container-fluid': contentFluid,
+          container: !contentFluid
+          }"
+          >
+          
+          <transition name="fade-in-up">
+            <!--<router-view />-->
+            <article>
+              <slot />
+            </article>
+          </transition>
+          
         </div>
-        <!--end::Content-->
-        <!--begin::Footer-->
-        <KTFooter></KTFooter>
-        <!--end::Footer-->
-        <!-- <KTStickyToolbar v-if="toolbarDisplay"></KTStickyToolbar> -->
-        <KTScrollTop></KTScrollTop>
       </div>
-
-      <KTSidebar></KTSidebar>
     </div>
+    <!--end::Content-->
+    <!--begin::Footer-->
+    <KTFooter></KTFooter>
+    <!--end::Footer-->
+    <!-- <KTStickyToolbar v-if="toolbarDisplay"></KTStickyToolbar> -->
+    <KTScrollTop></KTScrollTop>
   </div>
+  
+  <KTSidebar></KTSidebar>
+</div>
+</div>
 </template>
 
 <script>
@@ -84,20 +84,20 @@ export default {
     'title'
   ],
   components: {
-      KTAside,
-      KTSubheader,
-      KTHeaderMobile,
-      Loader,
-      KTHeader,
-      KTFooter,
-      KTStickyToolbar,
-      KTScrollTop,
-      KTSidebar
+    KTAside,
+    KTSubheader,
+    KTHeaderMobile,
+    Loader,
+    KTHeader,
+    KTFooter,
+    KTStickyToolbar,
+    KTScrollTop,
+    KTSidebar
   },
   beforeMount() {
     // show page loading
     this.$store.dispatch(ADD_BODY_CLASSNAME, "page-loading");
-
+    
     // initialize html element classes
     HtmlClass.init(this.layoutConfig());
   },
@@ -106,7 +106,7 @@ export default {
     // if (!this.isAuthenticated) {
     //   this.$router.push({ name: "login" });
     // }
-
+    
     // Simulate the delay page loading
     setTimeout(() => {
       // Remove page loader after some time
@@ -120,55 +120,54 @@ export default {
       "pageTitle",
       "layoutConfig"
     ]),
-
     /**
-     * Check if the page loader is enabled
-     * @returns {boolean}
-     */
+    * Check if the page loader is enabled
+    * @returns {boolean}
+    */
     loaderEnabled() {
       return !/false/.test(this.layoutConfig("loader.type"));
     },
-
+    
     /**
-     * Check if container width is fluid
-     * @returns {boolean}
-     */
+    * Check if container width is fluid
+    * @returns {boolean}
+    */
     contentFluid() {
       return this.layoutConfig("content.width") === "fluid";
     },
-
+    
     /**
-     * Page loader logo image using require() function
-     * @returns {string}
-     */
+    * Page loader logo image using require() function
+    * @returns {string}
+    */
     loaderLogo() {
       return this.layoutConfig("loader.logo");
     },
-
+    
     /**
-     * Set the right toolbar display
-     * @returns {boolean}
-     */
+    * Set the right toolbar display
+    * @returns {boolean}
+    */
     toolbarDisplay() {
       // return !!this.layoutConfig("toolbar.display");
       return true;
     },
-
+    
     /**
-     * Set the subheader display
-     * @returns {boolean}
-     */
+    * Set the subheader display
+    * @returns {boolean}
+    */
     subheaderDisplay() {
       return !!this.layoutConfig("subheader.display");
     },
-
+    
     /**
-     * Set the subheader display on dashboard page
-     * @returns {boolean}
+    * Set the subheader display on dashboard page
+    * @returns {boolean}
     displaySubheaderOnDashboard() {
-        return this.$route.name !== "panel";
-    }
-    */
+    return this.$route.name !== "panel";
   }
+  */
+}
 };
 </script>

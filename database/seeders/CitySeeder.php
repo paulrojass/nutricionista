@@ -29,12 +29,15 @@ class CitySeeder extends Seeder
     DB::transaction(function () use ($states) {
       foreach ($states as $state) {
         City::updateOrCreate(
-          ['name' => $state,
-          'online' => 0,
-          'currency' => 'COP'
-        ]
-      );
-    }
-  });
-}
+          [
+            'name' => $state,
+          ],
+          [
+            'online' => 0,
+            'currency' => 'COP'
+          ]
+        );
+      }
+    });
+  }
 }

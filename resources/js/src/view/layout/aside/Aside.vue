@@ -9,23 +9,17 @@
     class="btn p-0 symbol symbol-60 symbol-light-primary"
     id="kt_quick_user_toggle"
     >
-    
-    <!--
-    <router-link to="/">
-    <div class="symbol-label">
-    <inline-svg
-    alt="Logo"
-    src="media/svg/avatars/001-boy.svg"
-    class="h-75 align-self-end"
-    />
+    <inertia-link :href="$route('home')">
+      <div class="symbol-label">
+        <inline-svg
+        alt="Logo"
+        src="/media/svg/avatars/001-boy.svg"
+        class="h-75 align-self-end"
+        />
+      </div>
+    </inertia-link>
   </div>
-</router-link>
--->
-
-
-
-</div>
-<!--end::Logo-->
+  <!--end::Logo-->
 </div>
 <!--end::Brand-->
 <!--begin::Nav Wrapper-->
@@ -59,10 +53,10 @@ class="aside-nav d-flex flex-column align-items-center flex-column-fluid pb-10"
   >
   <span class="svg-icon svg-icon-xxl">
     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group.svg-->
-    <inline-svg src="<%= BASE_URL %>/media/svg/icons/Communication/Group.svg" />
-      <!--end::Svg Icon-->
-    </span>
-  </a>
+    <inline-svg src="/media/svg/icons/Communication/Group.svg" />
+    <!--end::Svg Icon-->
+  </span>
+</a>
 </li>
 <!--end::Item-->
 <!--begin::Item-->
@@ -76,7 +70,7 @@ class="aside-nav d-flex flex-column align-items-center flex-column-fluid pb-10"
   >
   <span class="svg-icon svg-icon-xxl">
     <!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
-    <inline-svg src="media/svg/icons/Media/Equalizer.svg" />
+    <inline-svg src="/media/svg/icons/Media/Equalizer.svg" />
     <!--end::Svg Icon-->
   </span>
 </a>
@@ -96,7 +90,7 @@ role="tab"
 >
 <span class="svg-icon svg-icon-xxl">
   <!--begin::Svg Icon | path:assets/media/svg/icons/General/Shield-check.svg-->
-  <inline-svg src="media/svg/icons/General/Shield-check.svg" />
+  <inline-svg src="/media/svg/icons/General/Shield-check.svg" />
   <!--end::Svg Icon-->
 </span>
 </a>
@@ -113,7 +107,7 @@ role="tab"
   >
   <span class="svg-icon svg-icon-xxl">
     <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-    <inline-svg src="media/svg/icons/Home/Library.svg" />
+    <inline-svg src="/media/svg/icons/Home/Library.svg" />
     <!--end::Svg Icon-->
   </span>
 </a>
@@ -133,7 +127,7 @@ role="tab"
 >
 <span class="svg-icon svg-icon-xxl">
   <!--begin::Svg Icon | path:assets/media/svg/icons/Files/File-plus.svg-->
-  <inline-svg src="media/svg/icons/Files/File-plus.svg" />
+  <inline-svg src="/media/svg/icons/Files/File-plus.svg" />
   <!--end::Svg Icon-->
 </span>
 </a>
@@ -143,7 +137,7 @@ role="tab"
 <!--end::Nav-->
 </div>
 <!--end::Nav Wrapper-->
-<!--begin::Footer-->
+<!--begin::Footer
 <div
 class="aside-footer d-flex flex-column align-items-center flex-column-auto py-8"
 >
@@ -151,7 +145,7 @@ class="aside-footer d-flex flex-column align-items-center flex-column-auto py-8"
 <KTQuickActions></KTQuickActions>
 <KTQuickPanel></KTQuickPanel>
 </div>
-<!--end::Footer-->
+end::Footer-->
 </div>
 </template>
 
@@ -164,17 +158,12 @@ class="aside-footer d-flex flex-column align-items-center flex-column-auto py-8"
 
 <script>
 import KTLayoutAside from "../../../assets/js/layout/base/aside.js";
-import KTQuickNotifications from "../extras/offcanvas/QuickNotifications.vue";
-import KTQuickActions from "../extras/offcanvas/QuickActions.vue";
-import KTQuickPanel from "../extras/offcanvas/QuickPanel.vue";
+// import KTQuickNotifications from "../extras/offcanvas/QuickNotifications.vue";
+// import KTQuickActions from "../extras/offcanvas/QuickActions.vue";
+// import KTQuickPanel from "../extras/offcanvas/QuickPanel.vue";
 
 export default {
   name: "Aside",
-  components: {
-    KTQuickNotifications,
-    KTQuickActions,
-    KTQuickPanel
-  },
   mounted() {
     this.$nextTick(() => {
       // Init Aside

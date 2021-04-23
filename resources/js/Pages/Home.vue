@@ -27,7 +27,7 @@ export default{
     'inactive'
   ],
   components: {
-      ControlList
+    ControlList
   }
 }
 </script>

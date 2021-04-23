@@ -8,16 +8,26 @@ import store from "./core/services/store";
 //import MockService from "./core/mock/mock.service";
 import { VERIFY_AUTH } from "./core/services/store/auth.module";
 import { RESET_LAYOUT_CONFIG } from "./core/services/store/config.module";
+import moment from 'moment';
 
 Vue.config.productionTip = false;
 /** Vue Filters Start */
 Vue.filter('truncate', function (text, length, suffix) {
-    if (text.length > length) {
-        return text.substring(0, length) + suffix;
-    } else {
-        return text;
-    }
+  if (text.length > length) {
+    return text.substring(0, length) + suffix;
+  } else {
+    return text;
+  }
 });
+
+
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return moment(String(value)).format('DD/MM/YYYY')
+  }
+});
+
+
 /** Vue Filters End */
 
 // // Global 3rd party plugins
@@ -49,7 +59,7 @@ InertiaProgress.init()
 Vue.use(plugin)
 Vue.mixin({methods:{route:window.route}})
 Vue.use(VueMeta)
-
+Vue.prototype.$route = route
 // // API service init
 //ApiService.init();
 
@@ -57,16 +67,16 @@ Vue.use(VueMeta)
 //MockService.init();
 
 //router.beforeEach((to, from, next) => {
-   //Ensure we checked auth before each page load.
-  //Promise.all([store.dispatch(VERIFY_AUTH)]).then(next);
+//Ensure we checked auth before each page load.
+//Promise.all([store.dispatch(VERIFY_AUTH)]).then(next);
 
-   //reset config to initial state
-  //store.dispatch(RESET_LAYOUT_CONFIG);
+//reset config to initial state
+//store.dispatch(RESET_LAYOUT_CONFIG);
 
-   //Scroll page to top on every route change
-  //setTimeout(() => {
-    //window.scrollTo(0, 0);
-  //}, 100);
+//Scroll page to top on every route change
+//setTimeout(() => {
+//window.scrollTo(0, 0);
+//}, 100);
 //});
 
 //new Vue({
@@ -80,33 +90,33 @@ Vue.use(VueMeta)
 const el = document.getElementById('app')
 
 new Vue({
-    store,
-    i18n,
-    vuetify,
-    render: h => h(App, {
-        props: {
-            initialPage: JSON.parse(el.dataset.page),
-            resolveComponent: name => import(`../Pages/${name}`).then(module => module.default),
-        },
-    }),
+  store,
+  i18n,
+  vuetify,
+  render: h => h(App, {
+    props: {
+      initialPage: JSON.parse(el.dataset.page),
+      resolveComponent: name => import(`../Pages/${name}`).then(module => module.default),
+    },
+  }),
 }).$mount(el)
 /**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+* First we will load all of this project's JavaScript dependencies which
+* includes Vue and other libraries. It is a great starting point when
+* building robust, powerful web applications using Vue and Laravel.
+*/
 
 //require('./bootstrap');
 
 //window.Vue = require('vue').default;
 
 /**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+* The following block of code may be used to automatically register your
+* Vue components. It will recursively scan this directory for the Vue
+* components and automatically register them with their "basename".
+*
+* Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+*/
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -114,10 +124,10 @@ new Vue({
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+* Next, we will create a fresh Vue application instance and attach it to
+* the page. Then, you may begin adding components to this application
+* or customize the JavaScript scaffolding to fit your unique needs.
+*/
 
 //const app = new Vue({
 //    el: '#app',

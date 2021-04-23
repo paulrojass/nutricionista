@@ -1,100 +1,95 @@
 <template>
-  <layout>
-    
-    <div class="card card-custom card-stretch gutter-b">
-      <!--begin::Header-->
-      <div class="card-header border-0 pt-5">
-        
-        
-        
-        <h3 class="card-title align-items-start flex-column">
-          <span class="card-label font-weight-bolder text-dark"
-          >Nuevo Paciente</span
-          >
-          <span class="text-muted mt-3 font-weight-bold font-size-sm"
-          >Ingrese la informacíon básica para registrar un paciente</span
-          >
-        </h3>
-      </div>
-      <div class="card-body pt-2 pb-0">
-        
-        
-        
-        
-        
-        
-        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-          <b-form-group id="input-group-1" label="Primer nombre:" label-for="input-1">
-            <b-form-input
-            id="input-1"
-            v-model="form.first_name_1"
-            required
-            placeholder="Ingrese un nombre"
-            ></b-form-input>
-          </b-form-group>
-          
-          
-          <b-form-group id="input-group-2" label="Segundo nombre:" label-for="input-2">
-            <b-form-input
-            id="input-2"
-            v-model="form.first_name_2"
-            placeholder="Ingrese un nombre"
-            ></b-form-input>
-          </b-form-group>
-          
-          <b-form-group id="input-group-3" label="Primer apellido:" label-for="input-3">
-            <b-form-input
-            id="input-3"
-            v-model="form.last_name_1"
-            required
-            placeholder="Ingrese un apellido"
-            ></b-form-input>
-          </b-form-group>
-          
-          <b-form-group id="input-group-4" label="Segundo apellido:" label-for="input-4">
-            <b-form-input
-            id="input-4"
-            v-model="form.last_name_2"
-            required
-            placeholder="Ingrese un apellido"
-            ></b-form-input>
-          </b-form-group>
-          
-          <b-form-group id="input-group-5" label="Teléfono:" label-for="input-5">
-            <b-form-input
-            id="input-5"
-            v-model="form.phone"
-            required
-            placeholder="ej. 123456789"
-            ></b-form-input>
-          </b-form-group>
-          
-          <b-form-group
-          id="input-group-6"
-          label="Correo electónico:"
-          label-for="input-6"
-          description="El campo email debe ser único."
-          >
+  
+  <div class="card card-custom card-stretch gutter-b">
+    <!--begin::Header-->
+    <div class="card-header border-0 pt-5">
+      
+      
+      
+      <h3 class="card-title align-items-start flex-column">
+        <span class="card-label font-weight-bolder text-dark"
+        >Nuevo Paciente</span
+        >
+        <span class="text-muted mt-3 font-weight-bold font-size-sm"
+        >Ingrese la informacíon básica para registrar un paciente</span
+        >
+      </h3>
+    </div>
+    <div class="card-body pt-2 pb-0">
+      
+      
+      
+      
+      
+      
+      <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+        <b-form-group id="input-group-1" label="Primer nombre:" label-for="input-1">
           <b-form-input
-          id="input-6"
-          v-model="form.email"
-          type="email"
+          id="input-1"
+          v-model="form.first_name_1"
           required
-          placeholder="ej: usuario@correo.com"
+          placeholder="Ingrese un nombre"
           ></b-form-input>
         </b-form-group>
         
-        <b-button type="submit" variant="primary">Guardar</b-button>
-        <b-button type="reset" variant="danger">Borrar</b-button>
-      </b-form>
-    </div>
-    
-    
+        
+        <b-form-group id="input-group-2" label="Segundo nombre:" label-for="input-2">
+          <b-form-input
+          id="input-2"
+          v-model="form.first_name_2"
+          placeholder="Ingrese un nombre"
+          ></b-form-input>
+        </b-form-group>
+        
+        <b-form-group id="input-group-3" label="Primer apellido:" label-for="input-3">
+          <b-form-input
+          id="input-3"
+          v-model="form.last_name_1"
+          required
+          placeholder="Ingrese un apellido"
+          ></b-form-input>
+        </b-form-group>
+        
+        <b-form-group id="input-group-4" label="Segundo apellido:" label-for="input-4">
+          <b-form-input
+          id="input-4"
+          v-model="form.last_name_2"
+          required
+          placeholder="Ingrese un apellido"
+          ></b-form-input>
+        </b-form-group>
+        
+        <b-form-group id="input-group-5" label="Teléfono:" label-for="input-5">
+          <b-form-input
+          id="input-5"
+          v-model="form.phone"
+          required
+          placeholder="ej. 123456789"
+          ></b-form-input>
+        </b-form-group>
+        
+        <b-form-group
+        id="input-group-6"
+        label="Correo electónico:"
+        label-for="input-6"
+        description="El campo email debe ser único."
+        >
+        <b-form-input
+        id="input-6"
+        v-model="form.email"
+        type="email"
+        required
+        placeholder="ej: usuario@correo.com"
+        ></b-form-input>
+      </b-form-group>
+      
+      <b-button type="submit" variant="primary">Guardar</b-button>
+      <b-button type="reset" variant="danger">Borrar</b-button>
+    </b-form>
   </div>
   
   
-  
-</layout>
+</div>
 </template>
 
 <script>
