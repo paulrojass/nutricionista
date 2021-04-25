@@ -15,7 +15,7 @@ class CreateControlsTable extends Migration
   {
     Schema::create('controls', function (Blueprint $table) {
       $table->id();
-      $table->string('patient_id')->constrained()->onDelete('cascade');
+      $table->foreignId('patient_id')->constrained()->onDelete('cascade');
       $table->foreignId('plan_id')->constrained();
       $table->date('date');
       $table->time('time');

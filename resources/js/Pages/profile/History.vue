@@ -209,7 +209,7 @@
                 v-model="form.city"
                 class="form-control form-control-solid form-control-lg">
                 <option :value="null">Seleccione ciudad...</option>
-                <option v-for="city in cities" :value="city.name">{{ city.name }}</option>
+                <option v-for="city in cities" :value="city.id">{{ city.name }}</option>
               </select>
             </div>
           </div>
@@ -218,9 +218,9 @@
               <label>Especifique: Cuidad - País</label>
               <input
               type="text"
-              v-model="form.city_text"
+              v-model="form.city_name"
               class="form-control form-control-solid form-control-lg"
-              name="city_text"
+              name="city_name"
               />
               <span class="form-text text-muted"
               >Ejemplo: Caracas - Venezuela.</span

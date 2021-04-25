@@ -41,6 +41,22 @@ Route::prefix('panel')->group(function () {
       'destroy' => 'patients.destroy'
     ]
   ]);
+  Route::get('/candidatos', [App\Http\Controllers\PatientController::class, 'candidates'] )->name('candidates.index');
+  Route::resource('controles',
+  App\Http\Controllers\ControlController::class,
+  [
+    'names' => [
+      'index' => 'controls.index',
+      'show' => 'controls.show',
+      'store' => 'controls.store',
+      'edit' => 'controls.edit',
+      'update' => 'controls.update',
+      'destroy' => 'controls.destroy'
+    ]
+  ])
+  ->except(['create']);
+  Route::get('controles/crear/{patient_id}', [App\Http\Controllers\ControlController::class, 'create'])->name('controls.create');
+  Route::get('calendario', [App\Http\Controllers\ControlController::class, 'calendar'])->name('calendar');
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

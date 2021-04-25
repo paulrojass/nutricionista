@@ -68,7 +68,7 @@
       <div class="font-weight-bold text-muted font-size-sm">
         <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
         >{{activePatients}}%</span
-        >aprobados para cita
+        >{{activesTotal}} aprobados para cita
       </div>
       <div class="progress progress-xs mt-7 bg-success-o-60">
         <div
@@ -96,7 +96,7 @@
       <div class="font-weight-bold text-muted font-size-sm">
         <span class="text-dark-75 font-weight-bolder font-size-h2 mr-2"
         >{{inactivePatients}}%</span
-        >pendientes por evaluar
+        >{{inactivesTotal}} pendientes por evaluar
       </div>
       <div class="progress progress-xs mt-7 bg-warning-o-60">
         <div
@@ -111,8 +111,7 @@
     </div>
     <!--end::Body-->
   </div>
-  <ListWidget4></ListWidget4>
-  <ListWidget1></ListWidget1>
+  <Candidates></Candidates>
 </div>
 <!--end::Aside Secondary Content-->
 </div>
@@ -128,14 +127,12 @@
 
 <script>
 import KTLayoutSidebar from "../../../assets/js/layout/base/sidebar.js";
-import ListWidget1 from "../../content/widgets/list/Widget1.vue";
-import ListWidget4 from "../../content/widgets/list/Widget4.vue";
+import Candidates from "../../content/widgets/list/Candidates.vue";
 
 export default {
   name: "sidebar",
   components: {
-    ListWidget1,
-    ListWidget4
+    Candidates
   },
   mounted() {
     this.$nextTick(() => {
@@ -149,6 +146,12 @@ export default {
     },
     inactivePatients() {
       return this.$page.props.inactivePatients
+    },
+    activesTotal() {
+      return this.$page.props.activesTotal
+    },
+    inactivesTotal() {
+      return this.$page.props.inactivesTotal
     },
   }
 };

@@ -39,16 +39,17 @@ class HandleInertiaRequests extends Middleware
   public function share(Request $request)
   {
     $patients = Patient::all()->count();
-    
-    $actives = Patient::where('active', 1)->count();
-    $inactives = Patient::where('active', 0)->count();
-    $activePatients = round(($actives*100) / $patients);
-    $inactivePatients = round(($inactives*100) / $patients);
+    $inactives = Patient::where('active', 0)->take(5)->get();
+    $inactivesTotal = Patient::where('active', 0)->count();
+    $activesTotal = Patient::where('active', 1)->count();
+    $activePatients = round(($activesTotal*100) / $patients);
+    $inactivePatients = round(($inactivesTotal*100) / $patients);
     return array_merge(parent::share($request), [
-      
+      'inactives' => $inactives ? : null,
+      'activesTotal' => $activesTotal ? : null,
+      'inactivesTotal' => $inactivesTotal ? : null,
       'activePatients' => $activePatients ? : null,
       'inactivePatients' => $inactivePatients ? : null,
-      
     ]);
   }
 }

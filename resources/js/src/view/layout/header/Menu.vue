@@ -20,6 +20,18 @@
     <span class="menu-text"> Pacientes </span>
   </inertia-link>
 </li>
+<li
+aria-haspopup="true"
+data-menu-toggle="hover"
+class="menu-item"
+:class="route().current('calendar') && 'menu-item-active'"
+>
+<inertia-link :href="$route('calendar')" class="menu-link">
+  <span class="menu-text"> Citas </span>
+</inertia-link>
+</li>
+
+
 </ul>
 </template>
 

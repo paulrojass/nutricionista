@@ -22,6 +22,15 @@ class PatientController extends Controller
     ]);
   }
   
+  public function candidates()
+  {
+    $candidates = Patient::where('active', 0)->get();
+    return Inertia::render('Candidates', [
+      'candidates' => $candidates
+    ]);
+  }
+  
+  
   /**
   * Show the form for creating a new resource.
   *
@@ -50,7 +59,7 @@ class PatientController extends Controller
   
   public function show($id)
   {
-    $patient = Patient::where('id', $id)->first();
+    $patient = Patient::find($id);
     return Inertia::render('Profile', [
       'patient' => $patient,
     ]);
@@ -114,8 +123,8 @@ class PatientController extends Controller
   {
     $patient = Patient::find($id);
     $patient->update($request->all());
-    if ($request->city == "Extranjero (online)") {
-      $patient->city = $request->city_text;
+    if ($request->city_id == "Extranjero (online)") {
+      $patient->city_name = $request->city_name;
     }
     $patient->save();
     return response()->json($patient);
@@ -129,7 +138,9 @@ class PatientController extends Controller
   */
   public function destroy($id)
   {
+    dd('hola');
     $patient = Patient::find($id);
     $patient->delete();
+    return $this->candidates();
   }
 }

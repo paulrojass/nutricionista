@@ -87,7 +87,7 @@
 <!--begin::Row-->
 <div class="row">
   <div class="col-lg-4">
-    <Widget2></Widget2>
+    <WidgetAdvertising></WidgetAdvertising>
   </div>
   <div class="col-lg-8">
     <WidgetNotes></WidgetNotes>
@@ -99,12 +99,9 @@
 
 <script>
 import Layout from "../src/view/layout/Layout"
-import { mapGetters } from "vuex";
+import { mapGetters } from "vuex"
 import WidgetNotes from "./profile/Notes"
-import Widget2 from "../src/view/pages/profile/profile-comp-3/Widget2";
-import Widget13 from "../src/view/pages/profile/profile-comp-3/Widget13";
-import Widget15 from "../src/view/pages/profile/profile-comp-3/Widget15";
-import Widget3 from "../src/view/pages/profile/profile-comp-3/Widget3";
+import WidgetAdvertising from "./profile/Advertising"
 
 export default {
   // Using a render function
@@ -117,10 +114,7 @@ export default {
   props: ['patient'],
   components: {
     WidgetNotes,
-    Widget2,
-    Widget3,
-    Widget13,
-    Widget15
+    WidgetAdvertising,
   },
   computed: {
     ...mapGetters(["currentUserPhoto"])
