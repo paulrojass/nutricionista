@@ -17,9 +17,12 @@ class Control extends Model
   protected $fillable = [
     'patient_id',
     'plan_id',
+    'city_name',
+    'agreement_name',
+    'agreement_price',
     'date',
     'time',
-    'note',
+    'note'
   ];
   
   /**
@@ -32,4 +35,16 @@ class Control extends Model
   {
     return $this->belongsTo(Patient::class);
   }
+  /**
+  * Método que obtiene el plan asociada a un control
+  *
+  * @author  Paúl Rojas <paul.rojase@gmail.com>
+  * @return object Objeto con los registros relacionados al modelo Control
+  */
+  public function plan()
+  {
+    return $this->belongsTo(Plan::class);
+  }
+  
+  
 }

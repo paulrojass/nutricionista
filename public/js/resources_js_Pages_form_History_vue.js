@@ -236,27 +236,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3828,7 +3807,7 @@ var render = function() {
                     _c("strong", [_vm._v("Fecha: ")]),
                     _vm._v(
                       "\n            " +
-                        _vm._s(_vm.patient.poll.created_at) +
+                        _vm._s(_vm.patient.created_at) +
                         "\n          "
                     )
                   ]),
@@ -3871,8 +3850,8 @@ var render = function() {
                         "b-form-select",
                         {
                           attrs: {
-                            id: "input-7",
-                            name: "city_id",
+                            id: "aspiration",
+                            name: "aspiration",
                             required: ""
                           },
                           scopedSlots: _vm._u(
@@ -3896,11 +3875,11 @@ var render = function() {
                             1938302813
                           ),
                           model: {
-                            value: _vm.form.city_id,
+                            value: _vm.form.aspiration,
                             callback: function($$v) {
-                              _vm.$set(_vm.form, "city_id", $$v)
+                              _vm.$set(_vm.form, "aspiration", $$v)
                             },
-                            expression: "form.city_id"
+                            expression: "form.aspiration"
                           }
                         },
                         [
@@ -3920,74 +3899,6 @@ var render = function() {
                             _vm._v("Aumento de peso")
                           ])
                         ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-row",
-                    { attrs: { id: "convenio" } },
-                    [
-                      _c(
-                        "b-col",
-                        [
-                          _c(
-                            "b-form-group",
-                            {
-                              attrs: {
-                                id: "input-group-1",
-                                label: "¿Cuál convenio?:",
-                                "label-for": "agreement_name"
-                              }
-                            },
-                            [
-                              _c("b-form-input", {
-                                staticClass: "mb-2 mr-sm-2 mb-sm-0",
-                                attrs: { id: "agreement_name", required: "" },
-                                model: {
-                                  value: _vm.form.agreement_name,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "agreement_name", $$v)
-                                  },
-                                  expression: "form.agreement_name"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-col",
-                        [
-                          _c(
-                            "b-form-group",
-                            {
-                              attrs: {
-                                id: "input-group-2",
-                                label: "Precio:",
-                                "label-for": "agreement_price"
-                              }
-                            },
-                            [
-                              _c("b-form-input", {
-                                attrs: { id: "agreement_price" },
-                                model: {
-                                  value: _vm.form.agreement_price,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "agreement_price", $$v)
-                                  },
-                                  expression: "form.agreement_price"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
                       )
                     ],
                     1
@@ -4417,21 +4328,29 @@ var render = function() {
                           }
                         },
                         [
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Menos de 1 litro")
-                          ]),
+                          _c(
+                            "option",
+                            { attrs: { value: "Menos de 1 litro" } },
+                            [_vm._v("Menos de 1 litro")]
+                          ),
                           _vm._v(" "),
-                          _c("option", { attrs: { value: "2" } }, [
-                            _vm._v("Entre 1 y 2 litros")
-                          ]),
+                          _c(
+                            "option",
+                            { attrs: { value: "Entre 1 y 2 litros" } },
+                            [_vm._v("Entre 1 y 2 litros")]
+                          ),
                           _vm._v(" "),
-                          _c("option", { attrs: { value: "3" } }, [
-                            _vm._v("Más de 2 litros")
-                          ]),
+                          _c(
+                            "option",
+                            { attrs: { value: "Más de 2 litros" } },
+                            [_vm._v("Más de 2 litros")]
+                          ),
                           _vm._v(" "),
-                          _c("option", { attrs: { value: "4" } }, [
-                            _vm._v("No sabe cuanto toma")
-                          ])
+                          _c(
+                            "option",
+                            { attrs: { value: "No sabe cuanto toma" } },
+                            [_vm._v("No sabe cuanto toma")]
+                          )
                         ]
                       )
                     ],
@@ -5998,7 +5917,7 @@ var render = function() {
         [
           _c(
             "inertia-link",
-            { attrs: { href: _vm.route("patients.create") } },
+            { attrs: { href: _vm.route("controls.patients") } },
             [
               _c(
                 "span",

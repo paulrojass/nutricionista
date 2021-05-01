@@ -747,93 +747,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -868,12 +781,6 @@ __webpack_require__.r(__webpack_exports__);
         aspiration: this.patient.aspiration,
         goal: this.patient.goal,
         avatar: this.patient.avatar,
-        plan: this.patient.plan,
-        online: this.patient.omline,
-        city: this.extranjero(this.patient.city),
-        city_text: this.patient.city,
-        agreement_name: this.patient.agreement_name,
-        agreement_price: this.patient.agreement_price,
         laboratory: this.patient.laboratory,
         previous_experience: this.patient.previous_experience,
         medical_condition: this.patient.medical_condition,
@@ -8171,349 +8078,6 @@ var render = function() {
                                   )
                                 ])
                               ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "h4",
-                              {
-                                staticClass: "mb-10 font-weight-bold text-dark"
-                              },
-                              [
-                                _vm._v(
-                                  "\n            Datos de la consulta\n          "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-xl-6" }, [
-                                _c("div", { staticClass: "form-group" }, [
-                                  _c("label", [_vm._v("Ciudad")]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "select",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.city,
-                                          expression: "form.city"
-                                        }
-                                      ],
-                                      staticClass:
-                                        "form-control form-control-solid form-control-lg",
-                                      attrs: { name: "city" },
-                                      on: {
-                                        change: function($event) {
-                                          var $$selectedVal = Array.prototype.filter
-                                            .call(
-                                              $event.target.options,
-                                              function(o) {
-                                                return o.selected
-                                              }
-                                            )
-                                            .map(function(o) {
-                                              var val =
-                                                "_value" in o
-                                                  ? o._value
-                                                  : o.value
-                                              return val
-                                            })
-                                          _vm.$set(
-                                            _vm.form,
-                                            "city",
-                                            $event.target.multiple
-                                              ? $$selectedVal
-                                              : $$selectedVal[0]
-                                          )
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "option",
-                                        { domProps: { value: null } },
-                                        [_vm._v("Seleccione ciudad...")]
-                                      ),
-                                      _vm._v(" "),
-                                      _vm._l(_vm.cities, function(city) {
-                                        return _c(
-                                          "option",
-                                          { domProps: { value: city.id } },
-                                          [_vm._v(_vm._s(city.name))]
-                                        )
-                                      })
-                                    ],
-                                    2
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _vm.form.city == "Extranjero (online)"
-                                ? _c("div", { staticClass: "col-xl-6" }, [
-                                    _c("div", { staticClass: "form-group" }, [
-                                      _c("label", [
-                                        _vm._v("Especifique: Cuidad - País")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.form.city_name,
-                                            expression: "form.city_name"
-                                          }
-                                        ],
-                                        staticClass:
-                                          "form-control form-control-solid form-control-lg",
-                                        attrs: {
-                                          type: "text",
-                                          name: "city_name"
-                                        },
-                                        domProps: { value: _vm.form.city_name },
-                                        on: {
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.form,
-                                              "city_name",
-                                              $event.target.value
-                                            )
-                                          }
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "form-text text-muted" },
-                                        [
-                                          _vm._v(
-                                            "Ejemplo: Caracas - Venezuela."
-                                          )
-                                        ]
-                                      )
-                                    ])
-                                  ])
-                                : _vm._e()
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group" }, [
-                              _c("label", [_vm._v("Tipo de consulta")]),
-                              _vm._v(" "),
-                              _c(
-                                "select",
-                                {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.plan,
-                                      expression: "form.plan"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "form-control form-control-solid form-control-lg",
-                                  attrs: { name: "plan" },
-                                  on: {
-                                    change: function($event) {
-                                      var $$selectedVal = Array.prototype.filter
-                                        .call($event.target.options, function(
-                                          o
-                                        ) {
-                                          return o.selected
-                                        })
-                                        .map(function(o) {
-                                          var val =
-                                            "_value" in o ? o._value : o.value
-                                          return val
-                                        })
-                                      _vm.$set(
-                                        _vm.form,
-                                        "plan",
-                                        $event.target.multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                      )
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("option", { attrs: { value: "" } }, [
-                                    _vm._v("Select")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "Control" } },
-                                    [_vm._v("Control")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "1ra vez paquete 2" } },
-                                    [_vm._v("1ra vez paquete 2")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "1ra vez paquete 3" } },
-                                    [_vm._v("1ra vez paquete 3")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "Control 1/2" } },
-                                    [_vm._v("Control 1/2")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "Control 2/2" } },
-                                    [_vm._v("Control 2/2")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "Control 1/3" } },
-                                    [_vm._v("Control 1/3")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "Control 2/3" } },
-                                    [_vm._v("Control 2/3")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "Control 3/3" } },
-                                    [_vm._v("Control 3/3")]
-                                  )
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-xl-12" }, [
-                                _c(
-                                  "div",
-                                  [
-                                    _c(
-                                      "b-form-checkbox",
-                                      {
-                                        attrs: {
-                                          id: "agreement",
-                                          name: "agreement",
-                                          value: "1",
-                                          "unchecked-value": "0",
-                                          checked: _vm.form.agreement_name
-                                        },
-                                        model: {
-                                          value: _vm.agreement,
-                                          callback: function($$v) {
-                                            _vm.agreement = $$v
-                                          },
-                                          expression: "agreement"
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n            ¿Tiene convenio?\n          "
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _vm.agreement == 1
-                                ? _c("div", { staticClass: "col-xl-6" }, [
-                                    _c("div", { staticClass: "form-group" }, [
-                                      _c("label", [
-                                        _vm._v("Nombre del convenio")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.form.agreement_name,
-                                            expression: "form.agreement_name"
-                                          }
-                                        ],
-                                        staticClass:
-                                          "form-control form-control-solid form-control-lg",
-                                        attrs: {
-                                          type: "text",
-                                          name: "agreement_name"
-                                        },
-                                        domProps: {
-                                          value: _vm.form.agreement_name
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.form,
-                                              "agreement_name",
-                                              $event.target.value
-                                            )
-                                          }
-                                        }
-                                      })
-                                    ])
-                                  ])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.agreement == 1
-                                ? _c("div", { staticClass: "col-xl-6" }, [
-                                    _c("div", { staticClass: "form-group" }, [
-                                      _c("label", [
-                                        _vm._v("Precio del convenio")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.form.agreement_price,
-                                            expression: "form.agreement_price"
-                                          }
-                                        ],
-                                        staticClass:
-                                          "form-control form-control-solid form-control-lg",
-                                        attrs: {
-                                          type: "text",
-                                          name: "agreement_price"
-                                        },
-                                        domProps: {
-                                          value: _vm.form.agreement_price
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.form,
-                                              "agreement_price",
-                                              $event.target.value
-                                            )
-                                          }
-                                        }
-                                      })
-                                    ])
-                                  ])
-                                : _vm._e()
                             ])
                           ]
                         ),
@@ -8532,7 +8096,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n      Estado físico del paciente\n    "
+                                  "\n            Estado físico del paciente\n          "
                                 )
                               ]
                             ),
@@ -8563,7 +8127,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n        Exámenes de laboatorio\n      "
+                                        "\n              Exámenes de laboatorio\n            "
                                       )
                                     ]
                                   )
@@ -8638,7 +8202,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n      ¿Ha tenido otro proceso nutricional anteriormente?\n    "
+                                        "\n            ¿Ha tenido otro proceso nutricional anteriormente?\n          "
                                       )
                                     ]
                                   )
@@ -8716,7 +8280,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n    ¿Sufre de alguna condición médica?\n  "
+                                        "\n          ¿Sufre de alguna condición médica?\n        "
                                       )
                                     ]
                                   )
@@ -8791,7 +8355,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n    ¿Toma algún medicamento?\n  "
+                                        "\n        ¿Toma algún medicamento?\n      "
                                       )
                                     ]
                                   )
@@ -8864,7 +8428,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n    ¿Toma algún suplemento?\n  "
+                                        "\n      ¿Toma algún suplemento?\n    "
                                       )
                                     ]
                                   )
@@ -10870,7 +10434,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "wizard-label" }, [
               _c("h3", { staticClass: "wizard-title" }, [
                 _c("span", [_vm._v("1")]),
-                _vm._v("Información Básica")
+                _vm._v("Datos Básicos")
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "wizard-bar" })
@@ -12468,7 +12032,7 @@ var render = function() {
         [
           _c(
             "inertia-link",
-            { attrs: { href: _vm.route("patients.create") } },
+            { attrs: { href: _vm.route("controls.patients") } },
             [
               _c(
                 "span",

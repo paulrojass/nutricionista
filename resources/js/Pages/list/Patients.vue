@@ -2,20 +2,10 @@
   <div class="col-lg-4">
     <div class="card card-custom card-stretch gutter-b">
       <!-- <div class="card-header border-0"></div> -->
-      
-      
-      
       <div class="card-body p-5">
-        
-        
         <div class="d-flex align-items-center">
-          <div class="symbol symbol-45 symbol-light mr-5">
-            <span class="symbol-label">
-              <inline-svg
-              :src="`/storage/avatars/${patient.avatar}`"
-              class="h-50 align-self-center"
-              ></inline-svg>
-            </span>
+          <div class="symbol symbol-50 pr-2">
+            <img :src="`/storage/avatars/${patient.avatar}`" alt="image" />
           </div>
           <div class="d-flex flex-column flex-grow-1">
             <inertia-link
@@ -29,30 +19,28 @@
           </span>
         </div>
       </div>
-      
-      
-      
       <div class="mb-10">
         <p class="text-dark-50 m-0 pt-5 font-weight-normal">
           <em>{{patient.aspiration| truncate(20, '...') }}</em>
         </p>
-        
         <p class="text-dark-50 m-0 pt-5 font-weight-normal">
           <strong>email: </strong>{{patient.email}}
         </p>
         <p class="text-dark-50 m-0 pt-5 font-weight-normal">
           <strong>teléfono: </strong>{{patient.phone}}
         </p>
-        <p class="text-dark-50 m-0 pt-5 font-weight-normal">
-          <strong>Ubicación: </strong>{{patient.city}}
-        </p>
       </div>
     </div>
     <div class="card-footer border-0 p-0 pb-5">
       <div class="my-2 d-flex justify-content-center">
-        <inertia-link :href="route('patients.show', patient.id)">
+        <inertia-link v-if="route().current('patients.index') == true" :href="route('patients.show', patient.id)">
           <b-button size="sm" pill variant="success">Ver más</b-button>
         </inertia-link>
+        
+        <inertia-link v-if="route().current('controls.patients') == true" :href="$route('controls.create', [patient.id])">
+          <b-button size="sm" pill variant="success">Crear Cita</b-button>
+        </inertia-link>
+        
       </div>
     </div>
   </div>

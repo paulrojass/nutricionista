@@ -5283,7 +5283,7 @@ var render = function() {
         [
           _c(
             "inertia-link",
-            { attrs: { href: _vm.route("patients.create") } },
+            { attrs: { href: _vm.route("controls.patients") } },
             [
               _c(
                 "span",

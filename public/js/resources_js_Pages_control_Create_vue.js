@@ -107,6 +107,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -119,7 +174,7 @@ __webpack_require__.r(__webpack_exports__);
       title: 'Crear Paciente'
     };
   },
-  props: ['cities'],
+  props: ['patient', 'cities'],
 
   /*
   mounted() {
@@ -134,18 +189,33 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: {
-        first_name_1: '',
-        first_name_2: '',
-        last_name_1: '',
-        last_name_2: '',
+        patient_id: this.patient.id,
+        plan_id: '',
         city_id: null,
-        phone: '',
-        email: ''
+        city_name: '',
+        agreement: 0,
+        agreement_name: '',
+        agreement_price: '',
+        date: '',
+        time: '',
+        note: ''
       },
       show: true
     };
   },
   methods: {
+    habilitado: function habilitado(v) {
+      if (v === '' || v === null) return 0;else return 1;
+    },
+    extranjero: function extranjero(v) {
+      var c = 'Extranjero (online)';
+      this.cities.forEach(function (city) {
+        if (v == city.name) {
+          c = city.name;
+        }
+      });
+      return c;
+    },
     setActiveTab1: function setActiveTab1(event) {
       this.tabIndex = this.setActiveTab(event);
     },
@@ -173,20 +243,22 @@ __webpack_require__.r(__webpack_exports__);
     },
     onSubmit: function onSubmit(evt) {
       evt.preventDefault();
-      this.$inertia.post(route('patients.store', this.form));
+      this.$inertia.post(route('control.store', this.form));
     },
     onReset: function onReset(evt) {
       var _this = this;
 
       evt.preventDefault(); // Reset our form values
 
-      this.form.first_name_1 = '';
-      this.form.first_name_2 = '';
-      this.form.last_name_1 = '';
-      this.form.last_name_2 = '';
-      this.form.email = '';
-      this.form.phone = '';
-      this.form.city_id = null; // Trick to reset/clear native browser form validation state
+      this.form.plan_id = '';
+      this.form.city_id = null;
+      this.form.city_name = '';
+      this.form.agreement = 0;
+      this.form.agreement_name = '';
+      this.form.agreement_price = '';
+      this.form.date = '';
+      this.form.time = '';
+      this.form.note = ''; // Trick to reset/clear native browser form validation state
 
       this.show = false;
       this.$nextTick(function () {
@@ -3654,28 +3726,319 @@ var render = function() {
               "b-form",
               { on: { submit: _vm.onSubmit, reset: _vm.onReset } },
               [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.patient_id,
+                      expression: "form.patient_id"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "hidden",
+                    id: "patient_id",
+                    name: "patient_id"
+                  },
+                  domProps: { value: _vm.form.patient_id },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "patient_id", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-xl-6" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", [_vm._v("Ciudad")]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.city_id,
+                              expression: "form.city_id"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "city_id" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "city_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { domProps: { value: null } }, [
+                            _vm._v("Seleccione ciudad")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.cities, function(city) {
+                            return _c(
+                              "option",
+                              { domProps: { value: city.id } },
+                              [_vm._v(_vm._s(city.name))]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm.form.city == "Extranjero (online)"
+                    ? _c("div", { staticClass: "col-xl-6" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", [_vm._v("Especifique: Cuidad - País")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.city_name,
+                                expression: "form.city_name"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text", name: "city_name" },
+                            domProps: { value: _vm.form.city_name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "city_name",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "form-text text-muted" }, [
+                            _vm._v("Ejemplo: Caracas - Venezuela.")
+                          ])
+                        ])
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Tipo de consulta")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.plan_id,
+                          expression: "form.plan_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "plan_id" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "plan_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "" } }, [
+                        _vm._v("Seleccione un plan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Control" } }, [
+                        _vm._v("Control")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1ra vez paquete 2" } }, [
+                        _vm._v("1ra vez paquete 2")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1ra vez paquete 3" } }, [
+                        _vm._v("1ra vez paquete 3")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Control 1/2" } }, [
+                        _vm._v("Control 1/2")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Control 2/2" } }, [
+                        _vm._v("Control 2/2")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Control 1/3" } }, [
+                        _vm._v("Control 1/3")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Control 2/3" } }, [
+                        _vm._v("Control 2/3")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Control 3/3" } }, [
+                        _vm._v("Control 3/3")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row pb-5" }, [
+                  _c("div", { staticClass: "col-xl-12" }, [
+                    _c(
+                      "div",
+                      [
+                        _c(
+                          "b-form-checkbox",
+                          {
+                            attrs: {
+                              id: "agreement",
+                              name: "agreement",
+                              value: "1",
+                              "unchecked-value": "0"
+                            },
+                            model: {
+                              value: _vm.form.agreement,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "agreement", $$v)
+                              },
+                              expression: "form.agreement"
+                            }
+                          },
+                          [_vm._v("\n          ¿Tiene convenio?\n        ")]
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm.agreement == 1
+                    ? _c("div", { staticClass: "col-xl-6" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", [_vm._v("Nombre del convenio")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.agreement_name,
+                                expression: "form.agreement_name"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text", name: "agreement_name" },
+                            domProps: { value: _vm.form.agreement_name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "agreement_name",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.agreement == 1
+                    ? _c("div", { staticClass: "col-xl-6" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", [_vm._v("Precio del convenio")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.agreement_price,
+                                expression: "form.agreement_price"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text", name: "agreement_price" },
+                            domProps: { value: _vm.form.agreement_price },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "agreement_price",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
                 _c(
                   "b-form-group",
                   {
                     attrs: {
-                      id: "input-group-1",
-                      label: "Primer nombre:",
-                      "label-for": "input-1"
+                      id: "input-date",
+                      label: "Fecha:",
+                      "label-for": "date"
                     }
                   },
                   [
                     _c("b-form-input", {
-                      attrs: {
-                        id: "input-1",
-                        required: "",
-                        placeholder: "Ingrese un nombre"
-                      },
+                      attrs: { type: "date", id: "date", required: "" },
                       model: {
-                        value: _vm.form.first_name_1,
+                        value: _vm.form.date,
                         callback: function($$v) {
-                          _vm.$set(_vm.form, "first_name_1", $$v)
+                          _vm.$set(_vm.form, "date", $$v)
                         },
-                        expression: "form.first_name_1"
+                        expression: "form.date"
                       }
                     })
                   ],
@@ -3686,23 +4049,20 @@ var render = function() {
                   "b-form-group",
                   {
                     attrs: {
-                      id: "input-group-2",
-                      label: "Segundo nombre:",
-                      "label-for": "input-2"
+                      id: "input-time",
+                      label: "Fecha:",
+                      "label-for": "time"
                     }
                   },
                   [
                     _c("b-form-input", {
-                      attrs: {
-                        id: "input-2",
-                        placeholder: "Ingrese un nombre"
-                      },
+                      attrs: { type: "time", id: "time", required: "" },
                       model: {
-                        value: _vm.form.first_name_2,
+                        value: _vm.form.time,
                         callback: function($$v) {
-                          _vm.$set(_vm.form, "first_name_2", $$v)
+                          _vm.$set(_vm.form, "time", $$v)
                         },
-                        expression: "form.first_name_2"
+                        expression: "form.time"
                       }
                     })
                   ],
@@ -3713,24 +4073,24 @@ var render = function() {
                   "b-form-group",
                   {
                     attrs: {
-                      id: "input-group-3",
-                      label: "Primer apellido:",
-                      "label-for": "input-3"
+                      id: "input-note",
+                      label: "Nota:",
+                      "label-for": "note"
                     }
                   },
                   [
                     _c("b-form-input", {
                       attrs: {
-                        id: "input-3",
-                        required: "",
-                        placeholder: "Ingrese un apellido"
+                        id: "note",
+                        placeholder:
+                          "Puede agregar alguna informacíon sobre la consulta"
                       },
                       model: {
-                        value: _vm.form.last_name_1,
+                        value: _vm.form.note,
                         callback: function($$v) {
-                          _vm.$set(_vm.form, "last_name_1", $$v)
+                          _vm.$set(_vm.form, "note", $$v)
                         },
-                        expression: "form.last_name_1"
+                        expression: "form.note"
                       }
                     })
                   ],
@@ -3739,100 +4099,20 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-group-4",
-                      label: "Segundo apellido:",
-                      "label-for": "input-4"
-                    }
-                  },
                   [
-                    _c("b-form-input", {
-                      attrs: {
-                        id: "input-4",
-                        required: "",
-                        placeholder: "Ingrese un apellido"
-                      },
-                      model: {
-                        value: _vm.form.last_name_2,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "last_name_2", $$v)
-                        },
-                        expression: "form.last_name_2"
-                      }
-                    })
+                    _c(
+                      "b-button",
+                      { attrs: { type: "submit", variant: "primary" } },
+                      [_vm._v("Guardar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-button",
+                      { attrs: { type: "reset", variant: "danger" } },
+                      [_vm._v("Borrar")]
+                    )
                   ],
                   1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-group-5",
-                      label: "Teléfono:",
-                      "label-for": "input-5"
-                    }
-                  },
-                  [
-                    _c("b-form-input", {
-                      attrs: {
-                        id: "input-5",
-                        required: "",
-                        placeholder: "ej. 123456789"
-                      },
-                      model: {
-                        value: _vm.form.phone,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "phone", $$v)
-                        },
-                        expression: "form.phone"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-group-6",
-                      label: "Correo electónico:",
-                      "label-for": "input-6",
-                      description: "El campo email debe ser único."
-                    }
-                  },
-                  [
-                    _c("b-form-input", {
-                      attrs: {
-                        id: "input-6",
-                        type: "email",
-                        required: "",
-                        placeholder: "ej: usuario@correo.com"
-                      },
-                      model: {
-                        value: _vm.form.email,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "email", $$v)
-                        },
-                        expression: "form.email"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-button",
-                  { attrs: { type: "submit", variant: "primary" } },
-                  [_vm._v("Guardar")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-button",
-                  { attrs: { type: "reset", variant: "danger" } },
-                  [_vm._v("Borrar")]
                 )
               ],
               1
@@ -5360,7 +5640,7 @@ var render = function() {
         [
           _c(
             "inertia-link",
-            { attrs: { href: _vm.route("patients.create") } },
+            { attrs: { href: _vm.route("controls.patients") } },
             [
               _c(
                 "span",

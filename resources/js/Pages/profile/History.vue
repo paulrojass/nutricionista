@@ -17,7 +17,7 @@
           data-wizard-state="current"
           >
           <div class="wizard-label">
-            <h3 class="wizard-title"><span>1</span>Información Básica</h3>
+            <h3 class="wizard-title"><span>1</span>Datos Básicos</h3>
             <div class="wizard-bar"></div>
           </div>
         </div>
@@ -196,127 +196,115 @@
             </div>
           </div></div>
           
+          
+          
+          
+        </div>
+        <!--end: Wizard Step 1-->
+        
+        <!--begin: Wizard Step 2-->
+        <div class="pb-5" data-wizard-type="step-content">
+          
           <h4 class="mb-10 font-weight-bold text-dark">
-            Datos de la consulta
+            Estado físico del paciente
           </h4>
           
           <div class="row">
-            <div class="col-xl-6">
-              <div class="form-group">
-                <label>Ciudad</label>
-                <select
-                name="city"
-                v-model="form.city"
-                class="form-control form-control-solid form-control-lg">
-                <option :value="null">Seleccione ciudad...</option>
-                <option v-for="city in cities" :value="city.id">{{ city.name }}</option>
-              </select>
-            </div>
+            <div class="col-xl-12">
+              <b-form-checkbox
+              id="chk_laboratory"
+              v-model="chk_laboratory"
+              name="chk_laboratory"
+              value="1"
+              unchecked-value="0"
+              :checked="patient.laboratory == 'varios'"
+              >
+              Exámenes de laboatorio
+            </b-form-checkbox>
           </div>
-          <div class="col-xl-6" v-if="form.city == 'Extranjero (online)'">
+          <div class="col-xl-12" v-if="chk_laboratory == 1">
             <div class="form-group">
-              <label>Especifique: Cuidad - País</label>
+              <label>Mencione los examenes</label>
               <input
               type="text"
-              v-model="form.city_name"
               class="form-control form-control-solid form-control-lg"
-              name="city_name"
+              name="laboratory"
+              v-model="form.laboratory"
               />
-              <span class="form-text text-muted"
-              >Ejemplo: Caracas - Venezuela.</span
-              >
             </div>
           </div>
         </div>
         
-        <div class="form-group">
-          <label>Tipo de consulta</label>
-          <select
-          name="plan"
-          v-model="form.plan"
-          class="form-control form-control-solid form-control-lg"
-          >
-          <option value="">Select</option>
-          <option value="Control">Control</option>
-          <option value="1ra vez paquete 2">1ra vez paquete 2</option>
-          <option value="1ra vez paquete 3">1ra vez paquete 3</option>
-          <option value="Control 1/2">Control 1/2</option>
-          <option value="Control 2/2">Control 2/2</option>
-          <option value="Control 1/3">Control 1/3</option>
-          <option value="Control 2/3">Control 2/3</option>
-          <option value="Control 3/3">Control 3/3</option>
-        </select>
-      </div>
-      <div class="row">
-        <div class="col-xl-12">
-          <div>
+        <div class="row">
+          <div class="col-xl-12">
             <b-form-checkbox
-            id="agreement"
-            v-model="agreement"
-            name="agreement"
+            id="chk_previous_experience"
+            v-model="chk_previous_experience"
+            name="chk_previous_experience"
             value="1"
             unchecked-value="0"
-            :checked="form.agreement_name"
             >
-            ¿Tiene convenio?
+            ¿Ha tenido otro proceso nutricional anteriormente?
           </b-form-checkbox>
         </div>
-      </div>
-      <div class="col-xl-6" v-if="agreement == 1">
-        <div class="form-group">
-          <label>Nombre del convenio</label>
-          <input
-          type="text"
-          v-model="form.agreement_name"
-          class="form-control form-control-solid form-control-lg"
-          name="agreement_name"
-          />
+        <div class="col-xl-12" v-if="chk_previous_experience == 1">
+          <div class="form-group">
+            <label>¿Cómo ha sido tu experiencia previa?</label>
+            <input
+            type="text"
+            v-model="form.previous_experience"
+            class="form-control form-control-solid form-control-lg"
+            name="previous_experience"
+            />
+          </div>
         </div>
       </div>
-      <div class="col-xl-6" v-if="agreement == 1">
+      
+      <div class="row">
+        <div class="col-xl-12">
+          <b-form-checkbox
+          id="chk_medical_condition"
+          v-model="chk_medical_condition"
+          name="chk_medical_condition"
+          value="1"
+          unchecked-value="0"
+          >
+          ¿Sufre de alguna condición médica?
+        </b-form-checkbox>
+      </div>
+      <div class="col-xl-12" v-if="chk_medical_condition == 1">
         <div class="form-group">
-          <label>Precio del convenio</label>
+          <label>Por favor describa</label>
           <input
           type="text"
-          v-model="form.agreement_price"
+          v-model="form.medical_condition"
           class="form-control form-control-solid form-control-lg"
-          name="agreement_price"
+          name="medical_condition"
           />
         </div>
       </div>
     </div>
-    
-  </div>
-  <!--end: Wizard Step 1-->
-  
-  <!--begin: Wizard Step 2-->
-  <div class="pb-5" data-wizard-type="step-content">
-    
-    <h4 class="mb-10 font-weight-bold text-dark">
-      Estado físico del paciente
-    </h4>
     
     <div class="row">
       <div class="col-xl-12">
         <b-form-checkbox
-        id="chk_laboratory"
-        v-model="chk_laboratory"
-        name="chk_laboratory"
+        id="chk_medicine"
+        v-model="chk_medicine"
+        name="chk_medicine"
         value="1"
         unchecked-value="0"
-        :checked="patient.laboratory == 'varios'"
         >
-        Exámenes de laboatorio
+        ¿Toma algún medicamento?
       </b-form-checkbox>
     </div>
-    <div class="col-xl-12" v-if="chk_laboratory == 1">
+    <div class="col-xl-12" v-if="chk_medicine == 1">
       <div class="form-group">
-        <label>Mencione los examenes</label>
+        <label>Indique cuales toma</label>
         <input
         type="text"
+        v-model="form.medicine"
         class="form-control form-control-solid form-control-lg"
-        name="laboratory"
-        v-model="form.laboratory"
+        name="medicine"
         />
       </div>
     </div>
@@ -325,101 +313,26 @@
   <div class="row">
     <div class="col-xl-12">
       <b-form-checkbox
-      id="chk_previous_experience"
-      v-model="chk_previous_experience"
-      name="chk_previous_experience"
+      id="chk_supplement"
+      v-model="chk_supplement"
+      name="chk_supplement"
       value="1"
       unchecked-value="0"
       >
-      ¿Ha tenido otro proceso nutricional anteriormente?
+      ¿Toma algún suplemento?
     </b-form-checkbox>
   </div>
-  <div class="col-xl-12" v-if="chk_previous_experience == 1">
+  <div class="col-xl-12" v-if="chk_supplement == 1">
     <div class="form-group">
-      <label>¿Cómo ha sido tu experiencia previa?</label>
+      <label>Indique cual toma</label>
       <input
       type="text"
-      v-model="form.previous_experience"
+      v-model="form.supplement"
       class="form-control form-control-solid form-control-lg"
-      name="previous_experience"
+      name="supplement"
       />
     </div>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-xl-12">
-    <b-form-checkbox
-    id="chk_medical_condition"
-    v-model="chk_medical_condition"
-    name="chk_medical_condition"
-    value="1"
-    unchecked-value="0"
-    >
-    ¿Sufre de alguna condición médica?
-  </b-form-checkbox>
-</div>
-<div class="col-xl-12" v-if="chk_medical_condition == 1">
-  <div class="form-group">
-    <label>Por favor describa</label>
-    <input
-    type="text"
-    v-model="form.medical_condition"
-    class="form-control form-control-solid form-control-lg"
-    name="medical_condition"
-    />
-  </div>
-</div>
-</div>
-
-<div class="row">
-  <div class="col-xl-12">
-    <b-form-checkbox
-    id="chk_medicine"
-    v-model="chk_medicine"
-    name="chk_medicine"
-    value="1"
-    unchecked-value="0"
-    >
-    ¿Toma algún medicamento?
-  </b-form-checkbox>
-</div>
-<div class="col-xl-12" v-if="chk_medicine == 1">
-  <div class="form-group">
-    <label>Indique cuales toma</label>
-    <input
-    type="text"
-    v-model="form.medicine"
-    class="form-control form-control-solid form-control-lg"
-    name="medicine"
-    />
-  </div>
-</div>
-</div>
-
-<div class="row">
-  <div class="col-xl-12">
-    <b-form-checkbox
-    id="chk_supplement"
-    v-model="chk_supplement"
-    name="chk_supplement"
-    value="1"
-    unchecked-value="0"
-    >
-    ¿Toma algún suplemento?
-  </b-form-checkbox>
-</div>
-<div class="col-xl-12" v-if="chk_supplement == 1">
-  <div class="form-group">
-    <label>Indique cual toma</label>
-    <input
-    type="text"
-    v-model="form.supplement"
-    class="form-control form-control-solid form-control-lg"
-    name="supplement"
-    />
-  </div>
-</div>
 </div>
 
 <div class="row">
@@ -849,12 +762,6 @@ export default {
         aspiration : this.patient.aspiration,
         goal : this.patient.goal,
         avatar : this.patient.avatar,
-        plan : this.patient.plan,
-        online : this.patient.omline,
-        city : this.extranjero(this.patient.city),
-        city_text : this.patient.city,
-        agreement_name : this.patient.agreement_name,
-        agreement_price : this.patient.agreement_price,
         laboratory : this.patient.laboratory,
         previous_experience : this.patient.previous_experience,
         medical_condition : this.patient.medical_condition,

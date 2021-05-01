@@ -61,18 +61,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Using a render function
@@ -3551,18 +3539,13 @@ var render = function() {
     _c("div", { staticClass: "card card-custom card-stretch gutter-b" }, [
       _c("div", { staticClass: "card-body p-5" }, [
         _c("div", { staticClass: "d-flex align-items-center" }, [
-          _c("div", { staticClass: "symbol symbol-45 symbol-light mr-5" }, [
-            _c(
-              "span",
-              { staticClass: "symbol-label" },
-              [
-                _c("inline-svg", {
-                  staticClass: "h-50 align-self-center",
-                  attrs: { src: "/storage/avatars/" + _vm.patient.avatar }
-                })
-              ],
-              1
-            )
+          _c("div", { staticClass: "symbol symbol-50 pr-2" }, [
+            _c("img", {
+              attrs: {
+                src: "/storage/avatars/" + _vm.patient.avatar,
+                alt: "image"
+              }
+            })
           ]),
           _vm._v(" "),
           _c(
@@ -3616,11 +3599,6 @@ var render = function() {
           _c("p", { staticClass: "text-dark-50 m-0 pt-5 font-weight-normal" }, [
             _c("strong", [_vm._v("teléfono: ")]),
             _vm._v(_vm._s(_vm.patient.phone) + "\n        ")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-dark-50 m-0 pt-5 font-weight-normal" }, [
-            _c("strong", [_vm._v("Ubicación: ")]),
-            _vm._v(_vm._s(_vm.patient.city) + "\n        ")
           ])
         ])
       ]),
@@ -3630,18 +3608,41 @@ var render = function() {
           "div",
           { staticClass: "my-2 d-flex justify-content-center" },
           [
-            _c(
-              "inertia-link",
-              { attrs: { href: _vm.route("patients.show", _vm.patient.id) } },
-              [
-                _c(
-                  "b-button",
-                  { attrs: { size: "sm", pill: "", variant: "success" } },
-                  [_vm._v("Ver más")]
+            _vm.route().current("patients.index") == true
+              ? _c(
+                  "inertia-link",
+                  {
+                    attrs: { href: _vm.route("patients.show", _vm.patient.id) }
+                  },
+                  [
+                    _c(
+                      "b-button",
+                      { attrs: { size: "sm", pill: "", variant: "success" } },
+                      [_vm._v("Ver más")]
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
-            )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.route().current("controls.patients") == true
+              ? _c(
+                  "inertia-link",
+                  {
+                    attrs: {
+                      href: _vm.$route("controls.create", [_vm.patient.id])
+                    }
+                  },
+                  [
+                    _c(
+                      "b-button",
+                      { attrs: { size: "sm", pill: "", variant: "success" } },
+                      [_vm._v("Crear Cita")]
+                    )
+                  ],
+                  1
+                )
+              : _vm._e()
           ],
           1
         )
@@ -5147,7 +5148,7 @@ var render = function() {
         [
           _c(
             "inertia-link",
-            { attrs: { href: _vm.route("patients.create") } },
+            { attrs: { href: _vm.route("controls.patients") } },
             [
               _c(
                 "span",

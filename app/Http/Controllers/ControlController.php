@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Control;
 use App\Models\Patient;
+use App\Models\City;
 use Illuminate\Http\Request;
 
 use Inertia\Inertia;
@@ -20,6 +21,14 @@ class ControlController extends Controller
     //
   }
   
+  public function patients()
+  {
+    $patients = Patient::orderBy('created_at', 'DESC')->where('active', 1)->get();
+    return Inertia::render('control/Patients', [
+      'patients' => $patients
+    ]);
+  }
+  
   public function calendar()
   {
     return Inertia::render('control/Calendar');
@@ -32,9 +41,11 @@ class ControlController extends Controller
   */
   public function create($id)
   {
-    $candidate = Patient::find($id);
+    $patient = Patient::find($id);
+    $cities = City::all();
     return Inertia::render('control/Create', [
-      'candidate' => $candidate
+      'patient' => $patient,
+      'cities' => $cities
     ]);
   }
   
@@ -46,7 +57,23 @@ class ControlController extends Controller
   */
   public function store(Request $request)
   {
-    //
+    $patient = Patient::find($request->patient);
+    //si es paciente prospecto cambia a activo
+    $patient->status = 1;
+    $patient->save();
+    
+    $control = new Control();
+    $control->patient_id = $request->patien_id;
+    $control->plan_id = $request->plan_id;
+    $control->city_name = $request->city_name;
+    $control->agreement_name = $request->agreement_name;
+    $control->agreement_price = $request->agreement_price;
+    $control->date = $request->date;
+    $control->time = $request->time;
+    $control->note = $request->note;
+    $control->save();
+    
+    return response()->json();
   }
   
   /**

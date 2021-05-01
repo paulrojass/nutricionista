@@ -26,11 +26,6 @@ class CreatePatientsTable extends Migration
       $table->text('aspiration')->nullable();
       $table->string('goal')->nullable();
       $table->string('avatar')->default('default.jpg');
-      $table->boolean('online')->default(0);
-      $table->foreignId('city_id')->constrained()->onDelete('cascade');
-      $table->string('city_name')->nullable();
-      $table->string('agreement_name')->nullable();
-      $table->string('agreement_price')->nullable();
       $table->string('laboratory')->nullable();
       $table->string('previous_experience')->nullable();
       $table->string('medical_condition')->nullable();

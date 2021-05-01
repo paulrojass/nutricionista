@@ -6,7 +6,7 @@
       </inertia-link>
     </b-button>
     <b-button variant="dark">
-      <inertia-link :href="route('patients.create')">
+      <inertia-link :href="route('controls.patients')">
         <span class="menu-text" style="color:white">Crear Cita</span>
       </inertia-link>
     </b-button>

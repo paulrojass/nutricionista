@@ -15,7 +15,7 @@
       <div class="card-body pt-2 pb-0">
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
           <p><strong>Fecha: </strong>
-            {{patient.poll.created_at}}
+            {{patient.created_at}}
           </p>
           
           <p><strong>Nombre: </strong>
@@ -29,9 +29,9 @@
           
           <b-form-group id="input-group-7" label="Objetivo:" label-for="input-7">
             <b-form-select
-            id="input-7"
-            name="city_id"
-            v-model="form.city_id"
+            id="aspiration"
+            name="aspiration"
+            v-model="form.aspiration"
             required
             >
             <option value="1">Perdida de peso</option>
@@ -43,27 +43,6 @@
             </template>
           </b-form-select>
         </b-form-group>
-        
-        <b-row id="convenio">
-          <b-col>
-            <b-form-group id="input-group-1" label="¿Cuál convenio?:" label-for="agreement_name">
-              <b-form-input
-              id="agreement_name"
-              v-model="form.agreement_name"
-              class="mb-2 mr-sm-2 mb-sm-0"
-              required
-              ></b-form-input>
-            </b-form-group>
-          </b-col>
-          <b-col>
-            <b-form-group id="input-group-2" label="Precio:" label-for="agreement_price">
-              <b-form-input
-              id="agreement_price"
-              v-model="form.agreement_price"
-              ></b-form-input>
-            </b-form-group>
-          </b-col>
-        </b-row>
         
         <b-form-group label="Exámenes de laboratorio:" label-for="laboratory">
           <b-form-input
@@ -214,10 +193,10 @@
         v-model="form.water"
         required
         >
-        <option value="1">Menos de 1 litro</option>
-        <option value="2">Entre 1 y 2 litros</option>
-        <option value="3">Más de 2 litros</option>
-        <option value="4">No sabe cuanto toma</option>
+        <option value="Menos de 1 litro">Menos de 1 litro</option>
+        <option value="Entre 1 y 2 litros">Entre 1 y 2 litros</option>
+        <option value="Más de 2 litros">Más de 2 litros</option>
+        <option value="No sabe cuanto toma">No sabe cuanto toma</option>
         <template v-slot:first>
           <option :value="null">Seleccione objetivo...</option>
         </template>

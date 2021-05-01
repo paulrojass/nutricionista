@@ -55,6 +55,7 @@ Route::prefix('panel')->group(function () {
     ]
   ])
   ->except(['create']);
+  Route::get('controles-pacientes', [App\Http\Controllers\ControlController::class, 'patients'])->name('controls.patients');
   Route::get('controles/crear/{patient_id}', [App\Http\Controllers\ControlController::class, 'create'])->name('controls.create');
   Route::get('calendario', [App\Http\Controllers\ControlController::class, 'calendar'])->name('calendar');
 });

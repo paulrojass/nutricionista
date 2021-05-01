@@ -11,9 +11,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _src_core_services_store_breadcrumbs_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/core/services/store/breadcrumbs.module */ "./resources/js/src/core/services/store/breadcrumbs.module.js");
-/* harmony import */ var _list_Patients_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list/Patients.vue */ "./resources/js/Pages/list/Patients.vue");
-/* harmony import */ var _src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/view/layout/Layout */ "./resources/js/src/view/layout/Layout.vue");
+/* harmony import */ var _list_Patients_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list/Patients.vue */ "./resources/js/Pages/list/Patients.vue");
+/* harmony import */ var _src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/view/layout/Layout */ "./resources/js/src/view/layout/Layout.vue");
 //
 //
 //
@@ -24,13 +23,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Using a render function
   layout: function layout(h, page) {
-    return h(_src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_2__.default, [page]);
+    return h(_src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_1__.default, [page]);
   },
   metaInfo: function metaInfo() {
     return {
@@ -39,7 +37,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: ['patients'],
   components: {
-    PatientsList: _list_Patients_vue__WEBPACK_IMPORTED_MODULE_1__.default
+    PatientsList: _list_Patients_vue__WEBPACK_IMPORTED_MODULE_0__.default
   }
   /*
   mounted() {
@@ -95,18 +93,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../src/view/layout/Layout */ "./resources/js/src/view/layout/Layout.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3741,18 +3727,13 @@ var render = function() {
     _c("div", { staticClass: "card card-custom card-stretch gutter-b" }, [
       _c("div", { staticClass: "card-body p-5" }, [
         _c("div", { staticClass: "d-flex align-items-center" }, [
-          _c("div", { staticClass: "symbol symbol-45 symbol-light mr-5" }, [
-            _c(
-              "span",
-              { staticClass: "symbol-label" },
-              [
-                _c("inline-svg", {
-                  staticClass: "h-50 align-self-center",
-                  attrs: { src: "/storage/avatars/" + _vm.patient.avatar }
-                })
-              ],
-              1
-            )
+          _c("div", { staticClass: "symbol symbol-50 pr-2" }, [
+            _c("img", {
+              attrs: {
+                src: "/storage/avatars/" + _vm.patient.avatar,
+                alt: "image"
+              }
+            })
           ]),
           _vm._v(" "),
           _c(
@@ -3806,11 +3787,6 @@ var render = function() {
           _c("p", { staticClass: "text-dark-50 m-0 pt-5 font-weight-normal" }, [
             _c("strong", [_vm._v("teléfono: ")]),
             _vm._v(_vm._s(_vm.patient.phone) + "\n        ")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-dark-50 m-0 pt-5 font-weight-normal" }, [
-            _c("strong", [_vm._v("Ubicación: ")]),
-            _vm._v(_vm._s(_vm.patient.city) + "\n        ")
           ])
         ])
       ]),
@@ -3820,18 +3796,41 @@ var render = function() {
           "div",
           { staticClass: "my-2 d-flex justify-content-center" },
           [
-            _c(
-              "inertia-link",
-              { attrs: { href: _vm.route("patients.show", _vm.patient.id) } },
-              [
-                _c(
-                  "b-button",
-                  { attrs: { size: "sm", pill: "", variant: "success" } },
-                  [_vm._v("Ver más")]
+            _vm.route().current("patients.index") == true
+              ? _c(
+                  "inertia-link",
+                  {
+                    attrs: { href: _vm.route("patients.show", _vm.patient.id) }
+                  },
+                  [
+                    _c(
+                      "b-button",
+                      { attrs: { size: "sm", pill: "", variant: "success" } },
+                      [_vm._v("Ver más")]
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
-            )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.route().current("controls.patients") == true
+              ? _c(
+                  "inertia-link",
+                  {
+                    attrs: {
+                      href: _vm.$route("controls.create", [_vm.patient.id])
+                    }
+                  },
+                  [
+                    _c(
+                      "b-button",
+                      { attrs: { size: "sm", pill: "", variant: "success" } },
+                      [_vm._v("Crear Cita")]
+                    )
+                  ],
+                  1
+                )
+              : _vm._e()
           ],
           1
         )
@@ -5337,7 +5336,7 @@ var render = function() {
         [
           _c(
             "inertia-link",
-            { attrs: { href: _vm.route("patients.create") } },
+            { attrs: { href: _vm.route("controls.patients") } },
             [
               _c(
                 "span",

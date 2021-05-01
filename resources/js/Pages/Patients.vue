@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { SET_BREADCRUMB } from "../src/core/services/store/breadcrumbs.module";
 import PatientsList from "./list/Patients.vue";
 import Layout from "../src/view/layout/Layout"
 
