@@ -162,6 +162,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -191,7 +197,7 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         patient_id: this.patient.id,
         plan_id: '',
-        city_id: null,
+        city: null,
         city_name: '',
         agreement: 0,
         agreement_name: '',
@@ -200,10 +206,18 @@ __webpack_require__.r(__webpack_exports__);
         time: '',
         note: ''
       },
+      plans: [],
       show: true
     };
   },
   methods: {
+    getPlans: function getPlans() {
+      if (this.form.city != null) {
+        return this.plans = this.cities[this.form.city].plans;
+      }
+
+      return this.plans = [];
+    },
     habilitado: function habilitado(v) {
       if (v === '' || v === null) return 0;else return 1;
     },
@@ -243,7 +257,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     onSubmit: function onSubmit(evt) {
       evt.preventDefault();
-      this.$inertia.post(route('control.store', this.form));
+      this.$inertia.post(route('controls.store', this.form));
     },
     onReset: function onReset(evt) {
       var _this = this;
@@ -251,7 +265,7 @@ __webpack_require__.r(__webpack_exports__);
       evt.preventDefault(); // Reset our form values
 
       this.form.plan_id = '';
-      this.form.city_id = null;
+      this.form.city = null;
       this.form.city_name = '';
       this.form.agreement = 0;
       this.form.agreement_name = '';
@@ -3755,7 +3769,7 @@ var render = function() {
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-xl-6" }, [
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Ciudad")]),
+                      _c("label", [_vm._v("Tipo de Consulta")]),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -3764,30 +3778,33 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.city_id,
-                              expression: "form.city_id"
+                              value: _vm.form.city,
+                              expression: "form.city"
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { name: "city_id" },
+                          attrs: { required: "", name: "city" },
                           on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.form,
-                                "city_id",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            }
+                            change: [
+                              function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "city",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                              _vm.getPlans
+                            ]
                           }
                         },
                         [
@@ -3795,10 +3812,10 @@ var render = function() {
                             _vm._v("Seleccione ciudad")
                           ]),
                           _vm._v(" "),
-                          _vm._l(_vm.cities, function(city) {
+                          _vm._l(_vm.cities, function(city, index) {
                             return _c(
                               "option",
-                              { domProps: { value: city.id } },
+                              { domProps: { value: index } },
                               [_vm._v(_vm._s(city.name))]
                             )
                           })
@@ -3808,47 +3825,41 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm.form.city == "Extranjero (online)"
-                    ? _c("div", { staticClass: "col-xl-6" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", [_vm._v("Especifique: Cuidad - País")]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.city_name,
-                                expression: "form.city_name"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "text", name: "city_name" },
-                            domProps: { value: _vm.form.city_name },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "city_name",
-                                  $event.target.value
-                                )
-                              }
+                  _c("div", { staticClass: "col-xl-6" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", [_vm._v("Especifique: Cuidad - País")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.city_name,
+                            expression: "form.city_name"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          name: "city_name",
+                          required: ""
+                        },
+                        domProps: { value: _vm.form.city_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
                             }
-                          }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "form-text text-muted" }, [
-                            _vm._v("Ejemplo: Caracas - Venezuela.")
-                          ])
-                        ])
-                      ])
-                    : _vm._e()
+                            _vm.$set(_vm.form, "city_name", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Tipo de consulta")]),
+                  _c("label", [_vm._v("Plan")]),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -3862,7 +3873,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { name: "plan_id" },
+                      attrs: { name: "plan_id", required: "" },
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -3888,38 +3899,13 @@ var render = function() {
                         _vm._v("Seleccione un plan")
                       ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "Control" } }, [
-                        _vm._v("Control")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1ra vez paquete 2" } }, [
-                        _vm._v("1ra vez paquete 2")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1ra vez paquete 3" } }, [
-                        _vm._v("1ra vez paquete 3")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Control 1/2" } }, [
-                        _vm._v("Control 1/2")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Control 2/2" } }, [
-                        _vm._v("Control 2/2")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Control 1/3" } }, [
-                        _vm._v("Control 1/3")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Control 2/3" } }, [
-                        _vm._v("Control 2/3")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Control 3/3" } }, [
-                        _vm._v("Control 3/3")
-                      ])
-                    ]
+                      _vm._l(_vm.plans, function(plan) {
+                        return _c("option", { domProps: { value: plan.id } }, [
+                          _vm._v(_vm._s(plan.name))
+                        ])
+                      })
+                    ],
+                    2
                   )
                 ]),
                 _vm._v(" "),
@@ -3952,7 +3938,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm.agreement == 1
+                  _vm.form.agreement == 1
                     ? _c("div", { staticClass: "col-xl-6" }, [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [_vm._v("Nombre del convenio")]),
@@ -3967,7 +3953,11 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text", name: "agreement_name" },
+                            attrs: {
+                              type: "text",
+                              name: "agreement_name",
+                              required: ""
+                            },
                             domProps: { value: _vm.form.agreement_name },
                             on: {
                               input: function($event) {
@@ -3986,7 +3976,7 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.agreement == 1
+                  _vm.form.agreement == 1
                     ? _c("div", { staticClass: "col-xl-6" }, [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [_vm._v("Precio del convenio")]),
@@ -4001,7 +3991,11 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text", name: "agreement_price" },
+                            attrs: {
+                              type: "text",
+                              name: "agreement_price",
+                              required: ""
+                            },
                             domProps: { value: _vm.form.agreement_price },
                             on: {
                               input: function($event) {
@@ -4021,53 +4015,69 @@ var render = function() {
                     : _vm._e()
                 ]),
                 _vm._v(" "),
-                _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-date",
-                      label: "Fecha:",
-                      "label-for": "date"
-                    }
-                  },
-                  [
-                    _c("b-form-input", {
-                      attrs: { type: "date", id: "date", required: "" },
-                      model: {
-                        value: _vm.form.date,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "date", $$v)
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-6" },
+                    [
+                      _c(
+                        "b-form-group",
+                        {
+                          attrs: {
+                            id: "input-date",
+                            label: "Fecha:",
+                            "label-for": "date"
+                          }
                         },
-                        expression: "form.date"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-time",
-                      label: "Fecha:",
-                      "label-for": "time"
-                    }
-                  },
-                  [
-                    _c("b-form-input", {
-                      attrs: { type: "time", id: "time", required: "" },
-                      model: {
-                        value: _vm.form.time,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "time", $$v)
+                        [
+                          _c("b-form-input", {
+                            attrs: { type: "date", id: "date", required: "" },
+                            model: {
+                              value: _vm.form.date,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "date", $$v)
+                              },
+                              expression: "form.date"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-md-6" },
+                    [
+                      _c(
+                        "b-form-group",
+                        {
+                          attrs: {
+                            id: "input-time",
+                            label: "Fecha:",
+                            "label-for": "time"
+                          }
                         },
-                        expression: "form.time"
-                      }
-                    })
-                  ],
-                  1
-                ),
+                        [
+                          _c("b-form-input", {
+                            attrs: { type: "time", id: "time", required: "" },
+                            model: {
+                              value: _vm.form.time,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "time", $$v)
+                              },
+                              expression: "form.time"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]),
                 _vm._v(" "),
                 _c(
                   "b-form-group",
@@ -4083,7 +4093,8 @@ var render = function() {
                       attrs: {
                         id: "note",
                         placeholder:
-                          "Puede agregar alguna informacíon sobre la consulta"
+                          "Puede agregar alguna informacíon sobre la consulta",
+                        required: ""
                       },
                       model: {
                         value: _vm.form.note,

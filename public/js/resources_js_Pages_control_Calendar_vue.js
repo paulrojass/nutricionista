@@ -3499,7 +3499,7 @@ var staticRenderFns = [
           staticStyle: { border: "0" },
           attrs: {
             src:
-              "https://calendar.google.com/calendar/embed?src=paul.rojase%40gmail.com&ctz=America%2FCaracas",
+              "https://calendar.google.com/calendar/embed?src=hn7s0ek35jvo9dafn2jjl52os4%40group.calendar.google.com&ctz=America%2FCaracas",
             width: "700",
             height: "550",
             frameborder: "0",

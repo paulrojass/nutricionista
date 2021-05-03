@@ -26,6 +26,7 @@ class ControlFactory extends Factory
     return [
       'patient_id' => Patient::all()->random()->id,
       'plan_id' => Plan::all()->random()->id,
+      'city_name' => 'asignado',
       'date' => $this->faker->dateTimeBetween('-0 week', '+4 week'),
       'time' => $this->faker->time(),
       'note' => $this->faker->paragraph()

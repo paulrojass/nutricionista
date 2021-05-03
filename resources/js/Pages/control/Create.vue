@@ -27,17 +27,22 @@
         <div class="row">
           <div class="col-xl-6">
             <div class="form-group">
-              <label>Ciudad</label>
+              <label>Tipo de Consulta</label>
               <select
-              name="city_id"
-              v-model="form.city_id"
+              required
+              name="city"
+              @change="getPlans"
+              v-model="form.city"
               class="form-control">
               <option :value="null">Seleccione ciudad</option>
-              <option v-for="city in cities" :value="city.id">{{ city.name }}</option>
+              <option
+              v-for="(city , index) in cities"
+              :value="index"
+              >{{ city.name }}</option>
             </select>
           </div>
         </div>
-        <div class="col-xl-6" v-if="form.city == 'Extranjero (online)'">
+        <div class="col-xl-6">
           <div class="form-group">
             <label>Especifique: Cuidad - País</label>
             <input
@@ -45,30 +50,22 @@
             v-model="form.city_name"
             class="form-control"
             name="city_name"
+            required
             />
-            <span class="form-text text-muted"
-            >Ejemplo: Caracas - Venezuela.</span
-            >
           </div>
         </div>
       </div>
       
       <div class="form-group">
-        <label>Tipo de consulta</label>
+        <label>Plan</label>
         <select
         name="plan_id"
         v-model="form.plan_id"
         class="form-control"
+        required
         >
         <option value="">Seleccione un plan</option>
-        <option value="Control">Control</option>
-        <option value="1ra vez paquete 2">1ra vez paquete 2</option>
-        <option value="1ra vez paquete 3">1ra vez paquete 3</option>
-        <option value="Control 1/2">Control 1/2</option>
-        <option value="Control 2/2">Control 2/2</option>
-        <option value="Control 1/3">Control 1/3</option>
-        <option value="Control 2/3">Control 2/3</option>
-        <option value="Control 3/3">Control 3/3</option>
+        <option v-for="plan in plans" :value="plan.id">{{ plan.name }}</option>
       </select>
     </div>
     <div class="row pb-5">
@@ -86,7 +83,7 @@
       </div>
     </div>
     
-    <div class="col-xl-6" v-if="agreement == 1">
+    <div class="col-xl-6" v-if="form.agreement == 1">
       <div class="form-group">
         <label>Nombre del convenio</label>
         <input
@@ -94,10 +91,11 @@
         v-model="form.agreement_name"
         class="form-control"
         name="agreement_name"
+        required
         />
       </div>
     </div>
-    <div class="col-xl-6" v-if="agreement == 1">
+    <div class="col-xl-6" v-if="form.agreement == 1">
       <div class="form-group">
         <label>Precio del convenio</label>
         <input
@@ -105,33 +103,41 @@
         v-model="form.agreement_price"
         class="form-control"
         name="agreement_price"
+        required
         />
       </div>
     </div>
   </div>
   
-  <b-form-group id="input-date" label="Fecha:" label-for="date">
-    <b-form-input
-    :type="`date`"
-    id="date"
-    v-model="form.date"
-    required
-    ></b-form-input>
-  </b-form-group>
-  <b-form-group id="input-time" label="Fecha:" label-for="time">
-    <b-form-input
-    :type="`time`"
-    id="time"
-    v-model="form.time"
-    required
-    ></b-form-input>
-  </b-form-group>
+  <div class="row">
+    <div class="col-md-6">
+      <b-form-group id="input-date" label="Fecha:" label-for="date">
+        <b-form-input
+        :type="`date`"
+        id="date"
+        v-model="form.date"
+        required
+        ></b-form-input>
+      </b-form-group>
+    </div>
+    <div class="col-md-6">
+      <b-form-group id="input-time" label="Fecha:" label-for="time">
+        <b-form-input
+        :type="`time`"
+        id="time"
+        v-model="form.time"
+        required
+        ></b-form-input>
+      </b-form-group>
+    </div>
+  </div>
   
   <b-form-group id="input-note" label="Nota:" label-for="note">
     <b-form-input
     id="note"
     v-model="form.note"
     placeholder="Puede agregar alguna informacíon sobre la consulta"
+    required
     ></b-form-input>
   </b-form-group>
   
@@ -175,7 +181,7 @@ data() {
     form: {
       patient_id: this.patient.id,
       plan_id : '',
-      city_id: null,
+      city: null,
       city_name : '',
       agreement : 0,
       agreement_name : '',
@@ -184,10 +190,17 @@ data() {
       time: '',
       note: ''
     },
-    show: true
+    plans : [],
+    show: true,
   }
 },
 methods: {
+  getPlans(){
+    if(this.form.city != null) {
+      return this.plans = this.cities[this.form.city].plans
+    }
+    return this.plans = []
+  },
   habilitado(v){
     if(v === '' || v === null) return 0
     else return 1
@@ -228,13 +241,13 @@ methods: {
   },
   onSubmit(evt) {
     evt.preventDefault()
-    this.$inertia.post(route('control.store', this.form))
+    this.$inertia.post(route('controls.store', this.form))
   },
   onReset(evt) {
     evt.preventDefault()
     // Reset our form values
     this.form.plan_id = ''
-    this.form.city_id = null
+    this.form.city = null
     this.form.city_name = ''
     this.form.agreement = 0
     this.form.agreement_name = ''
