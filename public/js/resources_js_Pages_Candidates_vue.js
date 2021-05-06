@@ -102,6 +102,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Using a render function
@@ -114,16 +126,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: ['candidates'],
-  data: function data() {
-    return {};
-  },
-  components: {},
   computed: {
     inactivesTotal: function inactivesTotal() {
       return this.$page.props.inactivesTotal;
     }
   },
   methods: {
+    deleteCandidate: function deleteCandidate(id) {
+      this.$inertia.post(route('patients.delete', id));
+    },
     calcularEdad: function calcularEdad(fecha) {
       var hoy = new Date();
       var cumpleanos = new Date(fecha);
@@ -455,9 +466,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       list: this.inactives
     };
-  },
-  created: function created() {
-    console.log(this.inactives);
   },
   components: {},
   methods: {
@@ -1458,17 +1466,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {},
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig", "getClasses"])), {}, {
     /**
-     * Get header logo
-     * @returns {string}
-     */
+    * Get header logo
+    * @returns {string}
+    */
     headerLogo: function headerLogo() {
       return process.env.BASE_URL + this.layoutConfig("self.logo");
     },
 
     /**
-     * Get classes for mobile header
-     * @returns {null|*}
-     */
+    * Get classes for mobile header
+    * @returns {null|*}
+    */
     headerClasses: function headerClasses() {
       var classes = this.getClasses("header_mobile");
 
@@ -1480,9 +1488,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
 
     /**
-     * Check if the left aside menu is enabled
-     * @returns {boolean}
-     */
+    * Check if the left aside menu is enabled
+    * @returns {boolean}
+    */
     asideEnabled: function asideEnabled() {
       return this.layoutConfig("aside.self.display");
     }
@@ -1545,10 +1553,9 @@ __webpack_require__.r(__webpack_exports__);
     console.log('La ruta');
     console.log(route().current());
   },
-  methods: {
-    hasActiveChildren: function hasActiveChildren(match) {
-      return this.$route["path"].indexOf(match) !== -1;
-    }
+  methods: {// hasActiveChildren(match) {
+    //   return this.$route["path"].indexOf(match) !== -1;
+    // }
   }
 });
 
@@ -3623,52 +3630,58 @@ var render = function() {
                 _vm._l(_vm.candidates, function(candidate, i) {
                   return [
                     _c("tr", { key: i }, [
-                      _c("td", [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "text-dark-75 font-weight-bolder d-block font-size-lg"
-                          },
-                          [
-                            _vm._v(
-                              _vm._s(candidate.first_name_1) +
-                                " " +
-                                _vm._s(candidate.first_name_2) +
-                                " " +
-                                _vm._s(candidate.last_name_1) +
-                                " " +
-                                _vm._s(candidate.last_name_2)
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          { staticClass: "text-muted font-weight-bold" },
-                          [
-                            _vm._v(
-                              "\n                  " +
-                                _vm._s(_vm.calcularEdad(candidate.birth_date)) +
-                                " años\n                "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "span",
-                          { staticClass: "text-muted font-weight-bold" },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(candidate.email) +
-                                "\n              "
-                            )
-                          ]
-                        )
-                      ]),
+                      _c(
+                        "td",
+                        [
+                          _c(
+                            "inertia-link",
+                            {
+                              staticClass:
+                                "text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3",
+                              attrs: {
+                                href: _vm.$route("patients.show", candidate.id)
+                              }
+                            },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-dark-75 font-weight-bolder d-block font-size-lg"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(candidate.first_name_1) +
+                                      " " +
+                                      _vm._s(candidate.first_name_2) +
+                                      " " +
+                                      _vm._s(candidate.last_name_1) +
+                                      " " +
+                                      _vm._s(candidate.last_name_2) +
+                                      "\n                "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            { staticClass: "text-muted font-weight-bold" },
+                            [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(
+                                    _vm.calcularEdad(candidate.birth_date)
+                                  ) +
+                                  " años\n              "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
                       _c("td", [
                         _c(
@@ -3677,8 +3690,22 @@ var render = function() {
                           [
                             _vm._v(
                               "\n              " +
-                                _vm._s(candidate.phone) +
+                                _vm._s(candidate.email) +
                                 "\n            "
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "span",
+                          { staticClass: "text-muted font-weight-bold" },
+                          [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(candidate.phone) +
+                                "\n          "
                             )
                           ]
                         )
@@ -3723,11 +3750,14 @@ var render = function() {
                             "inertia-link",
                             {
                               staticClass:
-                                "btn btn-icon btn-light btn-hover-primary btn-sm",
+                                "btn btn-icon btn-light btn-hover-primary btn-sm mx-3",
                               attrs: {
-                                href: _vm.$route("patients.destroy", [
-                                  candidate.id
-                                ])
+                                href: _vm.$route("candidates.destroy", {
+                                  id: candidate.id
+                                }),
+                                method: "delete",
+                                as: "button",
+                                type: "button"
                               }
                             },
                             [
@@ -4790,7 +4820,7 @@ var render = function() {
                             [
                               _c("inline-svg", {
                                 attrs: {
-                                  src: "media/svg/icons/General/Search.svg"
+                                  src: "/media/svg/icons/General/Search.svg"
                                 }
                               })
                             ],
@@ -5030,7 +5060,7 @@ var render = function() {
         { staticClass: "svg-icon" },
         [
           _c("inline-svg", {
-            attrs: { src: "media/svg/icons/Navigation/Up-2.svg" }
+            attrs: { src: "/media/svg/icons/Navigation/Up-2.svg" }
           })
         ],
         1
@@ -5430,7 +5460,7 @@ var render = function() {
               { staticClass: "svg-icon svg-icon-xl" },
               [
                 _c("inline-svg", {
-                  attrs: { src: "media/svg/icons/Design/Substract.svg" }
+                  attrs: { src: "/media/svg/icons/Design/Substract.svg" }
                 })
               ],
               1
@@ -5451,7 +5481,7 @@ var render = function() {
               { staticClass: "svg-icon svg-icon-xl" },
               [
                 _c("inline-svg", {
-                  attrs: { src: "media/svg/icons/General/User.svg" }
+                  attrs: { src: "/media/svg/icons/General/User.svg" }
                 })
               ],
               1
@@ -5470,7 +5500,7 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "/" } }, [
       _c("img", {
         staticClass: "logo-default max-h-30px",
-        attrs: { alt: "Logo", src: "media/logos/logo-letter-1.png" }
+        attrs: { alt: "Logo", src: "/media/logos/logo-letter-1.png" }
       })
     ])
   },
@@ -5514,7 +5544,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("home") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },
@@ -5531,7 +5561,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("patients.*") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },
@@ -5551,7 +5581,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("calendar") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },

@@ -26,6 +26,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Calendar",
@@ -356,9 +373,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       list: this.inactives
     };
-  },
-  created: function created() {
-    console.log(this.inactives);
   },
   components: {},
   methods: {
@@ -1359,17 +1373,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {},
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig", "getClasses"])), {}, {
     /**
-     * Get header logo
-     * @returns {string}
-     */
+    * Get header logo
+    * @returns {string}
+    */
     headerLogo: function headerLogo() {
       return process.env.BASE_URL + this.layoutConfig("self.logo");
     },
 
     /**
-     * Get classes for mobile header
-     * @returns {null|*}
-     */
+    * Get classes for mobile header
+    * @returns {null|*}
+    */
     headerClasses: function headerClasses() {
       var classes = this.getClasses("header_mobile");
 
@@ -1381,9 +1395,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
 
     /**
-     * Check if the left aside menu is enabled
-     * @returns {boolean}
-     */
+    * Check if the left aside menu is enabled
+    * @returns {boolean}
+    */
     asideEnabled: function asideEnabled() {
       return this.layoutConfig("aside.self.display");
     }
@@ -1446,10 +1460,9 @@ __webpack_require__.r(__webpack_exports__);
     console.log('La ruta');
     console.log(route().current());
   },
-  methods: {
-    hasActiveChildren: function hasActiveChildren(match) {
-      return this.$route["path"].indexOf(match) !== -1;
-    }
+  methods: {// hasActiveChildren(match) {
+    //   return this.$route["path"].indexOf(match) !== -1;
+    // }
   }
 });
 
@@ -3486,27 +3499,72 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card card-custom gutter-b" }, [
+    _c("div", { staticClass: "card-header border-0 py-5" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-toolbar" },
+        [
+          _c(
+            "inertia-link",
+            {
+              staticClass: "btn btn-primary font-weight-bolder font-size-sm",
+              attrs: { href: _vm.$route("controls.index") }
+            },
+            [
+              _c("inline-svg", {
+                attrs: { src: "/media/svg/icons/Text/Bullet-list.svg" }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _vm._m(1)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-custom gutter-b" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("iframe", {
-          staticStyle: { border: "0" },
-          attrs: {
-            src:
-              "https://calendar.google.com/calendar/embed?src=hn7s0ek35jvo9dafn2jjl52os4%40group.calendar.google.com&ctz=America%2FCaracas",
-            width: "700",
-            height: "550",
-            frameborder: "0",
-            scrolling: "no"
-          }
-        })
-      ])
+    return _c(
+      "h3",
+      { staticClass: "card-title align-items-start flex-column" },
+      [
+        _c("span", { staticClass: "card-label font-weight-bolder text-dark" }, [
+          _vm._v("\n          Google Calendar\n        ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          { staticClass: "text-muted mt-3 font-weight-bold font-size-sm" },
+          [_vm._v("\n          Controles creados en el calendario\n        ")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("iframe", {
+        staticStyle: { border: "0" },
+        attrs: {
+          src:
+            "https://calendar.google.com/calendar/embed?src=hn7s0ek35jvo9dafn2jjl52os4%40group.calendar.google.com&ctz=America%2FCaracas",
+          width: "700",
+          height: "550",
+          frameborder: "0",
+          scrolling: "no"
+        }
+      })
     ])
   }
 ]
@@ -4514,7 +4572,7 @@ var render = function() {
                             [
                               _c("inline-svg", {
                                 attrs: {
-                                  src: "media/svg/icons/General/Search.svg"
+                                  src: "/media/svg/icons/General/Search.svg"
                                 }
                               })
                             ],
@@ -4754,7 +4812,7 @@ var render = function() {
         { staticClass: "svg-icon" },
         [
           _c("inline-svg", {
-            attrs: { src: "media/svg/icons/Navigation/Up-2.svg" }
+            attrs: { src: "/media/svg/icons/Navigation/Up-2.svg" }
           })
         ],
         1
@@ -5154,7 +5212,7 @@ var render = function() {
               { staticClass: "svg-icon svg-icon-xl" },
               [
                 _c("inline-svg", {
-                  attrs: { src: "media/svg/icons/Design/Substract.svg" }
+                  attrs: { src: "/media/svg/icons/Design/Substract.svg" }
                 })
               ],
               1
@@ -5175,7 +5233,7 @@ var render = function() {
               { staticClass: "svg-icon svg-icon-xl" },
               [
                 _c("inline-svg", {
-                  attrs: { src: "media/svg/icons/General/User.svg" }
+                  attrs: { src: "/media/svg/icons/General/User.svg" }
                 })
               ],
               1
@@ -5194,7 +5252,7 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "/" } }, [
       _c("img", {
         staticClass: "logo-default max-h-30px",
-        attrs: { alt: "Logo", src: "media/logos/logo-letter-1.png" }
+        attrs: { alt: "Logo", src: "/media/logos/logo-letter-1.png" }
       })
     ])
   },
@@ -5238,7 +5296,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("home") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },
@@ -5255,7 +5313,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("patients.*") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },
@@ -5275,7 +5333,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("calendar") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },

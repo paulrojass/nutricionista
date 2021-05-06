@@ -89,9 +89,6 @@ export default {
       list: this.inactives,
     };
   },
-  created(){
-    console.log(this.inactives)
-  },
   components: {},
   methods: {
     calcularEdad(fecha) {

@@ -94,17 +94,17 @@
               </td>
               <td>
                 <span class="text-muted font-weight-bold">
-                  {{item.time | formatTime}}
+                  {{item.time}}
                 </span>
               </td>
               <td>
                 <span class="text-muted font-weight-bold">
-                  {{item.note| truncate(40, '...')}}
+                  {{item.note | truncate(40, '...')}}
                 </span>
               </td>
               <td class="text-right pr-0">
                 <inertia-link
-                :href="route('patients.show', item.patient.id)"
+                :href="route('controls.show', item.id)"
                 class="btn btn-icon btn-light btn-sm">
                 <span class="svg-icon svg-icon-md svg-icon-success">
                   <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->

@@ -15,11 +15,13 @@ class Control extends Model
   * @var array $fillable
   */
   protected $fillable = [
+    'event_id',
     'patient_id',
     'plan_id',
     'city_name',
     'agreement_name',
     'agreement_price',
+    'status',
     'date',
     'time',
     'note'

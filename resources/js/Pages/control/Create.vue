@@ -5,11 +5,10 @@
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
         <span class="card-label font-weight-bolder text-dark"
-        >Nueva cita</span
+        >Nuevo control para {{patient.first_name_1}} {{patient.last_name_1}}</span
         >
         <span class="text-muted mt-3 font-weight-bold font-size-sm"
-        >Ingrese la informacíon básica para registrar un paciente</span
-        >
+        >Ingrese la informacion solicitada para el registro del control</span>
       </h3>
     </div>
     <!-- end::Header -->
@@ -121,7 +120,7 @@
       </b-form-group>
     </div>
     <div class="col-md-6">
-      <b-form-group id="input-time" label="Fecha:" label-for="time">
+      <b-form-group id="input-time" label="Hora:" label-for="time">
         <b-form-input
         :type="`time`"
         id="time"
@@ -162,105 +161,95 @@ export default {
   layout: (h, page) => h(Layout, [page]),
   metaInfo() {
     return {
-      title: 'Crear Paciente',
+      title: `Crear Control para ${this.patient.first_name_1} ${this.patient.last_name_1}`,
     }
   },
   props: ['patient','cities'],
-  /*
-  mounted() {
-  this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
-  axios.get('patients').then((response) => {
-  console.log(response)
-  this.patients = response.data;
-});
-console.log('Component mounted.')
-},
-*/
-data() {
-  return {
-    form: {
-      patient_id: this.patient.id,
-      plan_id : '',
-      city: null,
-      city_name : '',
-      agreement : 0,
-      agreement_name : '',
-      agreement_price : '',
-      date: '',
-      time: '',
-      note: ''
-    },
-    plans : [],
-    show: true,
-  }
-},
-methods: {
-  getPlans(){
-    if(this.form.city != null) {
-      return this.plans = this.cities[this.form.city].plans
+  data() {
+    return {
+      form: {
+        patient_id: this.patient.id,
+        plan_id : '',
+        city: null,
+        city_name : '',
+        agreement : 0,
+        agreement_name : '',
+        agreement_price : '',
+        date: '',
+        time: '',
+        note: ''
+      },
+      plans : [],
+      show: true,
     }
-    return this.plans = []
   },
-  habilitado(v){
-    if(v === '' || v === null) return 0
-    else return 1
-  },
-  extranjero(v){
-    let c = 'Extranjero (online)'
-    this.cities.forEach((city) => {
-      if (v == city.name) {
-        c = city.name
+  methods: {
+    getPlans(){
+      if(this.form.city != null) {
+        return this.plans = this.cities[this.form.city].plans
       }
-    })
-    return c
-  },
-  setActiveTab1(event) {
-    this.tabIndex = this.setActiveTab(event);
-  },
-  setActiveTab2(event) {
-    this.tabIndex2 = this.setActiveTab(event);
-  },
-  /**
-  * Set current active on click
-  * @param event
-  */
-  setActiveTab(event) {
-    // get all tab links
-    const tab = event.target.closest('[role="tablist"]');
-    const links = tab.querySelectorAll(".nav-link");
-    // remove active tab links
-    for (let i = 0; i < links.length; i++) {
-      links[i].classList.remove("active");
+      return this.plans = []
+    },
+    habilitado(v){
+      if(v === '' || v === null) return 0
+      else return 1
+    },
+    extranjero(v){
+      let c = 'Extranjero (online)'
+      this.cities.forEach((city) => {
+        if (v == city.name) {
+          c = city.name
+        }
+      })
+      return c
+    },
+    setActiveTab1(event) {
+      this.tabIndex = this.setActiveTab(event);
+    },
+    setActiveTab2(event) {
+      this.tabIndex2 = this.setActiveTab(event);
+    },
+    /**
+    * Set current active on click
+    * @param event
+    */
+    setActiveTab(event) {
+      // get all tab links
+      const tab = event.target.closest('[role="tablist"]');
+      const links = tab.querySelectorAll(".nav-link");
+      // remove active tab links
+      for (let i = 0; i < links.length; i++) {
+        links[i].classList.remove("active");
+      }
+      
+      // set current active tab
+      event.target.classList.add("active");
+      
+      // set clicked tab index to bootstrap tab
+      return parseInt(event.target.getAttribute("data-tab"));
+    },
+    onSubmit(evt) {
+      evt.preventDefault()
+      this.$inertia.post(route('controls.store', this.form))
+    },
+    onReset(evt) {
+      evt.preventDefault()
+      // Reset our form values
+      this.form.plan_id = ''
+      this.form.city = null
+      this.form.city_name = ''
+      this.form.agreement = 0
+      this.form.agreement_name = ''
+      this.form.agreement_price = ''
+      this.form.date = ''
+      this.form.time = ''
+      this.form.note = ''
+      // Trick to reset/clear native browser form validation state
+      this.show = false
+      this.$nextTick(() => {
+        this.show = true
+      })
     }
-    
-    // set current active tab
-    event.target.classList.add("active");
-    
-    // set clicked tab index to bootstrap tab
-    return parseInt(event.target.getAttribute("data-tab"));
-  },
-  onSubmit(evt) {
-    evt.preventDefault()
-    this.$inertia.post(route('controls.store', this.form))
-  },
-  onReset(evt) {
-    evt.preventDefault()
-    // Reset our form values
-    this.form.plan_id = ''
-    this.form.city = null
-    this.form.city_name = ''
-    this.form.agreement = 0
-    this.form.agreement_name = ''
-    this.form.agreement_price = ''
-    this.form.date = ''
-    this.form.time = ''
-    this.form.note = ''
-    // Trick to reset/clear native browser form validation state
-    this.show = false
-    this.$nextTick(() => {
-      this.show = true
-    })
   }
-}
 };
 </script>

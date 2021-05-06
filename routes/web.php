@@ -28,6 +28,8 @@ Route::get('/', App\Http\Controllers\WelcomeController::class);
 
 Route::prefix('panel')->group(function () {
   Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+  Route::delete('candidatos/{id}', [App\Http\Controllers\PatientController::class, 'destroyCandidate'])->name('candidates.destroy');
+  Route::get('candidatos', [App\Http\Controllers\PatientController::class, 'candidates'] )->name('candidates.index');
   Route::resource('pacientes',
   App\Http\Controllers\PatientController::class,
   [
@@ -41,7 +43,7 @@ Route::prefix('panel')->group(function () {
       'destroy' => 'patients.destroy'
     ]
   ]);
-  Route::get('/candidatos', [App\Http\Controllers\PatientController::class, 'candidates'] )->name('candidates.index');
+  Route::post('controles/cambiar-estado/', [App\Http\Controllers\ControlController::class, 'changeStatus'])->name('controls.change-status');
   Route::resource('controles',
   App\Http\Controllers\ControlController::class,
   [
@@ -58,8 +60,6 @@ Route::prefix('panel')->group(function () {
   Route::get('controles-pacientes', [App\Http\Controllers\ControlController::class, 'patients'])->name('controls.patients');
   Route::get('controles/crear/{patient_id}', [App\Http\Controllers\ControlController::class, 'create'])->name('controls.create');
   Route::get('calendario', [App\Http\Controllers\ControlController::class, 'calendar'])->name('calendar');
-  Route::get('calendario-add', [App\Http\Controllers\ControlController::class, 'calendarAdd'])->name('calendarAdd');
   
 });
-Route::get('get-plans', [App\Http\Controllers\PlanController::class, 'getPlans'])->name('get.plans');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

@@ -35,12 +35,6 @@
         </div>
         <div class="wizard-step" data-wizard-type="step">
           <div class="wizard-label">
-            <h3 class="wizard-title"><span>4</span> Adjuntos</h3>
-            <div class="wizard-bar"></div>
-          </div>
-        </div>
-        <div class="wizard-step" data-wizard-type="step">
-          <div class="wizard-label">
             <h3 class="wizard-title"><span>5</span>Diagnóstico y Plan</h3>
             <div class="wizard-bar"></div>
           </div>
@@ -53,7 +47,7 @@
     <div class="row justify-content-center py-12 px-8 py-lg-15 px-lg-10">
       <div class="col-xl-12 col-xxl-7">
         <!--begin: Wizard Form-->
-        <form class="form" id="kt_form" v-if="show">
+        <form class="form" id="kt_form" v-if="show" enctype="multipart/form-data">
           <!--begin: Wizard Step 1-->
           <div
           class="pb-5"
@@ -65,246 +59,253 @@
           </h4>
           
           <div class="row">
-            <div class="col-xl-6">
-              <div class="form-group">
-                <label>Primer nombre</label>
-                <input
-                v-model="form.first_name_1"
-                type="text"
-                class="form-control form-control-solid form-control-lg"
-                name="first_name_1"
-                placeholder="Primer nombre"
-                />
-                <span class="form-text text-muted"
-                >Por favor ingrese el primer nombre.</span
-                >
-              </div>
-            </div>
-            <div class="col-xl-6">
-              <div class="form-group">
-                <label>Segundo nombre</label>
-                <input
-                type="text"
-                v-model="form.first_name_2"
-                class="form-control form-control-solid form-control-lg"
-                name="first_name_2"
-                placeholder="segundo nombre"
-                />
-                <span class="form-text text-muted"
-                >Por favor ingrese el segundo nombre.</span
-                >
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-xl-6">
-              <div class="form-group">
-                <label>Primer apellido</label>
-                <input
-                type="text"
-                v-model="form.last_name_1"
-                class="form-control form-control-solid form-control-lg"
-                name="last_name_1"
-                placeholder="Primer apellido"
-                />
-                <span class="form-text text-muted"
-                >Por favor ingrese el primer apellido.</span
-                >
-              </div>
-            </div>
-            <div class="col-xl-6">
-              <div class="form-group">
-                <label>Segundo apellido</label>
-                <input
-                type="text"
-                v-model="form.last_name_2"
-                class="form-control form-control-solid form-control-lg"
-                name="last_name_2"
-                placeholder="segundo apellido"
-                />
-                <span class="form-text text-muted"
-                >Por favor ingrese el segundo apellido.</span
-                >
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-xl-6">
-              <div class="form-group">
-                <label>Teléfono</label>
-                <input
-                type="text"
-                v-model="form.phone"
-                class="form-control form-control-solid form-control-lg"
-                name="phone"
-                />
-              </div>
-            </div>
-            <div class="col-xl-6">
-              <div class="form-group">
-                <label>Correo electrónico</label>
-                <input
-                type="email"
-                v-model="form.email"
-                class="form-control form-control-solid form-control-lg"
-                name="email"
-                />
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-xl-6">
-              <div class="form-group">
-                <label>Fecha de nacimiento</label>
-                <input
-                type="text"
-                v-model="form.birth_date"
-                class="form-control form-control-solid form-control-lg"
-                name="birth_date"
-                />
-              </div>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label>Describa sus aspiraciones</label>
-            <textarea
-            type="text"
-            v-model="form.aspiration"
-            class="form-control form-control-solid form-control-lg"
-            name="aspiration"
-            ></textarea>
-          </div>
-          <div class="row">
-            <div class="col-xl-6">
-              <div class="form-group">
-                <label>Objetivo</label>
-                <select
-                name="goal"
-                v-model="form.goal"
-                class="form-control form-control-solid form-control-lg"
-                >
-                <option value="">Selecccionar</option>
-                <option value="perdida de peso">Perdida de peso</option>
-                <option value="Perdida de % graso">Perdida de % graso</option>
-                <option value="Masa muscular">Masa muscular</option>
-                <option value="Aumento de peso">Aumento de peso</option>
-              </select>
-            </div>
-          </div></div>
-          
-          
-          
-          
-        </div>
-        <!--end: Wizard Step 1-->
-        
-        <!--begin: Wizard Step 2-->
-        <div class="pb-5" data-wizard-type="step-content">
-          
-          <h4 class="mb-10 font-weight-bold text-dark">
-            Estado físico del paciente
-          </h4>
-          
-          <div class="row">
             <div class="col-xl-12">
-              <b-form-checkbox
-              id="chk_laboratory"
-              v-model="chk_laboratory"
-              name="chk_laboratory"
-              value="1"
-              unchecked-value="0"
-              :checked="patient.laboratory == 'varios'"
-              >
-              Exámenes de laboatorio
-            </b-form-checkbox>
-          </div>
-          <div class="col-xl-12" v-if="chk_laboratory == 1">
-            <div class="form-group">
-              <label>Mencione los examenes</label>
-              <input
-              type="text"
-              class="form-control form-control-solid form-control-lg"
-              name="laboratory"
-              v-model="form.laboratory"
-              />
+              <div class="form-group row">
+                <label class="col-xl-6 col-lg-6 col-form-label text-right"
+                >Fotografía</label
+                >
+                <div class="col-lg-6 col-xl-6">
+                  <div class="image-input image-input-outline" id="kt_avatar">
+                    <div
+                    class="image-input-wrapper"
+                    :style="{ backgroundImage: `url(${photo})` }"
+                    ></div>
+                    <label
+                    class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                    data-action="change"
+                    data-toggle="tooltip"
+                    title=""
+                    data-original-title="Change avatar"
+                    >
+                    <i class="fa fa-pen icon-sm text-muted"></i>
+                    <input
+                    type="file"
+                    name="avatar"
+                    accept=".png, .jpg, .jpeg"
+                    @change="onFileChange($event)"
+                    />
+                    <input type="hidden" name="avatar_remove" />
+                  </label>
+                  <span
+                  class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                  data-action="cancel"
+                  data-toggle="tooltip"
+                  title="Cancel avatar"
+                  >
+                  <i class="ki ki-bold-close icon-xs text-muted"></i>
+                </span>
+                <span
+                class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                data-action="remove"
+                data-toggle="tooltip"
+                title="Remove avatar"
+                @click="current_photo = null"
+                >
+                <i class="ki ki-bold-close icon-xs text-muted"></i>
+              </span>
             </div>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-xl-12">
-            <b-form-checkbox
-            id="chk_previous_experience"
-            v-model="chk_previous_experience"
-            name="chk_previous_experience"
-            value="1"
-            unchecked-value="0"
+            <span class="form-text text-muted"
+            >formatos permitidos: png, jpg, jpeg.</span
             >
-            ¿Ha tenido otro proceso nutricional anteriormente?
-          </b-form-checkbox>
-        </div>
-        <div class="col-xl-12" v-if="chk_previous_experience == 1">
-          <div class="form-group">
-            <label>¿Cómo ha sido tu experiencia previa?</label>
-            <input
-            type="text"
-            v-model="form.previous_experience"
-            class="form-control form-control-solid form-control-lg"
-            name="previous_experience"
-            />
           </div>
         </div>
       </div>
       
-      <div class="row">
-        <div class="col-xl-12">
-          <b-form-checkbox
-          id="chk_medical_condition"
-          v-model="chk_medical_condition"
-          name="chk_medical_condition"
-          value="1"
-          unchecked-value="0"
-          >
-          ¿Sufre de alguna condición médica?
-        </b-form-checkbox>
-      </div>
-      <div class="col-xl-12" v-if="chk_medical_condition == 1">
+      
+      <div class="col-xl-6">
         <div class="form-group">
-          <label>Por favor describa</label>
+          <label for="fist">Primer nombre</label>
+          <b-form-input
+          v-model="form.first_name_1"
+          id="first"
+          type="text"
+          class="form-control form-control-solid form-control-lg"
+          name="first_name_1"
+          placeholder="Primer nombre"
+          required
+          :state="firstNameState"
+          aria-describedby="input-live-help input-live-feedback"
+          trim
+          ></b-form-input>
+          <!-- This will only be shown if the preceding input has an invalid state -->
+          <b-form-invalid-feedback id="first-feedback">
+            Campo obligatorio
+          </b-form-invalid-feedback>
+          
+          
+          <span class="form-text text-muted"
+          >Por favor ingrese el primer nombre.</span
+          >
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <div class="form-group">
+          <label>Segundo nombre</label>
           <input
           type="text"
-          v-model="form.medical_condition"
+          v-model="form.first_name_2"
           class="form-control form-control-solid form-control-lg"
-          name="medical_condition"
+          name="first_name_2"
+          placeholder="segundo nombre"
           />
         </div>
       </div>
     </div>
     
     <div class="row">
+      <div class="col-xl-6">
+        <div class="form-group">
+          <label>Primer apellido</label>
+          <b-form-input
+          type="text"
+          v-model="form.last_name_1"
+          class="form-control form-control-solid form-control-lg"
+          name="last_name_1"
+          placeholder="Primer apellido"
+          required
+          :state="lastNameState"
+          aria-describedby="input-live-help input-live-feedback"
+          trim
+          ></b-form-input>
+          <!-- This will only be shown if the preceding input has an invalid state -->
+          <b-form-invalid-feedback>
+            Campo obligatorio
+          </b-form-invalid-feedback>
+          <span class="form-text text-muted"
+          >Por favor ingrese el primer apellido.</span
+          >
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <div class="form-group">
+          <label>Segundo apellido</label>
+          <input
+          type="text"
+          v-model="form.last_name_2"
+          class="form-control form-control-solid form-control-lg"
+          name="last_name_2"
+          placeholder="segundo apellido"
+          />
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="form-group">
+          <label>Teléfono</label>
+          <b-form-input
+          type="text"
+          v-model="form.phone"
+          class="form-control form-control-solid form-control-lg"
+          name="phone"
+          :state="phoneState"
+          aria-describedby="input-live-help input-live-feedback"
+          trim
+          ></b-form-input>
+          <!-- This will only be shown if the preceding input has an invalid state -->
+          <b-form-invalid-feedback>
+            Campo obligatorio
+          </b-form-invalid-feedback>
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <b-form-input
+          type="email"
+          v-model="form.email"
+          class="form-control form-control-solid form-control-lg"
+          name="email"
+          required
+          :state="emailState"
+          aria-describedby="input-live-help input-live-feedback"
+          trim
+          ></b-form-input>
+          <!-- This will only be shown if the preceding input has an invalid state -->
+          <b-form-invalid-feedback>
+            Campo obligatorio
+          </b-form-invalid-feedback>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="form-group">
+          <label>Fecha de nacimiento</label>
+          <input
+          :type="`date`"
+          v-model="form.birth_date"
+          class="form-control form-control-solid form-control-lg"
+          name="birth_date"
+          required
+          />
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Describa las aspiraciones o motivo de la consulta</label>
+      <textarea
+      type="text"
+      v-model="form.aspiration"
+      class="form-control form-control-solid form-control-lg"
+      name="aspiration"
+      ></textarea>
+    </div>
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="form-group">
+          <label>Objetivo</label>
+          <select
+          name="goal"
+          v-model="form.goal"
+          class="form-control form-control-solid form-control-lg"
+          >
+          <option value="">Selecccionar</option>
+          <option value="perdida de peso">Perdida de peso</option>
+          <option value="Perdida de % graso">Perdida de % graso</option>
+          <option value="Masa muscular">Masa muscular</option>
+          <option value="Aumento de peso">Aumento de peso</option>
+        </select>
+      </div>
+    </div></div>
+    
+    
+    
+    
+  </div>
+  <!--end: Wizard Step 1-->
+  
+  <!--begin: Wizard Step 2-->
+  <div class="pb-5" data-wizard-type="step-content">
+    
+    <h4 class="mb-10 font-weight-bold text-dark">
+      Estado físico del paciente
+    </h4>
+    
+    <div class="row">
       <div class="col-xl-12">
         <b-form-checkbox
-        id="chk_medicine"
-        v-model="chk_medicine"
-        name="chk_medicine"
+        id="chk_laboratory"
+        v-model="chk_laboratory"
+        name="chk_laboratory"
         value="1"
         unchecked-value="0"
+        :checked="patient.laboratory == 'varios'"
         >
-        ¿Toma algún medicamento?
+        Exámenes de laboatorio
       </b-form-checkbox>
     </div>
-    <div class="col-xl-12" v-if="chk_medicine == 1">
+    <div class="col-xl-12" v-if="chk_laboratory == 1">
       <div class="form-group">
-        <label>Indique cuales toma</label>
+        <label>Mencione los examenes</label>
         <input
         type="text"
-        v-model="form.medicine"
         class="form-control form-control-solid form-control-lg"
-        name="medicine"
+        name="laboratory"
+        v-model="form.laboratory"
         />
       </div>
     </div>
@@ -313,26 +314,101 @@
   <div class="row">
     <div class="col-xl-12">
       <b-form-checkbox
-      id="chk_supplement"
-      v-model="chk_supplement"
-      name="chk_supplement"
+      id="chk_previous_experience"
+      v-model="chk_previous_experience"
+      name="chk_previous_experience"
       value="1"
       unchecked-value="0"
       >
-      ¿Toma algún suplemento?
+      ¿Ha tenido otro proceso nutricional anteriormente?
     </b-form-checkbox>
   </div>
-  <div class="col-xl-12" v-if="chk_supplement == 1">
+  <div class="col-xl-12" v-if="chk_previous_experience == 1">
     <div class="form-group">
-      <label>Indique cual toma</label>
+      <label>¿Cómo ha sido tu experiencia previa?</label>
       <input
       type="text"
-      v-model="form.supplement"
+      v-model="form.previous_experience"
       class="form-control form-control-solid form-control-lg"
-      name="supplement"
+      name="previous_experience"
       />
     </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <b-form-checkbox
+    id="chk_medical_condition"
+    v-model="chk_medical_condition"
+    name="chk_medical_condition"
+    value="1"
+    unchecked-value="0"
+    >
+    ¿Sufre de alguna condición médica?
+  </b-form-checkbox>
+</div>
+<div class="col-xl-12" v-if="chk_medical_condition == 1">
+  <div class="form-group">
+    <label>Por favor describa</label>
+    <input
+    type="text"
+    v-model="form.medical_condition"
+    class="form-control form-control-solid form-control-lg"
+    name="medical_condition"
+    />
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <b-form-checkbox
+    id="chk_medicine"
+    v-model="chk_medicine"
+    name="chk_medicine"
+    value="1"
+    unchecked-value="0"
+    >
+    ¿Toma algún medicamento?
+  </b-form-checkbox>
+</div>
+<div class="col-xl-12" v-if="chk_medicine == 1">
+  <div class="form-group">
+    <label>Indique cuales toma</label>
+    <input
+    type="text"
+    v-model="form.medicine"
+    class="form-control form-control-solid form-control-lg"
+    name="medicine"
+    />
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <b-form-checkbox
+    id="chk_supplement"
+    v-model="chk_supplement"
+    name="chk_supplement"
+    value="1"
+    unchecked-value="0"
+    >
+    ¿Toma algún suplemento?
+  </b-form-checkbox>
+</div>
+<div class="col-xl-12" v-if="chk_supplement == 1">
+  <div class="form-group">
+    <label>Indique cual toma</label>
+    <input
+    type="text"
+    v-model="form.supplement"
+    class="form-control form-control-solid form-control-lg"
+    name="supplement"
+    />
+  </div>
+</div>
 </div>
 
 <div class="row">
@@ -413,12 +489,12 @@ unchecked-value="0"
 <b-form-group label="Disciplina deportiva">
   <b-form-radio-group
   id="rad_athletic_discipline"
-  v-model="rad_athletic_discipline"
+  v-model="form.rad_athletic_discipline"
   :options="athletic_discipline_options"
   name="rad_athletic_discipline"
   ></b-form-radio-group>
 </b-form-group>
-<div class="form-group" v-if="rad_athletic_discipline == 'Otra'">
+<div class="form-group" v-if="form.rad_athletic_discipline == 'Otra'">
   <label>Espeifique otra Disciplina</label>
   <input
   type="text"
@@ -561,7 +637,7 @@ unchecked-value="0"
     <b-form-checkbox inline name="frutos_amarillos" v-model="form.frutos_amarillos">Frutos amarillos</b-form-checkbox>
     <b-form-checkbox inline name="frutos_verdes" v-model="form.frutos_verdes">Frutos verdes</b-form-checkbox>
     <b-form-checkbox inline name="banano" v-model="form.banano">Banano</b-form-checkbox>
-    <b-form-checkbox inline name="frutos_deshidratadas" v-model="form.frutos_deshidratadas">Frutos ddeshidratadas</b-form-checkbox>
+    <b-form-checkbox inline name="frutas_deshidratadas" v-model="form.frutas_deshidratadas">Frutas deshidratadas</b-form-checkbox>
   </b-form-group>
   
   <b-form-group label="Vegetales:">
@@ -615,7 +691,7 @@ unchecked-value="0"
         v-model="form.water"
         class="form-control form-control-solid form-control-lg"
         >
-        <option value="" selected>-- Seleccione --</option>
+        <option value="">-- Seleccione --</option>
         <option value="Menos de 1 litro">Menos de 1 litro</option>
         <option value="Entre 1 y 2 litros">Entre 1 y 2 litros</option>
         <option value="Más de 2 litros">Más de 2 litros</option>
@@ -634,15 +710,6 @@ unchecked-value="0"
 <!--end: Wizard Step 3-->
 
 <!--begin: Wizard Step 4-->
-<div class="pb-5" data-wizard-type="step-content">
-  <h4 class="mb-10 font-weight-bold text-dark">
-    Archivos Adjuntos
-  </h4>
-  
-</div>
-<!--end: Wizard Step 4-->
-
-<!--begin: Wizard Step 5-->
 <div class="pb-5" data-wizard-type="step-content">
   <h4 class="mb-10 font-weight-bold text-dark">
     Diagnóstico
@@ -684,7 +751,7 @@ unchecked-value="0"
     </div>
   </div></div>
 </div>
-<!--end: Wizard Step 5-->
+<!--end: Wizard Step 4-->
 
 <!--begin: Wizard Actions -->
 <div class="d-flex justify-content-between border-top pt-10">
@@ -732,6 +799,7 @@ Siguiente paso
 import { SET_BREADCRUMB } from "../../src/core/services/store/breadcrumbs.module";
 import KTUtil from "../../src/assets/js/components/util";
 import KTWizard from "../../src/assets/js/components/wizard";
+import { mapGetters } from "vuex"
 import Swal from "sweetalert2";
 import Layout from "../../src/view/layout/Layout"
 
@@ -744,10 +812,10 @@ export default {
       title: `Historial del paciente ${this.patient.first_name_1} ${this.patient.last_name_1}`,
     }
   },
-  props: ['patient', 'cities'],
-  created(){
-    console.log(this.patient.id)
-  },
+  props: [
+    'patient',
+    'cities'
+  ],
   data() {
     return {
       form: {
@@ -771,6 +839,7 @@ export default {
         weight_variation : this.patient.weight_variation,
         job : this.patient.job,
         sedentary : this.patient.sedentary,
+        rad_athletic_discipline : this.disciplina(),
         athletic_discipline : this.patient.athletic_discipline,
         training_description : this.patient.training_description,
         training_hours : this.patient.training_hours,
@@ -781,64 +850,64 @@ export default {
         snack : this.patient.snack,
         dinner : this.patient.dinner,
         street_food : this.patient.street_food,
-        pollo : this.patient.pollo,
-        pescado_blanco : this.patient.pescado_blanco,
-        carne_de_res : this.patient.carne_de_res,
-        lomo_de_cerdo : this.patient.lomo_de_cerdo,
-        atun : this.patient.atun,
-        huevos : this.patient.huevos,
-        claras_de_huevos : this.patient.claras_de_huevos,
-        whey_protein : this.patient.whey_protein,
-        arroz : this.patient.arroz,
-        arroz_integral : this.patient.arroz_integral,
-        pasta : this.patient.pasta,
-        pasta_integral : this.patient.pasta_integral,
-        platano : this.patient.platano,
-        papa : this.patient.papa,
-        arepa : this.patient.arepa,
-        pan : this.patient.pan,
-        avena : this.patient.avena,
-        tostadas_de_arroz : this.patient.tostadas_de_arroz,
-        frutos_rojos : this.patient.frutos_rojos,
-        frutos_amarillos : this.patient.frutos_amarillos,
-        frutos_verdes : this.patient.frutos_verdes,
-        banano : this.patient.banano,
-        frutas_deshidratadas : this.patient.frutas_deshidratadas,
-        verduras_cocidas : this.patient.verduras_cocidas,
-        vegetales_frescos : this.patient.vegetales_frescos,
-        quesos_frescos : this.patient.quesos_frescos,
-        quesos_madurados : this.patient.quesos_madurados,
-        yogures : this.patient.yogures,
-        leche : this.patient.leche,
-        crema_de_leche : this.patient.crema_de_leche,
-        mantequilla : this.patient.mantequilla,
-        grasas : this.patient.grasas,
-        aguacate : this.patient.aguacate,
-        frutos_secos : this.patient.frutos_secos,
-        aceites_adicionados : this.patient.aceites_adicionados,
-        crema_de_mani : this.patient.crema_de_mani,
-        unwanted_food : this.patient.unwanted_food,
-        desired_food : this.patient.desired_food,
+        pollo : this.checked(this.patient.pollo),
+        pescado_blanco : this.checked(this.patient.pescado_blanco),
+        carne_de_res : this.checked(this.patient.carne_de_res),
+        lomo_de_cerdo : this.checked(this.patient.lomo_de_cerdo),
+        atun : this.checked(this.patient.atun),
+        huevos : this.checked(this.patient.huevos),
+        claras_de_huevos : this.checked(this.patient.claras_de_huevos),
+        whey_protein : this.checked(this.patient.whey_protein),
+        arroz : this.checked(this.patient.arroz),
+        arroz_integral : this.checked(this.patient.arroz_integral),
+        pasta : this.checked(this.patient.pasta),
+        pasta_integral : this.checked(this.patient.pasta_integral),
+        platano : this.checked(this.patient.platano),
+        papa : this.checked(this.patient.papa),
+        arepa : this.checked(this.patient.arepa),
+        pan : this.checked(this.patient.pan),
+        avena : this.checked(this.patient.avena),
+        tostadas_de_arroz : this.checked(this.patient.tostadas_de_arroz),
+        frutos_rojos : this.checked(this.patient.frutos_rojos),
+        frutos_amarillos : this.checked(this.patient.frutos_amarillos),
+        frutos_verdes : this.checked(this.patient.frutos_verdes),
+        banano : this.checked(this.patient.banano),
+        frutas_deshidratadas : this.checked(this.patient.frutas_deshidratadas),
+        verduras_cocidas : this.checked(this.patient.verduras_cocidas),
+        vegetales_frescos : this.checked(this.patient.vegetales_frescos),
+        quesos_frescos : this.checked(this.patient.quesos_frescos),
+        quesos_madurados : this.checked(this.patient.quesos_madurados),
+        yogures : this.checked(this.patient.yogures),
+        leche : this.checked(this.patient.leche),
+        crema_de_leche : this.checked(this.patient.crema_de_leche),
+        mantequilla : this.checked(this.patient.mantequilla),
+        grasas : this.checked(this.patient.grasas),
+        aguacate : this.checked(this.patient.aguacate),
+        frutos_secos : this.checked(this.patient.frutos_secos),
+        aceites_adicionados : this.checked(this.patient.aceites_adicionados),
+        crema_de_mani : this.checked(this.patient.crema_de_mani),
+        unwanted_food : this.checked(this.patient.unwanted_food),
+        desired_food : this.checked(this.patient.desired_food),
         water : this.patient.water,
-        soda : this.patient.soda,
-        alcoholic_drinks : this.patient.alcoholic_drinks,
-        coffee : this.patient.coffee,
-        tea : this.patient.tea,
-        bajo_consumo_energetico : this.patient.bajo_consumo_energetico,
-        bajo_consumo_proteico : this.patient.bajo_consumo_proteico,
-        bajo_consumo_carbohidratos : this.patient.bajo_consumo_carbohidratos,
-        bajo_consumo_grasas_escenciales : this.patient.bajo_consumo_grasas_escenciales,
-        bajo_consumo_micronutrientes : this.patient.bajo_consumo_micronutrientes,
-        alto_consumo_ultraprcesados : this.patient.alto_consumo_ultraprcesados,
-        inadecuado_timming_ingestas : this.patient.inadecuado_timming_ingestas,
-        esquema_hidratacion_inadecuado : this.patient.esquema_hidratacion_inadecuado,
-        dieta_alta_fodmaps : this.patient.dieta_alta_fodmaps,
-        excedente_calorico : this.patient.excedente_calorico,
+        soda : this.checked(this.patient.soda),
+        alcoholic_drinks : this.checked(this.patient.alcoholic_drinks),
+        coffee : this.checked(this.patient.coffee),
+        tea : this.checked(this.patient.tea),
+        bajo_consumo_energetico : this.checked(this.patient.bajo_consumo_energetico),
+        bajo_consumo_proteico : this.checked(this.patient.bajo_consumo_proteico),
+        bajo_consumo_carbohidratos : this.checked(this.patient.bajo_consumo_carbohidratos),
+        bajo_consumo_grasas_escenciales : this.checked(this.patient.bajo_consumo_grasas_escenciales),
+        bajo_consumo_micronutrientes : this.checked(this.patient.bajo_consumo_micronutrientes),
+        alto_consumo_ultraprcesados : this.checked(this.patient.alto_consumo_ultraprcesados),
+        inadecuado_timming_ingestas : this.checked(this.patient.inadecuado_timming_ingestas),
+        esquema_hidratacion_inadecuado : this.checked(this.patient.esquema_hidratacion_inadecuado),
+        dieta_alta_fodmaps : this.checked(this.patient.dieta_alta_fodmaps),
+        excedente_calorico : this.checked(this.patient.excedente_calorico),
         workplan : this.patient.workplan,
       },
       show:true,
-      online: '',
-      agreement: this.habilitado(this.patient.agreement_name),
+      default_photo: "/storage/avatars/default.jpg",
+      current_photo:  `/storage/avatars/${this.patient.avatar}`,
       chk_laboratory: this.habilitado(this.patient.laboratory),
       chk_previous_experience: this.habilitado(this.patient.previous_experience),
       chk_medical_condition: this.habilitado(this.patient.medical_condition),
@@ -863,11 +932,10 @@ export default {
       startStep: 1, // initial active step number
       clickableSteps: true // allow step clicking
     });
-    
     // Validation before going to next page
     wizard.on("beforeNext", function(/*wizardObj*/) {
       // validate the form and use below function to stop the wizard's step
-      // wizardObj.stop();
+      wizardObj.stop();
     });
     
     // Change event
@@ -876,39 +944,95 @@ export default {
         KTUtil.scrollTop();
       }, 500);
     });
+    
+    //this.current_photo = this.patient.avatar;
   },
   methods: {
-    habilitado(v){
-      if(v === '' || v === null) return 0
-      else return 1
-    },
-    extranjero(v){
-      let c = 'Extranjero (online)'
-      this.cities.forEach((city) => {
-        if (v == city.name) {
-          c = city.name
+    disciplina(){
+      let valor = 'Otra'
+      let options = [
+        'Crossfit',
+        'Programación de atleta',
+        'Gimnasio',
+        'Entrenamiento funcional',
+        'Entrenamiento en casa',
+        'Otra'];
+        options.forEach((item, i) => {
+          if(item.localeCompare(this.patient.athletic_discipline) === 0) {
+            valor = this.patient.athletic_discipline
+          }
+        });
+        return valor;
+      },
+      habilitado(v){
+        if(v === '' || v === null || v === false) return 0
+        else return 1
+      },
+      checked(v){
+        if(v === '' || v === null || v === false) return false
+        else return true
+      },
+      onFileChange(e) {
+        this.form.avatar = e.target.files[0]
+        //const file = e.target.files[0];
+        
+        if (typeof FileReader === "function") {
+          const reader = new FileReader();
+          
+          reader.onload = event => {
+            this.current_photo = event.target.result;
+          };
+          
+          reader.readAsDataURL(this.form.avatar);
+        } else {
+          alert("Sorry, FileReader API not supported");
         }
-      })
-      return c
+      },
+      submit: function(e) {
+        e.preventDefault();
+        this.$inertia.put(route('patients.update', this.patient.id), this.form,
+        {
+          onSuccess: () => {
+            Swal.fire({
+              title: "",
+              text: "La información fue actualizada exitosamente",
+              icon: "success",
+              confirmButtonClass: "btn btn-secondary"
+            })
+          },
+          onError: (response) =>{
+            Swal.fire({
+              title: "",
+              text: "Debe llenar todos los campos obligatorios",
+              icon: "warning",
+              confirmButtonClass: "btn btn-secondary"
+            })
+          }
+        })
+      }
     },
-    submit: function(e) {
-      e.preventDefault();
-      console.log('si '+ this.patient.id)
-      var request = this.form
-      var patient = this.patient.id
-      //this.$inertia.patch(route('patients.update', request, {paciente : patient} ))
-      this.$inertia.put(route('patients.update', this.patient.id), this.form,
-      {
-        onSuccess: () => {
-          Swal.fire({
-            title: "",
-            text: "La información fue actualizada exitosamente",
-            icon: "success",
-            confirmButtonClass: "btn btn-secondary"
-          })
-        }
-      })
-    }
+    computed: {
+      //...mapGetters(["currentUserPersonalInfo"]),
+      photo() {
+        return this.current_photo == null
+        ? this.default_photo
+        : this.current_photo;
+      },
+      firstNameState() {
+        return this.form.first_name_1.length > 2 ? true : false
+      },
+      lastNameState() {
+        return this.form.last_name_1.length > 2 ? true : false
+      },
+      phoneState() {
+        return this.form.phone.length > 2 ? true : false
+      },
+      emailState() {
+        return this.form.email.length > 2 ? true : false
+      }
+    },
+    
+    
   }
-}
-</script>
+  </script>
+  

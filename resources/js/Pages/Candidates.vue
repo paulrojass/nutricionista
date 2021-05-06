@@ -32,52 +32,64 @@
           <template v-for="(candidate, i) in candidates">
             <tr v-bind:key="i">
               <td>
-                <span
-                class="text-dark-75 font-weight-bolder d-block font-size-lg"
-                >{{ candidate.first_name_1 }} {{ candidate.first_name_2 }} {{ candidate.last_name_1 }} {{ candidate.last_name_2 }}</span
-                >
-                <span class="text-muted font-weight-bold">
-                  {{ calcularEdad(candidate.birth_date) }} años
+                <inertia-link
+                class="text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3"
+                :href="$route('patients.show', candidate.id)">
+                <span class="text-dark-75 font-weight-bolder d-block font-size-lg">
+                  {{ candidate.first_name_1 }} {{ candidate.first_name_2 }} {{ candidate.last_name_1 }} {{ candidate.last_name_2 }}
                 </span>
-              </td>
-              <td>
-                <span
-                class="text-muted font-weight-bold">
-                {{ candidate.email }}
+              </inertia-link>
+              <span class="text-muted font-weight-bold">
+                {{ calcularEdad(candidate.birth_date) }} años
               </span>
             </td>
             <td>
               <span
               class="text-muted font-weight-bold">
-              {{ candidate.phone }}
+              {{ candidate.email }}
             </span>
           </td>
-          <td class="pr-0 text-right">
-            <inertia-link
-            :href="$route('controls.create', [candidate.id])"
-            class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
-            >
-            <span class="svg-icon svg-icon-md svg-icon-primary">
-              <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
-              <inline-svg
-              src="/media/svg/icons/Communication/Write.svg"
-              />
-              <!--end::Svg Icon-->
-            </span>
-          </inertia-link>
+          <td>
+            <span
+            class="text-muted font-weight-bold">
+            {{ candidate.phone }}
+          </span>
+        </td>
+        <td class="pr-0 text-right">
           <inertia-link
-          :href="$route('patients.destroy', [candidate.id])"
-          class="btn btn-icon btn-light btn-hover-primary btn-sm"
+          :href="$route('controls.create', [candidate.id])"
+          class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
           >
           <span class="svg-icon svg-icon-md svg-icon-primary">
-            <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
-            <inline-svg src="/media/svg/icons/General/Trash.svg" />
+            <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
+            <inline-svg
+            src="/media/svg/icons/Communication/Write.svg"
+            />
             <!--end::Svg Icon-->
           </span>
         </inertia-link>
-      </td>
-    </tr>
-  </template>
+        
+        
+        
+        
+        <inertia-link
+        :href="$route('candidates.destroy', {'id' : candidate.id})"
+        method="delete"
+        as="button"
+        type="button"
+        class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+        >
+        <span
+        class="svg-icon svg-icon-md svg-icon-primary">
+        <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
+        <inline-svg src="/media/svg/icons/General/Trash.svg" />
+        <!--end::Svg Icon-->
+      </span>
+    </inertia-link>
+    
+  </td>
+</tr>
+</template>
 </tbody>
 </table>
 </div>
@@ -101,17 +113,15 @@ export default {
     }
   },
   props: ['candidates'],
-  data() {
-    return {
-    };
-  },
-  components: {},
   computed: {
     inactivesTotal() {
       return this.$page.props.inactivesTotal
     },
   },
   methods: {
+    deleteCandidate(id){
+      this.$inertia.post(route('patients.delete', id))
+    },
     calcularEdad(fecha) {
       var hoy = new Date()
       var cumpleanos = new Date(fecha)

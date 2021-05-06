@@ -438,7 +438,7 @@ var render = function() {
                           [
                             _vm._v(
                               "\n                  " +
-                                _vm._s(_vm._f("formatTime")(item.time)) +
+                                _vm._s(item.time) +
                                 "\n                "
                             )
                           ]
@@ -470,10 +470,7 @@ var render = function() {
                             {
                               staticClass: "btn btn-icon btn-light btn-sm",
                               attrs: {
-                                href: _vm.route(
-                                  "patients.show",
-                                  item.patient.id
-                                )
+                                href: _vm.route("controls.show", item.id)
                               }
                             },
                             [

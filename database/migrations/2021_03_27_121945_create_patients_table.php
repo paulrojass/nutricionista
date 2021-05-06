@@ -16,9 +16,9 @@ class CreatePatientsTable extends Migration
     Schema::create('patients', function (Blueprint $table) {
       $table->id();
       $table->string('first_name_1', 30);
-      $table->string('first_name_2', 30);
+      $table->string('first_name_2', 30)->nullable();
       $table->string('last_name_1', 30);
-      $table->string('last_name_2', 30);
+      $table->string('last_name_2', 30)->nullable();
       $table->string('phone', 30);
       $table->string('email')->unique();
       $table->boolean('active')->default(0);

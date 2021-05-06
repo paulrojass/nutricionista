@@ -26,60 +26,59 @@
               <div class="d-flex mr-3">
                 <a
                 href="#"
-                class="text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3"
-                >
+                class="text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3">
                 {{patient.first_name_1}} {{patient.last_name_1}}
               </a>
-              <a href="#"
-              ><i class="flaticon2-correct text-success font-size-h5"></i
-                ></a>
-              </div>
-              
-              <div class="my-lg-0 my-3">
-                <inertia-link
-                :href="route('patients.edit', patient.id)"
-                class="btn btn-sm btn-info font-weight-bolder text-uppercase"
-                >
-                Editar Historial
-              </inertia-link>
+              <a href="#">
+                <i class="flaticon2-correct text-success font-size-h5"></i>
+              </a>
             </div>
+            
+            <div class="my-lg-0 my-3">
+              <inertia-link
+              :href="route('patients.edit', patient.id)"
+              class="btn btn-sm btn-info font-weight-bolder text-uppercase"
+              >
+              Editar Historial
+            </inertia-link>
           </div>
-          <!--end::Title-->
-          
-          <!--begin::Content-->
-          <div class="d-flex flex-wrap justify-content-between mt-1">
-            <div class="d-flex flex-column flex-grow-1 pr-8">
-              <div class="d-flex flex-wrap mb-4">
-                <a
-                href="#"
-                class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
-                ><i class="flaticon2-new-email mr-2 font-size-lg"></i
-                  >{{patient.email}}
-                </a>
-                <a
-                href="#"
-                class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
-                ><i class="flaticon2-calendar-3 mr-2 font-size-lg"></i>
-                {{patient.phone}}
+        </div>
+        <!--end::Title-->
+        
+        <!--begin::Content-->
+        <div class="d-flex flex-wrap justify-content-between mt-1">
+          <div class="d-flex flex-column flex-grow-1 pr-8">
+            <div class="d-flex flex-wrap mb-4">
+              <a
+              href="#"
+              class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
+              ><i class="flaticon2-new-email mr-2 font-size-lg"></i
+                >{{patient.email}}
               </a>
               <a
               href="#"
-              class="text-dark-50 text-hover-primary font-weight-bold"
-              ><i class="flaticon2-placeholder mr-2 font-size-lg"></i>
-              {{patient.city}}
+              class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
+              ><i class="flaticon2-calendar-3 mr-2 font-size-lg"></i>
+              {{patient.phone}}
             </a>
-          </div>
-          
-          <span class="font-weight-bold text-dark-50">
-            {{patient.aspiration}}
-          </span>
+            <a
+            href="#"
+            class="text-dark-50 text-hover-primary font-weight-bold"
+            ><i class="flaticon2-placeholder mr-2 font-size-lg"></i>
+            {{patient.city}}
+          </a>
         </div>
+        
+        <span class="font-weight-bold text-dark-50">
+          {{patient.aspiration}}
+        </span>
       </div>
-      <!--end::Content-->
     </div>
-    <!--end::Info-->
+    <!--end::Content-->
   </div>
-  <!--end::Details-->
+  <!--end::Info-->
+</div>
+<!--end::Details-->
 </div>
 <!--end::Item-->
 </div>
@@ -117,7 +116,7 @@ export default {
     WidgetAdvertising,
   },
   computed: {
-    ...mapGetters(["currentUserPhoto"])
+    //...mapGetters(["currentUserPhoto"])
   },
   data() {
     return {};

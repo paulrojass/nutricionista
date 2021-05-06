@@ -12,16 +12,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _src_view_layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/view/layout/Layout */ "./resources/js/src/view/layout/Layout.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _profile_Notes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile/Notes */ "./resources/js/Pages/profile/Notes.vue");
 /* harmony import */ var _profile_Advertising__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./profile/Advertising */ "./resources/js/Pages/profile/Advertising.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
 //
 //
 //
@@ -139,7 +131,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     WidgetNotes: _profile_Notes__WEBPACK_IMPORTED_MODULE_1__.default,
     WidgetAdvertising: _profile_Advertising__WEBPACK_IMPORTED_MODULE_2__.default
   },
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)(["currentUserPhoto"])),
+  computed: {//...mapGetters(["currentUserPhoto"])
+  },
   data: function data() {
     return {};
   }
@@ -593,9 +586,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       list: this.inactives
     };
-  },
-  created: function created() {
-    console.log(this.inactives);
   },
   components: {},
   methods: {
@@ -1596,17 +1586,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {},
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig", "getClasses"])), {}, {
     /**
-     * Get header logo
-     * @returns {string}
-     */
+    * Get header logo
+    * @returns {string}
+    */
     headerLogo: function headerLogo() {
       return process.env.BASE_URL + this.layoutConfig("self.logo");
     },
 
     /**
-     * Get classes for mobile header
-     * @returns {null|*}
-     */
+    * Get classes for mobile header
+    * @returns {null|*}
+    */
     headerClasses: function headerClasses() {
       var classes = this.getClasses("header_mobile");
 
@@ -1618,9 +1608,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
 
     /**
-     * Check if the left aside menu is enabled
-     * @returns {boolean}
-     */
+    * Check if the left aside menu is enabled
+    * @returns {boolean}
+    */
     asideEnabled: function asideEnabled() {
       return this.layoutConfig("aside.self.display");
     }
@@ -1683,10 +1673,9 @@ __webpack_require__.r(__webpack_exports__);
     console.log('La ruta');
     console.log(route().current());
   },
-  methods: {
-    hasActiveChildren: function hasActiveChildren(match) {
-      return this.$route["path"].indexOf(match) !== -1;
-    }
+  methods: {// hasActiveChildren(match) {
+    //   return this.$route["path"].indexOf(match) !== -1;
+    // }
   }
 });
 
@@ -3924,11 +3913,7 @@ var render = function() {
                           href: _vm.route("patients.edit", _vm.patient.id)
                         }
                       },
-                      [
-                        _vm._v(
-                          "\n                Editar Historial\n              "
-                        )
-                      ]
+                      [_vm._v("\n              Editar Historial\n            ")]
                     )
                   ],
                   1
@@ -3956,9 +3941,7 @@ var render = function() {
                           _c("i", {
                             staticClass: "flaticon2-new-email mr-2 font-size-lg"
                           }),
-                          _vm._v(
-                            _vm._s(_vm.patient.email) + "\n                "
-                          )
+                          _vm._v(_vm._s(_vm.patient.email) + "\n              ")
                         ]
                       ),
                       _vm._v(" "),
@@ -3975,9 +3958,9 @@ var render = function() {
                               "flaticon2-calendar-3 mr-2 font-size-lg"
                           }),
                           _vm._v(
-                            "\n                " +
+                            "\n              " +
                               _vm._s(_vm.patient.phone) +
-                              "\n              "
+                              "\n            "
                           )
                         ]
                       ),
@@ -3995,9 +3978,9 @@ var render = function() {
                               "flaticon2-placeholder mr-2 font-size-lg"
                           }),
                           _vm._v(
-                            "\n              " +
+                            "\n            " +
                               _vm._s(_vm.patient.city) +
-                              "\n            "
+                              "\n          "
                           )
                         ]
                       )
@@ -4008,9 +3991,9 @@ var render = function() {
                       { staticClass: "font-weight-bold text-dark-50" },
                       [
                         _vm._v(
-                          "\n            " +
+                          "\n          " +
                             _vm._s(_vm.patient.aspiration) +
-                            "\n          "
+                            "\n        "
                         )
                       ]
                     )
@@ -5173,7 +5156,7 @@ var render = function() {
                             [
                               _c("inline-svg", {
                                 attrs: {
-                                  src: "media/svg/icons/General/Search.svg"
+                                  src: "/media/svg/icons/General/Search.svg"
                                 }
                               })
                             ],
@@ -5413,7 +5396,7 @@ var render = function() {
         { staticClass: "svg-icon" },
         [
           _c("inline-svg", {
-            attrs: { src: "media/svg/icons/Navigation/Up-2.svg" }
+            attrs: { src: "/media/svg/icons/Navigation/Up-2.svg" }
           })
         ],
         1
@@ -5813,7 +5796,7 @@ var render = function() {
               { staticClass: "svg-icon svg-icon-xl" },
               [
                 _c("inline-svg", {
-                  attrs: { src: "media/svg/icons/Design/Substract.svg" }
+                  attrs: { src: "/media/svg/icons/Design/Substract.svg" }
                 })
               ],
               1
@@ -5834,7 +5817,7 @@ var render = function() {
               { staticClass: "svg-icon svg-icon-xl" },
               [
                 _c("inline-svg", {
-                  attrs: { src: "media/svg/icons/General/User.svg" }
+                  attrs: { src: "/media/svg/icons/General/User.svg" }
                 })
               ],
               1
@@ -5853,7 +5836,7 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "/" } }, [
       _c("img", {
         staticClass: "logo-default max-h-30px",
-        attrs: { alt: "Logo", src: "media/logos/logo-letter-1.png" }
+        attrs: { alt: "Logo", src: "/media/logos/logo-letter-1.png" }
       })
     ])
   },
@@ -5897,7 +5880,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("home") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },
@@ -5914,7 +5897,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("patients.*") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },
@@ -5934,7 +5917,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("calendar") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },

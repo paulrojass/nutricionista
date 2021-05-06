@@ -17,11 +17,6 @@ class PlanController extends Controller
     //
   }
   
-  public function getPlans(Request $request)
-  {
-    return $plans = Plan::where('city_id', $request->city_id)->get();
-  }
-  
   /**
   * Show the form for creating a new resource.
   *

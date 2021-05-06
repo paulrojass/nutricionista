@@ -16,12 +16,6 @@
       </h3>
     </div>
     <div class="card-body pt-2 pb-0">
-      
-      
-      
-      
-      
-      
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group id="input-group-1" label="Primer nombre:" label-for="input-1">
           <b-form-input
@@ -54,8 +48,16 @@
           <b-form-input
           id="input-4"
           v-model="form.last_name_2"
-          required
           placeholder="Ingrese un apellido"
+          ></b-form-input>
+        </b-form-group>
+        
+        <b-form-group id="input-date" label="Fecha de nacimiento:" label-for="date">
+          <b-form-input
+          :type="`date`"
+          id="date"
+          v-model="form.birth_date"
+          required
           ></b-form-input>
         </b-form-group>
         
@@ -72,7 +74,8 @@
         id="input-group-6"
         label="Correo electónico:"
         label-for="input-6"
-        description="El campo email debe ser único."
+        required
+        description="El campo email debe ser válido."
         >
         <b-form-input
         id="input-6"
@@ -83,8 +86,22 @@
         ></b-form-input>
       </b-form-group>
       
-      <b-button type="submit" variant="primary">Guardar</b-button>
-      <b-button type="reset" variant="danger">Borrar</b-button>
+      <b-form-group>
+        <label>Describa las aspiraciones o motivo de la consulta</label>
+        <textarea
+        type="text"
+        v-model="form.aspiration"
+        class="form-control"
+        name="aspiration"
+        required
+        ></textarea>
+      </b-form-group>
+      
+      
+      <b-form-group>
+        <b-button type="submit" variant="primary">Guardar</b-button>
+        <b-button type="reset" variant="danger">Borrar</b-button>
+      </b-form-group>
     </b-form>
   </div>
   
@@ -122,11 +139,13 @@ data() {
       first_name_2: '',
       last_name_1: '',
       last_name_2: '',
+      birth_date: '',
       city_id: null,
       phone: '',
-      email: ''
+      email: '',
+      aspiration: ''
     },
-    show: true
+    show: true,
   }
 },
 methods: {
@@ -166,9 +185,10 @@ methods: {
     this.form.first_name_2 = ''
     this.form.last_name_1 = ''
     this.form.last_name_2 = ''
+    this.form.birth_date = ''
     this.form.email = ''
     this.form.phone = ''
-    this.form.city_id = null
+    this.form.aspiration = ''
     // Trick to reset/clear native browser form validation state
     this.show = false
     this.$nextTick(() => {

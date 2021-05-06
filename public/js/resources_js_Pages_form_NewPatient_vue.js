@@ -107,6 +107,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -138,9 +155,11 @@ __webpack_require__.r(__webpack_exports__);
         first_name_2: '',
         last_name_1: '',
         last_name_2: '',
+        birth_date: '',
         city_id: null,
         phone: '',
-        email: ''
+        email: '',
+        aspiration: ''
       },
       show: true
     };
@@ -184,9 +203,10 @@ __webpack_require__.r(__webpack_exports__);
       this.form.first_name_2 = '';
       this.form.last_name_1 = '';
       this.form.last_name_2 = '';
+      this.form.birth_date = '';
       this.form.email = '';
       this.form.phone = '';
-      this.form.city_id = null; // Trick to reset/clear native browser form validation state
+      this.form.aspiration = ''; // Trick to reset/clear native browser form validation state
 
       this.show = false;
       this.$nextTick(function () {
@@ -512,9 +532,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       list: this.inactives
     };
-  },
-  created: function created() {
-    console.log(this.inactives);
   },
   components: {},
   methods: {
@@ -1515,17 +1532,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {},
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig", "getClasses"])), {}, {
     /**
-     * Get header logo
-     * @returns {string}
-     */
+    * Get header logo
+    * @returns {string}
+    */
     headerLogo: function headerLogo() {
       return process.env.BASE_URL + this.layoutConfig("self.logo");
     },
 
     /**
-     * Get classes for mobile header
-     * @returns {null|*}
-     */
+    * Get classes for mobile header
+    * @returns {null|*}
+    */
     headerClasses: function headerClasses() {
       var classes = this.getClasses("header_mobile");
 
@@ -1537,9 +1554,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
 
     /**
-     * Check if the left aside menu is enabled
-     * @returns {boolean}
-     */
+    * Check if the left aside menu is enabled
+    * @returns {boolean}
+    */
     asideEnabled: function asideEnabled() {
       return this.layoutConfig("aside.self.display");
     }
@@ -1602,10 +1619,9 @@ __webpack_require__.r(__webpack_exports__);
     console.log('La ruta');
     console.log(route().current());
   },
-  methods: {
-    hasActiveChildren: function hasActiveChildren(match) {
-      return this.$route["path"].indexOf(match) !== -1;
-    }
+  methods: {// hasActiveChildren(match) {
+    //   return this.$route["path"].indexOf(match) !== -1;
+    // }
   }
 });
 
@@ -3750,7 +3766,6 @@ var render = function() {
                     _c("b-form-input", {
                       attrs: {
                         id: "input-4",
-                        required: "",
                         placeholder: "Ingrese un apellido"
                       },
                       model: {
@@ -3759,6 +3774,30 @@ var render = function() {
                           _vm.$set(_vm.form, "last_name_2", $$v)
                         },
                         expression: "form.last_name_2"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-form-group",
+                  {
+                    attrs: {
+                      id: "input-date",
+                      label: "Fecha de nacimiento:",
+                      "label-for": "date"
+                    }
+                  },
+                  [
+                    _c("b-form-input", {
+                      attrs: { type: "date", id: "date", required: "" },
+                      model: {
+                        value: _vm.form.birth_date,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "birth_date", $$v)
+                        },
+                        expression: "form.birth_date"
                       }
                     })
                   ],
@@ -3800,7 +3839,8 @@ var render = function() {
                       id: "input-group-6",
                       label: "Correo electónico:",
                       "label-for": "input-6",
-                      description: "El campo email debe ser único."
+                      required: "",
+                      description: "El campo email debe ser válido."
                     }
                   },
                   [
@@ -3823,16 +3863,50 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c(
-                  "b-button",
-                  { attrs: { type: "submit", variant: "primary" } },
-                  [_vm._v("Guardar")]
-                ),
+                _c("b-form-group", [
+                  _c("label", [
+                    _vm._v("Describa las aspiraciones o motivo de la consulta")
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.aspiration,
+                        expression: "form.aspiration"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", name: "aspiration", required: "" },
+                    domProps: { value: _vm.form.aspiration },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "aspiration", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
                 _vm._v(" "),
                 _c(
-                  "b-button",
-                  { attrs: { type: "reset", variant: "danger" } },
-                  [_vm._v("Borrar")]
+                  "b-form-group",
+                  [
+                    _c(
+                      "b-button",
+                      { attrs: { type: "submit", variant: "primary" } },
+                      [_vm._v("Guardar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-button",
+                      { attrs: { type: "reset", variant: "danger" } },
+                      [_vm._v("Borrar")]
+                    )
+                  ],
+                  1
                 )
               ],
               1
@@ -4867,7 +4941,7 @@ var render = function() {
                             [
                               _c("inline-svg", {
                                 attrs: {
-                                  src: "media/svg/icons/General/Search.svg"
+                                  src: "/media/svg/icons/General/Search.svg"
                                 }
                               })
                             ],
@@ -5107,7 +5181,7 @@ var render = function() {
         { staticClass: "svg-icon" },
         [
           _c("inline-svg", {
-            attrs: { src: "media/svg/icons/Navigation/Up-2.svg" }
+            attrs: { src: "/media/svg/icons/Navigation/Up-2.svg" }
           })
         ],
         1
@@ -5507,7 +5581,7 @@ var render = function() {
               { staticClass: "svg-icon svg-icon-xl" },
               [
                 _c("inline-svg", {
-                  attrs: { src: "media/svg/icons/Design/Substract.svg" }
+                  attrs: { src: "/media/svg/icons/Design/Substract.svg" }
                 })
               ],
               1
@@ -5528,7 +5602,7 @@ var render = function() {
               { staticClass: "svg-icon svg-icon-xl" },
               [
                 _c("inline-svg", {
-                  attrs: { src: "media/svg/icons/General/User.svg" }
+                  attrs: { src: "/media/svg/icons/General/User.svg" }
                 })
               ],
               1
@@ -5547,7 +5621,7 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "/" } }, [
       _c("img", {
         staticClass: "logo-default max-h-30px",
-        attrs: { alt: "Logo", src: "media/logos/logo-letter-1.png" }
+        attrs: { alt: "Logo", src: "/media/logos/logo-letter-1.png" }
       })
     ])
   },
@@ -5591,7 +5665,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("home") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },
@@ -5608,7 +5682,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("patients.*") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },
@@ -5628,7 +5702,7 @@ var render = function() {
     _c(
       "li",
       {
-        staticClass: "menu-item",
+        staticClass: "menu-item menu-item-active",
         class: _vm.route().current("calendar") && "menu-item-active",
         attrs: { "aria-haspopup": "true", "data-menu-toggle": "hover" }
       },

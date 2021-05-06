@@ -1,0 +1,31 @@
+/* Colores para los controles */
+.control-flamenco{
+  background-color: #D98075 !important;
+  border-color: #D98075 !important;
+  color: #D98075 !important;
+}
+.control-lavanda{
+  background-color: #7B83C7 !important;
+  border-color: #7B83C7 !important;
+  color: #7B83C7 !important;
+}
+.control-albahaca{
+  background-color: #3B7C47 !important;
+  border-color: #3B7C47 !important;
+  color: #3B7C47 !important;
+}
+.control-naranja{
+  background-color: #E25C35 !important;
+  border-color: #E25C35 !important;
+  color: #E25C35 !important;
+}
+.control-rojo{
+  background-color: #C5281D !important;
+  border-color: #C5281D !important;
+  color: #C5281D !important;
+}
+.control-verde{
+  background-color: #5EB17F !important;
+  border-color: #5EB17F !important;
+  color: #5EB17F !important;
+}

@@ -22,7 +22,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">
             <span class="svg-icon svg-icon-lg">
-              <inline-svg src="media/svg/icons/General/Search.svg" />
+              <inline-svg src="/media/svg/icons/General/Search.svg" />
             </span>
           </span>
         </div>

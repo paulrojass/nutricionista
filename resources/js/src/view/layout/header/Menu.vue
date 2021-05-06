@@ -3,7 +3,7 @@
     <li
     aria-haspopup="true"
     data-menu-toggle="hover"
-    class="menu-item"
+    class="menu-item menu-item-active"
     :class="route().current('home') && 'menu-item-active'"
     >
     <inertia-link :href="$route('home')" class="menu-link">
@@ -13,7 +13,7 @@
   <li
   aria-haspopup="true"
   data-menu-toggle="hover"
-  class="menu-item"
+  class="menu-item menu-item-active"
   :class="route().current('patients.*') && 'menu-item-active'"
   >
   <inertia-link :href="$route('patients.index')" class="menu-link">
@@ -23,7 +23,7 @@
 <li
 aria-haspopup="true"
 data-menu-toggle="hover"
-class="menu-item"
+class="menu-item menu-item-active"
 :class="route().current('calendar') && 'menu-item-active'"
 >
 <inertia-link :href="$route('calendar')" class="menu-link">
@@ -43,9 +43,9 @@ export default {
     console.log(route().current())
   },
   methods: {
-    hasActiveChildren(match) {
-      return this.$route["path"].indexOf(match) !== -1;
-    }
+    // hasActiveChildren(match) {
+    //   return this.$route["path"].indexOf(match) !== -1;
+    // }
   }
 };
 </script>

@@ -15,6 +15,7 @@ class CreateControlsTable extends Migration
   {
     Schema::create('controls', function (Blueprint $table) {
       $table->id();
+      $table->string('event_id')->nullable();
       $table->foreignId('patient_id')->constrained()->onDelete('cascade');
       $table->foreignId('plan_id')->constrained();
       $table->string('city_name');
@@ -23,6 +24,7 @@ class CreateControlsTable extends Migration
       $table->date('date');
       $table->time('time');
       $table->text('note');
+      $table->string('status')->nullable();
       $table->timestamps();
     });
   }

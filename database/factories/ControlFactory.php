@@ -29,7 +29,8 @@ class ControlFactory extends Factory
       'city_name' => 'asignado',
       'date' => $this->faker->dateTimeBetween('-0 week', '+4 week'),
       'time' => $this->faker->time(),
-      'note' => $this->faker->paragraph()
+      'note' => $this->faker->paragraph(),
+      'status' => 'flamenco'
     ];
   }
 }

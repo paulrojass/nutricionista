@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Redirect;
 
 class PatientController extends Controller
 {
@@ -83,14 +84,15 @@ class PatientController extends Controller
   public function store(Request $request)
   {
     $patient = new Patient();
-    $patient->city = $request->city;
     $patient->first_name_1 = $request->first_name_1;
     $patient->first_name_2 = $request->first_name_2;
     $patient->last_name_1 = $request->last_name_1;
     $patient->last_name_2 = $request->last_name_2;
+    $patient->birth_date = $request->birth_date;
     $patient->email = $request->email;
     $patient->phone = $request->phone;
-    $patient->active = 1;
+    $patient->aspiration = $request->aspiration;
+    $patient->active = 0;
     $patient->save();
     
     return $this->index();
@@ -121,13 +123,27 @@ class PatientController extends Controller
   */
   public function update(Request $request, $id)
   {
+    $validated = $request->validate([
+      'first_name_1' => ['required', 'max:50'],
+      'last_name_1' => ['required', 'max:50'],
+      'email' => ['required', 'max:50', 'email']
+    ]);
     $patient = Patient::find($id);
     $patient->update($request->all());
-    if ($request->city_id == "Extranjero (online)") {
-      $patient->city_name = $request->city_name;
+    if($request->rad_athletic_discipline == 'Otra') {
+      $patient->athletic_discipline = $request->athletic_discipline;
+    } else {
+      $patient->athletic_discipline = $request->rad_athletic_discipline;
     }
     $patient->save();
-    return response()->json($patient);
+    return $this->edit($id);
+  }
+  
+  public function destroyCandidate($id)
+  {
+    $patient = Patient::find($id);
+    $patient->delete();
+    return redirect()->route('candidates.index');
   }
   
   /**
@@ -138,9 +154,8 @@ class PatientController extends Controller
   */
   public function destroy($id)
   {
-    dd('hola');
     $patient = Patient::find($id);
     $patient->delete();
-    return $this->candidates();
+    return Redirect::route('patients.index');
   }
 }

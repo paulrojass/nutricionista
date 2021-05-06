@@ -22,9 +22,7 @@ export default{
   props: [
     'monthControls',
     'weekControls',
-    'dayControls',
-    'active',
-    'inactive'
+    'dayControls'
   ],
   components: {
     ControlList
