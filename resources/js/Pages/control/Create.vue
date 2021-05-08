@@ -36,14 +36,14 @@
               <option :value="null">Seleccione ciudad</option>
               <option
               v-for="(city , index) in cities"
-              :value="index"
+              :value="city"
               >{{ city.name }}</option>
             </select>
           </div>
         </div>
-        <div class="col-xl-6">
-          <div class="form-group">
-            <label>Especifique: Cuidad - País</label>
+        <div class="col-xl-6" v-if="form.city">
+          <div class="form-group" v-if="form.city.name.includes('online')">
+            <label>Especifique: Cuidad <span v-if="form.city.name.includes('Extranjero')"> - País </span></label>
             <input
             type="text"
             v-model="form.city_name"
@@ -56,7 +56,7 @@
       </div>
       
       <div class="form-group">
-        <label>Plan</label>
+        <label>Elija el Plan</label>
         <select
         name="plan_id"
         v-model="form.plan_id"
@@ -64,7 +64,7 @@
         required
         >
         <option value="">Seleccione un plan</option>
-        <option v-for="plan in plans" :value="plan.id">{{ plan.name }}</option>
+        <option v-for="plan in plans" :value="plan.id">{{ plan.name }} ({{form.city.currency}} {{plan.price}})</option>
       </select>
     </div>
     <div class="row pb-5">
@@ -186,7 +186,9 @@ export default {
   methods: {
     getPlans(){
       if(this.form.city != null) {
-        return this.plans = this.cities[this.form.city].plans
+        var city = this.form.city
+        this.plans = city.plans
+        return this.plans
       }
       return this.plans = []
     },

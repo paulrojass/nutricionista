@@ -143,4 +143,29 @@ class Patient extends Model
   {
     return $this->hasMany(Note::class);
   }
+  
+  // Funciones scope
+  
+  function scopeWithName($query, $name)
+  {
+    // Split each Name by Spaces
+    $names = explode(" ", $name);
+    
+    // Search each Name Field for any specified Name
+    return Patient::where(function($query) use ($names) {
+      $query->whereIn('first_name_1', $names);
+      $query->orWhere(function($query) use ($names) {
+        $query->whereIn('first_name_2', $names);
+        $query->orWhere(function($query) use ($names) {
+          $query->whereIn('last_name_1', $names);
+          $query->orWhere(function($query) use ($names) {
+            $query->whereIn('last_name_2', $names);
+            $query->orWhere(function($query) use ($names) {
+              $query->whereIn('email', $names);
+            });
+          });
+        });
+      });
+    });
+  }
 }

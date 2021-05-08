@@ -17,7 +17,7 @@
     id="kt_quick_search_inline"
     >
     <!--begin::Form-->
-    <form method="get" class="quick-search-form">
+    <form method="get" :action="$route('patients.search')" class="quick-search-form">
       <div class="input-group rounded bg-light">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -28,8 +28,9 @@
         </div>
         <input
         type="text"
+        name="search"
         class="form-control h-40px"
-        placeholder="Search..."
+        placeholder="Buscar pacientes..."
         />
         <div class="input-group-append">
           <span class="input-group-text">

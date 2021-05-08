@@ -12,7 +12,7 @@
       <div class="card-toolbar">
         <inertia-link
         :href="$route('controls.index')"
-        class="btn btn-primary font-weight-bolder font-size-sm">
+        class="btn btn-primary  py-1">
         <inline-svg   src="/media/svg/icons/Text/Bullet-list.svg" />
       </inertia-link>
     </div>

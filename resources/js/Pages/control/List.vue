@@ -1,8 +1,6 @@
 <template>
   <ControlList
-  :monthControls = 'this.monthControls'
-  :weekControls = 'this.weekControls'
-  :dayControls = 'this.dayControls'
+  :controls= 'this.controls'
   ></ControlList>
 </template>
 <script>
@@ -22,14 +20,10 @@ export default {
     
   }),
   props: [
-    'monthControls',
-    'weekControls',
-    'dayControls',
+    'controls',
   ],
   components: {
     ControlList
   }
 }
 </script>
-<style lang="scss" scoped>
-</style>

@@ -31,6 +31,17 @@ class PatientController extends Controller
     ]);
   }
   
+  public function search(Request $request)
+  {
+    $query = trim($request->get('search'));
+    
+    $patients = Patient::withName($query)->get();
+    
+    return Inertia::render('Patients', [
+      'patients' => $patients
+    ]);
+    
+  }
   
   /**
   * Show the form for creating a new resource.

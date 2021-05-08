@@ -201,7 +201,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getPlans: function getPlans() {
       if (this.form.city != null) {
-        return this.plans = this.cities[this.form.city].plans;
+        var city = this.form.city;
+        this.plans = city.plans;
+        return this.plans;
       }
 
       return this.plans = [];
@@ -901,83 +903,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
  // import KTQuickNotifications from "../extras/offcanvas/QuickNotifications.vue";
 // import KTQuickActions from "../extras/offcanvas/QuickActions.vue";
 // import KTQuickPanel from "../extras/offcanvas/QuickPanel.vue";
@@ -1009,6 +934,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _assets_js_layout_base_sidebar_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../assets/js/layout/base/sidebar.js */ "./resources/js/src/assets/js/layout/base/sidebar.js");
 /* harmony import */ var _content_widgets_list_Candidates_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../content/widgets/list/Candidates.vue */ "./resources/js/src/view/content/widgets/list/Candidates.vue");
+//
 //
 //
 //
@@ -1344,8 +1270,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   name: "KTFooter",
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig"])), {}, {
     /**
-     * Check if subheader width is fluid
-     */
+    * Check if subheader width is fluid
+    */
     widthFluid: function widthFluid() {
       return this.layoutConfig("footer.width") === "fluid";
     }
@@ -3818,11 +3744,9 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _vm._l(_vm.cities, function(city, index) {
-                            return _c(
-                              "option",
-                              { domProps: { value: index } },
-                              [_vm._v(_vm._s(city.name))]
-                            )
+                            return _c("option", { domProps: { value: city } }, [
+                              _vm._v(_vm._s(city.name))
+                            ])
                           })
                         ],
                         2
@@ -3830,41 +3754,54 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-xl-6" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Especifique: Cuidad - País")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.city_name,
-                            expression: "form.city_name"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          name: "city_name",
-                          required: ""
-                        },
-                        domProps: { value: _vm.form.city_name },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "city_name", $event.target.value)
-                          }
-                        }
-                      })
-                    ])
-                  ])
+                  _vm.form.city
+                    ? _c("div", { staticClass: "col-xl-6" }, [
+                        _vm.form.city.name.includes("online")
+                          ? _c("div", { staticClass: "form-group" }, [
+                              _c("label", [
+                                _vm._v("Especifique: Cuidad "),
+                                _vm.form.city.name.includes("Extranjero")
+                                  ? _c("span", [_vm._v(" - País ")])
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.city_name,
+                                    expression: "form.city_name"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  name: "city_name",
+                                  required: ""
+                                },
+                                domProps: { value: _vm.form.city_name },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "city_name",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          : _vm._e()
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Plan")]),
+                  _c("label", [_vm._v("Elija el Plan")]),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -3906,7 +3843,14 @@ var render = function() {
                       _vm._v(" "),
                       _vm._l(_vm.plans, function(plan) {
                         return _c("option", { domProps: { value: plan.id } }, [
-                          _vm._v(_vm._s(plan.name))
+                          _vm._v(
+                            _vm._s(plan.name) +
+                              " (" +
+                              _vm._s(_vm.form.city.currency) +
+                              " " +
+                              _vm._s(plan.price) +
+                              ")"
+                          )
                         ])
                       })
                     ],
@@ -4825,8 +4769,47 @@ var render = function() {
                   {
                     name: "b-tooltip",
                     rawName: "v-b-tooltip.hover.right",
-                    value: "Latest Projects",
-                    expression: "'Latest Projects'",
+                    value: "Configuración",
+                    expression: "'Configuración'",
+                    modifiers: { hover: true, right: true }
+                  }
+                ],
+                staticClass: "nav-item mb-2"
+              },
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    staticClass:
+                      "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
+                    attrs: { href: _vm.$route("settings") }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { staticClass: "svg-icon svg-icon-xxl" },
+                      [
+                        _c("inline-svg", {
+                          attrs: { src: "/media/svg/icons/Code/Settings4.svg" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                directives: [
+                  {
+                    name: "b-tooltip",
+                    rawName: "v-b-tooltip.hover.right",
+                    value: "Salir",
+                    expression: "'Salir'",
                     modifiers: { hover: true, right: true }
                   }
                 ],
@@ -4847,227 +4830,8 @@ var render = function() {
                       [
                         _c("inline-svg", {
                           attrs: {
-                            src: "/media/svg/icons/Layout/Layout-4-blocks.svg"
+                            src: "/media/svg/icons/Navigation/Sign-out.svg"
                           }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                directives: [
-                  {
-                    name: "b-tooltip",
-                    rawName: "v-b-tooltip.hover.right",
-                    value: "Metronic Features",
-                    expression: "'Metronic Features'",
-                    modifiers: { hover: true, right: true }
-                  }
-                ],
-                staticClass: "nav-item mb-2"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "nav-link btn btn-icon btn-hover-text-primary btn-lg",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tab",
-                      "data-target": "#kt_aside_tab_2",
-                      role: "tab"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-xxl" },
-                      [
-                        _c("inline-svg", {
-                          attrs: {
-                            src: "/media/svg/icons/Communication/Group.svg"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                directives: [
-                  {
-                    name: "b-tooltip",
-                    rawName: "v-b-tooltip.hover.right",
-                    value: "Latest Reports",
-                    expression: "'Latest Reports'",
-                    modifiers: { hover: true, right: true }
-                  }
-                ],
-                staticClass: "nav-item mb-2"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "nav-link btn btn-icon btn-hover-text-primary btn-lg",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tab",
-                      "data-target": "#kt_aside_tab_3",
-                      role: "tab"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-xxl" },
-                      [
-                        _c("inline-svg", {
-                          attrs: { src: "/media/svg/icons/Media/Equalizer.svg" }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                directives: [
-                  {
-                    name: "b-tooltip",
-                    rawName: "v-b-tooltip.hover.right",
-                    value: "Project Management",
-                    expression: "'Project Management'",
-                    modifiers: { hover: true, right: true }
-                  }
-                ],
-                staticClass: "nav-item mb-2"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "nav-link btn btn-icon btn-hover-text-primary btn-lg",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tab",
-                      "data-target": "#kt_aside_tab_4",
-                      role: "tab"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-xxl" },
-                      [
-                        _c("inline-svg", {
-                          attrs: {
-                            src: "/media/svg/icons/General/Shield-check.svg"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                directives: [
-                  {
-                    name: "b-tooltip",
-                    rawName: "v-b-tooltip.hover.right",
-                    value: "User Management",
-                    expression: "'User Management'",
-                    modifiers: { hover: true, right: true }
-                  }
-                ],
-                staticClass: "nav-item mb-2"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "nav-link btn btn-icon btn-hover-text-primary btn-lg",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tab",
-                      "data-target": "#kt_aside_tab_5",
-                      role: "tab"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-xxl" },
-                      [
-                        _c("inline-svg", {
-                          attrs: { src: "/media/svg/icons/Home/Library.svg" }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                directives: [
-                  {
-                    name: "b-tooltip",
-                    rawName: "v-b-tooltip.hover.right",
-                    value: "Finance & Accounting",
-                    expression: "'Finance & Accounting'",
-                    modifiers: { hover: true, right: true }
-                  }
-                ],
-                staticClass: "nav-item mb-2"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "nav-link btn btn-icon btn-hover-text-primary btn-lg",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tab",
-                      "data-target": "#kt_aside_tab_6",
-                      role: "tab"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-xxl" },
-                      [
-                        _c("inline-svg", {
-                          attrs: { src: "/media/svg/icons/Files/File-plus.svg" }
                         })
                       ],
                       1
@@ -5132,7 +4896,10 @@ var render = function() {
                   "form",
                   {
                     staticClass: "quick-search-form",
-                    attrs: { method: "get" }
+                    attrs: {
+                      method: "get",
+                      action: _vm.$route("patients.search")
+                    }
                   },
                   [
                     _c("div", { staticClass: "input-group rounded bg-light" }, [
@@ -5155,7 +4922,11 @@ var render = function() {
                       _vm._v(" "),
                       _c("input", {
                         staticClass: "form-control h-40px",
-                        attrs: { type: "text", placeholder: "Search..." }
+                        attrs: {
+                          type: "text",
+                          name: "search",
+                          placeholder: "Buscar pacientes..."
+                        }
                       }),
                       _vm._v(" "),
                       _vm._m(0)
@@ -5547,9 +5318,9 @@ var staticRenderFns = [
         "a",
         {
           staticClass: "text-dark-75 text-hover-primary",
-          attrs: { href: "http://keenthemes.com/metronic", target: "_blank" }
+          attrs: { href: "https://digitalmentestudio.com/", target: "_blank" }
         },
-        [_vm._v("Keenthemes")]
+        [_vm._v("Digitalmentestudio")]
       )
     ])
   },

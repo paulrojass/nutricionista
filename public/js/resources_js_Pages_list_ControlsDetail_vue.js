@@ -11,15 +11,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -187,20 +204,38 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "controls",
-  props: ['monthControls', 'weekControls', 'dayControls'],
+  props: ['controls'],
   data: function data() {
     return {
-      show: "day",
-      month: this.monthControls,
-      week: this.weekControls,
-      day: this.dayControls
+      controls: this.controls,
+      params: {
+        patient_name: '',
+        start_date: '',
+        end_date: ''
+      }
     };
   },
+  watch: {
+    params: {
+      handler: function handler() {
+        this.getResults();
+      },
+      deep: true
+    }
+  },
   methods: {
+    getResults: function getResults() {
+      this.$inertia.get(route('controls.search'), this.params, {
+        onSuccess: function onSuccess(response) {
+          console.log(response);
+        },
+        onError: function onError(response) {
+          console.log(response);
+        }
+      });
+    },
     removeElement: function removeElement(index) {
-      this.month.splice(index, 1);
-      this.week.splice(index, 1);
-      this.day.splice(index, 1);
+      this.controls.splice(index, 1);
     },
     calcularEdad: function calcularEdad(fecha) {
       var hoy = new Date();
@@ -218,14 +253,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"][dayIndex] || '';
     }
   },
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)(["layoutConfig"])), {}, {
-    dataToShow: function dataToShow() {
-      if (this.show === "month") return this.month;
-      if (this.show === "week") return this.week;
-      if (this.show === "day") return this.day;
-      return this.day;
-    }
-  })
+  computed: {// ...mapGetters(["layoutConfig"]),
+    // dataToShow() {
+    //   return this.controls;
+    // }
+  }
 });
 
 /***/ }),
@@ -3507,7 +3539,73 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xl-4" }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-xl-4" },
+        [
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                id: "group-date",
+                label: "Desde:",
+                "label-for": "start_date"
+              }
+            },
+            [
+              _c("b-form-input", {
+                attrs: { type: "date", id: "start_date", required: "" },
+                model: {
+                  value: _vm.params.start_date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.params, "start_date", $$v)
+                  },
+                  expression: "params.start_date"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-xl-4" },
+        [
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                id: "group-date",
+                label: "Hasta:",
+                "label-for": "end_date"
+              }
+            },
+            [
+              _c("b-form-input", {
+                attrs: { type: "date", id: "end_date", required: "" },
+                model: {
+                  value: _vm.params.end_date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.params, "end_date", $$v)
+                  },
+                  expression: "params.end_date"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "card card-custom card-stretch gutter-b" }, [
       _c("div", { staticClass: "card-header border-0 pt-5" }, [
         _vm._m(0),
@@ -3522,65 +3620,14 @@ var render = function() {
                   "inertia-link",
                   {
                     staticClass:
-                      "btn btn-success font-weight-bolder font-size-sm",
+                      "btn btn-success font-weight-bolder font-size-sm py-2",
                     attrs: { href: _vm.$route("calendar") }
                   },
-                  [_vm._v("\n              calendario\n            ")]
+                  [_vm._v("\n            calendario\n          ")]
                 )
               ],
               1
-            ),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link py-2 px-4",
-                  class: { active: this.show === "month" },
-                  attrs: { "data-toggle": "tab", href: "#kt_tab_pane_2_1" },
-                  on: {
-                    click: function($event) {
-                      _vm.show = "month"
-                    }
-                  }
-                },
-                [_vm._v("Mes")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link py-2 px-4",
-                  class: { active: this.show === "week" },
-                  attrs: { "data-toggle": "tab", href: "#kt_tab_pane_2_2" },
-                  on: {
-                    click: function($event) {
-                      _vm.show = "week"
-                    }
-                  }
-                },
-                [_vm._v("Semana")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link py-2 px-4",
-                  class: { active: this.show === "day" },
-                  attrs: { "data-toggle": "tab", href: "#kt_tab_pane_2_3" },
-                  on: {
-                    click: function($event) {
-                      _vm.show = "day"
-                    }
-                  }
-                },
-                [_vm._v("Día")]
-              )
-            ])
+            )
           ])
         ])
       ]),
@@ -3596,7 +3643,7 @@ var render = function() {
               _c(
                 "tbody",
                 [
-                  _vm._l(_vm.dataToShow, function(item, i) {
+                  _vm._l(_vm.controls, function(item, i) {
                     return [
                       _c("tr", { key: i }, [
                         _c("td", { staticClass: "pr-0" }, [
@@ -3638,11 +3685,11 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                  " +
+                                  "\n                " +
                                     _vm._s(item.patient.first_name_1) +
                                     " " +
                                     _vm._s(item.patient.last_name_1) +
-                                    "\n                "
+                                    "\n              "
                                 )
                               ]
                             ),
@@ -3655,13 +3702,13 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                  " +
+                                  "\n                " +
                                     _vm._s(
                                       _vm.calcularEdad(
                                         item.patient.birth_date
                                       ) + " años"
                                     ) +
-                                    "\n                "
+                                    "\n              "
                                 )
                               ]
                             )
@@ -3675,9 +3722,9 @@ var render = function() {
                             { staticClass: "text-muted font-weight-bold" },
                             [
                               _vm._v(
-                                "\n                  " +
+                                "\n                " +
                                   _vm._s(_vm._f("formatDate")(item.date)) +
-                                  "\n                "
+                                  "\n              "
                               )
                             ]
                           )
@@ -3689,9 +3736,9 @@ var render = function() {
                             { staticClass: "text-muted font-weight-bold" },
                             [
                               _vm._v(
-                                "\n                  " +
+                                "\n                " +
                                   _vm._s(item.time) +
-                                  "\n                "
+                                  "\n              "
                               )
                             ]
                           )
@@ -3703,11 +3750,11 @@ var render = function() {
                             { staticClass: "text-muted font-weight-bold" },
                             [
                               _vm._v(
-                                "\n                  " +
+                                "\n                " +
                                   _vm._s(
                                     _vm._f("truncate")(item.note, 20, "...")
                                   ) +
-                                  "\n                "
+                                  "\n              "
                               )
                             ]
                           )
@@ -3718,6 +3765,15 @@ var render = function() {
                           { staticClass: "text-right pr-0" },
                           [
                             _c("inertia-link", {
+                              directives: [
+                                {
+                                  name: "b-popover",
+                                  rawName: "v-b-popover.hover.right",
+                                  value: "Cambiar el estado del control",
+                                  expression: "'Cambiar el estado del control'",
+                                  modifiers: { hover: true, right: true }
+                                }
+                              ],
                               staticClass: "btn btn-icon btn-light btn-sm",
                               class: "control-" + item.status,
                               attrs: {
@@ -3728,6 +3784,16 @@ var render = function() {
                             _c(
                               "inertia-link",
                               {
+                                directives: [
+                                  {
+                                    name: "b-popover",
+                                    rawName: "v-b-popover.hover.right",
+                                    value: "Ver los detalles del control",
+                                    expression:
+                                      "'Ver los detalles del control'",
+                                    modifiers: { hover: true, right: true }
+                                  }
+                                ],
                                 staticClass:
                                   "btn btn-icon btn-light btn-hover-primary btn-sm",
                                 attrs: {
@@ -3757,9 +3823,62 @@ var render = function() {
                             _c(
                               "inertia-link",
                               {
+                                directives: [
+                                  {
+                                    name: "b-popover",
+                                    rawName: "v-b-popover.hover.right",
+                                    value: "Cambiar la fecha del control",
+                                    expression:
+                                      "'Cambiar la fecha del control'",
+                                    modifiers: { hover: true, right: true }
+                                  }
+                                ],
                                 staticClass:
-                                  "btn btn-icon btn-light btn-hover-primary btn-sm",
+                                  "btn btn-icon btn-light btn-hover-success btn-sm",
                                 attrs: {
+                                  href: _vm.$route("controls.edit-date", {
+                                    id: item.id
+                                  }),
+                                  as: "button",
+                                  type: "button"
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "svg-icon svg-icon-md svg-icon-success"
+                                  },
+                                  [
+                                    _c("inline-svg", {
+                                      attrs: {
+                                        src:
+                                          "/media/svg/icons/Code/Time-schedule.svg"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "inertia-link",
+                              {
+                                directives: [
+                                  {
+                                    name: "b-popover",
+                                    rawName: "v-b-popover.hover.right",
+                                    value: "Eliminar este control",
+                                    expression: "'Eliminar este control'",
+                                    modifiers: { hover: true, right: true }
+                                  }
+                                ],
+                                staticClass:
+                                  "btn btn-icon btn-light btn-hover-danger btn-sm",
+                                attrs: {
+                                  variant: "danger",
                                   href: _vm.$route("controls.destroy", {
                                     id: item.id
                                   }),
@@ -3778,7 +3897,7 @@ var render = function() {
                                   "span",
                                   {
                                     staticClass:
-                                      "svg-icon svg-icon-md svg-icon-primary"
+                                      "svg-icon svg-icon-md svg-icon-danger"
                                   },
                                   [
                                     _c("inline-svg", {
@@ -3843,9 +3962,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "p-0", staticStyle: { width: "10%" } }),
         _vm._v(" "),
-        _c("th", { staticClass: "p-0", staticStyle: { width: "22%" } }),
+        _c("th", { staticClass: "p-0", staticStyle: { width: "20%" } }),
         _vm._v(" "),
-        _c("th", { staticClass: "p-0", staticStyle: { width: "18%" } })
+        _c("th", { staticClass: "p-0", staticStyle: { width: "30%" } })
       ])
     ])
   }

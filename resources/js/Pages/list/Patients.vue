@@ -2,7 +2,7 @@
   <div class="col-lg-4">
     <div class="card card-custom card-stretch gutter-b">
       <!-- <div class="card-header border-0"></div> -->
-      <div class="card-body p-5">
+      <div class="card-body pt-5 pr-5 pb-0 pl-5">
         <div class="d-flex align-items-center">
           <div class="symbol symbol-50 pr-2">
             <img :src="`/storage/avatars/${patient.avatar}`" alt="image" />
@@ -31,19 +31,24 @@
         </p>
       </div>
     </div>
-    <div class="card-footer border-0 p-0 pb-5">
+    <div class="card-footer border-0 pt-0 pr-5 pb-5 pl-5">
       <div class="my-2 d-flex justify-content-center">
-        <inertia-link v-if="route().current('patients.index') == true" :href="route('patients.show', patient.id)">
-          <b-button size="sm" pill variant="success">Ver más</b-button>
-        </inertia-link>
-        
-        <inertia-link v-if="route().current('controls.patients') == true" :href="$route('controls.create', [patient.id])">
-          <b-button size="sm" pill variant="success">Crear Cita</b-button>
-        </inertia-link>
-        
-      </div>
-    </div>
+        <inertia-link v-if="route().current('patients.index') == true" :href="route('patients.show', patient.id)"
+        class="btn btn-success btn-shadow-hover font-weight-bolder w-100 py-1"
+        >
+        Ver más
+        <!-- <b-button>Ver más</b-button> -->
+      </inertia-link>
+      
+      <inertia-link v-if="route().current('controls.patients') == true" :href="$route('controls.create', [patient.id])"
+      class="btn btn-success btn-shadow-hover font-weight-bolder w-100 py-1"
+      >
+      Crear Cita
+    </inertia-link>
+    
   </div>
+</div>
+</div>
 </div>
 </template>
 

@@ -7,6 +7,9 @@ use App\Models\Patient;
 use Carbon\Carbon;
 use Inertia\Inertia;
 
+use App\Models\City;
+use App\Models\Plan;
+
 class HomeController extends Controller
 {
   /**
@@ -46,6 +49,13 @@ class HomeController extends Controller
           'weekControls' => $weekControls,
           'dayControls' => $dayControls
         ]);
+      }
+      
+      public function settings(){
+        return Inertia::render('settings/Index');
+      }
+      
+      public function cities(){
         
       }
     }

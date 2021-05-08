@@ -29,107 +29,30 @@ class="aside-nav d-flex flex-column align-items-center flex-column-fluid pb-10"
 <!--begin::Nav-->
 <ul class="nav flex-column">
   <!--begin::Item-->
-  <li class="nav-item mb-2" v-b-tooltip.hover.right="'Latest Projects'">
-    <a
-    href="#"
+  <li class="nav-item mb-2" v-b-tooltip.hover.right="'Configuración'">
+    <inertia-link
+    :href="$route('settings')"
     class="nav-link btn btn-icon btn-hover-text-primary btn-lg active"
     >
     <span class="svg-icon svg-icon-xxl">
       <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
-      <inline-svg src="/media/svg/icons/Layout/Layout-4-blocks.svg" />
+      <inline-svg src="/media/svg/icons/Code/Settings4.svg" />
       <!--end::Svg Icon-->
     </span>
-  </a>
+  </inertia-link>
 </li>
 <!--end::Item-->
 <!--begin::Item-->
-<li class="nav-item mb-2" v-b-tooltip.hover.right="'Metronic Features'">
+<li class="nav-item mb-2" v-b-tooltip.hover.right="'Salir'">
   <a
   href="#"
-  class="nav-link btn btn-icon btn-hover-text-primary btn-lg"
-  data-toggle="tab"
-  data-target="#kt_aside_tab_2"
-  role="tab"
+  class="nav-link btn btn-icon btn-hover-text-primary btn-lg active"
   >
   <span class="svg-icon svg-icon-xxl">
-    <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group.svg-->
-    <inline-svg src="/media/svg/icons/Communication/Group.svg" />
+    <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+    <inline-svg src="/media/svg/icons/Navigation/Sign-out.svg" />
     <!--end::Svg Icon-->
   </span>
-</a>
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li class="nav-item mb-2" v-b-tooltip.hover.right="'Latest Reports'">
-  <a
-  href="#"
-  class="nav-link btn btn-icon btn-hover-text-primary btn-lg"
-  data-toggle="tab"
-  data-target="#kt_aside_tab_3"
-  role="tab"
-  >
-  <span class="svg-icon svg-icon-xxl">
-    <!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
-    <inline-svg src="/media/svg/icons/Media/Equalizer.svg" />
-    <!--end::Svg Icon-->
-  </span>
-</a>
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li
-class="nav-item mb-2"
-v-b-tooltip.hover.right="'Project Management'"
->
-<a
-href="#"
-class="nav-link btn btn-icon btn-hover-text-primary btn-lg"
-data-toggle="tab"
-data-target="#kt_aside_tab_4"
-role="tab"
->
-<span class="svg-icon svg-icon-xxl">
-  <!--begin::Svg Icon | path:assets/media/svg/icons/General/Shield-check.svg-->
-  <inline-svg src="/media/svg/icons/General/Shield-check.svg" />
-  <!--end::Svg Icon-->
-</span>
-</a>
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li class="nav-item mb-2" v-b-tooltip.hover.right="'User Management'">
-  <a
-  href="#"
-  class="nav-link btn btn-icon btn-hover-text-primary btn-lg"
-  data-toggle="tab"
-  data-target="#kt_aside_tab_5"
-  role="tab"
-  >
-  <span class="svg-icon svg-icon-xxl">
-    <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-    <inline-svg src="/media/svg/icons/Home/Library.svg" />
-    <!--end::Svg Icon-->
-  </span>
-</a>
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li
-class="nav-item mb-2"
-v-b-tooltip.hover.right="'Finance &amp; Accounting'"
->
-<a
-href="#"
-class="nav-link btn btn-icon btn-hover-text-primary btn-lg"
-data-toggle="tab"
-data-target="#kt_aside_tab_6"
-role="tab"
->
-<span class="svg-icon svg-icon-xxl">
-  <!--begin::Svg Icon | path:assets/media/svg/icons/Files/File-plus.svg-->
-  <inline-svg src="/media/svg/icons/Files/File-plus.svg" />
-  <!--end::Svg Icon-->
-</span>
 </a>
 </li>
 <!--end::Item-->

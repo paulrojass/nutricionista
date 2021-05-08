@@ -61,6 +61,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Using a render function
@@ -720,83 +725,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
  // import KTQuickNotifications from "../extras/offcanvas/QuickNotifications.vue";
 // import KTQuickActions from "../extras/offcanvas/QuickActions.vue";
 // import KTQuickPanel from "../extras/offcanvas/QuickPanel.vue";
@@ -828,6 +756,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _assets_js_layout_base_sidebar_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../assets/js/layout/base/sidebar.js */ "./resources/js/src/assets/js/layout/base/sidebar.js");
 /* harmony import */ var _content_widgets_list_Candidates_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../content/widgets/list/Candidates.vue */ "./resources/js/src/view/content/widgets/list/Candidates.vue");
+//
 //
 //
 //
@@ -1163,8 +1092,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   name: "KTFooter",
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig"])), {}, {
     /**
-     * Check if subheader width is fluid
-     */
+    * Check if subheader width is fluid
+    */
     widthFluid: function widthFluid() {
       return this.layoutConfig("footer.width") === "fluid";
     }
@@ -3533,7 +3462,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-lg-4" }, [
     _c("div", { staticClass: "card card-custom card-stretch gutter-b" }, [
-      _c("div", { staticClass: "card-body p-5" }, [
+      _c("div", { staticClass: "card-body pt-5 pr-5 pb-0 pl-5" }, [
         _c("div", { staticClass: "d-flex align-items-center" }, [
           _c("div", { staticClass: "symbol symbol-50 pr-2" }, [
             _c("img", {
@@ -3603,7 +3532,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "card-footer border-0 p-0 pb-5" }, [
+      _c("div", { staticClass: "card-footer border-0 pt-0 pr-5 pb-5 pl-5" }, [
         _c(
           "div",
           { staticClass: "my-2 d-flex justify-content-center" },
@@ -3612,16 +3541,11 @@ var render = function() {
               ? _c(
                   "inertia-link",
                   {
+                    staticClass:
+                      "btn btn-success btn-shadow-hover font-weight-bolder w-100 py-1",
                     attrs: { href: _vm.route("patients.show", _vm.patient.id) }
                   },
-                  [
-                    _c(
-                      "b-button",
-                      { attrs: { size: "sm", pill: "", variant: "success" } },
-                      [_vm._v("Ver más")]
-                    )
-                  ],
-                  1
+                  [_vm._v("\n        Ver más\n        ")]
                 )
               : _vm._e(),
             _vm._v(" "),
@@ -3629,18 +3553,13 @@ var render = function() {
               ? _c(
                   "inertia-link",
                   {
+                    staticClass:
+                      "btn btn-success btn-shadow-hover font-weight-bolder w-100 py-1",
                     attrs: {
                       href: _vm.$route("controls.create", [_vm.patient.id])
                     }
                   },
-                  [
-                    _c(
-                      "b-button",
-                      { attrs: { size: "sm", pill: "", variant: "success" } },
-                      [_vm._v("Crear Cita")]
-                    )
-                  ],
-                  1
+                  [_vm._v("\n      Crear Cita\n    ")]
                 )
               : _vm._e()
           ],
@@ -4336,8 +4255,47 @@ var render = function() {
                   {
                     name: "b-tooltip",
                     rawName: "v-b-tooltip.hover.right",
-                    value: "Latest Projects",
-                    expression: "'Latest Projects'",
+                    value: "Configuración",
+                    expression: "'Configuración'",
+                    modifiers: { hover: true, right: true }
+                  }
+                ],
+                staticClass: "nav-item mb-2"
+              },
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    staticClass:
+                      "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
+                    attrs: { href: _vm.$route("settings") }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { staticClass: "svg-icon svg-icon-xxl" },
+                      [
+                        _c("inline-svg", {
+                          attrs: { src: "/media/svg/icons/Code/Settings4.svg" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                directives: [
+                  {
+                    name: "b-tooltip",
+                    rawName: "v-b-tooltip.hover.right",
+                    value: "Salir",
+                    expression: "'Salir'",
                     modifiers: { hover: true, right: true }
                   }
                 ],
@@ -4358,227 +4316,8 @@ var render = function() {
                       [
                         _c("inline-svg", {
                           attrs: {
-                            src: "/media/svg/icons/Layout/Layout-4-blocks.svg"
+                            src: "/media/svg/icons/Navigation/Sign-out.svg"
                           }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                directives: [
-                  {
-                    name: "b-tooltip",
-                    rawName: "v-b-tooltip.hover.right",
-                    value: "Metronic Features",
-                    expression: "'Metronic Features'",
-                    modifiers: { hover: true, right: true }
-                  }
-                ],
-                staticClass: "nav-item mb-2"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "nav-link btn btn-icon btn-hover-text-primary btn-lg",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tab",
-                      "data-target": "#kt_aside_tab_2",
-                      role: "tab"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-xxl" },
-                      [
-                        _c("inline-svg", {
-                          attrs: {
-                            src: "/media/svg/icons/Communication/Group.svg"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                directives: [
-                  {
-                    name: "b-tooltip",
-                    rawName: "v-b-tooltip.hover.right",
-                    value: "Latest Reports",
-                    expression: "'Latest Reports'",
-                    modifiers: { hover: true, right: true }
-                  }
-                ],
-                staticClass: "nav-item mb-2"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "nav-link btn btn-icon btn-hover-text-primary btn-lg",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tab",
-                      "data-target": "#kt_aside_tab_3",
-                      role: "tab"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-xxl" },
-                      [
-                        _c("inline-svg", {
-                          attrs: { src: "/media/svg/icons/Media/Equalizer.svg" }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                directives: [
-                  {
-                    name: "b-tooltip",
-                    rawName: "v-b-tooltip.hover.right",
-                    value: "Project Management",
-                    expression: "'Project Management'",
-                    modifiers: { hover: true, right: true }
-                  }
-                ],
-                staticClass: "nav-item mb-2"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "nav-link btn btn-icon btn-hover-text-primary btn-lg",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tab",
-                      "data-target": "#kt_aside_tab_4",
-                      role: "tab"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-xxl" },
-                      [
-                        _c("inline-svg", {
-                          attrs: {
-                            src: "/media/svg/icons/General/Shield-check.svg"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                directives: [
-                  {
-                    name: "b-tooltip",
-                    rawName: "v-b-tooltip.hover.right",
-                    value: "User Management",
-                    expression: "'User Management'",
-                    modifiers: { hover: true, right: true }
-                  }
-                ],
-                staticClass: "nav-item mb-2"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "nav-link btn btn-icon btn-hover-text-primary btn-lg",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tab",
-                      "data-target": "#kt_aside_tab_5",
-                      role: "tab"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-xxl" },
-                      [
-                        _c("inline-svg", {
-                          attrs: { src: "/media/svg/icons/Home/Library.svg" }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                directives: [
-                  {
-                    name: "b-tooltip",
-                    rawName: "v-b-tooltip.hover.right",
-                    value: "Finance & Accounting",
-                    expression: "'Finance & Accounting'",
-                    modifiers: { hover: true, right: true }
-                  }
-                ],
-                staticClass: "nav-item mb-2"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "nav-link btn btn-icon btn-hover-text-primary btn-lg",
-                    attrs: {
-                      href: "#",
-                      "data-toggle": "tab",
-                      "data-target": "#kt_aside_tab_6",
-                      role: "tab"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "svg-icon svg-icon-xxl" },
-                      [
-                        _c("inline-svg", {
-                          attrs: { src: "/media/svg/icons/Files/File-plus.svg" }
                         })
                       ],
                       1
@@ -4643,7 +4382,10 @@ var render = function() {
                   "form",
                   {
                     staticClass: "quick-search-form",
-                    attrs: { method: "get" }
+                    attrs: {
+                      method: "get",
+                      action: _vm.$route("patients.search")
+                    }
                   },
                   [
                     _c("div", { staticClass: "input-group rounded bg-light" }, [
@@ -4666,7 +4408,11 @@ var render = function() {
                       _vm._v(" "),
                       _c("input", {
                         staticClass: "form-control h-40px",
-                        attrs: { type: "text", placeholder: "Search..." }
+                        attrs: {
+                          type: "text",
+                          name: "search",
+                          placeholder: "Buscar pacientes..."
+                        }
                       }),
                       _vm._v(" "),
                       _vm._m(0)
@@ -5058,9 +4804,9 @@ var staticRenderFns = [
         "a",
         {
           staticClass: "text-dark-75 text-hover-primary",
-          attrs: { href: "http://keenthemes.com/metronic", target: "_blank" }
+          attrs: { href: "https://digitalmentestudio.com/", target: "_blank" }
         },
-        [_vm._v("Keenthemes")]
+        [_vm._v("Digitalmentestudio")]
       )
     ])
   },
