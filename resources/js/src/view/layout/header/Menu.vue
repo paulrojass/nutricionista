@@ -38,10 +38,10 @@ class="menu-item menu-item-active"
 <script>
 export default {
   name: "KTMenu",
-  created(){
-    console.log('La ruta')
-    console.log(route().current())
-  },
+  // created(){
+  //   console.log('La ruta')
+  //   console.log(route().current())
+  // },
   methods: {
     // hasActiveChildren(match) {
     //   return this.$route["path"].indexOf(match) !== -1;

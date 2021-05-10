@@ -1550,10 +1550,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "KTMenu",
-  created: function created() {
-    console.log('La ruta');
-    console.log(route().current());
-  },
+  // created(){
+  //   console.log('La ruta')
+  //   console.log(route().current())
+  // },
   methods: {// hasActiveChildren(match) {
     //   return this.$route["path"].indexOf(match) !== -1;
     // }

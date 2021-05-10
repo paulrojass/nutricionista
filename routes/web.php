@@ -66,5 +66,20 @@ Route::prefix('panel')->group(function () {
   Route::get('controles/crear/{patient_id}', [App\Http\Controllers\ControlController::class, 'create'])->name('controls.create');
   Route::get('calendario', [App\Http\Controllers\ControlController::class, 'calendar'])->name('calendar');
   
+  Route::get('archivos/crear/{patient_id}', [App\Http\Controllers\AttachmentController::class, 'create'])->name('attachments.create');
+  Route::resource('archivos',
+  App\Http\Controllers\AttachmentController::class,
+  [
+    'names' => [
+      'index' => 'attachments.index',
+      'show' => 'attachments.show',
+      'store' => 'attachments.store',
+      'edit' => 'attachments.edit',
+      'update' => 'attachments.update',
+      'destroy' => 'attachments.destroy'
+    ]
+  ])
+  ->except(['create']);
+  
 });
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

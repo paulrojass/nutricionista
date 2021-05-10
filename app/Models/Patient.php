@@ -129,9 +129,9 @@ class Patient extends Model
   * @author  Paúl Rojas <paul.rojase@gmail.com>
   * @return object Objeto con los registros relacionados al modelo Paciente
   */
-  public function files()
+  public function attachments()
   {
-    return $this->hasMany(File::class);
+    return $this->hasMany(Attachment::class);
   }
   /**
   * Método que obtiene las notas asociadas con el paciente

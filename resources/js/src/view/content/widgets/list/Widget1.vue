@@ -16,38 +16,38 @@
         <div class="d-flex align-items-center mb-10" v-bind:key="i">
           <!--begin::Symbol-->
           <div
-            class="symbol symbol-40 mr-5"
-            v-bind:class="`symbol-light-${item.style}`"
+          class="symbol symbol-40 mr-5"
+          v-bind:class="`symbol-light-${item.style}`"
           >
-            <span class="symbol-label">
-              <span
-                class="svg-icon svg-icon-lg"
-                v-bind:class="`svg-icon-${item.style}`"
-              >
-                <!--begin::Svg Icon-->
-                <inline-svg :src="item.svg"></inline-svg>
-                <!--end::Svg Icon-->
-              </span>
-            </span>
-          </div>
-          <!--end::Symbol-->
-          <!--begin::Text-->
-          <div class="d-flex flex-column font-weight-bold">
-            <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">
-              {{ item.title }}
-            </a>
-            <span class="text-muted">
-              {{ item.desc }}
-            </span>
-          </div>
-          <!--end::Text-->
-        </div>
-        <!--end::Item-->
-      </template>
+          <span class="symbol-label">
+            <span
+            class="svg-icon svg-icon-lg"
+            v-bind:class="`svg-icon-${item.style}`"
+            >
+            <!--begin::Svg Icon-->
+            <inline-svg :src="item.svg"></inline-svg>
+            <!--end::Svg Icon-->
+          </span>
+        </span>
+      </div>
+      <!--end::Symbol-->
+      <!--begin::Text-->
+      <div class="d-flex flex-column font-weight-bold">
+        <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">
+          {{ item.title }}
+        </a>
+        <span class="text-muted">
+          {{ item.desc }}
+        </span>
+      </div>
+      <!--end::Text-->
     </div>
-    <!--end::Body-->
-  </div>
-  <!--end: List Widget 1-->
+    <!--end::Item-->
+  </template>
+</div>
+<!--end::Body-->
+</div>
+<!--end: List Widget 1-->
 </template>
 
 <script>

@@ -73,7 +73,7 @@ class PatientController extends Controller
   
   public function show($id)
   {
-    $patient = Patient::find($id);
+    $patient = Patient::where('id', $id)->with('attachments')->first();
     return Inertia::render('Profile', [
       'patient' => $patient,
     ]);

@@ -93,6 +93,15 @@
   </div>
 </div>
 <!--end::Row-->
+<!--begin::Row-->
+<div class="row">
+  <div class="col-lg-12">
+    <WidgetFiles
+    :patient="patient"
+    ></WidgetFiles>
+  </div>
+</div>
+<!--end::Row-->
 </div>
 </template>
 
@@ -101,19 +110,21 @@ import Layout from "../src/view/layout/Layout"
 import { mapGetters } from "vuex"
 import WidgetNotes from "./profile/Notes"
 import WidgetAdvertising from "./profile/Advertising"
+import WidgetFiles from "./profile/Files"
 
 export default {
   // Using a render function
   layout: (h, page) => h(Layout, [page]),
   metaInfo() {
     return {
-      title: `Paciente ${patient.first_name_1} ${patient.last_name_1}`,
+      title: `Paciente ${this.patient.first_name_1} ${this.patient.last_name_1}`,
     }
   },
   props: ['patient'],
   components: {
     WidgetNotes,
     WidgetAdvertising,
+    WidgetFiles,
   },
   computed: {
     //...mapGetters(["currentUserPhoto"])

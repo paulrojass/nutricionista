@@ -18,6 +18,8 @@ class Image extends Model
     'patient_id',
     'name',
     'location',
+    'format',
+    'description'
   ];
   
   /**
