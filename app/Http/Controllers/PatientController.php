@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Str;
 
 use App\Models\City;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Redirect;
+use Image;
 
 class PatientController extends Controller
 {
@@ -139,13 +141,28 @@ class PatientController extends Controller
       'last_name_1' => ['required', 'max:50'],
       'email' => ['required', 'max:50', 'email']
     ]);
+    
     $patient = Patient::find($id);
-    $patient->update($request->all());
+    if($request->file('avatar')) {
+      $this->deleteAvatar($patient->avatar);
+      $patient->update($request->all());
+      $patient->avatar = $this->saveAvatar($request);
+    } else {
+      if($request->avatar == null){
+        //dd('borraste la imagen sin file');
+        $this->deleteAvatar($patient->avatar);
+        $request->replace(['avatar' => 'default.jpg']);
+        $patient->update($request->all());
+      } else {
+        $patient->update($request->all());
+      }
+    }
     if($request->rad_athletic_discipline == 'Otra') {
       $patient->athletic_discipline = $request->athletic_discipline;
     } else {
       $patient->athletic_discipline = $request->rad_athletic_discipline;
     }
+    
     $patient->save();
     return $this->edit($id);
   }
@@ -166,7 +183,37 @@ class PatientController extends Controller
   public function destroy($id)
   {
     $patient = Patient::find($id);
+    $this->deleteAvatar($patient->avatar);
     $patient->delete();
     return Redirect::route('patients.index');
+  }
+  
+  public function saveAvatar(Request $request)
+  {
+    $originalImage= $request->file('avatar');
+    $image = Image::make($originalImage);
+    $originalPath = public_path().'/storage/avatars/';
+    //Nombre aleatorio para la image
+    $tempName = Str::random(10) . '.' . $originalImage->getClientOriginalExtension();
+    
+    //Redimensinoar la imagen
+    // if($image->width() >= $image->height()) $image->heighten(400);
+    // else $image->widen(400);
+    // $image->resizeCanvas(400,400);
+    
+    $image->save($originalPath.$tempName);
+    
+    return $tempName;
+  }
+  
+  public function deleteAvatar($avatar)
+  {
+    $originalPath = public_path().'/storage/avatars/';
+    
+    if ($avatar != 'default.jpg') {
+      if (\File::exists($originalPath.$avatar)) {
+        \File::delete($originalPath.$avatar);
+      }
+    }
   }
 }

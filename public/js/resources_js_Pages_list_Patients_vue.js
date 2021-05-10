@@ -4307,7 +4307,7 @@ var render = function() {
                   {
                     staticClass:
                       "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
-                    attrs: { href: "#" }
+                    attrs: { href: _vm.$route("logout") }
                   },
                   [
                     _c(

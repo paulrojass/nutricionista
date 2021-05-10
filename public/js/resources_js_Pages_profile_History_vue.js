@@ -834,7 +834,8 @@ __webpack_require__.r(__webpack_exports__);
   props: ['patient', 'cities'],
   data: function data() {
     return {
-      form: {
+      form: this.$inertia.form({
+        _method: 'put',
         first_name_1: this.patient.first_name_1,
         first_name_2: this.patient.first_name_2,
         last_name_1: this.patient.last_name_1,
@@ -920,7 +921,7 @@ __webpack_require__.r(__webpack_exports__);
         dieta_alta_fodmaps: this.checked(this.patient.dieta_alta_fodmaps),
         excedente_calorico: this.checked(this.patient.excedente_calorico),
         workplan: this.patient.workplan
-      },
+      }),
       show: true,
       default_photo: "/storage/avatars/default.jpg",
       current_photo: "/storage/avatars/".concat(this.patient.avatar),
@@ -991,15 +992,16 @@ __webpack_require__.r(__webpack_exports__);
       return valor;
     },
     habilitado: function habilitado(v) {
-      if (v === '' || v === null || v === false) return 0;else return 1;
+      if (v === '' || v === null || v === false || v === 0) return 0;else return 1;
     },
     checked: function checked(v) {
-      if (v === '' || v === null || v === false) return false;else return true;
+      if (v === '' || v === null || v === false || v === 0) return false;else return true;
     },
     onFileChange: function onFileChange(e) {
       var _this2 = this;
 
-      this.form.avatar = e.target.files[0]; //const file = e.target.files[0];
+      this.form.avatar = e.target.files[0];
+      console.log(e.target.files[0]); //const file = e.target.files[0];
 
       if (typeof FileReader === "function") {
         var reader = new FileReader();
@@ -1013,9 +1015,13 @@ __webpack_require__.r(__webpack_exports__);
         alert("Sorry, FileReader API not supported");
       }
     },
+    deleteAvatar: function deleteAvatar() {
+      this.current_photo = null;
+      this.form.avatar = null;
+    },
     submit: function submit(e) {
-      e.preventDefault();
-      this.$inertia.put(route('patients.update', this.patient.id), this.form, {
+      this.form.post(route('patients.update', this.patient.id), {
+        forceFormData: true,
         onSuccess: function onSuccess() {
           sweetalert2__WEBPACK_IMPORTED_MODULE_3___default().fire({
             title: "",
@@ -7679,10 +7685,7 @@ var render = function() {
                 _vm.show
                   ? _c(
                       "form",
-                      {
-                        staticClass: "form",
-                        attrs: { id: "kt_form", enctype: "multipart/form-data" }
-                      },
+                      { staticClass: "form", attrs: { id: "kt_form" } },
                       [
                         _c(
                           "div",
@@ -7793,11 +7796,7 @@ var render = function() {
                                                 "data-toggle": "tooltip",
                                                 title: "Remove avatar"
                                               },
-                                              on: {
-                                                click: function($event) {
-                                                  _vm.current_photo = null
-                                                }
-                                              }
+                                              on: { click: _vm.deleteAvatar }
                                             },
                                             [
                                               _c("i", {
@@ -11428,7 +11427,7 @@ var render = function() {
                   {
                     staticClass:
                       "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
-                    attrs: { href: "#" }
+                    attrs: { href: _vm.$route("logout") }
                   },
                   [
                     _c(

@@ -67,4 +67,4 @@ Route::prefix('panel')->group(function () {
   Route::get('calendario', [App\Http\Controllers\ControlController::class, 'calendar'])->name('calendar');
   
 });
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

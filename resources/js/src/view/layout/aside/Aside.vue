@@ -45,7 +45,7 @@ class="aside-nav d-flex flex-column align-items-center flex-column-fluid pb-10"
 <!--begin::Item-->
 <li class="nav-item mb-2" v-b-tooltip.hover.right="'Salir'">
   <a
-  href="#"
+  :href="$route('logout')"
   class="nav-link btn btn-icon btn-hover-text-primary btn-lg active"
   >
   <span class="svg-icon svg-icon-xxl">

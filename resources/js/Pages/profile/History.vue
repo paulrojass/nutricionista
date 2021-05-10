@@ -47,7 +47,7 @@
     <div class="row justify-content-center py-12 px-8 py-lg-15 px-lg-10">
       <div class="col-xl-12 col-xxl-7">
         <!--begin: Wizard Form-->
-        <form class="form" id="kt_form" v-if="show" enctype="multipart/form-data">
+        <form class="form" id="kt_form" v-if="show" >
           <!--begin: Wizard Step 1-->
           <div
           class="pb-5"
@@ -99,7 +99,7 @@
                 data-action="remove"
                 data-toggle="tooltip"
                 title="Remove avatar"
-                @click="current_photo = null"
+                @click="deleteAvatar"
                 >
                 <i class="ki ki-bold-close icon-xs text-muted"></i>
               </span>
@@ -818,7 +818,8 @@ export default {
   ],
   data() {
     return {
-      form: {
+      form: this.$inertia.form({
+        _method: 'put',
         first_name_1 : this.patient.first_name_1,
         first_name_2 : this.patient.first_name_2,
         last_name_1 : this.patient.last_name_1,
@@ -904,7 +905,7 @@ export default {
         dieta_alta_fodmaps : this.checked(this.patient.dieta_alta_fodmaps),
         excedente_calorico : this.checked(this.patient.excedente_calorico),
         workplan : this.patient.workplan,
-      },
+      }),
       show:true,
       default_photo: "/storage/avatars/default.jpg",
       current_photo:  `/storage/avatars/${this.patient.avatar}`,
@@ -965,15 +966,16 @@ export default {
         return valor;
       },
       habilitado(v){
-        if(v === '' || v === null || v === false) return 0
+        if(v === '' || v === null || v === false || v === 0) return 0
         else return 1
       },
       checked(v){
-        if(v === '' || v === null || v === false) return false
+        if(v === '' || v === null || v === false || v === 0) return false
         else return true
       },
       onFileChange(e) {
         this.form.avatar = e.target.files[0]
+        console.log(e.target.files[0])
         //const file = e.target.files[0];
         
         if (typeof FileReader === "function") {
@@ -988,10 +990,14 @@ export default {
           alert("Sorry, FileReader API not supported");
         }
       },
+      deleteAvatar(){
+        this.current_photo = null
+        this.form.avatar = null
+      },
       submit: function(e) {
-        e.preventDefault();
-        this.$inertia.put(route('patients.update', this.patient.id), this.form,
+        this.form.post(route('patients.update', this.patient.id),
         {
+          forceFormData: true,
           onSuccess: () => {
             Swal.fire({
               title: "",
