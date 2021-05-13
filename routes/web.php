@@ -29,6 +29,7 @@ Route::get('/', App\Http\Controllers\WelcomeController::class);
 Route::prefix('panel')->group(function () {
   Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
   Route::get('configuracion', [App\Http\Controllers\HomeController::class, 'settings'])->name('settings');
+  Route::get('finanzas', [App\Http\Controllers\HomeController::class, 'finance'])->name('finance');
   Route::delete('candidatos/{id}', [App\Http\Controllers\PatientController::class, 'destroyCandidate'])->name('candidates.destroy');
   Route::get('candidatos', [App\Http\Controllers\PatientController::class, 'candidates'] )->name('candidates.index');
   Route::get('pacientes/buscar', [App\Http\Controllers\PatientController::class, 'search'] )->name('patients.search');

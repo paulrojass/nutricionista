@@ -762,6 +762,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
  // import KTQuickNotifications from "../extras/offcanvas/QuickNotifications.vue";
 // import KTQuickActions from "../extras/offcanvas/QuickActions.vue";
 // import KTQuickPanel from "../extras/offcanvas/QuickPanel.vue";
@@ -4326,8 +4337,8 @@ var render = function() {
                   {
                     name: "b-tooltip",
                     rawName: "v-b-tooltip.hover.right",
-                    value: "Configuración",
-                    expression: "'Configuración'",
+                    value: "Finanzas",
+                    expression: "'Finanzas'",
                     modifiers: { hover: true, right: true }
                   }
                 ],
@@ -4339,7 +4350,7 @@ var render = function() {
                   {
                     staticClass:
                       "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
-                    attrs: { href: _vm.$route("settings") }
+                    attrs: { href: _vm.$route("finance") }
                   },
                   [
                     _c(
@@ -4347,7 +4358,7 @@ var render = function() {
                       { staticClass: "svg-icon svg-icon-xxl" },
                       [
                         _c("inline-svg", {
-                          attrs: { src: "/media/svg/icons/Code/Settings4.svg" }
+                          attrs: { src: "/media/svg/icons/Shopping/Money.svg" }
                         })
                       ],
                       1
@@ -4856,7 +4867,7 @@ var render = function() {
             container: !_vm.widthFluid
           }
         },
-        [_vm._m(0), _vm._v(" "), _vm._m(1)]
+        [_vm._m(0)]
       )
     ]
   )
@@ -4868,7 +4879,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-dark order-2 order-md-1" }, [
       _c("span", { staticClass: "text-muted font-weight-bold mr-2" }, [
-        _vm._v("2020©")
+        _vm._v("2021©")
       ]),
       _vm._v(" "),
       _c(
@@ -4878,39 +4889,6 @@ var staticRenderFns = [
           attrs: { href: "https://digitalmentestudio.com/", target: "_blank" }
         },
         [_vm._v("Digitalmentestudio")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "nav nav-dark order-1 order-md-2" }, [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link pr-3 pl-0",
-          attrs: { href: "http://keenthemes.com/metronic", target: "_blank" }
-        },
-        [_vm._v("About")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "nav-link px-3",
-          attrs: { href: "http://keenthemes.com/metronic", target: "_blank" }
-        },
-        [_vm._v("Team")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "nav-link pl-3 pr-0",
-          attrs: { href: "http://keenthemes.com/metronic", target: "_blank" }
-        },
-        [_vm._v("Contact")]
       )
     ])
   }

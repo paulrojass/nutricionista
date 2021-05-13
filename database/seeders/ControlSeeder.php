@@ -9,13 +9,13 @@ use App\Models\Control;
 
 class ControlSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        Control::factory(30)->create();
-    }
+  /**
+  * Run the database seeds.
+  *
+  * @return void
+  */
+  public function run()
+  {
+    Control::factory(100)->create();
+  }
 }

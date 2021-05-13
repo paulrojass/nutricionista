@@ -79,9 +79,9 @@ export default {
       this.tabIndex2 = this.setActiveTab(event);
     },
     /**
-     * Set current active on click
-     * @param event
-     */
+    * Set current active on click
+    * @param event
+    */
     setActiveTab(event) {
       // get all tab links
       const tab = event.target.closest('[role="tablist"]');
@@ -90,10 +90,10 @@ export default {
       for (let i = 0; i < links.length; i++) {
         links[i].classList.remove("active");
       }
-
+      
       // set current active tab
       event.target.classList.add("active");
-
+      
       // set clicked tab index to bootstrap tab
       return parseInt(event.target.getAttribute("data-tab"));
     }

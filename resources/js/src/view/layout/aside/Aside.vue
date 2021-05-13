@@ -28,18 +28,29 @@ class="aside-nav d-flex flex-column align-items-center flex-column-fluid pb-10"
 >
 <!--begin::Nav-->
 <ul class="nav flex-column">
-  <!--begin::Item-->
-  <li class="nav-item mb-2" v-b-tooltip.hover.right="'Configuración'">
-    <inertia-link
-    :href="$route('settings')"
-    class="nav-link btn btn-icon btn-hover-text-primary btn-lg active"
-    >
-    <span class="svg-icon svg-icon-xxl">
-      <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
-      <inline-svg src="/media/svg/icons/Code/Settings4.svg" />
-      <!--end::Svg Icon-->
-    </span>
-  </inertia-link>
+  <!-- <li class="nav-item mb-2" v-b-tooltip.hover.right="'Configuración'">
+  <inertia-link
+  :href="$route('settings')"
+  class="nav-link btn btn-icon btn-hover-text-primary btn-lg active"
+  >
+  <span class="svg-icon svg-icon-xxl">
+  <inline-svg src="/media/svg/icons/Code/Settings4.svg" />
+</span>
+</inertia-link>
+</li> -->
+<!--end::Item-->
+<!--begin::Item-->
+<li class="nav-item mb-2" v-b-tooltip.hover.right="'Finanzas'">
+  <inertia-link
+  :href="$route('finance')"
+  class="nav-link btn btn-icon btn-hover-text-primary btn-lg active"
+  >
+  <span class="svg-icon svg-icon-xxl">
+    <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+    <inline-svg src="/media/svg/icons/Shopping/Money.svg" />
+    <!--end::Svg Icon-->
+  </span>
+</inertia-link>
 </li>
 <!--end::Item-->
 <!--begin::Item-->
