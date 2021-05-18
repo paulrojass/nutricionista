@@ -13,55 +13,69 @@
       </h3>
       <div class="card-toolbar">
         <inertia-link
-        :href="$route('controls.index')" class="btn btn-primary font-weight-bolder font-size-sm">
-        volver
+        :href="$route('controls.edit-date', control.id)" class="btn btn-primary font-weight-bolder font-size-sm mr-1">
+        editar fecha
       </inertia-link>
+      
+      <inertia-link
+      :href="$route('controls.index')" class="btn btn-primary font-weight-bolder font-size-sm">
+      volver al listado
+    </inertia-link>
+  </div>
+</div>
+<!-- end::Header -->
+<div class="card-body pt-2 pb-0">
+  <div class="border-bottom mb-5 pb-5">
+    <div class="font-weight-bold mb-3">
+      Datos de paciente:
+    </div>
+    <div class="line-height-md">
+      Nombre: {{control.patient.first_name_1}} {{control.patient.first_name_2}} {{control.patient.last_name_1}} {{control.patient.last_name_2}}
+      <br />
+      fecha de nacimiento: {{control.patient.birth_date|formatDate}}
+      <br />
+      Telefono: <strong> {{control.patient.phone}}</strong>
     </div>
   </div>
-  <!-- end::Header -->
-  <div class="card-body pt-2 pb-0">
-    <div class="border-bottom mb-5 pb-5">
-      <div class="font-weight-bold mb-3">
-        Datos de paciente:
-      </div>
-      <div class="line-height-md">
-        Nombre: {{control.patient.first_name_1}} {{control.patient.first_name_2}} {{control.patient.last_name_1}} {{control.patient.last_name_2}}
-        <br />
-        fecha de nacimiento: {{control.patient.birth_date|formatDate}}
-        <br />
-        Telefono: <strong> {{control.patient.phone}}</strong>
-      </div>
+  <div class="border-bottom mb-5 pb-5">
+    <div class="font-weight-bold mb-3">
+      Detalles de la consulta:
     </div>
-    <div class="border-bottom mb-5 pb-5">
-      <div class="font-weight-bold mb-3">
-        Detalles de la consulta:
-      </div>
-      <div class="line-height-md">
-        fecha y hora: <strong>{{control.date | formatDate}}, {{control.time}}</strong>
-        <br />
-        Tipo de consulta: {{control.plan.name}} ({{control.city_name}})
-        <br />
-        Precio: {{control.plan.city.currency}} {{control.plan.price}}
-        <br />
-        <p v-if="control.agreement_name && control.agreement_price">Convenio: {{control.agreement_name}} - precio: {{control.agreement_price}}</p>
-        <p v-else>Sin convenio</p>
-      </div>
+    <div class="line-height-md">
+      fecha y hora: <strong>{{control.date | formatDate}}, {{control.time}}</strong>
+      <br />
+      Tipo de consulta: {{control.plan.name}} ({{control.city_name}})
+      <br />
+      Precio: {{control.plan.city.currency}} {{control.plan.price}}
+      <br />
+      <p v-if="control.agreement_name && control.agreement_price">Convenio: {{control.agreement_name}} - precio: {{control.agreement_price}}</p>
+      <p v-else>Sin convenio</p>
     </div>
-    <div class="border-bottom mb-5 pb-5">
-      <div class="font-weight-bold mb-3">
-        Estado de la consulta:
-      </div>
-      <div class="line-height-md">
-        <h3>
+  </div>
+  <div class="border-bottom mb-5 pb-5">
+    <div class="font-weight-bold mb-3">
+      Estado de la consulta:
+    </div>
+    <div class="row">
+      <div class="col-xl-6">
+        <h2>
           <b-badge class="mr-1" :class="`control-${control.status}`">
             <span style="color:white">
               {{this.tipo[control.status]}}
             </span>
           </b-badge>
-        </h3>
+        </h2>
       </div>
+      
+      <div class="col-xl-6">
+        <inertia-link
+        :href="$route('controls.edit', control.id)" class="btn btn-primary font-weight-bolder font-size-sm mr-1">
+        Cambiar estado
+      </inertia-link>
     </div>
   </div>
+</div>
+</div>
 </div>
 </template>
 

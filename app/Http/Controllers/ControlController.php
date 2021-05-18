@@ -38,7 +38,7 @@ class ControlController extends Controller
   
   public function patients()
   {
-    $patients = Patient::orderBy('created_at', 'DESC')->where('active', 1)->get();
+    $patients = Patient::orderBy('created_at', 'DESC')->get();
     return Inertia::render('control/Patients', [
       'patients' => $patients
     ]);

@@ -12,7 +12,7 @@
       </h3>
       <div class="card-toolbar">
         <inertia-link
-        :href="$route('candidates.index')" class="btn btn-success font-weight-bolder font-size-sm">
+        :href="$route('candidates.index')" class="btn btn-primary font-weight-bolder font-size-sm">
         Todos
       </inertia-link>
     </div>

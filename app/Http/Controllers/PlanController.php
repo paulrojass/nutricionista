@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Plan;
 use Illuminate\Http\Request;
+
+use Inertia\Inertia;
 
 class PlanController extends Controller
 {
@@ -12,9 +15,12 @@ class PlanController extends Controller
   *
   * @return \Illuminate\Http\Response
   */
-  public function index()
+  public function index($id)
   {
-    //
+    $city = City::where('id', $id)->with('plans')->first();
+    return Inertia::render('settings/Plans', [
+      'city' => $city
+    ]);
   }
   
   /**
@@ -22,9 +28,12 @@ class PlanController extends Controller
   *
   * @return \Illuminate\Http\Response
   */
-  public function create()
+  public function create($id)
   {
-    //
+    $city = City::find($id);
+    return Inertia::render('settings/plans/Create', [
+      'city' => $city
+    ]);
   }
   
   /**
@@ -35,18 +44,13 @@ class PlanController extends Controller
   */
   public function store(Request $request)
   {
-    //
-  }
-  
-  /**
-  * Display the specified resource.
-  *
-  * @param  \App\Models\Plan  $plan
-  * @return \Illuminate\Http\Response
-  */
-  public function show(Plan $plan)
-  {
-    //
+    $plan = new Plan;
+    $plan->city_id = $request->city_id;
+    $plan->name = $request->name;
+    $plan->price = $request->price;
+    $plan->save();
+    
+    return redirect()->route('plans.index', $request->city_id);
   }
   
   /**
@@ -55,9 +59,12 @@ class PlanController extends Controller
   * @param  \App\Models\Plan  $plan
   * @return \Illuminate\Http\Response
   */
-  public function edit(Plan $plan)
+  public function edit($id)
   {
-    //
+    $plan = Plan::find($id);
+    return Inertia::render('settings/plans/Edit', [
+      'plan' => $plan
+    ]);
   }
   
   /**
@@ -67,9 +74,13 @@ class PlanController extends Controller
   * @param  \App\Models\Plan  $plan
   * @return \Illuminate\Http\Response
   */
-  public function update(Request $request, Plan $plan)
+  public function update(Request $request, $id)
   {
-    //
+    $plan = Plan::find($id);
+    $plan->name = $request->name;
+    $plan->price = $request->price;
+    $plan->save();
+    return redirect()->route('plans.index', $plan->city_id);
   }
   
   /**

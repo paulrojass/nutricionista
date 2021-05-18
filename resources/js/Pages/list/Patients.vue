@@ -34,14 +34,17 @@
     <div class="card-footer border-0 pt-0 pr-5 pb-5 pl-5">
       <div class="my-2 d-flex justify-content-center">
         <inertia-link v-if="route().current('patients.index') == true" :href="route('patients.show', patient.id)"
-        class="btn btn-success btn-shadow-hover font-weight-bolder w-100 py-1"
+        class="btn btn-primary2 btn-shadow-hover font-weight-bolder w-100 py-1"
+        v-bind:class="{ 'btn-danger2': active }"
         >
         Ver más
         <!-- <b-button>Ver más</b-button> -->
       </inertia-link>
       
       <inertia-link v-if="route().current('controls.patients') == true" :href="$route('controls.create', [patient.id])"
-      class="btn btn-success btn-shadow-hover font-weight-bolder w-100 py-1"
+      
+      class="btn btn-primary2 btn-shadow-hover font-weight-bolder w-100 py-1"
+      v-bind:class="{ 'btn-danger2': active }"
       >
       Crear Cita
     </inertia-link>
@@ -60,6 +63,11 @@ export default {
   metaInfo() {
     return {
       title: `Pacientes`,
+    }
+  },
+  data() {
+    return {
+      'active' : this.patient.active
     }
   },
   props: ['patient'],

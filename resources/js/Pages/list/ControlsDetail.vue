@@ -50,7 +50,7 @@
         <ul class="nav nav-pills nav-pills-sm nav-dark-75">
           <li class="nav-item">
             <inertia-link
-            :href="$route('calendar')" class="btn btn-success font-weight-bolder font-size-sm py-2">
+            :href="$route('calendar')" class="btn btn-primary font-weight-bolder font-size-sm py-2">
             calendario
           </inertia-link>
         </li>

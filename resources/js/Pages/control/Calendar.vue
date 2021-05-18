@@ -10,11 +10,25 @@
         </span>
       </h3>
       <div class="card-toolbar">
+        
+        
         <inertia-link
         :href="$route('controls.index')"
-        class="btn btn-primary  py-1">
-        <inline-svg   src="/media/svg/icons/Text/Bullet-list.svg" />
+        class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+        >
+        <span class="svg-icon svg-icon-md svg-icon-primary">
+          <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
+          <inline-svg
+          src="/media/svg/icons/Text/Bullet-list.svg"
+          />
+          <!--end::Svg Icon-->
+        </span>
       </inertia-link>
+      
+      
+      
+      
+      
     </div>
   </div>
   <div class="card-body">

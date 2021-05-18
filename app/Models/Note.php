@@ -15,7 +15,6 @@ class Note extends Model
   */
   protected $fillable = [
     'patient_id',
-    'title',
     'body'
   ];
   

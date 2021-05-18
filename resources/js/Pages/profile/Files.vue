@@ -122,6 +122,78 @@
 <!--end::Table-->
 
 
+<h4>Imágenes</h4>
+
+<!--begin::Table-->
+<div class="table-responsive">
+  <table class="table table-borderless table-vertical-center">
+    <thead>
+      <tr>
+        <th class="p-0" style="width: 8%"></th>
+        <th class="p-0" style="width: 20%"></th>
+        <th class="p-0" style="width: 64%"></th>
+        <th class="p-0" style="width: 8%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <template v-for="(file, i) in patient.attachments">
+        <tr v-bind:key="i" v-if="file.format == 'png' || file.format == 'jpg' || file.format == 'jpeg'">
+          <td class="pr-0">
+            
+            <!--begin::Symbol--> 
+            <div
+            v-bind:class="`symbol-light-success`"
+            class="symbol symbol-40 mr-5"
+            >
+            <span class="symbol-label">
+              <span class="svg-icon svg-icon-lg" v-bind:class="`svg-icon-success`">
+                <!--begin::Svg Icon-->
+                <inline-svg src="/media/svg/icons/Files/File.svg"></inline-svg>
+                <!--end::Svg Icon-->
+              </span>
+            </span>
+          </div>
+          <!--end::Symbol-->
+        </td>
+        <td class="pl-0">
+          <inertia-link
+          href="#"
+          class="text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg"
+          >
+          {{file.name}}
+        </inertia-link>
+        <span class="text-muted font-weight-bold d-block">
+          {{file.format}}
+        </span>
+      </td>
+      <td>
+        <span class="text-muted font-weight-bold">
+          {{file.description}}
+        </span>
+      </td>
+      <td class="text-right pr-0">
+        <inertia-link
+        :href="route('attachments.destroy', file.id)"
+        method="delete"
+        class="btn btn-icon btn-light btn-sm">
+        <span class="svg-icon svg-icon-md svg-icon-danger">
+          <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
+          <inline-svg
+          src="/media/svg/icons/Navigation/Close.svg"
+          ></inline-svg>
+          <!--end::Svg Icon-->
+        </span>
+      </inertia-link>
+    </td>
+  </tr>
+</template>
+</tbody>
+</table>
+</div>
+<!--end::Table-->
+
+
+
 
 
 

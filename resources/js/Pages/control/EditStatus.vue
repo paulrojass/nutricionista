@@ -13,7 +13,7 @@
       <div class="card-toolbar">
         <inertia-link
         :href="$route('controls.index')" class="btn btn-primary font-weight-bolder font-size-sm">
-        volver
+        volver al listado
       </inertia-link>
     </div>
   </div>

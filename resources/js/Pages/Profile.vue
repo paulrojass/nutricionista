@@ -36,47 +36,53 @@
             
             <div class="my-lg-0 my-3">
               <inertia-link
-              :href="route('patients.edit', patient.id)"
+              :href="route('patients.show-history', patient.id)"
               class="btn btn-sm btn-info font-weight-bolder text-uppercase"
               >
-              Editar Historial
+              Ver Historial
             </inertia-link>
-          </div>
+            <inertia-link
+            :href="route('patients.edit', patient.id)"
+            class="btn btn-sm btn-info font-weight-bolder text-uppercase"
+            >
+            Editar Historial
+          </inertia-link>
         </div>
-        <!--end::Title-->
-        
-        <!--begin::Content-->
-        <div class="d-flex flex-wrap justify-content-between mt-1">
-          <div class="d-flex flex-column flex-grow-1 pr-8">
-            <div class="d-flex flex-wrap mb-4">
-              <a
-              href="#"
-              class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
-              ><i class="flaticon2-new-email mr-2 font-size-lg"></i
-                >{{patient.email}}
-              </a>
-              <a
-              href="#"
-              class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
-              ><i class="flaticon2-calendar-3 mr-2 font-size-lg"></i>
-              {{patient.phone}}
+      </div>
+      <!--end::Title-->
+      
+      <!--begin::Content-->
+      <div class="d-flex flex-wrap justify-content-between mt-1">
+        <div class="d-flex flex-column flex-grow-1 pr-8">
+          <div class="d-flex flex-wrap mb-4">
+            <a
+            href="#"
+            class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
+            ><i class="flaticon2-new-email mr-2 font-size-lg"></i
+              >{{patient.email}}
             </a>
             <a
             href="#"
-            class="text-dark-50 text-hover-primary font-weight-bold"
-            ><i class="flaticon2-placeholder mr-2 font-size-lg"></i>
-            {{patient.city}}
+            class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
+            ><i class="flaticon2-calendar-3 mr-2 font-size-lg"></i>
+            {{patient.phone}}
           </a>
-        </div>
-        
-        <span class="font-weight-bold text-dark-50">
-          {{patient.aspiration}}
-        </span>
+          <a
+          href="#"
+          class="text-dark-50 text-hover-primary font-weight-bold"
+          ><i class="flaticon2-placeholder mr-2 font-size-lg"></i>
+          {{patient.city}}
+        </a>
       </div>
+      
+      <span class="font-weight-bold text-dark-50">
+        {{patient.aspiration}}
+      </span>
     </div>
-    <!--end::Content-->
   </div>
-  <!--end::Info-->
+  <!--end::Content-->
+</div>
+<!--end::Info-->
 </div>
 <!--end::Details-->
 </div>
@@ -89,7 +95,9 @@
     <WidgetAdvertising></WidgetAdvertising>
   </div>
   <div class="col-lg-8">
-    <WidgetNotes></WidgetNotes>
+    <WidgetNotes
+    :patient="patient"
+    ></WidgetNotes>
   </div>
 </div>
 <!--end::Row-->
