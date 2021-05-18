@@ -157,6 +157,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "widget-files",
   props: ['patient'],
@@ -305,123 +345,294 @@ var render = function() {
               [
                 _vm._l(_vm.patient.attachments, function(file, i) {
                   return [
-                    _c("tr", { key: i }, [
-                      _c("td", { staticClass: "pr-0" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "symbol symbol-40 mr-5",
-                            class: "symbol-light-success"
-                          },
-                          [
-                            _c("span", { staticClass: "symbol-label" }, [
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "svg-icon svg-icon-lg",
-                                  class: "svg-icon-success"
-                                },
-                                [
-                                  _c("inline-svg", {
-                                    attrs: {
-                                      src: "/media/svg/icons/Files/File.svg"
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "pl-0" },
-                        [
-                          _c(
-                            "inertia-link",
-                            {
-                              staticClass:
-                                "text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg",
-                              attrs: { href: "#" }
-                            },
-                            [
-                              _vm._v(
-                                "\n              " +
-                                  _vm._s(file.name) +
-                                  "\n            "
-                              )
-                            ]
-                          ),
+                    file.format === "txt" ||
+                    file.format === "xls" ||
+                    file.format === "xlsx" ||
+                    file.format === "doc" ||
+                    file.format === "docx" ||
+                    file.format === "pdf"
+                      ? _c("tr", { key: i }, [
+                          _c("td", { staticClass: "pr-0" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "symbol symbol-40 mr-5",
+                                class: "symbol-light-success"
+                              },
+                              [
+                                _c("span", { staticClass: "symbol-label" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: _vm.route(
+                                          "attachments.show",
+                                          file.id
+                                        )
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "svg-icon svg-icon-lg",
+                                          class: "svg-icon-success"
+                                        },
+                                        [
+                                          _c("inline-svg", {
+                                            attrs: {
+                                              src:
+                                                "/media/svg/icons/Files/File.svg"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "pl-0" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg",
+                                attrs: {
+                                  href: _vm.route("attachments.show", file.id)
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n          " +
+                                    _vm._s(file.name) +
+                                    "\n        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "text-muted font-weight-bold d-block"
+                              },
+                              [
+                                _vm._v(
+                                  "\n          " +
+                                    _vm._s(file.format) +
+                                    "\n        "
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "span",
+                              { staticClass: "text-muted font-weight-bold" },
+                              [
+                                _vm._v(
+                                  "\n          " +
+                                    _vm._s(file.description) +
+                                    "\n        "
+                                )
+                              ]
+                            )
+                          ]),
                           _vm._v(" "),
                           _c(
-                            "span",
-                            {
-                              staticClass: "text-muted font-weight-bold d-block"
-                            },
-                            [
-                              _vm._v(
-                                "\n              " +
-                                  _vm._s(file.format) +
-                                  "\n            "
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "span",
-                          { staticClass: "text-muted font-weight-bold" },
-                          [
-                            _vm._v(
-                              "\n              " +
-                                _vm._s(file.description) +
-                                "\n            "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "text-right pr-0" },
-                        [
-                          _c(
-                            "inertia-link",
-                            {
-                              staticClass: "btn btn-icon btn-light btn-sm",
-                              attrs: {
-                                href: _vm.route("attachments.destroy", file.id),
-                                method: "delete"
-                              }
-                            },
+                            "td",
+                            { staticClass: "text-right pr-0" },
                             [
                               _c(
-                                "span",
+                                "inertia-link",
                                 {
-                                  staticClass:
-                                    "svg-icon svg-icon-md svg-icon-danger"
+                                  staticClass: "btn btn-icon btn-light btn-sm",
+                                  attrs: {
+                                    href: _vm.route(
+                                      "attachments.destroy",
+                                      file.id
+                                    ),
+                                    method: "delete"
+                                  }
                                 },
                                 [
-                                  _c("inline-svg", {
-                                    attrs: {
-                                      src:
-                                        "/media/svg/icons/Navigation/Close.svg"
-                                    }
-                                  })
-                                ],
-                                1
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "svg-icon svg-icon-md svg-icon-danger"
+                                    },
+                                    [
+                                      _c("inline-svg", {
+                                        attrs: {
+                                          src:
+                                            "/media/svg/icons/General/Trash.svg"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]
                               )
-                            ]
+                            ],
+                            1
                           )
-                        ],
-                        1
-                      )
-                    ])
+                        ])
+                      : _vm._e()
+                  ]
+                })
+              ],
+              2
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "table-responsive" }, [
+        _c(
+          "table",
+          { staticClass: "table table-borderless table-vertical-center" },
+          [
+            _vm._m(2),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              [
+                _vm._l(_vm.patient.attachments, function(file, i) {
+                  return [
+                    file.format === "png" ||
+                    file.format === "jpg" ||
+                    file.format === "jpeg"
+                      ? _c("tr", { key: i }, [
+                          _c("td", { staticClass: "pr-0" }, [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: _vm.route("attachments.show", file.id)
+                                }
+                              },
+                              [
+                                _c("b-media", {
+                                  scopedSlots: _vm._u(
+                                    [
+                                      {
+                                        key: "aside",
+                                        fn: function() {
+                                          return [
+                                            _c("b-img", {
+                                              attrs: {
+                                                src: file.location,
+                                                width: "92",
+                                                alt: "placeholder"
+                                              }
+                                            })
+                                          ]
+                                        },
+                                        proxy: true
+                                      }
+                                    ],
+                                    null,
+                                    true
+                                  )
+                                })
+                              ],
+                              1
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "pl-0" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg",
+                                attrs: {
+                                  href: _vm.route("attachments.show", file.id)
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n        " + _vm._s(file.name) + "\n      "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "text-muted font-weight-bold d-block"
+                              },
+                              [
+                                _vm._v(
+                                  "\n        " +
+                                    _vm._s(file.format) +
+                                    "\n      "
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "span",
+                              { staticClass: "text-muted font-weight-bold" },
+                              [
+                                _vm._v(
+                                  "\n        " +
+                                    _vm._s(file.description) +
+                                    "\n      "
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "text-right pr-0" },
+                            [
+                              _c(
+                                "inertia-link",
+                                {
+                                  staticClass: "btn btn-icon btn-light btn-sm",
+                                  attrs: {
+                                    href: _vm.route(
+                                      "attachments.destroy",
+                                      file.id
+                                    ),
+                                    method: "delete"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "svg-icon svg-icon-md svg-icon-danger"
+                                    },
+                                    [
+                                      _c("inline-svg", {
+                                        attrs: {
+                                          src:
+                                            "/media/svg/icons/General/Trash.svg"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      : _vm._e()
                   ]
                 })
               ],
@@ -465,6 +676,22 @@ var staticRenderFns = [
         _c("th", { staticClass: "p-0", staticStyle: { width: "20%" } }),
         _vm._v(" "),
         _c("th", { staticClass: "p-0", staticStyle: { width: "64%" } }),
+        _vm._v(" "),
+        _c("th", { staticClass: "p-0", staticStyle: { width: "8%" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { staticClass: "p-0", staticStyle: { width: "20%" } }),
+        _vm._v(" "),
+        _c("th", { staticClass: "p-0", staticStyle: { width: "20%" } }),
+        _vm._v(" "),
+        _c("th", { staticClass: "p-0", staticStyle: { width: "52%" } }),
         _vm._v(" "),
         _c("th", { staticClass: "p-0", staticStyle: { width: "8%" } })
       ])

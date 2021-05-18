@@ -19,7 +19,7 @@
     </div>
     <!--end::Header-->
     <!--begin::Body-->
-    <div class="card-body py-0">
+    <div class="card-body py-0 pb-10">
       <div class="form-group">
         <textarea
         v-model="form.body"

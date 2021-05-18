@@ -58,13 +58,6 @@ export default {
     'total_last_year_usd',
     'total_last_year_cop'
   ],
-  created(){
-    console.log(this.usd_mensual)
-    console.log(this.total_cop)
-    console.log(this.total_usd)
-    console.log(this.cop_mensual)
-    console.log(this.meses)
-  },
   components: {
     WidgetProgress,
     WidgetPatients,

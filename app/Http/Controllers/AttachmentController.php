@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
+use Response;
 
 use Inertia\Inertia;
 
@@ -48,13 +49,13 @@ class AttachmentController extends Controller
   public function store(Request $request)
   {
     $request->validate([
-      'file' => 'required|mimes:txt,xls,doc,docx,pdf,jpg,png,jpeg|max:2048'
+      'file' => 'required|mimes:txt,xls,xlsx,doc,docx,pdf,jpg,png,jpeg|max:2048'
     ]);
     
     $format = $request->file->getClientOriginalExtension();
     $fileName = time().Str::random(4).'.'.$format;
-    $filePath = $request->file('file')->storeAs('files', $fileName, 'public');
-    $location = '/storage/' . $filePath;
+    $filePath = $request->file('file')->storeAs('/files', $fileName, 'public');
+    $location = $filePath;
     
     $attachment = new Attachment;
     $attachment->patient_id = $request->patient_id;
@@ -76,17 +77,12 @@ class AttachmentController extends Controller
   public function show($id)
   {
     $attachment = Attachment::find($id);
-    $location = public_path().$attachment->location;
-    //dd($location);
-    $name = $attachment->name;
     
-    dd($exists = Storage::disk('public')->exists($attachment->location));
+    $location = $attachment->location;
     
+    $name = $attachment->name.'.'.$attachment->format;
     
-    $file = Storage::disk('public')->download($location);
-    return (new Response($file, 200));
-    
-    //return Storage::download($location, $name);
+    return Storage::disk('public')->download($location, $name);
   }
   
   /**

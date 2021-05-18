@@ -28,16 +28,16 @@ class="aside-nav d-flex flex-column align-items-center flex-column-fluid pb-10"
 >
 <!--begin::Nav-->
 <ul class="nav flex-column">
-  <!-- <li class="nav-item mb-2" v-b-tooltip.hover.right="'Configuración'">
-  <inertia-link
-  :href="$route('settings')"
-  class="nav-link btn btn-icon btn-hover-text-primary btn-lg active"
-  >
-  <span class="svg-icon svg-icon-xxl">
-  <inline-svg src="/media/svg/icons/Code/Settings4.svg" />
-</span>
-</inertia-link>
-</li> -->
+  <li class="nav-item mb-2" v-b-tooltip.hover.right="'Configuración'">
+    <inertia-link
+    :href="$route('settings')"
+    class="nav-link btn btn-icon btn-hover-text-primary btn-lg active"
+    >
+    <span class="svg-icon svg-icon-xxl">
+      <inline-svg src="/media/svg/icons/Code/Settings4.svg" />
+    </span>
+  </inertia-link>
+</li>
 <!--end::Item-->
 <!--begin::Item-->
 <li class="nav-item mb-2" v-b-tooltip.hover.right="'Finanzas'">
@@ -71,15 +71,15 @@ class="aside-nav d-flex flex-column align-items-center flex-column-fluid pb-10"
 <!--end::Nav-->
 </div>
 <!--end::Nav Wrapper-->
-<!--begin::Footer
-<div
+<!--begin::Footer-->
+<!-- <div
 class="aside-footer d-flex flex-column align-items-center flex-column-auto py-8"
 >
 <KTQuickNotifications></KTQuickNotifications>
 <KTQuickActions></KTQuickActions>
 <KTQuickPanel></KTQuickPanel>
-</div>
-end::Footer-->
+</div> -->
+<!--end::Footer-->
 </div>
 </template>
 

@@ -22,6 +22,7 @@ class PatientController extends Controller
     $patients = Patient::orderBy('created_at', 'DESC')->get();
     return Inertia::render('Patients', [
       'patients' => $patients,
+      'status' => 'todos'
     ]);
   }
   
@@ -42,6 +43,43 @@ class PatientController extends Controller
     return Inertia::render('Patients', [
       'patients' => $patients
     ]);
+    
+  }
+  
+  public function searchStatus(Request $request)
+  {
+    $patients = Patient::all();
+    if ($request->status == 'activo') {
+      $patients = Patient::where('active', 1)->get();
+    }
+    if ($request->status == 'inactivo') {
+      $actives = Patient::where('active', 1)->get();
+      $patients = Patient::where('active', 1)->get();
+      foreach ($actives as $active) {
+        $valor_maximo = 4;
+        $controls = $active->controls->sortbyDesc('date');
+        if($controls->count() > $valor_maximo){
+          $contador = 0;
+          foreach ($controls as $key => $control) {
+            if ($key > 4) break;
+            if ($control->status == 'albahaca' || $control->status == 'verde') {
+              $contador += 1;
+            }
+          }
+          if($contador < 4){
+            $patients = $patients->except($active->id);
+          }
+        }
+      }
+    }
+    if ($request->status == 'prospecto') {
+      $patients = Patient::where('active', 0)->get();
+    }
+    return Inertia::render('Patients', [
+      'patients' => $patients,
+      'status' => $request->status
+    ]);
+    
     
   }
   
@@ -208,9 +246,9 @@ class PatientController extends Controller
       $tempName = Str::random(10) . '.' . $originalImage->getClientOriginalExtension();
       
       //Redimensinoar la imagen
-      // if($image->width() >= $image->height()) $image->heighten(400);
-      // else $image->widen(400);
-      // $image->resizeCanvas(400,400);
+      if($image->width() >= $image->height()) $image->heighten(400);
+      else $image->widen(400);
+      $image->resizeCanvas(400,400);
       
       $image->save($originalPath.$tempName);
       

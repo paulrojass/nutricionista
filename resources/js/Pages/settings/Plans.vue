@@ -61,18 +61,16 @@
           </span>
         </inertia-link>
         
-        <inertia-link
-        :href="$route('plans.destroy', {'id' : plan.id})"
-        method="delete"
-        as="button"
+        <button
         type="button"
         class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+        @click="deletePlan(plan)"
         >
         <span
         class="svg-icon svg-icon-md svg-icon-primary">
         <inline-svg src="/media/svg/icons/General/Trash.svg" />
       </span>
-    </inertia-link>
+    </button>
     
   </td>
 </tr>
@@ -86,6 +84,8 @@
 </template>
 <script>
 import Layout from "../../src/view/layout/Layout"
+import Swal from "sweetalert2";
+
 export default {
   name: "plans-list",
   props: ['city'],
@@ -93,8 +93,20 @@ export default {
   layout: (h, page) => h(Layout, [page]),
   metaInfo() {
     return {
-      title: `Configuración - Ciudad ${city.name} - Planes`,
+      title: `Configuración - Ciudad ${this.city.name} - Planes`,
     }
   },
+  methods: {
+    deletePlan(plan) {
+      if(Object.keys(plan.controls).length > 0){
+        Swal.fire({
+          icon: 'error',
+          text: 'Este plan tiene controles asignados los cuales forman parte del historial para las finanzas, no se puede eliminar.'
+        })
+      } else {
+        this.$inertia.delete(route('plans.destroy', plan.id))
+      }
+    }
+  }
 }
 </script>

@@ -43,6 +43,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Calendar",
@@ -3445,15 +3459,22 @@ var render = function() {
           _c(
             "inertia-link",
             {
-              staticClass: "btn btn-primary  py-1",
+              staticClass:
+                "btn btn-icon btn-light btn-hover-primary btn-sm mx-3",
               attrs: { href: _vm.$route("controls.index") }
             },
             [
-              _c("inline-svg", {
-                attrs: { src: "/media/svg/icons/Text/Bullet-list.svg" }
-              })
-            ],
-            1
+              _c(
+                "span",
+                { staticClass: "svg-icon svg-icon-md svg-icon-primary" },
+                [
+                  _c("inline-svg", {
+                    attrs: { src: "/media/svg/icons/Text/Bullet-list.svg" }
+                  })
+                ],
+                1
+              )
+            ]
           )
         ],
         1
@@ -3887,7 +3908,7 @@ var render = function() {
             _c(
               "inertia-link",
               {
-                staticClass: "btn btn-success font-weight-bolder font-size-sm",
+                staticClass: "btn btn-primary font-weight-bolder font-size-sm",
                 attrs: { href: _vm.$route("candidates.index") }
               },
               [_vm._v("\n        Todos\n      ")]
@@ -4181,6 +4202,45 @@ var render = function() {
         },
         [
           _c("ul", { staticClass: "nav flex-column" }, [
+            _c(
+              "li",
+              {
+                directives: [
+                  {
+                    name: "b-tooltip",
+                    rawName: "v-b-tooltip.hover.right",
+                    value: "Configuración",
+                    expression: "'Configuración'",
+                    modifiers: { hover: true, right: true }
+                  }
+                ],
+                staticClass: "nav-item mb-2"
+              },
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    staticClass:
+                      "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
+                    attrs: { href: _vm.$route("settings") }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { staticClass: "svg-icon svg-icon-xxl" },
+                      [
+                        _c("inline-svg", {
+                          attrs: { src: "/media/svg/icons/Code/Settings4.svg" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
             _c(
               "li",
               {

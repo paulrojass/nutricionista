@@ -23,6 +23,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -35,48 +78,48 @@ __webpack_require__.r(__webpack_exports__);
       title: "Pacientes"
     };
   },
-  props: ['patients'],
+  props: ['patients', 'status'],
   components: {
     PatientsList: _list_Patients_vue__WEBPACK_IMPORTED_MODULE_0__.default
-  }
-  /*
-  mounted() {
-  this.$store.dispatch(SET_BREADCRUMB, [{ title: "Patients" }]);
-  axios.get('patients').then((response) => {
-  console.log(response)
-  this.patients = response.data;
-  });
-  console.log('Component mounted.')
   },
-  */
-  // methods: {
-  //   setActiveTab1(event) {
-  //     this.tabIndex = this.setActiveTab(event);
-  //   },
-  //   setActiveTab2(event) {
-  //     this.tabIndex2 = this.setActiveTab(event);
-  //   },
-  //   /**
-  //    * Set current active on click
-  //    * @param event
-  //    */
-  //   setActiveTab(event) {
-  //     // get all tab links
-  //     const tab = event.target.closest('[role="tablist"]');
-  //     const links = tab.querySelectorAll(".nav-link");
-  //     // remove active tab links
-  //     for (let i = 0; i < links.length; i++) {
-  //       links[i].classList.remove("active");
-  //     }
-  //
-  //     // set current active tab
-  //     event.target.classList.add("active");
-  //
-  //     // set clicked tab index to bootstrap tab
-  //     return parseInt(event.target.getAttribute("data-tab"));
-  //   }
-  // }
-
+  data: function data() {
+    return {
+      perPage: 6,
+      currentPage: 1,
+      items: this.patients,
+      params: {
+        status: this.status
+      }
+    };
+  },
+  watch: {
+    params: {
+      handler: function handler() {
+        this.getResults();
+      },
+      deep: true
+    }
+  },
+  methods: {
+    getResults: function getResults() {
+      this.$inertia.get(route('patients.search-status'), this.params, {
+        onSuccess: function onSuccess(response) {
+          console.log(response);
+        },
+        onError: function onError(response) {
+          console.log(response);
+        }
+      });
+    },
+    itemsForList: function itemsForList() {
+      return this.items.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
+    }
+  },
+  computed: {
+    rows: function rows() {
+      return this.items.length;
+    }
+  }
 });
 
 /***/ }),
@@ -147,6 +190,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Using a render function
@@ -156,6 +202,11 @@ __webpack_require__.r(__webpack_exports__);
   metaInfo: function metaInfo() {
     return {
       title: "Pacientes"
+    };
+  },
+  data: function data() {
+    return {
+      'active': this.patient.active
     };
   },
   props: ['patient'],
@@ -3626,13 +3677,115 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "row" },
-    _vm._l(_vm.patients, function(patient) {
-      return _c("PatientsList", {
-        key: patient.id,
-        attrs: { patient: patient }
-      })
-    }),
+    [
+      _c("b-row", { staticClass: "row", attrs: { "align-h": "end" } }, [
+        _c("div", { staticClass: "col-xl-8" }, [
+          _c("p", { staticClass: "pt-5 mt-5" }, [
+            _vm._v(
+              "\n          " +
+                _vm._s(_vm.patients.length) +
+                " pacientes\n        "
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-xl-4" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Filtrar por estatus")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.params.status,
+                    expression: "params.status"
+                  }
+                ],
+                staticClass: "form-control ",
+                attrs: { name: "status" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.params,
+                      "status",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "todos" } }, [_vm._v("Todos")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "activo" } }, [
+                  _vm._v("Activo")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "inactivo" } }, [
+                  _vm._v("Inactivo")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "prospecto" } }, [
+                  _vm._v("Prospecto")
+                ])
+              ]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "row",
+          attrs: {
+            id: "patient-list",
+            items: _vm.items,
+            "per-page": _vm.perPage,
+            "current-page": _vm.currentPage
+          }
+        },
+        _vm._l(_vm.itemsForList(), function(patient) {
+          return _c(
+            "PatientsList",
+            { key: patient.id, attrs: { patient: patient } },
+            [_vm._v("\n  >")]
+          )
+        }),
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("b-pagination", {
+            attrs: {
+              "total-rows": _vm.rows,
+              "per-page": _vm.perPage,
+              "aria-controls": "patient-list"
+            },
+            model: {
+              value: _vm.currentPage,
+              callback: function($$v) {
+                _vm.currentPage = $$v
+              },
+              expression: "currentPage"
+            }
+          })
+        ],
+        1
+      )
+    ],
     1
   )
 }
@@ -3741,7 +3894,8 @@ var render = function() {
                   "inertia-link",
                   {
                     staticClass:
-                      "btn btn-success btn-shadow-hover font-weight-bolder w-100 py-1",
+                      "btn btn-primary2 btn-shadow-hover font-weight-bolder w-100 py-1",
+                    class: { "btn-danger2": _vm.active },
                     attrs: { href: _vm.route("patients.show", _vm.patient.id) }
                   },
                   [_vm._v("\n        Ver más\n        ")]
@@ -3753,7 +3907,8 @@ var render = function() {
                   "inertia-link",
                   {
                     staticClass:
-                      "btn btn-success btn-shadow-hover font-weight-bolder w-100 py-1",
+                      "btn btn-primary2 btn-shadow-hover font-weight-bolder w-100 py-1",
+                    class: { "btn-danger2": _vm.active },
                     attrs: {
                       href: _vm.$route("controls.create", [_vm.patient.id])
                     }
@@ -4153,7 +4308,7 @@ var render = function() {
             _c(
               "inertia-link",
               {
-                staticClass: "btn btn-success font-weight-bolder font-size-sm",
+                staticClass: "btn btn-primary font-weight-bolder font-size-sm",
                 attrs: { href: _vm.$route("candidates.index") }
               },
               [_vm._v("\n        Todos\n      ")]
@@ -4447,6 +4602,45 @@ var render = function() {
         },
         [
           _c("ul", { staticClass: "nav flex-column" }, [
+            _c(
+              "li",
+              {
+                directives: [
+                  {
+                    name: "b-tooltip",
+                    rawName: "v-b-tooltip.hover.right",
+                    value: "Configuración",
+                    expression: "'Configuración'",
+                    modifiers: { hover: true, right: true }
+                  }
+                ],
+                staticClass: "nav-item mb-2"
+              },
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    staticClass:
+                      "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
+                    attrs: { href: _vm.$route("settings") }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { staticClass: "svg-icon svg-icon-xxl" },
+                      [
+                        _c("inline-svg", {
+                          attrs: { src: "/media/svg/icons/Code/Settings4.svg" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
             _c(
               "li",
               {

@@ -79,6 +79,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Using a render function
@@ -3535,10 +3549,20 @@ var render = function() {
           _c(
             "inertia-link",
             {
+              staticClass:
+                "btn btn-primary font-weight-bolder font-size-sm mr-1",
+              attrs: { href: _vm.$route("controls.edit-date", _vm.control.id) }
+            },
+            [_vm._v("\n        editar fecha\n      ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "inertia-link",
+            {
               staticClass: "btn btn-primary font-weight-bolder font-size-sm",
               attrs: { href: _vm.$route("controls.index") }
             },
-            [_vm._v("\n        volver\n      ")]
+            [_vm._v("\n      volver al listado\n    ")]
           )
         ],
         1
@@ -3548,12 +3572,12 @@ var render = function() {
     _c("div", { staticClass: "card-body pt-2 pb-0" }, [
       _c("div", { staticClass: "border-bottom mb-5 pb-5" }, [
         _c("div", { staticClass: "font-weight-bold mb-3" }, [
-          _vm._v("\n        Datos de paciente:\n      ")
+          _vm._v("\n      Datos de paciente:\n    ")
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "line-height-md" }, [
           _vm._v(
-            "\n        Nombre: " +
+            "\n      Nombre: " +
               _vm._s(_vm.control.patient.first_name_1) +
               " " +
               _vm._s(_vm.control.patient.first_name_2) +
@@ -3561,27 +3585,27 @@ var render = function() {
               _vm._s(_vm.control.patient.last_name_1) +
               " " +
               _vm._s(_vm.control.patient.last_name_2) +
-              "\n        "
+              "\n      "
           ),
           _c("br"),
           _vm._v(
-            "\n        fecha de nacimiento: " +
+            "\n      fecha de nacimiento: " +
               _vm._s(_vm._f("formatDate")(_vm.control.patient.birth_date)) +
-              "\n        "
+              "\n      "
           ),
           _c("br"),
-          _vm._v("\n        Telefono: "),
+          _vm._v("\n      Telefono: "),
           _c("strong", [_vm._v(" " + _vm._s(_vm.control.patient.phone))])
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "border-bottom mb-5 pb-5" }, [
         _c("div", { staticClass: "font-weight-bold mb-3" }, [
-          _vm._v("\n        Detalles de la consulta:\n      ")
+          _vm._v("\n      Detalles de la consulta:\n    ")
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "line-height-md" }, [
-          _vm._v("\n        fecha y hora: "),
+          _vm._v("\n      fecha y hora: "),
           _c("strong", [
             _vm._v(
               _vm._s(_vm._f("formatDate")(_vm.control.date)) +
@@ -3592,19 +3616,19 @@ var render = function() {
           _vm._v(" "),
           _c("br"),
           _vm._v(
-            "\n        Tipo de consulta: " +
+            "\n      Tipo de consulta: " +
               _vm._s(_vm.control.plan.name) +
               " (" +
               _vm._s(_vm.control.city_name) +
-              ")\n        "
+              ")\n      "
           ),
           _c("br"),
           _vm._v(
-            "\n        Precio: " +
+            "\n      Precio: " +
               _vm._s(_vm.control.plan.city.currency) +
               " " +
               _vm._s(_vm.control.plan.price) +
-              "\n        "
+              "\n      "
           ),
           _c("br"),
           _vm._v(" "),
@@ -3623,25 +3647,47 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "border-bottom mb-5 pb-5" }, [
         _c("div", { staticClass: "font-weight-bold mb-3" }, [
-          _vm._v("\n        Estado de la consulta:\n      ")
+          _vm._v("\n      Estado de la consulta:\n    ")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "line-height-md" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-xl-6" }, [
+            _c(
+              "h2",
+              [
+                _c(
+                  "b-badge",
+                  {
+                    staticClass: "mr-1",
+                    class: "control-" + _vm.control.status
+                  },
+                  [
+                    _c("span", { staticStyle: { color: "white" } }, [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(this.tipo[_vm.control.status]) +
+                          "\n            "
+                      )
+                    ])
+                  ]
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
           _c(
-            "h3",
+            "div",
+            { staticClass: "col-xl-6" },
             [
               _c(
-                "b-badge",
-                { staticClass: "mr-1", class: "control-" + _vm.control.status },
-                [
-                  _c("span", { staticStyle: { color: "white" } }, [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(this.tipo[_vm.control.status]) +
-                        "\n            "
-                    )
-                  ])
-                ]
+                "inertia-link",
+                {
+                  staticClass:
+                    "btn btn-primary font-weight-bolder font-size-sm mr-1",
+                  attrs: { href: _vm.$route("controls.edit", _vm.control.id) }
+                },
+                [_vm._v("\n        Cambiar estado\n      ")]
               )
             ],
             1
@@ -4036,7 +4082,7 @@ var render = function() {
             _c(
               "inertia-link",
               {
-                staticClass: "btn btn-success font-weight-bolder font-size-sm",
+                staticClass: "btn btn-primary font-weight-bolder font-size-sm",
                 attrs: { href: _vm.$route("candidates.index") }
               },
               [_vm._v("\n        Todos\n      ")]
@@ -4330,6 +4376,45 @@ var render = function() {
         },
         [
           _c("ul", { staticClass: "nav flex-column" }, [
+            _c(
+              "li",
+              {
+                directives: [
+                  {
+                    name: "b-tooltip",
+                    rawName: "v-b-tooltip.hover.right",
+                    value: "Configuración",
+                    expression: "'Configuración'",
+                    modifiers: { hover: true, right: true }
+                  }
+                ],
+                staticClass: "nav-item mb-2"
+              },
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    staticClass:
+                      "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
+                    attrs: { href: _vm.$route("settings") }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { staticClass: "svg-icon svg-icon-xxl" },
+                      [
+                        _c("inline-svg", {
+                          attrs: { src: "/media/svg/icons/Code/Settings4.svg" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
             _c(
               "li",
               {

@@ -40,61 +40,51 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "widget-2",
+  name: "Widget-notes",
+  props: ['patient'],
   data: function data() {
     return {
-      checked: false,
-      list: [{
-        order_id: "56037-XDER",
-        country: "Brasil",
-        country_desc: "Code: BR",
-        date: "05/28/2020",
-        date_desc: "Paid",
-        company: "Intertico",
-        company_desc: "Web, UI/UX Design",
-        "class": "primary",
-        status: "Approved"
-      }, {
-        order_id: "05822-FXSP",
-        country: "Belarus",
-        country_desc: "Code: BY",
-        date: "02/04/2020",
-        date_desc: "Rejected",
-        company: "Agoda",
-        company_desc: "Houses & Hotels",
-        "class": "warning",
-        status: "In Progress"
-      }, {
-        order_id: "00347-BCLQ",
-        country: "Phillipines",
-        country_desc: "Code: PH",
-        date: "23/12/2020",
-        date_desc: "Paid",
-        company: "RoadGee",
-        company_desc: "Transportation",
-        "class": "success",
-        status: "Success"
-      }, {
-        order_id: "4472-QREX",
-        country: "Argentina",
-        country_desc: "Code: AR",
-        date: "17/09/2021",
-        date_desc: "Pending",
-        company: "The Hill",
-        company_desc: "Insurance",
-        "class": "danger",
-        status: "Danger"
-      }]
+      form: {
+        body: '',
+        patient_id: this.patient.id
+      }
     };
   },
   components: {},
   methods: {
-    setCheck: function setCheck(check) {
-      if (check) {
-        this.checked = check;
-      } else {
-        this.checked = false;
+    sendNote: function sendNote() {
+      if (this.form.body != '') {
+        this.$inertia.post(route('notes.store', this.form));
+        this.form.body = '';
       }
     }
   }
@@ -190,43 +180,112 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card card-custom gutter-b" }, [
+    _c("div", { staticClass: "card-header border-0 py-5" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-toolbar" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-info font-weight-bolder font-size-sm",
+            on: { click: _vm.sendNote }
+          },
+          [_vm._v("Agregar")]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body py-0 pb-10" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.form.body,
+              expression: "form.body"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            name: "aspiration",
+            placeholder:
+              "Redacte una nota y haga clic en Agregar para guardarla"
+          },
+          domProps: { value: _vm.form.body },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.form, "body", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "mb-5" },
+        _vm._l(_vm.patient.notes, function(note) {
+          return _c("div", { key: note.key, staticClass: "border-top p-0" }, [
+            _c("div", { staticClass: "row pb-4 pt-4" }, [
+              _c(
+                "div",
+                { staticClass: "col-12", attrs: { align: "right" } },
+                [
+                  _vm._v(
+                    "\n              " +
+                      _vm._s(_vm._f("formatDate")(note.created_at)) +
+                      "\n              "
+                  ),
+                  _c(
+                    "inertia-link",
+                    {
+                      attrs: {
+                        method: "delete",
+                        href: _vm.route("notes.destroy", note.id)
+                      }
+                    },
+                    [_vm._v("\n              eliminar\n            ")]
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { attrs: { align: "justify" } }, [
+              _vm._v("\n          " + _vm._s(note.body) + "\n        ")
+            ])
+          ])
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-custom gutter-b" }, [
-      _c("div", { staticClass: "card-header border-0 py-5" }, [
-        _c("h3", { staticClass: "card-title align-items-start flex-column" }, [
-          _c(
-            "span",
-            { staticClass: "card-label font-weight-bolder text-dark" },
-            [_vm._v("Notas")]
-          ),
-          _vm._v(" "),
-          _c(
-            "span",
-            { staticClass: "text-muted mt-3 font-weight-bold font-size-sm" },
-            [_vm._v("Anotaciones y recordatorios sobre el paciente")]
-          )
+    return _c(
+      "h3",
+      { staticClass: "card-title align-items-start flex-column" },
+      [
+        _c("span", { staticClass: "card-label font-weight-bolder text-dark" }, [
+          _vm._v("Notas")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-toolbar" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-info font-weight-bolder font-size-sm",
-              attrs: { href: "#" }
-            },
-            [_vm._v("Agregar")]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body py-0" })
-    ])
+        _c(
+          "span",
+          { staticClass: "text-muted mt-3 font-weight-bold font-size-sm" },
+          [_vm._v("Anotaciones y recordatorios sobre el paciente")]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true

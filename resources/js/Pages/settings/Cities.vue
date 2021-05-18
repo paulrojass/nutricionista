@@ -98,23 +98,31 @@
       </span>
     </inertia-link>
     
-    
-    
-    
-    <inertia-link
-    :href="$route('cities.destroy', {'id' : city.id})"
-    method="delete"
+    <button
     as="button"
     type="button"
+    @click="deleteCity(city)"
     class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
     >
     <span
     class="svg-icon svg-icon-md svg-icon-primary">
-    <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
     <inline-svg src="/media/svg/icons/General/Trash.svg" />
-    <!--end::Svg Icon-->
   </span>
-</inertia-link>
+</button>
+
+
+<!-- <inertia-link
+:href="$route('cities.destroy', {'id' : city.id})"
+method="delete"
+as="button"
+type="button"
+class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+>
+<span
+class="svg-icon svg-icon-md svg-icon-primary">
+<inline-svg src="/media/svg/icons/General/Trash.svg" />
+</span>
+</inertia-link> -->
 
 </td>
 </tr>
@@ -128,15 +136,35 @@
 </template>
 <script>
 import Layout from "../../src/view/layout/Layout"
+import Swal from "sweetalert2"
 export default {
-  name: "Settings4",
+  name: "cities",
   props: ['cities', 'errors'],
-  // Using a render function
   layout: (h, page) => h(Layout, [page]),
   metaInfo() {
     return {
       title: `Configuración - Ciudades`,
     }
   },
+  methods: {
+    deleteCity(city) {
+      if(Object.keys(city.plans).length > 0){
+        var c = 0
+        city.plans.forEach((plan, i) => {
+          c++
+        })
+        if(c > 0){
+          return Swal.fire({
+            icon: 'error',
+            text: 'Esta ubicación tiene controles asignados los cuales forman parte del historial para las finanzas, no se puede eliminar.'
+          })
+        } else {
+          return this.$inertia.delete(route('cities.destroy', city.id))
+        }
+      } else {
+        return this.$inertia.delete(route('cities.destroy', city.id))
+      }
+    }
+  }
 }
 </script>

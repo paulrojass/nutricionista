@@ -17,7 +17,7 @@ class CreateControlsTable extends Migration
       $table->id();
       $table->string('event_id')->nullable();
       $table->foreignId('patient_id')->constrained()->onDelete('cascade');
-      $table->foreignId('plan_id')->constrained();
+      $table->foreignId('plan_id')->constrained()->onDelete('cascade');
       $table->string('city_name');
       $table->string('agreement_name')->nullable();
       $table->string('agreement_price')->nullable();

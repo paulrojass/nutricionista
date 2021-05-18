@@ -903,8 +903,8 @@ __webpack_require__.r(__webpack_exports__);
         frutos_secos: this.checked(this.patient.frutos_secos),
         aceites_adicionados: this.checked(this.patient.aceites_adicionados),
         crema_de_mani: this.checked(this.patient.crema_de_mani),
-        unwanted_food: this.checked(this.patient.unwanted_food),
-        desired_food: this.checked(this.patient.desired_food),
+        unwanted_food: this.patient.unwanted_food,
+        desired_food: this.patient.desired_food,
         water: this.patient.water,
         soda: this.checked(this.patient.soda),
         alcoholic_drinks: this.checked(this.patient.alcoholic_drinks),
@@ -11085,7 +11085,7 @@ var render = function() {
             _c(
               "inertia-link",
               {
-                staticClass: "btn btn-success font-weight-bolder font-size-sm",
+                staticClass: "btn btn-primary font-weight-bolder font-size-sm",
                 attrs: { href: _vm.$route("candidates.index") }
               },
               [_vm._v("\n        Todos\n      ")]
@@ -11379,6 +11379,45 @@ var render = function() {
         },
         [
           _c("ul", { staticClass: "nav flex-column" }, [
+            _c(
+              "li",
+              {
+                directives: [
+                  {
+                    name: "b-tooltip",
+                    rawName: "v-b-tooltip.hover.right",
+                    value: "Configuración",
+                    expression: "'Configuración'",
+                    modifiers: { hover: true, right: true }
+                  }
+                ],
+                staticClass: "nav-item mb-2"
+              },
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    staticClass:
+                      "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
+                    attrs: { href: _vm.$route("settings") }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { staticClass: "svg-icon svg-icon-xxl" },
+                      [
+                        _c("inline-svg", {
+                          attrs: { src: "/media/svg/icons/Code/Settings4.svg" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
             _c(
               "li",
               {

@@ -17,6 +17,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Settings4",
@@ -26,7 +63,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   metaInfo: function metaInfo() {
     return {
-      title: "Pacientes"
+      title: "Configuraci\xF3n"
     };
   }
 });
@@ -3408,9 +3445,76 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "" } })
+  return _c("div", { staticClass: "card card-custom card-stretch gutter-b" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body py-0" }, [
+      _c(
+        "div",
+        {
+          staticClass: "offcanvas-content pr-5 mr-n5 scroll ps",
+          staticStyle: { height: "804px", overflow: "hidden" }
+        },
+        [
+          _c("div", { staticClass: "row gutter-b" }, [
+            _c(
+              "div",
+              { staticClass: "col-4" },
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    staticClass:
+                      "btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5",
+                    attrs: { href: _vm.route("cities.index") }
+                  },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "svg-icon svg-icon-3x svg-icon-primary m-0"
+                      },
+                      [
+                        _c("inline-svg", {
+                          attrs: { src: "/media/svg/icons/Shopping/Box2.svg" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "d-block font-weight-bold font-size-h6 mt-2"
+                      },
+                      [_vm._v("Planes por ubicación")]
+                    )
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0 py-5" }, [
+      _c("h3", { staticClass: "card-title align-items-start flex-column" }, [
+        _c("span", { staticClass: "card-label font-weight-bolder text-dark" }, [
+          _vm._v("\n          Configuración\n        ")
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -3795,7 +3899,7 @@ var render = function() {
             _c(
               "inertia-link",
               {
-                staticClass: "btn btn-success font-weight-bolder font-size-sm",
+                staticClass: "btn btn-primary font-weight-bolder font-size-sm",
                 attrs: { href: _vm.$route("candidates.index") }
               },
               [_vm._v("\n        Todos\n      ")]
@@ -4089,6 +4193,45 @@ var render = function() {
         },
         [
           _c("ul", { staticClass: "nav flex-column" }, [
+            _c(
+              "li",
+              {
+                directives: [
+                  {
+                    name: "b-tooltip",
+                    rawName: "v-b-tooltip.hover.right",
+                    value: "Configuración",
+                    expression: "'Configuración'",
+                    modifiers: { hover: true, right: true }
+                  }
+                ],
+                staticClass: "nav-item mb-2"
+              },
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    staticClass:
+                      "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
+                    attrs: { href: _vm.$route("settings") }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { staticClass: "svg-icon svg-icon-xxl" },
+                      [
+                        _c("inline-svg", {
+                          attrs: { src: "/media/svg/icons/Code/Settings4.svg" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
             _c(
               "li",
               {

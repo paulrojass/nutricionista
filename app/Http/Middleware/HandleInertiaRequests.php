@@ -5,18 +5,22 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
+use App\Models\Patient;
+
 class HandleInertiaRequests extends Middleware
 {
   /**
-  * The root template that is loaded on the first page visit.
+  * The root template that's loaded on the first page visit.
   *
+  * @see https://inertiajs.com/server-side-setup#root-template
   * @var string
   */
   protected $rootView = 'app';
   
   /**
-  * Determine the current asset version.
+  * Determines the current asset version.
   *
+  * @see https://inertiajs.com/asset-versioning
   * @param  \Illuminate\Http\Request  $request
   * @return string|null
   */
@@ -26,16 +30,28 @@ class HandleInertiaRequests extends Middleware
   }
   
   /**
-  * Define the props that are shared by default.
+  * Defines the props that are shared by default.
   *
+  * @see https://inertiajs.com/shared-data
   * @param  \Illuminate\Http\Request  $request
   * @return array
   */
   public function share(Request $request)
   {
+    $patients = Patient::all()->count();
+    $inactives = Patient::where('active', 0)->take(5)->get();
+    $inactivesTotal = Patient::where('active', 0)->count();
+    $activesTotal = Patient::where('active', 1)->count();
+    $activePatients = round(($activesTotal*100) / $patients);
+    $inactivePatients = round(($inactivesTotal*100) / $patients);
     return array_merge(parent::share($request), [
-      'auth' => [
-        'user' => $request->user(),
+      'inactives' => $inactives ? : null,
+      'activesTotal' => $activesTotal ? : null,
+      'inactivesTotal' => $inactivesTotal ? : null,
+      'activePatients' => $activePatients ? : null,
+      'inactivePatients' => $inactivePatients ? : null,
+      'flash' => [
+        'message' => fn () => $request->session()->get('message')
       ],
     ]);
   }

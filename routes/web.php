@@ -28,11 +28,12 @@ Route::get('/', App\Http\Controllers\WelcomeController::class);
 
 Route::prefix('panel')->group(function () {
   Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-  Route::get('configuracion', [App\Http\Controllers\HomeController::class, 'settings'])->name('settings');
   Route::get('finanzas', [App\Http\Controllers\HomeController::class, 'finance'])->name('finance');
   Route::delete('candidatos/{id}', [App\Http\Controllers\PatientController::class, 'destroyCandidate'])->name('candidates.destroy');
   Route::get('candidatos', [App\Http\Controllers\PatientController::class, 'candidates'] )->name('candidates.index');
   Route::get('pacientes/buscar', [App\Http\Controllers\PatientController::class, 'search'] )->name('patients.search');
+  Route::get('pacientes/buscar-status', [App\Http\Controllers\PatientController::class, 'searchStatus'] )->name('patients.search-status');
+  Route::get('pacientes/{patient_id}/historial', [App\Http\Controllers\PatientController::class, 'showHistory'] )->name('patients.show-history');
   Route::resource('pacientes',
   App\Http\Controllers\PatientController::class,
   [
@@ -63,6 +64,17 @@ Route::prefix('panel')->group(function () {
     ]
   ])
   ->except(['create']);
+  
+  Route::resource('notes',
+  App\Http\Controllers\NoteController::class,
+  [
+    'names' => [
+      'store' => 'notes.store',
+      'destroy' => 'notes.destroy'
+    ]
+  ])
+  ->except(['index, create, show, edit, update']);
+  
   Route::get('controles-pacientes', [App\Http\Controllers\ControlController::class, 'patients'])->name('controls.patients');
   Route::get('controles/crear/{patient_id}', [App\Http\Controllers\ControlController::class, 'create'])->name('controls.create');
   Route::get('calendario', [App\Http\Controllers\ControlController::class, 'calendar'])->name('calendar');
@@ -82,5 +94,35 @@ Route::prefix('panel')->group(function () {
   ])
   ->except(['create']);
   
+  Route::prefix('configuracion')->group(function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'settings'])->name('settings');
+    Route::get('ciudades/{city_id}/planes', [App\Http\Controllers\PlanController::class, 'index'])->name('plans.index');
+    Route::resource('ciudades',
+    App\Http\Controllers\CityController::class,
+    [
+      'names' => [
+        'index' => 'cities.index',
+        'create' => 'cities.create',
+        'show' => 'cities.show',
+        'store' => 'cities.store',
+        'edit' => 'cities.edit',
+        'update' => 'cities.update',
+        'destroy' => 'cities.destroy'
+      ]
+    ]);
+    Route::resource('planes',
+    App\Http\Controllers\PlanController::class,
+    [
+      'names' => [
+        'create' => 'plans.create',
+        'show' => 'plans.show',
+        'store' => 'plans.store',
+        'edit' => 'plans.edit',
+        'update' => 'plans.update',
+        'destroy' => 'plans.destroy'
+      ]
+    ])
+    ->except(['index']);
+  });
 });
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

@@ -242,6 +242,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -249,7 +256,9 @@ __webpack_require__.r(__webpack_exports__);
   props: ['controls'],
   data: function data() {
     return {
-      controls: this.controls,
+      perPage: 5,
+      currentPage: 1,
+      items: this.controls,
       params: {
         patient_name: '',
         start_date: '',
@@ -293,12 +302,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     dayOfWeekAsString: function dayOfWeekAsString(dayIndex) {
       return ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"][dayIndex] || '';
+    },
+    itemsForList: function itemsForList() {
+      return this.items.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
     }
   },
-  computed: {// ...mapGetters(["layoutConfig"]),
-    // dataToShow() {
-    //   return this.controls;
-    // }
+  computed: {
+    rows: function rows() {
+      return this.items.length;
+    }
   }
 });
 
@@ -7046,7 +7058,7 @@ var render = function() {
                   "inertia-link",
                   {
                     staticClass:
-                      "btn btn-success font-weight-bolder font-size-sm py-2",
+                      "btn btn-primary font-weight-bolder font-size-sm py-2",
                     attrs: { href: _vm.$route("calendar") }
                   },
                   [_vm._v("\n            calendario\n          ")]
@@ -7058,298 +7070,321 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body pt-2 pb-0" }, [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            { staticClass: "table table-borderless table-vertical-center" },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                [
-                  _vm._l(_vm.controls, function(item, i) {
-                    return [
-                      _c("tr", { key: i }, [
-                        _c("td", { staticClass: "pr-0" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "symbol symbol-60 symbol-xxl-100 mr-5 align-self-start align-self-xxl-center"
-                            },
-                            [
-                              _c("div", {
-                                staticClass: "symbol-label",
-                                style: {
-                                  backgroundImage:
-                                    "url(/storage/avatars/" +
-                                    item.patient.avatar +
-                                    ")"
-                                }
-                              })
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          { staticClass: "pl-0" },
-                          [
+      _c(
+        "div",
+        { staticClass: "card-body pt-2 pb-0" },
+        [
+          _c("div", { staticClass: "table-responsive" }, [
+            _c(
+              "table",
+              { staticClass: "table table-borderless table-vertical-center" },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  { attrs: { id: "itemList" } },
+                  [
+                    _vm._l(_vm.itemsForList(), function(item, i) {
+                      return [
+                        _c("tr", { key: i }, [
+                          _c("td", { staticClass: "pr-0" }, [
                             _c(
-                              "inertia-link",
+                              "div",
                               {
                                 staticClass:
-                                  "text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg",
-                                attrs: {
-                                  href: _vm.route(
-                                    "patients.show",
-                                    item.patient.id
-                                  )
-                                }
+                                  "symbol symbol-60 symbol-xxl-100 mr-5 align-self-start align-self-xxl-center"
                               },
+                              [
+                                _c("div", {
+                                  staticClass: "symbol-label",
+                                  style: {
+                                    backgroundImage:
+                                      "url(/storage/avatars/" +
+                                      item.patient.avatar +
+                                      ")"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "pl-0" },
+                            [
+                              _c(
+                                "inertia-link",
+                                {
+                                  staticClass:
+                                    "text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg",
+                                  attrs: {
+                                    href: _vm.route(
+                                      "patients.show",
+                                      item.patient.id
+                                    )
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(item.patient.first_name_1) +
+                                      " " +
+                                      _vm._s(item.patient.last_name_1) +
+                                      "\n              "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-muted font-weight-bold d-block"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(
+                                        _vm.calcularEdad(
+                                          item.patient.birth_date
+                                        ) + " años"
+                                      ) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "span",
+                              { staticClass: "text-muted font-weight-bold" },
                               [
                                 _vm._v(
                                   "\n                " +
-                                    _vm._s(item.patient.first_name_1) +
-                                    " " +
-                                    _vm._s(item.patient.last_name_1) +
+                                    _vm._s(_vm._f("formatDate")(item.date)) +
                                     "\n              "
                                 )
                               ]
-                            ),
-                            _vm._v(" "),
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
                             _c(
                               "span",
-                              {
-                                staticClass:
-                                  "text-muted font-weight-bold d-block"
-                              },
+                              { staticClass: "text-muted font-weight-bold" },
+                              [
+                                _vm._v(
+                                  "\n                " +
+                                    _vm._s(item.time) +
+                                    "\n              "
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "span",
+                              { staticClass: "text-muted font-weight-bold" },
                               [
                                 _vm._v(
                                   "\n                " +
                                     _vm._s(
-                                      _vm.calcularEdad(
-                                        item.patient.birth_date
-                                      ) + " años"
+                                      _vm._f("truncate")(item.note, 20, "...")
                                     ) +
                                     "\n              "
                                 )
                               ]
                             )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c("td", [
+                          ]),
+                          _vm._v(" "),
                           _c(
-                            "span",
-                            { staticClass: "text-muted font-weight-bold" },
+                            "td",
+                            { staticClass: "text-right pr-0" },
                             [
-                              _vm._v(
-                                "\n                " +
-                                  _vm._s(_vm._f("formatDate")(item.date)) +
-                                  "\n              "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "span",
-                            { staticClass: "text-muted font-weight-bold" },
-                            [
-                              _vm._v(
-                                "\n                " +
-                                  _vm._s(item.time) +
-                                  "\n              "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "span",
-                            { staticClass: "text-muted font-weight-bold" },
-                            [
-                              _vm._v(
-                                "\n                " +
-                                  _vm._s(
-                                    _vm._f("truncate")(item.note, 20, "...")
-                                  ) +
-                                  "\n              "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          { staticClass: "text-right pr-0" },
-                          [
-                            _c("inertia-link", {
-                              directives: [
+                              _c("inertia-link", {
+                                directives: [
+                                  {
+                                    name: "b-popover",
+                                    rawName: "v-b-popover.hover.right",
+                                    value: "Cambiar el estado del control",
+                                    expression:
+                                      "'Cambiar el estado del control'",
+                                    modifiers: { hover: true, right: true }
+                                  }
+                                ],
+                                staticClass: "btn btn-icon btn-light btn-sm",
+                                class: "control-" + item.status,
+                                attrs: {
+                                  href: _vm.route("controls.edit", item.id)
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "inertia-link",
                                 {
-                                  name: "b-popover",
-                                  rawName: "v-b-popover.hover.right",
-                                  value: "Cambiar el estado del control",
-                                  expression: "'Cambiar el estado del control'",
-                                  modifiers: { hover: true, right: true }
-                                }
-                              ],
-                              staticClass: "btn btn-icon btn-light btn-sm",
-                              class: "control-" + item.status,
-                              attrs: {
-                                href: _vm.route("controls.edit", item.id)
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "inertia-link",
-                              {
-                                directives: [
-                                  {
-                                    name: "b-popover",
-                                    rawName: "v-b-popover.hover.right",
-                                    value: "Ver los detalles del control",
-                                    expression:
-                                      "'Ver los detalles del control'",
-                                    modifiers: { hover: true, right: true }
-                                  }
-                                ],
-                                staticClass:
-                                  "btn btn-icon btn-light btn-hover-primary btn-sm",
-                                attrs: {
-                                  href: _vm.route("controls.show", item.id)
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass:
-                                      "svg-icon svg-icon-md svg-icon-primary"
-                                  },
-                                  [
-                                    _c("inline-svg", {
-                                      attrs: {
-                                        src:
-                                          "/media/svg/icons/General/Other2.svg"
-                                      }
-                                    })
+                                  directives: [
+                                    {
+                                      name: "b-popover",
+                                      rawName: "v-b-popover.hover.right",
+                                      value: "Ver los detalles del control",
+                                      expression:
+                                        "'Ver los detalles del control'",
+                                      modifiers: { hover: true, right: true }
+                                    }
                                   ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "inertia-link",
-                              {
-                                directives: [
-                                  {
-                                    name: "b-popover",
-                                    rawName: "v-b-popover.hover.right",
-                                    value: "Cambiar la fecha del control",
-                                    expression:
-                                      "'Cambiar la fecha del control'",
-                                    modifiers: { hover: true, right: true }
+                                  staticClass:
+                                    "btn btn-icon btn-light btn-hover-primary btn-sm",
+                                  attrs: {
+                                    href: _vm.route("controls.show", item.id)
                                   }
-                                ],
-                                staticClass:
-                                  "btn btn-icon btn-light btn-hover-success btn-sm",
-                                attrs: {
-                                  href: _vm.$route("controls.edit-date", {
-                                    id: item.id
-                                  }),
-                                  as: "button",
-                                  type: "button"
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass:
-                                      "svg-icon svg-icon-md svg-icon-success"
-                                  },
-                                  [
-                                    _c("inline-svg", {
-                                      attrs: {
-                                        src:
-                                          "/media/svg/icons/Code/Time-schedule.svg"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "inertia-link",
-                              {
-                                directives: [
-                                  {
-                                    name: "b-popover",
-                                    rawName: "v-b-popover.hover.right",
-                                    value: "Eliminar este control",
-                                    expression: "'Eliminar este control'",
-                                    modifiers: { hover: true, right: true }
-                                  }
-                                ],
-                                staticClass:
-                                  "btn btn-icon btn-light btn-hover-danger btn-sm",
-                                attrs: {
-                                  variant: "danger",
-                                  href: _vm.$route("controls.destroy", {
-                                    id: item.id
-                                  }),
-                                  method: "delete",
-                                  as: "button",
-                                  type: "button"
                                 },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.removeElement(i)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass:
-                                      "svg-icon svg-icon-md svg-icon-danger"
-                                  },
-                                  [
-                                    _c("inline-svg", {
-                                      attrs: {
-                                        src:
-                                          "/media/svg/icons/General/Trash.svg"
-                                      }
-                                    })
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "svg-icon svg-icon-md svg-icon-primary"
+                                    },
+                                    [
+                                      _c("inline-svg", {
+                                        attrs: {
+                                          src:
+                                            "/media/svg/icons/General/Other2.svg"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "inertia-link",
+                                {
+                                  directives: [
+                                    {
+                                      name: "b-popover",
+                                      rawName: "v-b-popover.hover.right",
+                                      value: "Cambiar la fecha del control",
+                                      expression:
+                                        "'Cambiar la fecha del control'",
+                                      modifiers: { hover: true, right: true }
+                                    }
                                   ],
-                                  1
-                                )
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]
-                  })
-                ],
-                2
-              )
-            ]
-          )
-        ])
-      ])
+                                  staticClass:
+                                    "btn btn-icon btn-light btn-hover-success btn-sm",
+                                  attrs: {
+                                    href: _vm.$route("controls.edit-date", {
+                                      id: item.id
+                                    }),
+                                    as: "button",
+                                    type: "button"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "svg-icon svg-icon-md svg-icon-success"
+                                    },
+                                    [
+                                      _c("inline-svg", {
+                                        attrs: {
+                                          src:
+                                            "/media/svg/icons/Code/Time-schedule.svg"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "inertia-link",
+                                {
+                                  directives: [
+                                    {
+                                      name: "b-popover",
+                                      rawName: "v-b-popover.hover.right",
+                                      value: "Eliminar este control",
+                                      expression: "'Eliminar este control'",
+                                      modifiers: { hover: true, right: true }
+                                    }
+                                  ],
+                                  staticClass:
+                                    "btn btn-icon btn-light btn-hover-danger btn-sm",
+                                  attrs: {
+                                    variant: "danger",
+                                    href: _vm.$route("controls.destroy", {
+                                      id: item.id
+                                    }),
+                                    method: "delete",
+                                    as: "button",
+                                    type: "button"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.removeElement(i)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "svg-icon svg-icon-md svg-icon-danger"
+                                    },
+                                    [
+                                      _c("inline-svg", {
+                                        attrs: {
+                                          src:
+                                            "/media/svg/icons/General/Trash.svg"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      ]
+                    })
+                  ],
+                  2
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("b-pagination", {
+            attrs: {
+              "total-rows": _vm.rows,
+              "per-page": _vm.perPage,
+              "aria-controls": "itemList",
+              align: "center"
+            },
+            model: {
+              value: _vm.currentPage,
+              callback: function($$v) {
+                _vm.currentPage = $$v
+              },
+              expression: "currentPage"
+            }
+          })
+        ],
+        1
+      )
     ])
   ])
 }
@@ -7779,7 +7814,7 @@ var render = function() {
             _c(
               "inertia-link",
               {
-                staticClass: "btn btn-success font-weight-bolder font-size-sm",
+                staticClass: "btn btn-primary font-weight-bolder font-size-sm",
                 attrs: { href: _vm.$route("candidates.index") }
               },
               [_vm._v("\n        Todos\n      ")]
@@ -8073,6 +8108,45 @@ var render = function() {
         },
         [
           _c("ul", { staticClass: "nav flex-column" }, [
+            _c(
+              "li",
+              {
+                directives: [
+                  {
+                    name: "b-tooltip",
+                    rawName: "v-b-tooltip.hover.right",
+                    value: "Configuración",
+                    expression: "'Configuración'",
+                    modifiers: { hover: true, right: true }
+                  }
+                ],
+                staticClass: "nav-item mb-2"
+              },
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    staticClass:
+                      "nav-link btn btn-icon btn-hover-text-primary btn-lg active",
+                    attrs: { href: _vm.$route("settings") }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { staticClass: "svg-icon svg-icon-xxl" },
+                      [
+                        _c("inline-svg", {
+                          attrs: { src: "/media/svg/icons/Code/Settings4.svg" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
             _c(
               "li",
               {

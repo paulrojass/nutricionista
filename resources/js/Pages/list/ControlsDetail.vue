@@ -73,8 +73,8 @@
             <th class="p-0" style="width: 30%"></th>
           </tr>
         </thead>
-        <tbody>
-          <template v-for="(item, i) in controls">
+        <tbody id="itemList" >
+          <template v-for="(item, i) in itemsForList()">
             <tr v-bind:key="i">
               <td class="pr-0">
                 <div
@@ -179,6 +179,13 @@
 </table>
 </div>
 <!--end::Table-->
+<b-pagination
+v-model="currentPage"
+:total-rows="rows"
+:per-page="perPage"
+aria-controls="itemList"
+align="center"
+></b-pagination>
 </div>
 <!--end::Body-->
 </div>
@@ -196,7 +203,9 @@ export default {
   ],
   data() {
     return {
-      controls : this.controls,
+      perPage: 5,
+      currentPage: 1,
+      items : this.controls,
       params : {
         patient_name : '',
         start_date : '',
@@ -239,13 +248,18 @@ export default {
     },
     dayOfWeekAsString(dayIndex) {
       return ["Domingo", "Lunes","Martes","Miercoles","Jueves","Viernes","Sábado"][dayIndex] || '';
+    },
+    itemsForList() {
+      return this.items.slice(
+        (this.currentPage - 1) * this.perPage,
+        this.currentPage * this.perPage,
+      );
     }
   },
   computed: {
-    // ...mapGetters(["layoutConfig"]),
-    // dataToShow() {
-    //   return this.controls;
-    // }
-  }
+    rows() {
+      return this.items.length
+    }
+  },
 }
 </script>
