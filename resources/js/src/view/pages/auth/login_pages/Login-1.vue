@@ -12,12 +12,12 @@
       <!--begin::Aside-->
       <div
         class="login-aside d-flex flex-column flex-row-auto"
-        style="background-color: #F2C98A;"
+        style="background-color: #FFFFFF;"
       >
-        <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
+       <!--  <div class="d-flexo flex-column-auto flex-column pt-lg-40 pt-15 d-none">
           <a href="#" class="text-center mb-10">
             <img
-              src="/media/logos/logo-letter-1.png"
+              src="/media/theo/logo.png"
               class="max-h-70px"
               alt=""
             />
@@ -27,11 +27,12 @@
             style="color: #986923;"
           >
             Discover Amazing Metronic <br />with great build tools
-          </h3>
-        </div>
+          </h3> 
+        </div>-->
         <div
           class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center"
           :style="{ backgroundImage: `url(${backgroundImage})` }"
+          style="    background-size: cover;"
         ></div>
       </div>
       <!--begin::Aside-->
@@ -49,10 +50,17 @@
               @submit.prevent="submit"
             >
               <div class="pb-13 pt-lg-0 pt-5">
+                <a href="#" class="text-left">
+                  <img
+                    src="/media/theo/logo.svg"
+                    class="max-h-60px mb-10"
+                    alt=""
+                  />
+                </a>
                 <h3
                   class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
                 >
-                  Welcome to Metronic
+                  Bienvenido
                 </h3>
                   <!--
                 <span class="text-muted font-weight-bold font-size-h4"
@@ -91,10 +99,10 @@
                     >Contraseña</label
                   >
                   <a
-                    class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5"
+                    class="text-theme font-size-h6 font-weight-bolder text-hover-primary pt-5"
                     id="kt_login_forgot"
                     @click="showForm('forgot')"
-                    >Forgot Password ?</a
+                    >&iquest;Olvidaste la contraseña ?</a
                   >
                 </div>
                 <div
@@ -235,10 +243,10 @@
                 <h3
                   class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
                 >
-                  Forgotten Password ?
+                  &iquest;Olvidaste la contraseña?
                 </h3>
                 <p class="text-muted font-weight-bold font-size-h4">
-                  Enter your email to reset your password
+                  Ingresa tu email para reestablecer tu contraseña
                 </p>
               </div>
               <div class="form-group">
@@ -256,7 +264,7 @@
                   id="kt_login_forgot_submit"
                   class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4"
                 >
-                  Submit
+                  Enviar
                 </button>
                 <button
                   type="button"
@@ -264,7 +272,7 @@
                   class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3"
                   @click="showForm('signin')"
                 >
-                  Cancel
+                  Cancelar
                 </button>
               </div>
             </form>
@@ -335,7 +343,7 @@ export default {
 
     backgroundImage() {
       return (
-        "/media/svg/illustrations/login-visual-1.svg"
+        "/media/theo/theo.jpg"
       );
     }
   },

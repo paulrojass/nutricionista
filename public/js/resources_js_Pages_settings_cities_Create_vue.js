@@ -4734,7 +4734,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "page-loader page-loader-logo" }, [
-    _c("img", { attrs: { alt: "Logo", src: _vm.logo, width: "100" } }),
+    _c("img", { attrs: { alt: "Logo", src: _vm.logo, width: "200" } }),
     _vm._v(" "),
     _c("div", {
       staticClass: "spinner",
@@ -5185,7 +5185,7 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "/" } }, [
       _c("img", {
         staticClass: "logo-default max-h-30px",
-        attrs: { alt: "Logo", src: "/media/logos/logo-letter-1.png" }
+        attrs: { alt: "Logo", src: "/media/theo/logo.png" }
       })
     ])
   },

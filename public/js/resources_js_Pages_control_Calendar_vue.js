@@ -54,9 +54,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Calendar",
@@ -3509,19 +3506,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c("iframe", {
-        staticStyle: { border: "0" },
-        attrs: {
-          src:
-            "https://calendar.google.com/calendar/embed?src=hn7s0ek35jvo9dafn2jjl52os4%40group.calendar.google.com&ctz=America%2FCaracas",
-          width: "700",
-          height: "550",
-          frameborder: "0",
-          scrolling: "no"
-        }
-      })
-    ])
+    return _c(
+      "div",
+      { staticClass: "card-body responsive-iframe-container big-container" },
+      [
+        _c("iframe", {
+          staticStyle: { border: "0" },
+          attrs: {
+            src:
+              "https://calendar.google.com/calendar/embed?src=es.pa%23holiday%40group.v.calendar.google.com&ctz=America%2FPanama&src=ZXMucGEjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%237CB342&showPrint=1&title=Mi%20calendario&showNav=1&showTabs=1&showCalendars=0",
+            width: "100%",
+            height: "600",
+            frameborder: "0",
+            scrolling: "no"
+          }
+        })
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -4590,7 +4591,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "page-loader page-loader-logo" }, [
-    _c("img", { attrs: { alt: "Logo", src: _vm.logo, width: "100" } }),
+    _c("img", { attrs: { alt: "Logo", src: _vm.logo, width: "200" } }),
     _vm._v(" "),
     _c("div", {
       staticClass: "spinner",
@@ -5041,7 +5042,7 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "/" } }, [
       _c("img", {
         staticClass: "logo-default max-h-30px",
-        attrs: { alt: "Logo", src: "/media/logos/logo-letter-1.png" }
+        attrs: { alt: "Logo", src: "/media/theo/logo.png" }
       })
     ])
   },

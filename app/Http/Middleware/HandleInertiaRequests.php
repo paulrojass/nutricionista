@@ -52,7 +52,8 @@ class HandleInertiaRequests extends Middleware
       'inactivePatients' => $inactivePatients ? : null,
       'flash' => [
         'message' => fn () => $request->session()->get('message')
-      ],
+        // 'message' => $request->session()->get('message')
+      ]
     ]);
   }
 }

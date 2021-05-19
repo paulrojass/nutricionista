@@ -420,6 +420,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
  // FormValidation plugins
 
 
@@ -447,7 +455,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)(["currentUser"])), {}, {
     backgroundImage: function backgroundImage() {
-      return "/media/svg/illustrations/login-visual-1.svg";
+      return "/media/theo/theo.jpg";
     }
   }),
   mounted: function mounted() {
@@ -7751,14 +7759,13 @@ var render = function() {
           "div",
           {
             staticClass: "login-aside d-flex flex-column flex-row-auto",
-            staticStyle: { "background-color": "#F2C98A" }
+            staticStyle: { "background-color": "#FFFFFF" }
           },
           [
-            _vm._m(0),
-            _vm._v(" "),
             _c("div", {
               staticClass:
                 "aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center",
+              staticStyle: { "background-size": "cover" },
               style: { backgroundImage: "url(" + _vm.backgroundImage + ")" }
             })
           ]
@@ -7789,7 +7796,7 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._m(1),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
                       _c(
@@ -7856,7 +7863,7 @@ var render = function() {
                             "a",
                             {
                               staticClass:
-                                "text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5",
+                                "text-theme font-size-h6 font-weight-bolder text-hover-primary pt-5",
                               attrs: { id: "kt_login_forgot" },
                               on: {
                                 click: function($event) {
@@ -7864,7 +7871,7 @@ var render = function() {
                                 }
                               }
                             },
-                            [_vm._v("Forgot Password ?")]
+                            [_vm._v("¿Olvidaste la contraseña ?")]
                           )
                         ]
                       ),
@@ -7941,9 +7948,9 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._m(2),
+                    _vm._m(1),
                     _vm._v(" "),
-                    _vm._m(3),
+                    _vm._m(2),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -7959,7 +7966,7 @@ var render = function() {
                               id: "kt_login_forgot_submit"
                             }
                           },
-                          [_vm._v("\n                Submit\n              ")]
+                          [_vm._v("\n                Enviar\n              ")]
                         ),
                         _vm._v(" "),
                         _c(
@@ -7977,7 +7984,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v("\n                Cancel\n              ")]
+                          [_vm._v("\n                Cancelar\n              ")]
                         )
                       ]
                     )
@@ -7996,45 +8003,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex flex-column-auto flex-column pt-lg-40 pt-15" },
-      [
-        _c("a", { staticClass: "text-center mb-10", attrs: { href: "#" } }, [
-          _c("img", {
-            staticClass: "max-h-70px",
-            attrs: { src: "/media/logos/logo-letter-1.png", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "h3",
-          {
-            staticClass:
-              "font-weight-bolder text-center font-size-h4 font-size-h1-lg",
-            staticStyle: { color: "#986923" }
-          },
-          [
-            _vm._v("\n          Discover Amazing Metronic "),
-            _c("br"),
-            _vm._v("with great build tools\n        ")
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "pb-13 pt-lg-0 pt-5" }, [
+      _c("a", { staticClass: "text-left", attrs: { href: "#" } }, [
+        _c("img", {
+          staticClass: "max-h-60px mb-10",
+          attrs: { src: "/media/theo/logo.svg", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
       _c(
         "h3",
         {
           staticClass:
             "font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
         },
-        [_vm._v("\n                Welcome to Metronic\n              ")]
+        [_vm._v("\n                Bienvenido\n              ")]
       )
     ])
   },
@@ -8049,12 +8032,12 @@ var staticRenderFns = [
           staticClass:
             "font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
         },
-        [_vm._v("\n                Forgotten Password ?\n              ")]
+        [_vm._v("\n                ¿Olvidaste la contraseña?\n              ")]
       ),
       _vm._v(" "),
       _c("p", { staticClass: "text-muted font-weight-bold font-size-h4" }, [
         _vm._v(
-          "\n                Enter your email to reset your password\n              "
+          "\n                Ingresa tu email para reestablecer tu contraseña\n              "
         )
       ])
     ])

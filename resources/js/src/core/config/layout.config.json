@@ -4,11 +4,11 @@
     "layout": "default",
     "body": {
     },
-    "logo": "/media/logos/logo-letter-9.png"
+    "logo": "/media/theo/logo.svg"
   },
   "loader": {
     "type": "spinner-logo",
-    "logo": "/media/logos/logo-letter-1.png",
+    "logo": "/media/theo/logo.svg",
     "message": "Please wait..."
   },
   "breakpoints": {
