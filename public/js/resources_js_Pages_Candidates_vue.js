@@ -3654,7 +3654,7 @@ var render = function() {
                             "inertia-link",
                             {
                               staticClass:
-                                "btn btn-icon btn-light btn-hover-primary btn-sm mx-3",
+                                "btn btn-icon btn-light btn-hover-primary btn-sm",
                               attrs: {
                                 href: _vm.$route("controls.create", [
                                   candidate.id
@@ -3685,7 +3685,7 @@ var render = function() {
                             "inertia-link",
                             {
                               staticClass:
-                                "btn btn-icon btn-light btn-hover-primary btn-sm mx-3",
+                                "btn btn-icon btn-light btn-hover-primary btn-sm",
                               attrs: {
                                 href: _vm.$route("candidates.destroy", {
                                   id: candidate.id
@@ -3741,11 +3741,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticStyle: { "min-width": "20%" } }, [_vm._v("Correo")]),
         _vm._v(" "),
-        _c("th", { staticStyle: { "min-width": "30%" } }, [_vm._v("Teléfono")]),
+        _c("th", { staticStyle: { "min-width": "25%" } }, [_vm._v("Teléfono")]),
         _vm._v(" "),
         _c("th", {
           staticClass: "pr-0 text-right",
-          staticStyle: { "min-width": "20%" }
+          staticStyle: { "min-width": "25%" }
         })
       ])
     ])

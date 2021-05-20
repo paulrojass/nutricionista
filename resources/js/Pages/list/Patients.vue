@@ -33,7 +33,7 @@
     </div>
     <div class="card-footer border-0 pt-0 pr-5 pb-5 pl-5">
       <div class="my-2 d-flex justify-content-center">
-        <inertia-link v-if="route().current('patients.index') == true" :href="route('patients.show', patient.id)"
+        <inertia-link v-if="this.$route().current() == 'patients.index'  || this.$route().current() == 'patients.search-status'" :href="route('patients.show', patient.id)"
         class="btn btn-primary2 btn-shadow-hover font-weight-bolder w-100 py-1"
         v-bind:class="{ 'btn-danger2': active }"
         >
@@ -41,7 +41,7 @@
         <!-- <b-button>Ver más</b-button> -->
       </inertia-link>
       
-      <inertia-link v-if="route().current('controls.patients') == true" :href="$route('controls.create', [patient.id])"
+      <inertia-link v-if="this.$route().current() == 'controls.patients'" :href="$route('controls.create', [patient.id])"
       
       class="btn btn-primary2 btn-shadow-hover font-weight-bolder w-100 py-1"
       v-bind:class="{ 'btn-danger2': active }"

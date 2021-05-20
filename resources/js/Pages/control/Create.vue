@@ -4,147 +4,150 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
+        <inertia-link
+        :href="route('patients.show', patient.id)">
         <span class="card-label font-weight-bolder text-dark"
         >Nuevo control para {{patient.first_name_1}} {{patient.last_name_1}}</span
         >
-        <span class="text-muted mt-3 font-weight-bold font-size-sm"
-        >Ingrese la informacion solicitada para el registro del control</span>
-      </h3>
-    </div>
-    <!-- end::Header -->
-    <div class="card-body pt-2 pb-0">
-      <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-        
-        <input
-        type="hidden"
-        v-model="form.patient_id"
-        id="patient_id"
-        class="form-control"
-        name="patient_id"
-        />
-        
-        <div class="row">
-          <div class="col-xl-6">
-            <div class="form-group">
-              <label>Tipo de Consulta</label>
-              <select
-              required
-              name="city"
-              @change="getPlans"
-              v-model="form.city"
-              class="form-control">
-              <option :value="null">Seleccione ciudad</option>
-              <option
-              v-for="(city , index) in cities"
-              :value="city"
-              >{{ city.name }}</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-xl-6" v-if="form.city">
-          <div class="form-group" v-if="form.city.name.includes('online')">
-            <label>Especifique: Cuidad <span v-if="form.city.name.includes('Extranjero')"> - País </span></label>
-            <input
-            type="text"
-            v-model="form.city_name"
-            class="form-control"
-            name="city_name"
+      </inertia-link>
+      <span class="text-muted mt-3 font-weight-bold font-size-sm"
+      >Ingrese la informacion solicitada para el registro del control</span>
+    </h3>
+  </div>
+  <!-- end::Header -->
+  <div class="card-body pt-2 pb-0">
+    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+      
+      <input
+      type="hidden"
+      v-model="form.patient_id"
+      id="patient_id"
+      class="form-control"
+      name="patient_id"
+      />
+      
+      <div class="row">
+        <div class="col-xl-6">
+          <div class="form-group">
+            <label>Tipo de Consulta</label>
+            <select
             required
-            />
-          </div>
+            name="city"
+            @change="getPlans"
+            v-model="form.city"
+            class="form-control">
+            <option :value="null">Seleccione ciudad</option>
+            <option
+            v-for="(city , index) in cities"
+            :value="city"
+            >{{ city.name }}</option>
+          </select>
         </div>
       </div>
-      
-      <div class="form-group">
-        <label>Elija el Plan</label>
-        <select
-        name="plan_id"
-        v-model="form.plan_id"
-        class="form-control"
-        required
-        >
-        <option value="">Seleccione un plan</option>
-        <option v-for="plan in plans" :value="plan.id">{{ plan.name }} ({{form.city.currency}} {{plan.price}})</option>
-      </select>
-    </div>
-    <div class="row pb-5">
-      <div class="col-xl-12">
-        <div>
-          <b-form-checkbox
-          id="agreement"
-          v-model="form.agreement"
-          name="agreement"
-          value="1"
-          unchecked-value="0"
-          >
-          ¿Tiene convenio?
-        </b-form-checkbox>
+      <div class="col-xl-6" v-if="form.city">
+        <div class="form-group" v-if="form.city.name.includes('online')">
+          <label>Especifique: Cuidad <span v-if="form.city.name.includes('Extranjero')"> - País </span></label>
+          <input
+          type="text"
+          v-model="form.city_name"
+          class="form-control"
+          name="city_name"
+          required
+          />
+        </div>
       </div>
     </div>
     
-    <div class="col-xl-6" v-if="form.agreement == 1">
-      <div class="form-group">
-        <label>Nombre del convenio</label>
-        <input
-        type="text"
-        v-model="form.agreement_name"
-        class="form-control"
-        name="agreement_name"
-        required
-        />
-      </div>
-    </div>
-    <div class="col-xl-6" v-if="form.agreement == 1">
-      <div class="form-group">
-        <label>Precio del convenio</label>
-        <input
-        type="text"
-        v-model="form.agreement_price"
-        class="form-control"
-        name="agreement_price"
-        required
-        />
-      </div>
+    <div class="form-group">
+      <label>Elija el Plan</label>
+      <select
+      name="plan_id"
+      v-model="form.plan_id"
+      class="form-control"
+      required
+      >
+      <option value="">Seleccione un plan</option>
+      <option v-for="plan in plans" :value="plan.id">{{ plan.name }} ({{form.city.currency}} {{plan.price}})</option>
+    </select>
+  </div>
+  <div class="row pb-5">
+    <div class="col-xl-12">
+      <div>
+        <b-form-checkbox
+        id="agreement"
+        v-model="form.agreement"
+        name="agreement"
+        value="1"
+        unchecked-value="0"
+        >
+        ¿Tiene convenio?
+      </b-form-checkbox>
     </div>
   </div>
   
-  <div class="row">
-    <div class="col-md-6">
-      <b-form-group id="input-date" label="Fecha:" label-for="date">
-        <b-form-input
-        :type="`date`"
-        id="date"
-        v-model="form.date"
-        required
-        ></b-form-input>
-      </b-form-group>
-    </div>
-    <div class="col-md-6">
-      <b-form-group id="input-time" label="Hora:" label-for="time">
-        <b-form-input
-        :type="`time`"
-        id="time"
-        v-model="form.time"
-        required
-        ></b-form-input>
-      </b-form-group>
+  <div class="col-xl-6" v-if="form.agreement == 1">
+    <div class="form-group">
+      <label>Nombre del convenio</label>
+      <input
+      type="text"
+      v-model="form.agreement_name"
+      class="form-control"
+      name="agreement_name"
+      required
+      />
     </div>
   </div>
-  
-  <b-form-group id="input-note" label="Nota:" label-for="note">
-    <b-form-input
-    id="note"
-    v-model="form.note"
-    placeholder="Puede agregar alguna informacíon sobre la consulta"
-    required
-    ></b-form-input>
-  </b-form-group>
-  
-  <b-form-group>
-    <b-button type="submit" variant="primary">Guardar</b-button>
-    <b-button type="reset" variant="danger">Borrar</b-button>
-  </b-form-group>
-  
+  <div class="col-xl-6" v-if="form.agreement == 1">
+    <div class="form-group">
+      <label>Precio del convenio</label>
+      <input
+      type="text"
+      v-model="form.agreement_price"
+      class="form-control"
+      name="agreement_price"
+      required
+      />
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <b-form-group id="input-date" label="Fecha:" label-for="date">
+      <b-form-input
+      :type="`date`"
+      id="date"
+      v-model="form.date"
+      required
+      ></b-form-input>
+    </b-form-group>
+  </div>
+  <div class="col-md-6">
+    <b-form-group id="input-time" label="Hora:" label-for="time">
+      <b-form-input
+      :type="`time`"
+      id="time"
+      v-model="form.time"
+      required
+      ></b-form-input>
+    </b-form-group>
+  </div>
+</div>
+
+<b-form-group id="input-note" label="Nota:" label-for="note">
+  <b-form-input
+  id="note"
+  v-model="form.note"
+  placeholder="Puede agregar alguna informacíon sobre la consulta"
+  required
+  ></b-form-input>
+</b-form-group>
+
+<b-form-group>
+  <b-button type="submit" variant="primary">Guardar</b-button>
+  <b-button type="reset" variant="danger">Borrar</b-button>
+</b-form-group>
+
 </b-form>
 </div>
 

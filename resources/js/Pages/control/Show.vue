@@ -4,24 +4,32 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
+        <inertia-link
+        :href="route('patients.show', control.patient.id)"
+        class="text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3">
         <span class="card-label font-weight-bolder text-dark">
           Control de {{control.patient.first_name_1}} {{control.patient.last_name_1}}
         </span>
-        <span class="text-muted mt-3 font-weight-bold font-size-sm">
-          información detallada del Control
-        </span>
-      </h3>
-      <div class="card-toolbar">
-        <inertia-link
-        :href="$route('controls.edit-date', control.id)" class="btn btn-primary font-weight-bolder font-size-sm mr-1">
-        editar fecha
       </inertia-link>
-      
+      <span class="text-muted mt-3 font-weight-bold font-size-sm">
+        información detallada del Control
+      </span>
+    </h3>
+    <div class="card-toolbar">
       <inertia-link
-      :href="$route('controls.index')" class="btn btn-primary font-weight-bolder font-size-sm">
-      volver al listado
+      :href="$route('controls.edit-date', control.id)" class="btn btn-primary font-weight-bolder font-size-sm mr-1">
+      editar fecha
     </inertia-link>
-  </div>
+    
+    <inertia-link
+    :href="$route('patients.show', control.patient.id)" class="btn btn-primary font-weight-bolder font-size-sm mr-1">
+    Ir al perfil
+  </inertia-link>
+  <inertia-link
+  :href="$route('controls.index')" class="btn btn-primary font-weight-bolder font-size-sm">
+  volver al listado
+</inertia-link>
+</div>
 </div>
 <!-- end::Header -->
 <div class="card-body pt-2 pb-0">

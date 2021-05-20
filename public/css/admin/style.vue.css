@@ -70296,7 +70296,7 @@ code {
           animation: animation-spinner 0.5s linear infinite;
 }
 .spinner.spinner-primary:before {
-  border: 2px solid #013467;
+  border: 2px solid #8950FC;
   border-right: 2px solid transparent;
 }
 .spinner.spinner-darker-primary:before {
@@ -80610,13 +80610,4 @@ body {
   .subheader-enabled.subheader-transparent .content {
     padding-top: 0;
   }
-}
-
-
-.text-theme {
-  color: #013467 !important;
-}
-
-a.text-theme:hover, a.text-theme:focus {
-  color: #013467 !important;
 }
