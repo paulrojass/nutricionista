@@ -167,6 +167,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3651,26 +3654,41 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card card-custom card-stretch gutter-b" }, [
     _c("div", { staticClass: "card-header border-0 pt-5" }, [
-      _c("h3", { staticClass: "card-title align-items-start flex-column" }, [
-        _c("span", { staticClass: "card-label font-weight-bolder text-dark" }, [
-          _vm._v(
-            "Nuevo control para " +
-              _vm._s(_vm.patient.first_name_1) +
-              " " +
-              _vm._s(_vm.patient.last_name_1)
+      _c(
+        "h3",
+        { staticClass: "card-title align-items-start flex-column" },
+        [
+          _c(
+            "inertia-link",
+            { attrs: { href: _vm.route("patients.show", _vm.patient.id) } },
+            [
+              _c(
+                "span",
+                { staticClass: "card-label font-weight-bolder text-dark" },
+                [
+                  _vm._v(
+                    "Nuevo control para " +
+                      _vm._s(_vm.patient.first_name_1) +
+                      " " +
+                      _vm._s(_vm.patient.last_name_1)
+                  )
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            { staticClass: "text-muted mt-3 font-weight-bold font-size-sm" },
+            [
+              _vm._v(
+                "Ingrese la informacion solicitada para el registro del control"
+              )
+            ]
           )
-        ]),
-        _vm._v(" "),
-        _c(
-          "span",
-          { staticClass: "text-muted mt-3 font-weight-bold font-size-sm" },
-          [
-            _vm._v(
-              "Ingrese la informacion solicitada para el registro del control"
-            )
-          ]
-        )
-      ])
+        ],
+        1
+      )
     ]),
     _vm._v(" "),
     _c(
@@ -3891,7 +3909,7 @@ var render = function() {
                               expression: "form.agreement"
                             }
                           },
-                          [_vm._v("\n          ¿Tiene convenio?\n        ")]
+                          [_vm._v("\n        ¿Tiene convenio?\n      ")]
                         )
                       ],
                       1

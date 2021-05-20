@@ -130,6 +130,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4150,13 +4156,25 @@ var render = function() {
                         staticClass:
                           "btn btn-sm btn-info font-weight-bolder text-uppercase",
                         attrs: {
+                          href: _vm.$route("controls.create", [_vm.patient.id])
+                        }
+                      },
+                      [_vm._v("\n              Crear cita\n            ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "inertia-link",
+                      {
+                        staticClass:
+                          "btn btn-sm btn-info font-weight-bolder text-uppercase",
+                        attrs: {
                           href: _vm.route(
                             "patients.show-history",
                             _vm.patient.id
                           )
                         }
                       },
-                      [_vm._v("\n              Ver Historial\n            ")]
+                      [_vm._v("\n            Ver Historial\n          ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -4168,7 +4186,7 @@ var render = function() {
                           href: _vm.route("patients.edit", _vm.patient.id)
                         }
                       },
-                      [_vm._v("\n            Editar Historial\n          ")]
+                      [_vm._v("\n          Editar Historial\n        ")]
                     )
                   ],
                   1
@@ -4178,7 +4196,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "d-flex flex-wrap justify-content-between mt-1" },
+              { staticClass: "d-flex flex-wrap justify-content-between mt-3" },
               [
                 _c(
                   "div",
@@ -4196,7 +4214,7 @@ var render = function() {
                           _c("i", {
                             staticClass: "flaticon2-new-email mr-2 font-size-lg"
                           }),
-                          _vm._v(_vm._s(_vm.patient.email) + "\n            ")
+                          _vm._v(_vm._s(_vm.patient.email) + "\n          ")
                         ]
                       ),
                       _vm._v(" "),
@@ -4213,9 +4231,9 @@ var render = function() {
                               "flaticon2-calendar-3 mr-2 font-size-lg"
                           }),
                           _vm._v(
-                            "\n            " +
+                            "\n          " +
                               _vm._s(_vm.patient.phone) +
-                              "\n          "
+                              "\n        "
                           )
                         ]
                       ),
@@ -4233,9 +4251,7 @@ var render = function() {
                               "flaticon2-placeholder mr-2 font-size-lg"
                           }),
                           _vm._v(
-                            "\n          " +
-                              _vm._s(_vm.patient.city) +
-                              "\n        "
+                            "\n        " + _vm._s(_vm.patient.city) + "\n      "
                           )
                         ]
                       )
@@ -4246,9 +4262,7 @@ var render = function() {
                       { staticClass: "font-weight-bold text-dark-50" },
                       [
                         _vm._v(
-                          "\n        " +
-                            _vm._s(_vm.patient.aspiration) +
-                            "\n      "
+                          "\n      " + _vm._s(_vm.patient.aspiration) + "\n    "
                         )
                       ]
                     )
@@ -4598,7 +4612,7 @@ var render = function() {
                                           return [
                                             _c("b-img", {
                                               attrs: {
-                                                src: file.location,
+                                                src: "/" + file.location,
                                                 width: "92",
                                                 alt: "placeholder"
                                               }

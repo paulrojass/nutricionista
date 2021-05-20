@@ -91,6 +91,349 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Using a render function
@@ -118,9 +461,36 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: this.$inertia.form({
         patient_id: this.patient.id,
-        file: null,
-        name: '',
-        description: ''
+        file_0: null,
+        name_0: '',
+        description_0: '',
+        file_1: null,
+        name_1: '',
+        description_1: '',
+        file_2: null,
+        name_2: '',
+        description_2: '',
+        file_3: null,
+        name_3: '',
+        description_3: '',
+        file_4: null,
+        name_4: '',
+        description_4: '',
+        file_5: null,
+        name_5: '',
+        description_5: '',
+        file_6: null,
+        name_6: '',
+        description_6: '',
+        file_7: null,
+        name_7: '',
+        description_7: '',
+        file_8: null,
+        name_8: '',
+        description_8: '',
+        file_9: null,
+        name_9: '',
+        description_9: ''
       }),
       show: true
     };
@@ -3543,7 +3913,7 @@ var render = function() {
           { staticClass: "text-muted mt-3 font-weight-bold font-size-sm" },
           [
             _vm._v(
-              "Agregue cualquier archivo de imágenes o documentos del paciente"
+              "Para agregar un archivo debe ingresar ademas el nombre y la descripción"
             )
           ]
         )
@@ -3560,95 +3930,1084 @@ var render = function() {
               { on: { submit: _vm.submit, reset: _vm.onReset } },
               [
                 _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "group_file",
-                      label: "Archivo:",
-                      "label-for": "file"
-                    }
-                  },
+                  "b-row",
                   [
-                    _c("b-form-file", {
-                      attrs: {
-                        name: "file",
-                        state: Boolean(_vm.form.file),
-                        placeholder: "haga clic para agregar el archivo",
-                        "drop-placeholder": "Arrastre el archivo aquí...",
-                        required: ""
-                      },
-                      model: {
-                        value: _vm.form.file,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "file", $$v)
-                        },
-                        expression: "form.file"
-                      }
-                    }),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_file_0",
+                              label: "Archivo:",
+                              "label-for": "file_0"
+                            }
+                          },
+                          [
+                            _c("b-form-file", {
+                              attrs: {
+                                name: "file_0",
+                                state: Boolean(_vm.form.file_0),
+                                placeholder: "",
+                                "drop-placeholder":
+                                  "Arrastre el archivo aquí..."
+                              },
+                              model: {
+                                value: _vm.form.file_0,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "file_0", $$v)
+                                },
+                                expression: "form.file_0"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "mt-3" }, [
-                      _vm._v(
-                        "seleccionado: " +
-                          _vm._s(_vm.form.file ? _vm.form.file.name : "")
-                      )
-                    ])
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_name_0",
+                              label: "nombre:",
+                              "label-for": "name_0"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "name_0",
+                                placeholder: "Ingrese un nombre",
+                                maxlength: "20"
+                              },
+                              model: {
+                                value: _vm.form.name_0,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "name_0", $$v)
+                                },
+                                expression: "form.name_0"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_description_0",
+                              label: "Descripción:",
+                              "label-for": "description_0"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: { id: "description_0" },
+                              model: {
+                                value: _vm.form.description_0,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description_0", $$v)
+                                },
+                                expression: "form.description_0"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
                   ],
                   1
                 ),
                 _vm._v(" "),
                 _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "group_name",
-                      label: "nombre:",
-                      "label-for": "name"
-                    }
-                  },
+                  "b-row",
                   [
-                    _c("b-form-input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        id: "name",
-                        required: "",
-                        placeholder: "Ingrese un nombre",
-                        maxlength: "20"
-                      },
-                      model: {
-                        value: _vm.form.name,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "name", $$v)
-                        },
-                        expression: "form.name"
-                      }
-                    })
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_file_1",
+                              label: "Archivo:",
+                              "label-for": "file_1"
+                            }
+                          },
+                          [
+                            _c("b-form-file", {
+                              attrs: {
+                                name: "file_1",
+                                state: Boolean(_vm.form.file_1),
+                                placeholder: "",
+                                "drop-placeholder":
+                                  "Arrastre el archivo aquí..."
+                              },
+                              model: {
+                                value: _vm.form.file_1,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "file_1", $$v)
+                                },
+                                expression: "form.file_1"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_name_1",
+                              label: "nombre:",
+                              "label-for": "name_1"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "name_1",
+                                placeholder: "Ingrese un nombre",
+                                maxlength: "20"
+                              },
+                              model: {
+                                value: _vm.form.name_1,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "name_1", $$v)
+                                },
+                                expression: "form.name_1"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_description_1",
+                              label: "Descripción:",
+                              "label-for": "description_1"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: { id: "description_1" },
+                              model: {
+                                value: _vm.form.description_1,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description_1", $$v)
+                                },
+                                expression: "form.description_1"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _c("b-form-group", { attrs: { label: "Descripción" } }, [
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.description,
-                        expression: "form.description"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { name: "description", required: "" },
-                    domProps: { value: _vm.form.description },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.form, "description", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
+                _c(
+                  "b-row",
+                  [
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_file_2",
+                              label: "Archivo:",
+                              "label-for": "file_2"
+                            }
+                          },
+                          [
+                            _c("b-form-file", {
+                              attrs: {
+                                name: "file_2",
+                                state: Boolean(_vm.form.file_2),
+                                placeholder: "",
+                                "drop-placeholder":
+                                  "Arrastre el archivo aquí..."
+                              },
+                              model: {
+                                value: _vm.form.file_2,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "file_2", $$v)
+                                },
+                                expression: "form.file_2"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_name_2",
+                              label: "nombre:",
+                              "label-for": "name_2"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "name_2",
+                                placeholder: "Ingrese un nombre",
+                                maxlength: "20"
+                              },
+                              model: {
+                                value: _vm.form.name_2,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "name_2", $$v)
+                                },
+                                expression: "form.name_2"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_description_2",
+                              label: "Descripción:",
+                              "label-for": "description_2"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: { id: "description_2" },
+                              model: {
+                                value: _vm.form.description_2,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description_2", $$v)
+                                },
+                                expression: "form.description_2"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-row",
+                  [
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_file_3",
+                              label: "Archivo:",
+                              "label-for": "file_3"
+                            }
+                          },
+                          [
+                            _c("b-form-file", {
+                              attrs: {
+                                name: "file_3",
+                                state: Boolean(_vm.form.file_3),
+                                placeholder: "",
+                                "drop-placeholder":
+                                  "Arrastre el archivo aquí..."
+                              },
+                              model: {
+                                value: _vm.form.file_3,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "file_3", $$v)
+                                },
+                                expression: "form.file_3"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_name_3",
+                              label: "nombre:",
+                              "label-for": "name_3"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "name_3",
+                                placeholder: "Ingrese un nombre",
+                                maxlength: "20"
+                              },
+                              model: {
+                                value: _vm.form.name_3,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "name_3", $$v)
+                                },
+                                expression: "form.name_3"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_description_3",
+                              label: "Descripción:",
+                              "label-for": "description_3"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: { id: "description_3" },
+                              model: {
+                                value: _vm.form.description_3,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description_3", $$v)
+                                },
+                                expression: "form.description_3"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-row",
+                  [
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_file_4",
+                              label: "Archivo:",
+                              "label-for": "file_4"
+                            }
+                          },
+                          [
+                            _c("b-form-file", {
+                              attrs: {
+                                name: "file_4",
+                                state: Boolean(_vm.form.file_4),
+                                placeholder: "",
+                                "drop-placeholder":
+                                  "Arrastre el archivo aquí..."
+                              },
+                              model: {
+                                value: _vm.form.file_4,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "file_4", $$v)
+                                },
+                                expression: "form.file_4"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_name_4",
+                              label: "nombre:",
+                              "label-for": "name_4"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "name_4",
+                                placeholder: "Ingrese un nombre",
+                                maxlength: "20"
+                              },
+                              model: {
+                                value: _vm.form.name_4,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "name_4", $$v)
+                                },
+                                expression: "form.name_4"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_description_4",
+                              label: "Descripción:",
+                              "label-for": "description_4"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: { id: "description_4" },
+                              model: {
+                                value: _vm.form.description_4,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description_4", $$v)
+                                },
+                                expression: "form.description_4"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-row",
+                  [
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_file_5",
+                              label: "Archivo:",
+                              "label-for": "file_5"
+                            }
+                          },
+                          [
+                            _c("b-form-file", {
+                              attrs: {
+                                name: "file_5",
+                                state: Boolean(_vm.form.file_5),
+                                placeholder: "",
+                                "drop-placeholder":
+                                  "Arrastre el archivo aquí..."
+                              },
+                              model: {
+                                value: _vm.form.file_5,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "file_5", $$v)
+                                },
+                                expression: "form.file_5"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_name_5",
+                              label: "nombre:",
+                              "label-for": "name_5"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "name_5",
+                                placeholder: "Ingrese un nombre",
+                                maxlength: "20"
+                              },
+                              model: {
+                                value: _vm.form.name_5,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "name_5", $$v)
+                                },
+                                expression: "form.name_5"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_description_5",
+                              label: "Descripción:",
+                              "label-for": "description_5"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: { id: "description_5" },
+                              model: {
+                                value: _vm.form.description_5,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description_5", $$v)
+                                },
+                                expression: "form.description_5"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-row",
+                  [
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_file_6",
+                              label: "Archivo:",
+                              "label-for": "file_6"
+                            }
+                          },
+                          [
+                            _c("b-form-file", {
+                              attrs: {
+                                name: "file_6",
+                                state: Boolean(_vm.form.file_6),
+                                placeholder: "",
+                                "drop-placeholder":
+                                  "Arrastre el archivo aquí..."
+                              },
+                              model: {
+                                value: _vm.form.file_6,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "file_6", $$v)
+                                },
+                                expression: "form.file_6"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_name_6",
+                              label: "nombre:",
+                              "label-for": "name_6"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "name_6",
+                                placeholder: "Ingrese un nombre",
+                                maxlength: "20"
+                              },
+                              model: {
+                                value: _vm.form.name_6,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "name_6", $$v)
+                                },
+                                expression: "form.name_6"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_description_6",
+                              label: "Descripción:",
+                              "label-for": "description_6"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: { id: "description_6" },
+                              model: {
+                                value: _vm.form.description_6,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description_6", $$v)
+                                },
+                                expression: "form.description_6"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-row",
+                  [
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_file_7",
+                              label: "Archivo:",
+                              "label-for": "file_7"
+                            }
+                          },
+                          [
+                            _c("b-form-file", {
+                              attrs: {
+                                name: "file_7",
+                                state: Boolean(_vm.form.file_7),
+                                placeholder: "",
+                                "drop-placeholder":
+                                  "Arrastre el archivo aquí..."
+                              },
+                              model: {
+                                value: _vm.form.file_7,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "file_7", $$v)
+                                },
+                                expression: "form.file_7"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_name_7",
+                              label: "nombre:",
+                              "label-for": "name_7"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "name_7",
+                                placeholder: "Ingrese un nombre",
+                                maxlength: "20"
+                              },
+                              model: {
+                                value: _vm.form.name_7,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "name_7", $$v)
+                                },
+                                expression: "form.name_7"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_description_7",
+                              label: "Descripción:",
+                              "label-for": "description_7"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: { id: "description_7" },
+                              model: {
+                                value: _vm.form.description_7,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description_7", $$v)
+                                },
+                                expression: "form.description_7"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-row",
+                  [
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_file_8",
+                              label: "Archivo:",
+                              "label-for": "file_8"
+                            }
+                          },
+                          [
+                            _c("b-form-file", {
+                              attrs: {
+                                name: "file_8",
+                                state: Boolean(_vm.form.file_8),
+                                placeholder: "",
+                                "drop-placeholder":
+                                  "Arrastre el archivo aquí..."
+                              },
+                              model: {
+                                value: _vm.form.file_8,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "file_8", $$v)
+                                },
+                                expression: "form.file_8"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_name_8",
+                              label: "nombre:",
+                              "label-for": "name_8"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "name_8",
+                                placeholder: "Ingrese un nombre",
+                                maxlength: "20"
+                              },
+                              model: {
+                                value: _vm.form.name_8,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "name_8", $$v)
+                                },
+                                expression: "form.name_8"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_description_8",
+                              label: "Descripción:",
+                              "label-for": "description_8"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: { id: "description_8" },
+                              model: {
+                                value: _vm.form.description_8,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description_8", $$v)
+                                },
+                                expression: "form.description_8"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-row",
+                  [
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_file_9",
+                              label: "Archivo:",
+                              "label-for": "file_9"
+                            }
+                          },
+                          [
+                            _c("b-form-file", {
+                              attrs: {
+                                name: "file_9",
+                                state: Boolean(_vm.form.file_9),
+                                placeholder: "",
+                                "drop-placeholder":
+                                  "Arrastre el archivo aquí..."
+                              },
+                              model: {
+                                value: _vm.form.file_9,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "file_9", $$v)
+                                },
+                                expression: "form.file_9"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_name_9",
+                              label: "nombre:",
+                              "label-for": "name_9"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "name_9",
+                                placeholder: "Ingrese un nombre",
+                                maxlength: "20"
+                              },
+                              model: {
+                                value: _vm.form.name_9,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "name_9", $$v)
+                                },
+                                expression: "form.name_9"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "group_description_9",
+                              label: "Descripción:",
+                              "label-for": "description_9"
+                            }
+                          },
+                          [
+                            _c("b-form-input", {
+                              staticClass: "form-control",
+                              attrs: { id: "description_9" },
+                              model: {
+                                value: _vm.form.description_9,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "description_9", $$v)
+                                },
+                                expression: "form.description_9"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
                   "b-form-group",

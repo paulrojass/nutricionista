@@ -24,8 +24,8 @@
           <tr class="text-left">
             <th class="pr-0" style="width: 30%">Nombre</th>
             <th style="min-width: 20%">Correo</th>
-            <th style="min-width: 30%">Teléfono</th>
-            <th class="pr-0 text-right" style="min-width: 20%"></th>
+            <th style="min-width: 25%">Teléfono</th>
+            <th class="pr-0 text-right" style="min-width: 25%"></th>
           </tr>
         </thead>
         <tbody>
@@ -58,7 +58,7 @@
         <td class="pr-0 text-right">
           <inertia-link
           :href="$route('controls.create', [candidate.id])"
-          class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+          class="btn btn-icon btn-light btn-hover-primary btn-sm"
           >
           <span class="svg-icon svg-icon-md svg-icon-primary">
             <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
@@ -77,7 +77,7 @@
         method="delete"
         as="button"
         type="button"
-        class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+        class="btn btn-icon btn-light btn-hover-primary btn-sm"
         >
         <span
         class="svg-icon svg-icon-md svg-icon-primary">

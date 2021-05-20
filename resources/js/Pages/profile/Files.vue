@@ -128,7 +128,7 @@
             <b-media>
               <template #aside>
                 <b-img
-                :src="file.location" width="92" alt="placeholder"
+                :src="`/${file.location}`" width="92" alt="placeholder"
                 >
                 
               </b-img>

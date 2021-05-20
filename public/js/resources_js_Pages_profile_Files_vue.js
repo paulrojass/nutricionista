@@ -527,7 +527,7 @@ var render = function() {
                                           return [
                                             _c("b-img", {
                                               attrs: {
-                                                src: file.location,
+                                                src: "/" + file.location,
                                                 width: "92",
                                                 alt: "placeholder"
                                               }

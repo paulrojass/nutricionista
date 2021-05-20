@@ -3778,7 +3778,8 @@ var render = function() {
           "div",
           { staticClass: "my-2 d-flex justify-content-center" },
           [
-            _vm.route().current("patients.index") == true
+            this.$route().current() == "patients.index" ||
+            this.$route().current() == "patients.search-status"
               ? _c(
                   "inertia-link",
                   {
@@ -3791,7 +3792,7 @@ var render = function() {
                 )
               : _vm._e(),
             _vm._v(" "),
-            _vm.route().current("controls.patients") == true
+            this.$route().current() == "controls.patients"
               ? _c(
                   "inertia-link",
                   {

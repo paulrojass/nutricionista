@@ -4,26 +4,30 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
+        <inertia-link
+        class="text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3"
+        :href="route('patients.show', patient.id)">
         <span class="card-label font-weight-bolder text-dark">
           Historial de {{patient.first_name_1}} {{patient.last_name_1}}
         </span>
-        <span class="text-muted mt-3 font-weight-bold font-size-sm">
-          información detallada del paciente
-        </span>
-      </h3>
-      <div class="card-toolbar">
-        <inertia-link
-        :href="$route('patients.edit', patient.id)"
-        class="btn btn-primary font-weight-bolder font-size-sm mr-1">
-        editar historial
       </inertia-link>
-      
+      <span class="text-muted mt-3 font-weight-bold font-size-sm">
+        información detallada del paciente
+      </span>
+    </h3>
+    <div class="card-toolbar">
       <inertia-link
-      :href="$route('patients.show', patient.id)"
-      class="btn btn-primary font-weight-bolder font-size-sm">
-      perfil
+      :href="$route('patients.edit', patient.id)"
+      class="btn btn-primary font-weight-bolder font-size-sm mr-1">
+      editar historial
     </inertia-link>
-  </div>
+    
+    <inertia-link
+    :href="$route('patients.show', patient.id)"
+    class="btn btn-primary font-weight-bolder font-size-sm">
+    perfil
+  </inertia-link>
+</div>
 </div>
 <!-- end::Header -->
 <div class="card-body pt-2 pb-0">
