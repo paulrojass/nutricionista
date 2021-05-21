@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
     $this->call(UserSeeder::class);
     $this->call(CitySeeder::class);
     $this->call(PlanSeeder::class);
-    Patient::factory(30)->create();
-    Control::factory(50)->create();
+    // Patient::factory(30)->create();
+    // Control::factory(50)->create();
   }
 }

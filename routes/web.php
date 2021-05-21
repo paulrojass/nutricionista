@@ -18,7 +18,7 @@ return view('welcome');
 });
 */
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('login')->name('login')->uses([App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->middleware('guest');
 

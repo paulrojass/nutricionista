@@ -92,18 +92,18 @@
       <a
       href="#"
       class="card-title font-weight-bolder text-warning font-size-h6 mb-4 text-hover-state-dark d-block"
-      >Pacientes inactivos</a
+      >Citas culminadas del dia</a
       >
       <div class="font-weight-bold text-muted font-size-sm">
         <span class="text-dark-75 font-weight-bolder font-size-h2 mr-2"
-        >{{inactivePatients}}%</span
-        >{{inactivesTotal}} pendientes por evaluar
+        >{{successControls}}%</span
+        >{{controlsSuccessToday}} citas programadas para hoy
       </div>
       <div class="progress progress-xs mt-7 bg-warning-o-60">
         <div
         class="progress-bar bg-warning"
         role="progressbar"
-        :style="`width: ${inactivePatients}%;`"
+        :style="`width: ${successControls}%;`"
         aria-valuenow="50"
         aria-valuemin="0"
         aria-valuemax="100"
@@ -153,6 +153,12 @@ export default {
     },
     inactivesTotal() {
       return this.$page.props.inactivesTotal
+    },
+    controlsSuccessToday() {
+      return this.$page.props.controlsSuccessToday
+    },
+    successControls() {
+      return this.$page.props.successControls
     },
   }
 };

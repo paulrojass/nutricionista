@@ -1103,6 +1103,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     inactivesTotal: function inactivesTotal() {
       return this.$page.props.inactivesTotal;
+    },
+    controlsSuccessToday: function controlsSuccessToday() {
+      return this.$page.props.controlsSuccessToday;
+    },
+    successControls: function successControls() {
+      return this.$page.props.successControls;
     }
   }
 });
@@ -5093,7 +5099,7 @@ var render = function() {
                       "card-title font-weight-bolder text-warning font-size-h6 mb-4 text-hover-state-dark d-block",
                     attrs: { href: "#" }
                   },
-                  [_vm._v("Pacientes inactivos")]
+                  [_vm._v("Citas culminadas del dia")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -5106,11 +5112,11 @@ var render = function() {
                         staticClass:
                           "text-dark-75 font-weight-bolder font-size-h2 mr-2"
                       },
-                      [_vm._v(_vm._s(_vm.inactivePatients) + "%")]
+                      [_vm._v(_vm._s(_vm.successControls) + "%")]
                     ),
                     _vm._v(
-                      _vm._s(_vm.inactivesTotal) +
-                        " pendientes por evaluar\n      "
+                      _vm._s(_vm.controlsSuccessToday) +
+                        " citas programadas para hoy\n      "
                     )
                   ]
                 ),
@@ -5121,7 +5127,7 @@ var render = function() {
                   [
                     _c("div", {
                       staticClass: "progress-bar bg-warning",
-                      style: "width: " + _vm.inactivePatients + "%;",
+                      style: "width: " + _vm.successControls + "%;",
                       attrs: {
                         role: "progressbar",
                         "aria-valuenow": "50",

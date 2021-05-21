@@ -428,6 +428,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
  // FormValidation plugins
 
 
@@ -442,10 +446,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       state: "signin",
+      showDismissibleAlert: false,
+      showSuccessAlert: false,
       // Remove this dummy login info
       form: {
         email: 'admin@admin.com',
         password: '12345678'
+      },
+      forgot: {
+        email: ''
       }
     };
   },
@@ -640,6 +649,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$inertia.post('/login', {
         email: this.form.email,
         password: this.form.password
+      }).then(console.log("Hello"));
+    },
+    sendForgot: function sendForgot() {
+      var _this2 = this;
+
+      this.$inertia.post(route('password.email'), {
+        email: this.forgot.email
+      }, {
+        onError: function onError(errors) {
+          console.log('hay errores');
+          _this2.showDismissibleAlert = true;
+          _this2.showSuccessAlert = false;
+        },
+        onSuccess: function onSuccess(page) {
+          console.log('No hay errores');
+          _this2.showDismissibleAlert = false;
+          _this2.showSuccessAlert = true;
+        }
       }).then(console.log("Hello"));
     }
   }
@@ -7759,7 +7786,7 @@ var render = function() {
           "div",
           {
             staticClass: "login-aside d-flex flex-column flex-row-auto",
-            staticStyle: { "background-color": "#FFFFFF" }
+            staticStyle: { "background-color": "#F2C98A" }
           },
           [
             _c("div", {
@@ -7863,7 +7890,7 @@ var render = function() {
                             "a",
                             {
                               staticClass:
-                                "text-theme font-size-h6 font-weight-bolder text-hover-primary pt-5",
+                                "text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5",
                               attrs: { id: "kt_login_forgot" },
                               on: {
                                 click: function($event) {
@@ -7871,7 +7898,7 @@ var render = function() {
                                 }
                               }
                             },
-                            [_vm._v("¿Olvidaste la contraseña ?")]
+                            [_vm._v("¿Olvidó la contraseña ?")]
                           )
                         ]
                       ),
@@ -7929,7 +7956,7 @@ var render = function() {
                           staticClass:
                             "btn btn-primary font-weight-bolder font-size-h6 px-15 py-4 my-3 mr-3"
                         },
-                        [_vm._v("\n                Acceder\n              ")]
+                        [_vm._v("\n  Acceder\n")]
                       )
                     ])
                   ]
@@ -7948,9 +7975,75 @@ var render = function() {
                     }
                   },
                   [
+                    _c(
+                      "b-alert",
+                      {
+                        attrs: { variant: "danger", dismissible: "" },
+                        model: {
+                          value: _vm.showDismissibleAlert,
+                          callback: function($$v) {
+                            _vm.showDismissibleAlert = $$v
+                          },
+                          expression: "showDismissibleAlert"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n    Esta cuenta de usuario no existe en nuestros registros\n  "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-alert",
+                      {
+                        attrs: { variant: "success", dismissible: "" },
+                        model: {
+                          value: _vm.showSuccessAlert,
+                          callback: function($$v) {
+                            _vm.showSuccessAlert = $$v
+                          },
+                          expression: "showSuccessAlert"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n    ¡El mensaje para reseteo ha sido enviado al correo!\n  "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
                     _vm._m(1),
                     _vm._v(" "),
-                    _vm._m(2),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.forgot.email,
+                            expression: "forgot.email"
+                          }
+                        ],
+                        staticClass:
+                          "form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6",
+                        attrs: {
+                          type: "email",
+                          placeholder: "Email",
+                          name: "email",
+                          autocomplete: "off"
+                        },
+                        domProps: { value: _vm.forgot.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.forgot, "email", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -7964,9 +8057,10 @@ var render = function() {
                             attrs: {
                               type: "button",
                               id: "kt_login_forgot_submit"
-                            }
+                            },
+                            on: { click: _vm.sendForgot }
                           },
-                          [_vm._v("\n                Enviar\n              ")]
+                          [_vm._v("\n  enviar\n")]
                         ),
                         _vm._v(" "),
                         _c(
@@ -7984,11 +8078,12 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v("\n                Cancelar\n              ")]
+                          [_vm._v("\nCancelar\n")]
                         )
                       ]
                     )
-                  ]
+                  ],
+                  1
                 )
               ])
             ])
@@ -8004,20 +8099,20 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "pb-13 pt-lg-0 pt-5" }, [
-      _c("a", { staticClass: "text-left", attrs: { href: "#" } }, [
-        _c("img", {
-          staticClass: "max-h-60px mb-10",
-          attrs: { src: "/media/theo/logo.svg", alt: "" }
-        })
-      ]),
-      _vm._v(" "),
       _c(
         "h3",
         {
           staticClass:
             "font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
         },
-        [_vm._v("\n                Bienvenido\n              ")]
+        [
+          _c("a", { staticClass: "text-center mb-10", attrs: { href: "#" } }, [
+            _c("img", {
+              staticClass: "max-h-40px",
+              attrs: { src: "/media/theo/logo.svg", alt: "" }
+            })
+          ])
+        ]
       )
     ])
   },
@@ -8032,31 +8127,12 @@ var staticRenderFns = [
           staticClass:
             "font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
         },
-        [_vm._v("\n                ¿Olvidaste la contraseña?\n              ")]
+        [_vm._v("\n    ¿Olvido de contraseña?\n  ")]
       ),
       _vm._v(" "),
       _c("p", { staticClass: "text-muted font-weight-bold font-size-h4" }, [
-        _vm._v(
-          "\n                Ingresa tu email para reestablecer tu contraseña\n              "
-        )
+        _vm._v("\n    Ingrese su email para resetear la contraseña\n  ")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("input", {
-        staticClass:
-          "form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6",
-        attrs: {
-          type: "email",
-          placeholder: "Email",
-          name: "email",
-          autocomplete: "off"
-        }
-      })
     ])
   }
 ]
