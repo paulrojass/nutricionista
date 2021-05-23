@@ -65,17 +65,14 @@
       Estado de la consulta:
     </div>
     <div class="row">
-      <div class="col-xl-6">
-        <h2>
+      <div class="col-xl-12">
+        <h4>
           <b-badge class="mr-1" :class="`control-${control.status}`">
             <span style="color:white">
               {{this.tipo[control.status]}}
             </span>
           </b-badge>
-        </h2>
-      </div>
-      
-      <div class="col-xl-6">
+        </h4>
         <inertia-link
         :href="$route('controls.edit', control.id)" class="btn btn-primary font-weight-bolder font-size-sm mr-1">
         Cambiar estado

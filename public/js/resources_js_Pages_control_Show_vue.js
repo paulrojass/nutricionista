@@ -98,9 +98,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Using a render function
@@ -3698,35 +3695,33 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-xl-6" }, [
-            _c(
-              "h2",
-              [
-                _c(
-                  "b-badge",
-                  {
-                    staticClass: "mr-1",
-                    class: "control-" + _vm.control.status
-                  },
-                  [
-                    _c("span", { staticStyle: { color: "white" } }, [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(this.tipo[_vm.control.status]) +
-                          "\n            "
-                      )
-                    ])
-                  ]
-                )
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-xl-6" },
+            { staticClass: "col-xl-12" },
             [
+              _c(
+                "h4",
+                [
+                  _c(
+                    "b-badge",
+                    {
+                      staticClass: "mr-1",
+                      class: "control-" + _vm.control.status
+                    },
+                    [
+                      _c("span", { staticStyle: { color: "white" } }, [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(this.tipo[_vm.control.status]) +
+                            "\n            "
+                        )
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
               _c(
                 "inertia-link",
                 {
