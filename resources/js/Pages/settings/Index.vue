@@ -35,8 +35,42 @@
           >
         </inertia-link>
       </div>
+      
+      <!--begin::Item-->
+      <div class="col-4">
+        <inertia-link
+        :href="route('my-profile')"
+        class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5"
+        >
+        <span class="svg-icon svg-icon-3x svg-icon-primary m-0">
+          <!--begin::Svg Icon-->
+          <inline-svg src="/media/svg/icons/General/user.svg" />
+          <!--end::Svg Icon-->
+        </span>
+        <span class="d-block font-weight-bold font-size-h6 mt-2"
+        >Mi perfil</span
+        >
+      </inertia-link>
     </div>
+    
+    <!--begin::Item-->
+    <div class="col-4" v-if="this.$page.props.auth_user.admin == 1">
+      <inertia-link
+      :href="route('users.index')"
+      class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5"
+      >
+      <span class="svg-icon svg-icon-3x svg-icon-primary m-0">
+        <inline-svg src="/media/svg/icons/Communication/Group.svg" />
+      </span>
+      <span class="d-block font-weight-bold font-size-h6 mt-2"
+      >Usuarios</span
+      >
+    </inertia-link>
   </div>
+  
+  
+</div>
+</div>
 </div>
 </div>
 </template>

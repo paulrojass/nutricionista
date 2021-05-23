@@ -122,17 +122,6 @@
       ></b-form-input>
     </b-form-group>
     
-    <b-form-group>
-      <label>Describa las aspiraciones o motivo de la consulta</label>
-      <textarea
-      type="text"
-      v-model="form.aspiration"
-      class="form-control"
-      name="aspiration"
-      required
-      ></textarea>
-    </b-form-group>
-    
     <div class="pb-lg-0 pb-5">
       <button
       class="btn btn-primary font-weight-bolder font-size-h6 px-15 py-4 my-3 mr-3"
@@ -183,8 +172,7 @@ export default {
         birth_date: '',
         city_id: null,
         phone: '',
-        email: '',
-        aspiration: ''
+        email: ''
       },
       show: true,
     };

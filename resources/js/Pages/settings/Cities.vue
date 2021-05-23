@@ -151,16 +151,24 @@ export default {
       if(Object.keys(city.plans).length > 0){
         var c = 0
         city.plans.forEach((plan, i) => {
-          c++
+          if(Object.keys(plan.controls).length > 0){
+            Swal.fire({
+              icon: 'error',
+              text: 'Esta ubicación tiene planes con controles asignados los cuales forman parte del historial para las finanzas, no se puede eliminar.'
+            })
+          } else {
+            return this.$inertia.delete(route('cities.destroy', city.id))
+          }
+          //c++
         })
-        if(c > 0){
-          return Swal.fire({
-            icon: 'error',
-            text: 'Esta ubicación tiene controles asignados los cuales forman parte del historial para las finanzas, no se puede eliminar.'
-          })
-        } else {
-          return this.$inertia.delete(route('cities.destroy', city.id))
-        }
+        // if(c > 0){
+        //   return Swal.fire({
+        //     icon: 'error',
+        //     text: 'Esta ubicación tiene controles asignados los cuales forman parte del historial para las finanzas, no se puede eliminar.'
+        //   })
+        // } else {
+        //   return this.$inertia.delete(route('cities.destroy', city.id))
+        // }
       } else {
         return this.$inertia.delete(route('cities.destroy', city.id))
       }

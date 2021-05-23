@@ -249,6 +249,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -266,14 +271,14 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  watch: {
-    params: {
-      handler: function handler() {
-        this.getResults();
-      },
-      deep: true
-    }
-  },
+  // watch: {
+  //   params: {
+  //     handler() {
+  //       this.getResults();
+  //     },
+  //     deep: true
+  //   }
+  // },
   methods: {
     getResults: function getResults() {
       this.$inertia.get(route('controls.search'), this.params, {
@@ -838,6 +843,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     */
     subheaderDisplay: function subheaderDisplay() {
       return !!this.layoutConfig("subheader.display");
+    },
+    auth_user: function auth_user() {
+      return this.$page.props.auth_user;
     }
     /**
     * Set the subheader display on dashboard page
@@ -6985,8 +6993,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xl-4" }),
-      _vm._v(" "),
       _c(
         "div",
         { staticClass: "col-xl-4" },
@@ -7047,6 +7053,33 @@ var render = function() {
           )
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-xl-4 mt-3" },
+        [
+          _c(
+            "b-form-group",
+            { staticClass: "mt-5" },
+            [
+              _c(
+                "b-button",
+                {
+                  attrs: { type: "button", variant: "primary" },
+                  on: {
+                    click: function($event) {
+                      return _vm.getResults()
+                    }
+                  }
+                },
+                [_vm._v("Filtrar")]
+              )
+            ],
+            1
+          )
+        ],
+        1
       )
     ]),
     _vm._v(" "),
@@ -7067,7 +7100,7 @@ var render = function() {
                       "btn btn-primary font-weight-bolder font-size-sm py-2",
                     attrs: { href: _vm.$route("calendar") }
                   },
-                  [_vm._v("\n            calendario\n          ")]
+                  [_vm._v("\n          calendario\n        ")]
                 )
               ],
               1
@@ -7133,11 +7166,11 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                " +
+                                    "\n              " +
                                       _vm._s(item.patient.first_name_1) +
                                       " " +
                                       _vm._s(item.patient.last_name_1) +
-                                      "\n              "
+                                      "\n            "
                                   )
                                 ]
                               ),
@@ -7150,13 +7183,13 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                " +
+                                    "\n              " +
                                       _vm._s(
                                         _vm.calcularEdad(
                                           item.patient.birth_date
                                         ) + " años"
                                       ) +
-                                      "\n              "
+                                      "\n            "
                                   )
                                 ]
                               )
@@ -7170,9 +7203,9 @@ var render = function() {
                               { staticClass: "text-muted font-weight-bold" },
                               [
                                 _vm._v(
-                                  "\n                " +
+                                  "\n              " +
                                     _vm._s(_vm._f("formatDate")(item.date)) +
-                                    "\n              "
+                                    "\n            "
                                 )
                               ]
                             )
@@ -7184,9 +7217,9 @@ var render = function() {
                               { staticClass: "text-muted font-weight-bold" },
                               [
                                 _vm._v(
-                                  "\n                " +
+                                  "\n              " +
                                     _vm._s(item.time) +
-                                    "\n              "
+                                    "\n            "
                                 )
                               ]
                             )
@@ -7198,11 +7231,11 @@ var render = function() {
                               { staticClass: "text-muted font-weight-bold" },
                               [
                                 _vm._v(
-                                  "\n                " +
+                                  "\n              " +
                                     _vm._s(
                                       _vm._f("truncate")(item.note, 20, "...")
                                     ) +
-                                    "\n              "
+                                    "\n            "
                                 )
                               ]
                             )
@@ -7847,37 +7880,44 @@ var render = function() {
                   _vm._l(_vm.inactives, function(item, i) {
                     return [
                       _c("tr", { key: i }, [
-                        _c("td", { staticClass: "pl-0" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg",
-                              attrs: { href: "#" }
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(item.first_name_1) +
-                                  " " +
-                                  _vm._s(item.last_name_2)
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "text-muted font-weight-bold text-muted d-block"
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(_vm.calcularEdad(item.birth_date)) +
-                                  " años"
-                              )
-                            ]
-                          )
-                        ]),
+                        _c(
+                          "td",
+                          { staticClass: "pl-0" },
+                          [
+                            _c(
+                              "inertia-link",
+                              {
+                                staticClass:
+                                  "text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg",
+                                attrs: {
+                                  href: _vm.$route("patients.show", item.id)
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(item.first_name_1) +
+                                    " " +
+                                    _vm._s(item.last_name_1)
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "text-muted font-weight-bold text-muted d-block"
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.calcularEdad(item.birth_date)) +
+                                    " años"
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _c(
                           "td",
@@ -8429,10 +8469,10 @@ var render = function() {
                         staticClass:
                           "text-dark-75 font-weight-bolder font-size-h2 mr-2"
                       },
-                      [_vm._v(_vm._s(_vm.successControls) + "%")]
+                      [_vm._v(_vm._s(_vm.controlsSuccessToday) + "%")]
                     ),
                     _vm._v(
-                      _vm._s(_vm.controlsSuccessToday) +
+                      _vm._s(_vm.successControls) +
                         " citas programadas para hoy\n      "
                     )
                   ]
@@ -8444,7 +8484,7 @@ var render = function() {
                   [
                     _c("div", {
                       staticClass: "progress-bar bg-warning",
-                      style: "width: " + _vm.successControls + "%;",
+                      style: "width: " + _vm.controlsSuccessToday + "%;",
                       attrs: {
                         role: "progressbar",
                         "aria-valuenow": "50",

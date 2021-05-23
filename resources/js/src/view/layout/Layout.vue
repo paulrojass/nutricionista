@@ -160,6 +160,9 @@ export default {
     subheaderDisplay() {
       return !!this.layoutConfig("subheader.display");
     },
+    auth_user() {
+      return this.$page.props.auth_user
+    }
     
     /**
     * Set the subheader display on dashboard page

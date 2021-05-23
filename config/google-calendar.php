@@ -1,5 +1,4 @@
 <?php
-
 return [
   
   'default_auth_profile' => env('GOOGLE_CALENDAR_AUTH_PROFILE', 'service_account'),
@@ -35,6 +34,5 @@ return [
   /*
   *  The id of the Google Calendar that will be used by default.
   */
-  //'calendar_id' => env('GOOGLE_CALENDAR_ID'),
-  'calendar_id' => env('GOOGLE_CALENDAR_ID','es.pa#holiday@group.v.calendar.google.com'),
+  'calendar_id' => env('GOOGLE_CALENDAR_ID'),
 ];

@@ -16,79 +16,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      form: {
-        email: 'user@email.com',
-        password: '12345678'
-      }
-    };
+  props: {
+    errors: Object
   },
+  // data() {
+  //   return {
+  //     form : {
+  //       email : 'user@email.com',
+  //
+  //       password: '12345678'
+  //     }
+  //   }
+  // },
   components: {
     Login: _src_view_pages_auth_login_pages_Login_1_vue__WEBPACK_IMPORTED_MODULE_0__.default
-  },
-  methods: {
-    submit: function submit() {
-      this.$inertia.post('/login', {
-        email: this.form.email,
-        password: this.form.password
-      }).then(console.log("Hello"));
-    }
-  }
+  } // methods: {
+  //   submit() {
+  //     this.$inertia.post('/login', {
+  //       email: this.form.email,
+  //       password: this.form.password
+  //     }).then(console.log("Hello"));
+  //   }
+  // }
+
 });
 
 /***/ }),
@@ -109,10 +61,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_plugins_formvalidation_dist_es6_plugins_Bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../assets/plugins/formvalidation/dist/es6/plugins/Bootstrap */ "./resources/js/src/assets/plugins/formvalidation/dist/es6/plugins/Bootstrap.js");
 /* harmony import */ var _assets_plugins_formvalidation_dist_es6_plugins_SubmitButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../assets/plugins/formvalidation/dist/es6/plugins/SubmitButton */ "./resources/js/src/assets/plugins/formvalidation/dist/es6/plugins/SubmitButton.js");
 /* harmony import */ var _assets_js_components_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../assets/js/components/util */ "./resources/js/src/assets/js/components/util.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _core_services_store_auth_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../core/services/store/auth.module */ "./resources/js/src/core/services/store/auth.module.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -438,11 +389,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
+ // import { LOGIN, LOGOUT, REGISTER } from "../../../../core/services/store/auth.module";
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "login-1",
+  props: {
+    errors: Object
+  },
   data: function data() {
     return {
       state: "signin",
@@ -450,187 +404,185 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       showSuccessAlert: false,
       // Remove this dummy login info
       form: {
-        email: 'admin@admin.com',
-        password: '12345678'
+        email: '',
+        password: ''
       },
       forgot: {
         email: ''
       }
     };
   },
-  computed: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapState)({
-    errors: function errors(state) {
-      return state.auth.errors;
-    }
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)(["currentUser"])), {}, {
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)(["currentUser"])), {}, {
     backgroundImage: function backgroundImage() {
       return "/media/theo/theo.jpg";
     }
   }),
   mounted: function mounted() {
-    var _this = this;
-
     var signin_form = _assets_js_components_util__WEBPACK_IMPORTED_MODULE_4__.default.getById("kt_login_signin_form");
     var signup_form = _assets_js_components_util__WEBPACK_IMPORTED_MODULE_4__.default.getById("kt_login_signup_form");
-    var forgot_form = _assets_js_components_util__WEBPACK_IMPORTED_MODULE_4__.default.getById("kt_login_forgot_form");
-    this.fv = (0,_assets_plugins_formvalidation_dist_es6_core_Core__WEBPACK_IMPORTED_MODULE_0__.default)(signin_form, {
-      fields: {
-        email: {
-          validators: {
-            notEmpty: {
-              message: "Correo es un campo obligatorio"
-            }
-          }
-        },
-        password: {
-          validators: {
-            notEmpty: {
-              message: "Contraseña es un campo obligatorio"
-            }
-          }
-        }
-      },
-      plugins: {
-        trigger: new _assets_plugins_formvalidation_dist_es6_plugins_Trigger__WEBPACK_IMPORTED_MODULE_1__.default(),
-        submitButton: new _assets_plugins_formvalidation_dist_es6_plugins_SubmitButton__WEBPACK_IMPORTED_MODULE_3__.default(),
-        bootstrap: new _assets_plugins_formvalidation_dist_es6_plugins_Bootstrap__WEBPACK_IMPORTED_MODULE_2__.default()
-      }
-    });
-    this.fv1 = (0,_assets_plugins_formvalidation_dist_es6_core_Core__WEBPACK_IMPORTED_MODULE_0__.default)(signup_form, {
-      fields: {
-        fullname: {
-          validators: {
-            notEmpty: {
-              message: "Full name is required"
-            }
-          }
-        },
-        email: {
-          validators: {
-            notEmpty: {
-              message: "Email is required"
-            },
-            emailAddress: {
-              message: "The value is not a valid email address"
-            }
-          }
-        },
-        password: {
-          validators: {
-            notEmpty: {
-              message: "Password is required"
-            }
-          }
-        },
-        cpassword: {
-          validators: {
-            notEmpty: {
-              message: "Confirm password is required"
-            },
-            identical: {
-              compare: function compare() {
-                return signup_form.querySelector('[name="password"]').value;
-              },
-              message: "The password and its confirm are not the same"
-            }
-          }
-        },
-        agree: {
-          validators: {
-            notEmpty: {
-              message: "You should agree terms and conditions"
-            }
-          }
-        }
-      },
-      plugins: {
-        trigger: new _assets_plugins_formvalidation_dist_es6_plugins_Trigger__WEBPACK_IMPORTED_MODULE_1__.default(),
-        submitButton: new _assets_plugins_formvalidation_dist_es6_plugins_SubmitButton__WEBPACK_IMPORTED_MODULE_3__.default(),
-        bootstrap: new _assets_plugins_formvalidation_dist_es6_plugins_Bootstrap__WEBPACK_IMPORTED_MODULE_2__.default()
-      }
-    });
-    this.fv2 = (0,_assets_plugins_formvalidation_dist_es6_core_Core__WEBPACK_IMPORTED_MODULE_0__.default)(forgot_form, {
-      fields: {
-        email: {
-          validators: {
-            notEmpty: {
-              message: "Email is required"
-            },
-            emailAddress: {
-              message: "The value is not a valid email address"
-            }
-          }
-        }
-      },
-      plugins: {
-        trigger: new _assets_plugins_formvalidation_dist_es6_plugins_Trigger__WEBPACK_IMPORTED_MODULE_1__.default(),
-        submitButton: new _assets_plugins_formvalidation_dist_es6_plugins_SubmitButton__WEBPACK_IMPORTED_MODULE_3__.default(),
-        bootstrap: new _assets_plugins_formvalidation_dist_es6_plugins_Bootstrap__WEBPACK_IMPORTED_MODULE_2__.default()
-      }
-    });
-    this.fv.on("core.form.valid", function () {
-      var email = _this.form.email;
-      var password = _this.form.password; // clear existing errors
+    var forgot_form = _assets_js_components_util__WEBPACK_IMPORTED_MODULE_4__.default.getById("kt_login_forgot_form"); // this.fv = formValidation(signin_form, {
+    //   fields: {
+    //     email: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Correo es un campo obligatorio"
+    //         }
+    //       }
+    //     },
+    //     password: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Contraseña es un campo obligatorio"
+    //         }
+    //       }
+    //     }
+    //   },
+    //   plugins: {
+    //     trigger: new Trigger(),
+    //     submitButton: new SubmitButton(),
+    //     bootstrap: new Bootstrap()
+    //   }
+    // });
+    //
+    // this.fv1 = formValidation(signup_form, {
+    //   fields: {
+    //     fullname: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Full name is required"
+    //         }
+    //       }
+    //     },
+    //     email: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Email is required"
+    //         },
+    //         emailAddress: {
+    //           message: "The value is not a valid email address"
+    //         }
+    //       }
+    //     },
+    //     password: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Password is required"
+    //         }
+    //       }
+    //     },
+    //     cpassword: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Confirm password is required"
+    //         },
+    //         identical: {
+    //           compare: function() {
+    //             return signup_form.querySelector('[name="password"]').value;
+    //           },
+    //           message: "The password and its confirm are not the same"
+    //         }
+    //       }
+    //     },
+    //     agree: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "You should agree terms and conditions"
+    //         }
+    //       }
+    //     }
+    //   },
+    //   plugins: {
+    //     trigger: new Trigger(),
+    //     submitButton: new SubmitButton(),
+    //     bootstrap: new Bootstrap()
+    //   }
+    // });
+    // this.fv2 = formValidation(forgot_form, {
+    //   fields: {
+    //     email: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Email is required"
+    //         },
+    //         emailAddress: {
+    //           message: "The value is not a valid email address"
+    //         }
+    //       }
+    //     }
+    //   },
+    //   plugins: {
+    //     trigger: new Trigger(),
+    //     submitButton: new SubmitButton(),
+    //     bootstrap: new Bootstrap()
+    //   }
+    // });
+    // this.fv.on("core.form.valid", () => {
+    //   var email = this.form.email;
+    //   var password = this.form.password;
+    //
+    //   // clear existing errors
+    //   this.$store.dispatch(LOGOUT);
+    //
+    //   // set spinner to submit button
+    //   // const submitButton = this.$refs["kt_login_signin_submit"];
+    //   // submitButton.classList.add("spinner", "spinner-light", "spinner-right");
+    //
+    //   // dummy delay
+    //   setTimeout(() => {
+    //     // send login request
+    //     this.$store
+    //     .dispatch(LOGIN, { email, password })
+    //     // go to which page after successfully login
+    //     .then(() => this.$router.push({ name: "dashboard" }))
+    //     .catch(() => {});
+    //
+    //     submitButton.classList.remove(
+    //       "spinner",
+    //       "spinner-light",
+    //       "spinner-right"
+    //     );
+    //   }, 2000);
+    // });
 
-      _this.$store.dispatch(_core_services_store_auth_module__WEBPACK_IMPORTED_MODULE_5__.LOGOUT); // set spinner to submit button
-
-
-      var submitButton = _this.$refs["kt_login_signin_submit"];
-      submitButton.classList.add("spinner", "spinner-light", "spinner-right"); // dummy delay
-
-      setTimeout(function () {
-        // send login request
-        _this.$store.dispatch(_core_services_store_auth_module__WEBPACK_IMPORTED_MODULE_5__.LOGIN, {
-          email: email,
-          password: password
-        }) // go to which page after successfully login
-        .then(function () {
-          return _this.$router.push({
-            name: "dashboard"
-          });
-        })["catch"](function () {});
-
-        submitButton.classList.remove("spinner", "spinner-light", "spinner-right");
-      }, 2000);
-    });
     this.fv.on("core.form.invalid", function () {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
+      sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({
         title: "",
         text: "Por favor, ingrese los datos correctos",
         icon: "error",
         confirmButtonClass: "btn btn-secondary",
         heightAuto: false
       });
-    });
-    this.fv1.on("core.form.valid", function () {
-      var email = _this.$refs.remail.value;
-      var password = _this.$refs.rpassword.value; // clear existing errors
+    }); // this.fv1.on("core.form.valid", () => {
+    //   const email = this.$refs.remail.value;
+    //   const password = this.$refs.rpassword.value;
+    //
+    //   // clear existing errors
+    //   this.$store.dispatch(LOGOUT);
+    //
+    //   // set spinner to submit button
+    //   //const submitButton = this.$refs["kt_login_signup_submit"];
+    //   //submitButton.classList.add("spinner", "spinner-light", "spinner-right");
+    //
+    //   // dummy delay
+    //   setTimeout(() => {
+    //     // send register request
+    //     this.$store
+    //     .dispatch(REGISTER, {
+    //       email: email,
+    //       password: password
+    //     })
+    //     .then(() => this.$router.push({ name: "dashboard" }));
+    //
+    //     // submitButton.classList.remove(
+    //     //  "spinner",
+    //     //  "spinner-light",
+    //     //  "spinner-right"
+    //     // );
+    //   }, 2000);
+    // });
 
-      _this.$store.dispatch(_core_services_store_auth_module__WEBPACK_IMPORTED_MODULE_5__.LOGOUT); // set spinner to submit button
-      //const submitButton = this.$refs["kt_login_signup_submit"];
-      //submitButton.classList.add("spinner", "spinner-light", "spinner-right");
-      // dummy delay
-
-
-      setTimeout(function () {
-        // send register request
-        _this.$store.dispatch(_core_services_store_auth_module__WEBPACK_IMPORTED_MODULE_5__.REGISTER, {
-          email: email,
-          password: password
-        }).then(function () {
-          return _this.$router.push({
-            name: "dashboard"
-          });
-        }); // submitButton.classList.remove(
-        //  "spinner",
-        //  "spinner-light",
-        //  "spinner-right"
-        // );
-
-      }, 2000);
-    });
     this.fv1.on("core.form.invalid", function () {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
+      sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({
         title: "",
         text: "Por favor ingrese los datos!",
         icon: "error",
@@ -652,20 +604,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(console.log("Hello"));
     },
     sendForgot: function sendForgot() {
-      var _this2 = this;
+      var _this = this;
 
       this.$inertia.post(route('password.email'), {
         email: this.forgot.email
       }, {
         onError: function onError(errors) {
           console.log('hay errores');
-          _this2.showDismissibleAlert = true;
-          _this2.showSuccessAlert = false;
+          _this.showDismissibleAlert = true;
+          _this.showSuccessAlert = false;
         },
         onSuccess: function onSuccess(page) {
           console.log('No hay errores');
-          _this2.showDismissibleAlert = false;
-          _this2.showSuccessAlert = true;
+          _this.showDismissibleAlert = false;
+          _this.showSuccessAlert = true;
         }
       }).then(console.log("Hello"));
     }
@@ -7743,7 +7695,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("Login")
+  return _c("Login", { attrs: { errors: _vm.errors } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -7867,7 +7819,28 @@ var render = function() {
                                 _vm.$set(_vm.form, "email", $event.target.value)
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _vm.errors.email
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass: "d-block invalid-feedback",
+                                  attrs: {
+                                    tabindex: "-1",
+                                    id: "fieldset-1__BV_feedback_invalid_",
+                                    role: "alert",
+                                    "aria-live": "assertive",
+                                    "aria-atomic": "true"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "Estas credenciales no coinciden, intente de nuevo"
+                                  )
+                                ]
+                              )
+                            : _vm._e()
                         ]
                       )
                     ]),

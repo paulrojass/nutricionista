@@ -40,10 +40,10 @@
         <template v-for="(item, i) in inactives">
           <tr v-bind:key="i">
             <td class="pl-0">
-              <a
-              href="#"
+              <inertia-link
+              :href="$route('patients.show', item.id)"
               class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg"
-              >{{ item.first_name_1 }} {{ item.last_name_2 }}</a
+              >{{ item.first_name_1 }} {{ item.last_name_1 }}</inertia-link
               >
               <span
               class="text-muted font-weight-bold text-muted d-block"

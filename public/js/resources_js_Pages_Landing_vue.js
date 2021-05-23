@@ -192,17 +192,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
  // FormValidation plugins
 // import Trigger from "../../../../assets/plugins/formvalidation/dist/es6/plugins/Trigger";
 // import Bootstrap from "../../../../assets/plugins/formvalidation/dist/es6/plugins/Bootstrap";
@@ -227,8 +216,7 @@ __webpack_require__.r(__webpack_exports__);
         birth_date: '',
         city_id: null,
         phone: '',
-        email: '',
-        aspiration: ''
+        email: ''
       },
       show: true
     };
@@ -6525,44 +6513,6 @@ var render = function() {
                       ],
                       1
                     ),
-                    _vm._v(" "),
-                    _c("b-form-group", [
-                      _c("label", [
-                        _vm._v(
-                          "Describa las aspiraciones o motivo de la consulta"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.aspiration,
-                            expression: "form.aspiration"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          name: "aspiration",
-                          required: ""
-                        },
-                        domProps: { value: _vm.form.aspiration },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.form,
-                              "aspiration",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
                     _vm._v(" "),
                     _vm._m(2)
                   ],

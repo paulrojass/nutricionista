@@ -22,7 +22,9 @@ class PatientController extends Controller
     $patients = Patient::orderBy('created_at', 'DESC')->get();
     return Inertia::render('Patients', [
       'patients' => $patients,
-      'status' => 'todos'
+      'status' => 'todos',
+      'diagnostic' => 'todos',
+      'workplan' => 'todos'
     ]);
   }
   
@@ -75,9 +77,22 @@ class PatientController extends Controller
     if ($request->status == 'prospecto') {
       $patients = Patient::where('active', 0)->get();
     }
+    if ($request->workplan != 'todos') {
+      $patients = $patients->where('workplan', $request->workplan);
+      
+    }
+    if ($request->diagnostic != 'todos') {
+      $patients = $patients->where($request->diagnostic, 1);
+      
+      
+    }
+    //dd($patients);
+    
     return Inertia::render('Patients', [
       'patients' => $patients,
-      'status' => $request->status
+      'status' => $request->status,
+      'diagnostic' => $request->diagnostic,
+      'workplan' => $request->workplan
     ]);
     
     

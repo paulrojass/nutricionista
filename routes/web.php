@@ -18,11 +18,11 @@ return view('welcome');
 });
 */
 
-Auth::routes();
 
 Route::get('login')->name('login')->uses([App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->middleware('guest');
 
 Route::post('login')->name('login.attempt')->uses([App\Http\Controllers\Auth\LoginController::class, 'login'])->middleware('guest');
+Auth::routes();
 
 Route::get('/', App\Http\Controllers\WelcomeController::class);
 Route::get('/solicitud-de-cita', [App\Http\Controllers\LandingController::class, 'landing'])->name('landing');
@@ -37,6 +37,21 @@ Route::prefix('panel')->group(function () {
   Route::get('pacientes/buscar', [App\Http\Controllers\PatientController::class, 'search'] )->name('patients.search');
   Route::get('pacientes/buscar-status', [App\Http\Controllers\PatientController::class, 'searchStatus'] )->name('patients.search-status');
   Route::get('pacientes/{patient_id}/historial', [App\Http\Controllers\PatientController::class, 'showHistory'] )->name('patients.show-history');
+  Route::get('usuarios/mi-perfil', [App\Http\Controllers\UserController::class, 'myProfile'])->name('my-profile');
+  Route::post('usuarios/mi-perfil/cambiar-password', [App\Http\Controllers\UserController::class, 'changePassword'])->name('change-password');
+  Route::resource('usuarios',
+  App\Http\Controllers\UserController::class,
+  [
+    'names' => [
+      'index' => 'users.index',
+      'create' => 'users.create',
+      'show' => 'users.show',
+      'store' => 'users.store',
+      'edit' => 'users.edit',
+      'update' => 'users.update',
+      'destroy' => 'users.destroy'
+    ]
+  ]);
   Route::resource('pacientes',
   App\Http\Controllers\PatientController::class,
   [
