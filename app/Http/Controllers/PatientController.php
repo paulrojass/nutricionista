@@ -172,7 +172,6 @@ class PatientController extends Controller
       $patient->phone = $request->phone;
       $patient->active = 0;
       $patient->save();
-      
       return $this->index();
     }
     

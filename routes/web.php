@@ -25,6 +25,9 @@ Route::get('login')->name('login')->uses([App\Http\Controllers\Auth\LoginControl
 Route::post('login')->name('login.attempt')->uses([App\Http\Controllers\Auth\LoginController::class, 'login'])->middleware('guest');
 
 Route::get('/', App\Http\Controllers\WelcomeController::class);
+Route::get('/solicitud-de-cita', [App\Http\Controllers\LandingController::class, 'landing'])->name('landing');
+Route::get('/solicitud-de-cita-exitoso', [App\Http\Controllers\LandingController::class, 'success'])->name('success');
+Route::post('/solicitud-de-cita/crear', [App\Http\Controllers\LandingController::class, 'storeCandidate'])->name('landing-store-candidate');
 
 Route::prefix('panel')->group(function () {
   Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
