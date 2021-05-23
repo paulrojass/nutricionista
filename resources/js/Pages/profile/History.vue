@@ -1,339 +1,390 @@
 <template>
   <div class="card card-custom">
-    <div class="card-body p-0">
-      <!--begin: Wizard-->
-      <div
-      class="wizard wizard-3"
-      id="kt_wizard_v3"
-      data-wizard-state="step-first"
-      data-wizard-clickable="true"
+    <div class="card-header border-0 pt-5">
+      <h3 class="card-title align-items-start flex-column">
+        <inertia-link
+        class="text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3"
+        :href="route('patients.show', patient.id)">
+        <span class="card-label font-weight-bolder text-dark">
+          Editar Historial de {{patient.first_name_1}} {{patient.last_name_1}}
+        </span>
+      </inertia-link>
+      <span class="text-muted mt-3 font-weight-bold font-size-sm">
+        información detallada del paciente
+      </span>
+    </h3>
+    <div class="card-toolbar">
+      <inertia-link
+      :href="$route('patients.show', patient.id)"
+      class="btn btn-primary font-weight-bolder font-size-sm"
       >
-      <!--begin: Wizard Nav -->
-      <div class="wizard-nav border-bottom mb-1 mb-lg-5">
-        <div class="wizard-steps px-8 py-8 px-lg-15 py-lg-3">
-          <div
-          class="wizard-step"
-          data-wizard-type="step"
-          data-wizard-state="current"
-          >
-          <div class="wizard-label">
-            <h3 class="wizard-title"><span>1</span>Datos Básicos</h3>
-            <div class="wizard-bar"></div>
-          </div>
-        </div>
-        <div class="wizard-step" data-wizard-type="step">
-          <div class="wizard-label">
-            <h3 class="wizard-title"><span>2</span>Estado físico</h3>
-            <div class="wizard-bar"></div>
-          </div>
-        </div>
-        <div class="wizard-step" data-wizard-type="step">
-          <div class="wizard-label">
-            <h3 class="wizard-title"><span>3</span>Alimentación</h3>
-            <div class="wizard-bar"></div>
-          </div>
-        </div>
-        <div class="wizard-step" data-wizard-type="step">
-          <div class="wizard-label">
-            <h3 class="wizard-title"><span>5</span>Diagnóstico y Plan</h3>
-            <div class="wizard-bar"></div>
-          </div>
-        </div>
+      Volver al perfil
+    </inertia-link>
+  </div>
+</div>
+<div class="card-body p-0">
+  <!--begin: Wizard-->
+  <div
+  class="wizard wizard-3"
+  id="kt_wizard_v3"
+  data-wizard-state="step-first"
+  data-wizard-clickable="true"
+  >
+  <!--begin: Wizard Nav -->
+  <div class="wizard-nav border-bottom mb-1 mb-lg-5">
+    <div class="wizard-steps px-8 py-8 px-lg-15 py-lg-3">
+      <div
+      class="wizard-step"
+      data-wizard-type="step"
+      data-wizard-state="current"
+      >
+      <div class="wizard-label">
+        <h3 class="wizard-title"><span>1</span>Datos Básicos</h3>
+        <div class="wizard-bar"></div>
       </div>
     </div>
-    <!--end: Wizard Nav -->
-    
-    <!--begin: Wizard Body-->
-    <div class="row justify-content-center py-12 px-8 py-lg-15 px-lg-10">
-      <div class="col-xl-12 col-xxl-7">
-        <!--begin: Wizard Form-->
-        <form class="form" id="kt_form" v-if="show" >
-          <!--begin: Wizard Step 1-->
-          <div
-          class="pb-5"
-          data-wizard-type="step-content"
-          data-wizard-state="current"
-          >
-          <h4 class="mb-10 font-weight-bold text-dark">
-            Datos básicos del paciente
-          </h4>
-          
-          <div class="row">
-            <div class="col-xl-12">
-              <div class="form-group row">
-                <label class="col-xl-6 col-lg-6 col-form-label text-right"
-                >Fotografía</label
-                >
-                <div class="col-lg-6 col-xl-6">
-                  <div class="image-input image-input-outline" id="kt_avatar">
-                    <div
-                    class="image-input-wrapper"
-                    :style="{ backgroundImage: `url(${photo})` }"
-                    ></div>
-                    <label
-                    class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
-                    data-action="change"
-                    data-toggle="tooltip"
-                    title=""
-                    data-original-title="Change avatar"
-                    >
-                    <i class="fa fa-pen icon-sm text-muted"></i>
-                    <input
-                    type="file"
-                    name="avatar"
-                    accept=".png, .jpg, .jpeg"
-                    @change="onFileChange($event)"
-                    />
-                    <input type="hidden" name="avatar_remove" />
-                  </label>
-                  <span
-                  class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
-                  data-action="cancel"
-                  data-toggle="tooltip"
-                  title="Cancel avatar"
-                  >
-                  <i class="ki ki-bold-close icon-xs text-muted"></i>
-                </span>
-                <span
-                class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
-                data-action="remove"
-                data-toggle="tooltip"
-                title="Remove avatar"
-                @click="deleteAvatar"
-                >
-                <i class="ki ki-bold-close icon-xs text-muted"></i>
-              </span>
-            </div>
-            <span class="form-text text-muted"
-            >formatos permitidos: png, jpg, jpeg.</span
+    <div class="wizard-step" data-wizard-type="step">
+      <div class="wizard-label">
+        <h3 class="wizard-title"><span>2</span>Estado físico</h3>
+        <div class="wizard-bar"></div>
+      </div>
+    </div>
+    <div class="wizard-step" data-wizard-type="step">
+      <div class="wizard-label">
+        <h3 class="wizard-title"><span>3</span>Alimentación</h3>
+        <div class="wizard-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end: Wizard Nav -->
+
+<!--begin: Wizard Body-->
+<div class="row justify-content-center py-12 px-8 py-lg-15 px-lg-10">
+  <div class="col-xl-12 col-xxl-7">
+    <!--begin: Wizard Form-->
+    <form class="form" id="kt_form" v-if="show" >
+      <!--begin: Wizard Step 1-->
+      <div
+      class="pb-5"
+      data-wizard-type="step-content"
+      data-wizard-state="current"
+      >
+      <h4 class="mb-10 font-weight-bold text-dark">
+        Datos básicos del paciente
+      </h4>
+      
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="form-group row">
+            <label class="col-xl-6 col-lg-6 col-form-label text-right"
+            >Fotografía</label
             >
-          </div>
+            <div class="col-lg-6 col-xl-6">
+              <div class="image-input image-input-outline" id="kt_avatar">
+                <div
+                class="image-input-wrapper"
+                :style="{ backgroundImage: `url(${photo})` }"
+                ></div>
+                <label
+                class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                data-action="change"
+                data-toggle="tooltip"
+                title=""
+                data-original-title="Change avatar"
+                >
+                <!-- <i class="fa fa-pen icon-sm text-muted"></i> -->
+                <i class="fa fa-pencil icon-sm text-muted" aria-hidden="true"></i>
+                <input
+                type="file"
+                name="avatar"
+                accept=".png, .jpg, .jpeg"
+                @change="onFileChange($event)"
+                />
+                <input type="hidden" name="avatar_remove" />
+              </label>
+              <span
+              class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+              data-action="cancel"
+              data-toggle="tooltip"
+              title="Cancel avatar"
+              >
+              <i class="fa fa-times icon-sm text-muted" aria-hidden="true"></i>
+            </span>
+            <span
+            class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+            data-action="remove"
+            data-toggle="tooltip"
+            title="Remove avatar"
+            @click="deleteAvatar"
+            >
+            <i class="fa fa-times icon-sm text-muted" aria-hidden="true"></i>
+          </span>
         </div>
-      </div>
-      
-      
-      <div class="col-xl-6">
-        <div class="form-group">
-          <label for="fist">Primer nombre</label>
-          <b-form-input
-          v-model="form.first_name_1"
-          id="first"
-          type="text"
-          class="form-control form-control-solid form-control-lg"
-          name="first_name_1"
-          placeholder="Primer nombre"
-          required
-          :state="firstNameState"
-          aria-describedby="input-live-help input-live-feedback"
-          trim
-          ></b-form-input>
-          <!-- This will only be shown if the preceding input has an invalid state -->
-          <b-form-invalid-feedback id="first-feedback">
-            Campo obligatorio
-          </b-form-invalid-feedback>
-          
-          
-          <span class="form-text text-muted"
-          >Por favor ingrese el primer nombre.</span
-          >
-        </div>
-      </div>
-      <div class="col-xl-6">
-        <div class="form-group">
-          <label>Segundo nombre</label>
-          <input
-          type="text"
-          v-model="form.first_name_2"
-          class="form-control form-control-solid form-control-lg"
-          name="first_name_2"
-          placeholder="segundo nombre"
-          />
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-xl-6">
-        <div class="form-group">
-          <label>Primer apellido</label>
-          <b-form-input
-          type="text"
-          v-model="form.last_name_1"
-          class="form-control form-control-solid form-control-lg"
-          name="last_name_1"
-          placeholder="Primer apellido"
-          required
-          :state="lastNameState"
-          aria-describedby="input-live-help input-live-feedback"
-          trim
-          ></b-form-input>
-          <!-- This will only be shown if the preceding input has an invalid state -->
-          <b-form-invalid-feedback>
-            Campo obligatorio
-          </b-form-invalid-feedback>
-          <span class="form-text text-muted"
-          >Por favor ingrese el primer apellido.</span
-          >
-        </div>
-      </div>
-      <div class="col-xl-6">
-        <div class="form-group">
-          <label>Segundo apellido</label>
-          <input
-          type="text"
-          v-model="form.last_name_2"
-          class="form-control form-control-solid form-control-lg"
-          name="last_name_2"
-          placeholder="segundo apellido"
-          />
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-xl-6">
-        <div class="form-group">
-          <label>Teléfono</label>
-          <b-form-input
-          type="text"
-          v-model="form.phone"
-          class="form-control form-control-solid form-control-lg"
-          name="phone"
-          :state="phoneState"
-          aria-describedby="input-live-help input-live-feedback"
-          trim
-          ></b-form-input>
-          <!-- This will only be shown if the preceding input has an invalid state -->
-          <b-form-invalid-feedback>
-            Campo obligatorio
-          </b-form-invalid-feedback>
-        </div>
-      </div>
-      <div class="col-xl-6">
-        <div class="form-group">
-          <label>Correo electrónico</label>
-          <b-form-input
-          type="email"
-          v-model="form.email"
-          class="form-control form-control-solid form-control-lg"
-          name="email"
-          required
-          :state="emailState"
-          aria-describedby="input-live-help input-live-feedback"
-          trim
-          ></b-form-input>
-          <!-- This will only be shown if the preceding input has an invalid state -->
-          <b-form-invalid-feedback>
-            Campo obligatorio
-          </b-form-invalid-feedback>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-xl-6">
-        <div class="form-group">
-          <label>Fecha de nacimiento</label>
-          <input
-          :type="`date`"
-          v-model="form.birth_date"
-          class="form-control form-control-solid form-control-lg"
-          name="birth_date"
-          required
-          />
-        </div>
-      </div>
-    </div>
-    
-    <div class="form-group">
-      <label>Describa las aspiraciones o motivo de la consulta</label>
-      <textarea
-      type="text"
-      v-model="form.aspiration"
-      class="form-control form-control-solid form-control-lg"
-      name="aspiration"
-      ></textarea>
-    </div>
-    <div class="row">
-      <div class="col-xl-6">
-        <div class="form-group">
-          <label>Objetivo</label>
-          <select
-          name="goal"
-          v-model="form.goal"
-          class="form-control form-control-solid form-control-lg"
-          >
-          <option value="">Selecccionar</option>
-          <option value="perdida de peso">Perdida de peso</option>
-          <option value="Perdida de % graso">Perdida de % graso</option>
-          <option value="Masa muscular">Masa muscular</option>
-          <option value="Aumento de peso">Aumento de peso</option>
-        </select>
-      </div>
-    </div></div>
-    
-    
-    
-    
-  </div>
-  <!--end: Wizard Step 1-->
-  
-  <!--begin: Wizard Step 2-->
-  <div class="pb-5" data-wizard-type="step-content">
-    
-    <h4 class="mb-10 font-weight-bold text-dark">
-      Estado físico del paciente
-    </h4>
-    
-    <div class="row">
-      <div class="col-xl-12">
-        <b-form-checkbox
-        id="chk_laboratory"
-        v-model="chk_laboratory"
-        name="chk_laboratory"
-        value="1"
-        unchecked-value="0"
-        :checked="patient.laboratory == 'varios'"
+        <span class="form-text text-muted"
+        >formatos permitidos: png, jpg, jpeg.</span
         >
-        Exámenes de laboatorio
-      </b-form-checkbox>
-    </div>
-    <div class="col-xl-12" v-if="chk_laboratory == 1">
-      <div class="form-group">
-        <label>Mencione los examenes</label>
-        <input
-        type="text"
-        class="form-control form-control-solid form-control-lg"
-        name="laboratory"
-        v-model="form.laboratory"
-        />
       </div>
     </div>
   </div>
+  
+  
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label for="fist">Primer nombre</label>
+      <b-form-input
+      v-model="form.first_name_1"
+      id="first"
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="first_name_1"
+      placeholder="Primer nombre"
+      required
+      :state="firstNameState"
+      aria-describedby="input-live-help input-live-feedback"
+      trim
+      ></b-form-input>
+      <!-- This will only be shown if the preceding input has an invalid state -->
+      <b-form-invalid-feedback id="first-feedback">
+        Campo obligatorio
+      </b-form-invalid-feedback>
+      
+      
+      <span class="form-text text-muted"
+      >Por favor ingrese el primer nombre.</span
+      >
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Segundo nombre</label>
+      <input
+      type="text"
+      v-model="form.first_name_2"
+      class="form-control form-control-solid form-control-lg"
+      name="first_name_2"
+      placeholder="segundo nombre"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Primer apellido</label>
+      <b-form-input
+      type="text"
+      v-model="form.last_name_1"
+      class="form-control form-control-solid form-control-lg"
+      name="last_name_1"
+      placeholder="Primer apellido"
+      required
+      :state="lastNameState"
+      aria-describedby="input-live-help input-live-feedback"
+      trim
+      ></b-form-input>
+      <!-- This will only be shown if the preceding input has an invalid state -->
+      <b-form-invalid-feedback>
+        Campo obligatorio
+      </b-form-invalid-feedback>
+      <span class="form-text text-muted"
+      >Por favor ingrese el primer apellido.</span
+      >
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Segundo apellido</label>
+      <input
+      type="text"
+      v-model="form.last_name_2"
+      class="form-control form-control-solid form-control-lg"
+      name="last_name_2"
+      placeholder="segundo apellido"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Teléfono</label>
+      <b-form-input
+      type="text"
+      v-model="form.phone"
+      class="form-control form-control-solid form-control-lg"
+      name="phone"
+      :state="phoneState"
+      aria-describedby="input-live-help input-live-feedback"
+      trim
+      ></b-form-input>
+      <!-- This will only be shown if the preceding input has an invalid state -->
+      <b-form-invalid-feedback>
+        Campo obligatorio
+      </b-form-invalid-feedback>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Correo electrónico</label>
+      <b-form-input
+      type="email"
+      v-model="form.email"
+      class="form-control form-control-solid form-control-lg"
+      name="email"
+      required
+      :state="emailState"
+      aria-describedby="input-live-help input-live-feedback"
+      trim
+      ></b-form-input>
+      <!-- This will only be shown if the preceding input has an invalid state -->
+      <b-form-invalid-feedback>
+        Campo obligatorio
+      </b-form-invalid-feedback>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Fecha de nacimiento</label>
+      <input
+      :type="`date`"
+      v-model="form.birth_date"
+      class="form-control form-control-solid form-control-lg"
+      name="birth_date"
+      required
+      />
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Objetivo</label>
+      <select
+      name="goal"
+      v-model="form.goal"
+      class="form-control form-control-solid form-control-lg"
+      >
+      <option value="">Selecccionar</option>
+      <option value="perdida de peso">Perdida de peso</option>
+      <option value="Perdida de % graso">Perdida de % graso</option>
+      <option value="Masa muscular">Masa muscular</option>
+      <option value="Aumento de peso">Aumento de peso</option>
+    </select>
+  </div>
+</div></div>
+
+
+
+
+<b-form-group label="Diagnósticos dietarios:">
+  <b-form-checkbox name="bajo_consumo_energetico" v-model="form.bajo_consumo_energetico">Bajo cosumo energético</b-form-checkbox>
+  <b-form-checkbox name="bajo_consumo_proteico" v-model="form.bajo_consumo_proteico">Bajo consumo proteico</b-form-checkbox>
+  <b-form-checkbox name="bajo_consumo_carbohidratos" v-model="form.bajo_consumo_carbohidratos">Bajo consumo de carbohidratos</b-form-checkbox>
+  <b-form-checkbox name="bajo_consumo_grasas_escenciales" v-model="form.bajo_consumo_grasas_escenciales">Bajo consumo de grasas escenciales</b-form-checkbox>
+  <b-form-checkbox name="bajo_consumo_micronutrientes" v-model="form.bajo_consumo_micronutrientes">Bajo consumo de micronutrientes</b-form-checkbox>
+  <b-form-checkbox name="alto_consumo_ultraprcesados" v-model="form.alto_consumo_ultraprcesados">Alto consumo de ultraprocesados</b-form-checkbox>
+  <b-form-checkbox name="inadecuado_timming_ingestas" v-model="form.inadecuado_timming_ingestas">Inadecuando TIMMING de ingestas</b-form-checkbox>
+  <b-form-checkbox name="esquema_hidratacion_inadecuado" v-model="form.esquema_hidratacion_inadecuado">Esquea de hidratación inadecuado</b-form-checkbox>
+  <b-form-checkbox name="dieta_alta_fodmaps" v-model="form.dieta_alta_fodmaps">Dieta alta en FODMAPS</b-form-checkbox>
+  <b-form-checkbox name="excedente_calorico" v-model="form.excedente_calorico">Excedente calórico</b-form-checkbox>
+</b-form-group>
+
+<div class="row">
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Plan de trabajo</label>
+      <select
+      name="workplan"
+      v-model="form.workplan"
+      class="form-control form-control-solid form-control-lg"
+      >
+      <option value="" selected>-- Seleccione --</option>
+      <option value="Dieta alta en proteinas">Dieta alta en proteinas</option>
+      <option value="Déficit calórico">Déficit calórico</option>
+      <option value="Superavit calórico">Superavit calórico</option>
+      <option value="Ayuno intermitente">Ayuno intermitente</option>
+      <option value="Dietas Keto">Dietas Keto</option>
+      <option value="Dieta baja en FODMAPS">Dieta baja en FODMAPS</option>
+      <option value="Medidas anti inflamatorias">Medidas anti inflamatorias</option>
+      <option value="Deta muy baja en carbohidratos">Deta muy baja en carbohidratos</option>
+      <option value="Esquema de suplementación">Esquema de suplementación</option>
+    </select>
+  </div>
+</div></div>
+
+<!-- <div class="form-group">
+<label>Describa las aspiraciones o motivo de la consulta</label>
+<textarea
+type="text"
+v-model="form.aspiration"
+class="form-control form-control-solid form-control-lg"
+name="aspiration"
+></textarea>
+</div> -->
+
+</div>
+<!--end: Wizard Step 1-->
+
+<!--begin: Wizard Step 2-->
+<div class="pb-5" data-wizard-type="step-content">
+  
+  <h4 class="mb-10 font-weight-bold text-dark">
+    Estado físico del paciente
+  </h4>
   
   <div class="row">
     <div class="col-xl-12">
       <b-form-checkbox
-      id="chk_previous_experience"
-      v-model="chk_previous_experience"
-      name="chk_previous_experience"
+      id="chk_laboratory"
+      v-model="chk_laboratory"
+      name="chk_laboratory"
       value="1"
       unchecked-value="0"
+      :checked="patient.laboratory == 'varios'"
       >
-      ¿Ha tenido otro proceso nutricional anteriormente?
+      Exámenes de laboatorio
     </b-form-checkbox>
   </div>
-  <div class="col-xl-12" v-if="chk_previous_experience == 1">
+  <div class="col-xl-12" v-if="chk_laboratory == 1">
     <div class="form-group">
-      <label>¿Cómo ha sido tu experiencia previa?</label>
+      <label>Mencione los examenes</label>
       <input
       type="text"
-      v-model="form.previous_experience"
       class="form-control form-control-solid form-control-lg"
-      name="previous_experience"
+      name="laboratory"
+      v-model="form.laboratory"
       />
     </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <b-form-checkbox
+    id="chk_previous_experience"
+    v-model="chk_previous_experience"
+    name="chk_previous_experience"
+    value="1"
+    unchecked-value="0"
+    >
+    ¿Ha tenido otro proceso nutricional anteriormente?
+  </b-form-checkbox>
+</div>
+<div class="col-xl-12" v-if="chk_previous_experience == 1">
+  <div class="form-group">
+    <label>¿Cómo ha sido tu experiencia previa?</label>
+    <input
+    type="text"
+    v-model="form.previous_experience"
+    class="form-control form-control-solid form-control-lg"
+    name="previous_experience"
+    />
+  </div>
+</div>
 </div>
 
 <div class="row">
@@ -709,50 +760,6 @@ unchecked-value="0"
 </div>
 <!--end: Wizard Step 3-->
 
-<!--begin: Wizard Step 4-->
-<div class="pb-5" data-wizard-type="step-content">
-  <h4 class="mb-10 font-weight-bold text-dark">
-    Diagnóstico
-  </h4>
-  
-  <b-form-group label="Diagnósticos dietarios:">
-    <b-form-checkbox name="bajo_consumo_energetico" v-model="form.bajo_consumo_energetico">Bajo cosumo energético</b-form-checkbox>
-    <b-form-checkbox name="bajo_consumo_proteico" v-model="form.bajo_consumo_proteico">Bajo consumo proteico</b-form-checkbox>
-    <b-form-checkbox name="bajo_consumo_carbohidratos" v-model="form.bajo_consumo_carbohidratos">Bajo consumo de carbohidratos</b-form-checkbox>
-    <b-form-checkbox name="bajo_consumo_grasas_escenciales" v-model="form.bajo_consumo_grasas_escenciales">Bajo consumo de grasas escenciales</b-form-checkbox>
-    <b-form-checkbox name="bajo_consumo_micronutrientes" v-model="form.bajo_consumo_micronutrientes">Bajo consumo de micronutrientes</b-form-checkbox>
-    <b-form-checkbox name="alto_consumo_ultraprcesados" v-model="form.alto_consumo_ultraprcesados">Alto consumo de ultraprocesados</b-form-checkbox>
-    <b-form-checkbox name="inadecuado_timming_ingestas" v-model="form.inadecuado_timming_ingestas">Inadecuando TIMMING de ingestas</b-form-checkbox>
-    <b-form-checkbox name="esquema_hidratacion_inadecuado" v-model="form.esquema_hidratacion_inadecuado">Esquea de hidratación inadecuado</b-form-checkbox>
-    <b-form-checkbox name="dieta_alta_fodmaps" v-model="form.dieta_alta_fodmaps">Dieta alta en FODMAPS</b-form-checkbox>
-    <b-form-checkbox name="excedente_calorico" v-model="form.excedente_calorico">Excedente calórico</b-form-checkbox>
-  </b-form-group>
-  
-  <div class="row">
-    <div class="col-xl-6">
-      <div class="form-group">
-        <label>Plan de trabajo</label>
-        <select
-        name="workplan"
-        v-model="form.workplan"
-        class="form-control form-control-solid form-control-lg"
-        >
-        <option value="" selected>-- Seleccione --</option>
-        <option value="Dieta alta en proteinas">Dieta alta en proteinas</option>
-        <option value="Déficit calórico">Déficit calórico</option>
-        <option value="Superavit calórico">Superavit calórico</option>
-        <option value="Ayuno intermitente">Ayuno intermitente</option>
-        <option value="Dietas Keto">Dietas Keto</option>
-        <option value="Dieta baja en FODMAPS">Dieta baja en FODMAPS</option>
-        <option value="Medidas anti inflamatorias">Medidas anti inflamatorias</option>
-        <option value="Deta muy baja en carbohidratos">Deta muy baja en carbohidratos</option>
-        <option value="Esquema de suplementación">Esquema de suplementación</option>
-      </select>
-    </div>
-  </div></div>
-</div>
-<!--end: Wizard Step 4-->
-
 <!--begin: Wizard Actions -->
 <div class="d-flex justify-content-between border-top pt-10">
   <div class="mr-2">
@@ -828,7 +835,6 @@ export default {
         phone : this.patient.phone,
         email : this.patient.email,
         active : this.patient.active,
-        aspiration : this.patient.aspiration,
         goal : this.patient.goal,
         avatar : this.patient.avatar,
         laboratory : this.patient.laboratory,

@@ -82,7 +82,7 @@
     ref="email"
     v-model="form.email"
     />
-    
+    <div v-if="errors.email" tabindex="-1" id="fieldset-1__BV_feedback_invalid_" role="alert" aria-live="assertive" aria-atomic="true" class="d-block invalid-feedback">Estas credenciales no coinciden, intente de nuevo</div>
   </div>
 </div>
 <div class="form-group">
@@ -317,12 +317,14 @@ import SubmitButton from "../../../../assets/plugins/formvalidation/dist/es6/plu
 import KTUtil from "../../../../assets/js/components/util";
 import { mapGetters, mapState } from "vuex";
 
-import { LOGIN, LOGOUT, REGISTER } from "../../../../core/services/store/auth.module";
+// import { LOGIN, LOGOUT, REGISTER } from "../../../../core/services/store/auth.module";
 import Swal from "sweetalert2";
 
 export default {
   name: "login-1",
-  
+  props: {
+    errors: Object,
+  },
   data() {
     return {
       state: "signin",
@@ -330,9 +332,8 @@ export default {
       showSuccessAlert: false,
       // Remove this dummy login info
       form : {
-        email : 'admin@admin.com',
-        
-        password: '12345678'
+        email : '',
+        password: ''
       },
       forgot: {
         email: ''
@@ -340,9 +341,9 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      errors: state => state.auth.errors
-    }),
+    // ...mapState({
+    //   errors: state => state.auth.errors
+    // }),
     ...mapGetters(["currentUser"]),
     
     backgroundImage() {
@@ -356,131 +357,131 @@ export default {
     const signup_form = KTUtil.getById("kt_login_signup_form");
     const forgot_form = KTUtil.getById("kt_login_forgot_form");
     
-    this.fv = formValidation(signin_form, {
-      fields: {
-        email: {
-          validators: {
-            notEmpty: {
-              message: "Correo es un campo obligatorio"
-            }
-          }
-        },
-        password: {
-          validators: {
-            notEmpty: {
-              message: "Contraseña es un campo obligatorio"
-            }
-          }
-        }
-      },
-      plugins: {
-        trigger: new Trigger(),
-        submitButton: new SubmitButton(),
-        bootstrap: new Bootstrap()
-      }
-    });
+    // this.fv = formValidation(signin_form, {
+    //   fields: {
+    //     email: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Correo es un campo obligatorio"
+    //         }
+    //       }
+    //     },
+    //     password: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Contraseña es un campo obligatorio"
+    //         }
+    //       }
+    //     }
+    //   },
+    //   plugins: {
+    //     trigger: new Trigger(),
+    //     submitButton: new SubmitButton(),
+    //     bootstrap: new Bootstrap()
+    //   }
+    // });
+    //
+    // this.fv1 = formValidation(signup_form, {
+    //   fields: {
+    //     fullname: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Full name is required"
+    //         }
+    //       }
+    //     },
+    //     email: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Email is required"
+    //         },
+    //         emailAddress: {
+    //           message: "The value is not a valid email address"
+    //         }
+    //       }
+    //     },
+    //     password: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Password is required"
+    //         }
+    //       }
+    //     },
+    //     cpassword: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Confirm password is required"
+    //         },
+    //         identical: {
+    //           compare: function() {
+    //             return signup_form.querySelector('[name="password"]').value;
+    //           },
+    //           message: "The password and its confirm are not the same"
+    //         }
+    //       }
+    //     },
+    //     agree: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "You should agree terms and conditions"
+    //         }
+    //       }
+    //     }
+    //   },
+    //   plugins: {
+    //     trigger: new Trigger(),
+    //     submitButton: new SubmitButton(),
+    //     bootstrap: new Bootstrap()
+    //   }
+    // });
     
-    this.fv1 = formValidation(signup_form, {
-      fields: {
-        fullname: {
-          validators: {
-            notEmpty: {
-              message: "Full name is required"
-            }
-          }
-        },
-        email: {
-          validators: {
-            notEmpty: {
-              message: "Email is required"
-            },
-            emailAddress: {
-              message: "The value is not a valid email address"
-            }
-          }
-        },
-        password: {
-          validators: {
-            notEmpty: {
-              message: "Password is required"
-            }
-          }
-        },
-        cpassword: {
-          validators: {
-            notEmpty: {
-              message: "Confirm password is required"
-            },
-            identical: {
-              compare: function() {
-                return signup_form.querySelector('[name="password"]').value;
-              },
-              message: "The password and its confirm are not the same"
-            }
-          }
-        },
-        agree: {
-          validators: {
-            notEmpty: {
-              message: "You should agree terms and conditions"
-            }
-          }
-        }
-      },
-      plugins: {
-        trigger: new Trigger(),
-        submitButton: new SubmitButton(),
-        bootstrap: new Bootstrap()
-      }
-    });
+    // this.fv2 = formValidation(forgot_form, {
+    //   fields: {
+    //     email: {
+    //       validators: {
+    //         notEmpty: {
+    //           message: "Email is required"
+    //         },
+    //         emailAddress: {
+    //           message: "The value is not a valid email address"
+    //         }
+    //       }
+    //     }
+    //   },
+    //   plugins: {
+    //     trigger: new Trigger(),
+    //     submitButton: new SubmitButton(),
+    //     bootstrap: new Bootstrap()
+    //   }
+    // });
     
-    this.fv2 = formValidation(forgot_form, {
-      fields: {
-        email: {
-          validators: {
-            notEmpty: {
-              message: "Email is required"
-            },
-            emailAddress: {
-              message: "The value is not a valid email address"
-            }
-          }
-        }
-      },
-      plugins: {
-        trigger: new Trigger(),
-        submitButton: new SubmitButton(),
-        bootstrap: new Bootstrap()
-      }
-    });
-    
-    this.fv.on("core.form.valid", () => {
-      var email = this.form.email;
-      var password = this.form.password;
-      
-      // clear existing errors
-      this.$store.dispatch(LOGOUT);
-      
-      // set spinner to submit button
-      const submitButton = this.$refs["kt_login_signin_submit"];
-      submitButton.classList.add("spinner", "spinner-light", "spinner-right");
-      
-      // dummy delay
-      setTimeout(() => {
-        // send login request
-        this.$store
-        .dispatch(LOGIN, { email, password })
-        // go to which page after successfully login
-        .then(() => this.$router.push({ name: "dashboard" }))
-        .catch(() => {});
-        
-        submitButton.classList.remove(
-          "spinner",
-          "spinner-light",
-          "spinner-right"
-        );
-      }, 2000);
-    });
+    // this.fv.on("core.form.valid", () => {
+    //   var email = this.form.email;
+    //   var password = this.form.password;
+    //
+    //   // clear existing errors
+    //   this.$store.dispatch(LOGOUT);
+    //
+    //   // set spinner to submit button
+    //   // const submitButton = this.$refs["kt_login_signin_submit"];
+    //   // submitButton.classList.add("spinner", "spinner-light", "spinner-right");
+    //
+    //   // dummy delay
+    //   setTimeout(() => {
+    //     // send login request
+    //     this.$store
+    //     .dispatch(LOGIN, { email, password })
+    //     // go to which page after successfully login
+    //     .then(() => this.$router.push({ name: "dashboard" }))
+    //     .catch(() => {});
+    //
+    //     submitButton.classList.remove(
+    //       "spinner",
+    //       "spinner-light",
+    //       "spinner-right"
+    //     );
+    //   }, 2000);
+    // });
     
     this.fv.on("core.form.invalid", () => {
       Swal.fire({
@@ -492,34 +493,34 @@ export default {
       });
     });
     
-    this.fv1.on("core.form.valid", () => {
-      const email = this.$refs.remail.value;
-      const password = this.$refs.rpassword.value;
-      
-      // clear existing errors
-      this.$store.dispatch(LOGOUT);
-      
-      // set spinner to submit button
-      //const submitButton = this.$refs["kt_login_signup_submit"];
-      //submitButton.classList.add("spinner", "spinner-light", "spinner-right");
-      
-      // dummy delay
-      setTimeout(() => {
-        // send register request
-        this.$store
-        .dispatch(REGISTER, {
-          email: email,
-          password: password
-        })
-        .then(() => this.$router.push({ name: "dashboard" }));
-        
-        // submitButton.classList.remove(
-        //  "spinner",
-        //  "spinner-light",
-        //  "spinner-right"
-        // );
-      }, 2000);
-    });
+    // this.fv1.on("core.form.valid", () => {
+    //   const email = this.$refs.remail.value;
+    //   const password = this.$refs.rpassword.value;
+    //
+    //   // clear existing errors
+    //   this.$store.dispatch(LOGOUT);
+    //
+    //   // set spinner to submit button
+    //   //const submitButton = this.$refs["kt_login_signup_submit"];
+    //   //submitButton.classList.add("spinner", "spinner-light", "spinner-right");
+    //
+    //   // dummy delay
+    //   setTimeout(() => {
+    //     // send register request
+    //     this.$store
+    //     .dispatch(REGISTER, {
+    //       email: email,
+    //       password: password
+    //     })
+    //     .then(() => this.$router.push({ name: "dashboard" }));
+    //
+    //     // submitButton.classList.remove(
+    //     //  "spinner",
+    //     //  "spinner-light",
+    //     //  "spinner-right"
+    //     // );
+    //   }, 2000);
+    // });
     
     this.fv1.on("core.form.invalid", () => {
       Swal.fire({

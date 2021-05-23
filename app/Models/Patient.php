@@ -113,17 +113,6 @@ class Patient extends Model
   }
   
   /**
-  * Método que obtiene las imagenes asociadas con el paciente
-  *
-  * @author  Paúl Rojas <paul.rojase@gmail.com>
-  * @return object Objeto con los registros relacionados al modelo Paciente
-  */
-  public function images()
-  {
-    return $this->hasMany(Image::class);
-  }
-  
-  /**
   * Método que obtiene los archivos asociadas con el paciente
   *
   * @author  Paúl Rojas <paul.rojase@gmail.com>

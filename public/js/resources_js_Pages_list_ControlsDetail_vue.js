@@ -207,6 +207,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -224,14 +229,14 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  watch: {
-    params: {
-      handler: function handler() {
-        this.getResults();
-      },
-      deep: true
-    }
-  },
+  // watch: {
+  //   params: {
+  //     handler() {
+  //       this.getResults();
+  //     },
+  //     deep: true
+  //   }
+  // },
   methods: {
     getResults: function getResults() {
       this.$inertia.get(route('controls.search'), this.params, {
@@ -3553,8 +3558,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xl-4" }),
-      _vm._v(" "),
       _c(
         "div",
         { staticClass: "col-xl-4" },
@@ -3615,6 +3618,33 @@ var render = function() {
           )
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-xl-4 mt-3" },
+        [
+          _c(
+            "b-form-group",
+            { staticClass: "mt-5" },
+            [
+              _c(
+                "b-button",
+                {
+                  attrs: { type: "button", variant: "primary" },
+                  on: {
+                    click: function($event) {
+                      return _vm.getResults()
+                    }
+                  }
+                },
+                [_vm._v("Filtrar")]
+              )
+            ],
+            1
+          )
+        ],
+        1
       )
     ]),
     _vm._v(" "),
@@ -3635,7 +3665,7 @@ var render = function() {
                       "btn btn-primary font-weight-bolder font-size-sm py-2",
                     attrs: { href: _vm.$route("calendar") }
                   },
-                  [_vm._v("\n            calendario\n          ")]
+                  [_vm._v("\n          calendario\n        ")]
                 )
               ],
               1
@@ -3701,11 +3731,11 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                " +
+                                    "\n              " +
                                       _vm._s(item.patient.first_name_1) +
                                       " " +
                                       _vm._s(item.patient.last_name_1) +
-                                      "\n              "
+                                      "\n            "
                                   )
                                 ]
                               ),
@@ -3718,13 +3748,13 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                " +
+                                    "\n              " +
                                       _vm._s(
                                         _vm.calcularEdad(
                                           item.patient.birth_date
                                         ) + " años"
                                       ) +
-                                      "\n              "
+                                      "\n            "
                                   )
                                 ]
                               )
@@ -3738,9 +3768,9 @@ var render = function() {
                               { staticClass: "text-muted font-weight-bold" },
                               [
                                 _vm._v(
-                                  "\n                " +
+                                  "\n              " +
                                     _vm._s(_vm._f("formatDate")(item.date)) +
-                                    "\n              "
+                                    "\n            "
                                 )
                               ]
                             )
@@ -3752,9 +3782,9 @@ var render = function() {
                               { staticClass: "text-muted font-weight-bold" },
                               [
                                 _vm._v(
-                                  "\n                " +
+                                  "\n              " +
                                     _vm._s(item.time) +
-                                    "\n              "
+                                    "\n            "
                                 )
                               ]
                             )
@@ -3766,11 +3796,11 @@ var render = function() {
                               { staticClass: "text-muted font-weight-bold" },
                               [
                                 _vm._v(
-                                  "\n                " +
+                                  "\n              " +
                                     _vm._s(
                                       _vm._f("truncate")(item.note, 20, "...")
                                     ) +
-                                    "\n              "
+                                    "\n            "
                                 )
                               ]
                             )

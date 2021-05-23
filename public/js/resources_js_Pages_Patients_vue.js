@@ -66,6 +66,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -78,7 +124,7 @@ __webpack_require__.r(__webpack_exports__);
       title: "Pacientes"
     };
   },
-  props: ['patients', 'status'],
+  props: ['patients', 'status', 'diagnostic', 'workplan'],
   components: {
     PatientsList: _list_Patients_vue__WEBPACK_IMPORTED_MODULE_0__.default
   },
@@ -88,6 +134,8 @@ __webpack_require__.r(__webpack_exports__);
       currentPage: 1,
       items: this.patients,
       params: {
+        workplan: this.workplan,
+        diagnostic: this.diagnostic,
         status: this.status
       }
     };
@@ -101,13 +149,17 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    resetear: function resetear() {
+      if (this.params.status != 'activo') {
+        this.params.workplan = 'todos';
+        this.params.diagnostic = 'todos';
+      }
+    },
     getResults: function getResults() {
       this.$inertia.get(route('patients.search-status'), this.params, {
-        onSuccess: function onSuccess(response) {
-          console.log(response);
+        onSuccess: function onSuccess(response) {//console.log(response)
         },
-        onError: function onError(response) {
-          console.log(response);
+        onError: function onError(response) {//console.log(response)
         }
       });
     },
@@ -117,7 +169,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     rows: function rows() {
-      return this.items.length;
+      return this.patients.length;
     }
   }
 });
@@ -750,6 +802,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     */
     subheaderDisplay: function subheaderDisplay() {
       return !!this.layoutConfig("subheader.display");
+    },
+    auth_user: function auth_user() {
+      return this.$page.props.auth_user;
     }
     /**
     * Set the subheader display on dashboard page
@@ -3684,8 +3739,8 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("b-row", { staticClass: "row", attrs: { "align-h": "end" } }, [
-        _c("div", { staticClass: "col-xl-8" }, [
+      _c("b-row", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-xl-12" }, [
           _c("p", { staticClass: "pt-5 mt-5" }, [
             _vm._v(
               "\n          " +
@@ -3713,21 +3768,28 @@ var render = function() {
                 staticClass: "form-control ",
                 attrs: { name: "status" },
                 on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.params,
-                      "status",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.params,
+                        "status",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
+                    function($event) {
+                      return _vm.resetear()
+                    }
+                  ]
                 }
               },
               [
@@ -3747,7 +3809,205 @@ var render = function() {
               ]
             )
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _vm.params.status == "activo"
+          ? _c("div", { staticClass: "col-xl-4" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Filtrar por Diagnóstico")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.params.diagnostic,
+                        expression: "params.diagnostic"
+                      }
+                    ],
+                    staticClass: "form-control ",
+                    attrs: { name: "diagnostic" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.params,
+                          "diagnostic",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "todos" } }, [
+                      _vm._v("Todos")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "bajo_consumo_energetico" } },
+                      [_vm._v("Bajo cosumo energético")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "bajo_consumo_proteico" } },
+                      [_vm._v("Bajo consumo proteico")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "bajo_consumo_carbohidratos" } },
+                      [_vm._v("Bajo consumo de carbohidratos")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "bajo_consumo_grasas_escenciales" } },
+                      [_vm._v("Bajo consumo de grasas escenciales")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "bajo_consumo_micronutrientes" } },
+                      [_vm._v("Bajo consumo de micronutrientes")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "alto_consumo_ultraprcesados" } },
+                      [_vm._v("Alto consumo de ultraprocesados")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "inadecuado_timming_ingestas" } },
+                      [_vm._v("Inadecuando TIMMING de ingestas")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "esquema_hidratacion_inadecuado" } },
+                      [_vm._v("Esquea de hidratación inadecuado")]
+                    ),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "dieta_alta_fodmaps" } }, [
+                      _vm._v("Dieta alta en FODMAPS")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "excedente_calorico" } }, [
+                      _vm._v("Excedente calórico")
+                    ])
+                  ]
+                )
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.params.status == "activo"
+          ? _c("div", { staticClass: "col-xl-4" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Filtrar por Plan de trabajo")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.params.workplan,
+                        expression: "params.workplan"
+                      }
+                    ],
+                    staticClass: "form-control ",
+                    attrs: { name: "workplan" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.params,
+                          "workplan",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "todos", selected: "" } }, [
+                      _vm._v("Todos")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "Dieta alta en proteinas" } },
+                      [_vm._v("Dieta alta en proteinas")]
+                    ),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "Déficit calórico" } }, [
+                      _vm._v("Déficit calórico")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "Superavit calórico" } }, [
+                      _vm._v("Superavit calórico")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "Ayuno intermitente" } }, [
+                      _vm._v("Ayuno intermitente")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "Dietas Keto" } }, [
+                      _vm._v("Dietas Keto")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "Dieta baja en FODMAPS" } },
+                      [_vm._v("Dieta baja en FODMAPS")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "Medidas anti inflamatorias" } },
+                      [_vm._v("Medidas anti inflamatorias")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "Deta muy baja en carbohidratos" } },
+                      [_vm._v("Deta muy baja en carbohidratos")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "Esquema de suplementación" } },
+                      [_vm._v("Esquema de suplementación")]
+                    )
+                  ]
+                )
+              ])
+            ])
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c(
@@ -3765,7 +4025,7 @@ var render = function() {
           return _c(
             "PatientsList",
             { key: patient.id, attrs: { patient: patient } },
-            [_vm._v("\n  >")]
+            [_vm._v("\n>")]
           )
         }),
         1
@@ -4342,37 +4602,44 @@ var render = function() {
                   _vm._l(_vm.inactives, function(item, i) {
                     return [
                       _c("tr", { key: i }, [
-                        _c("td", { staticClass: "pl-0" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg",
-                              attrs: { href: "#" }
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(item.first_name_1) +
-                                  " " +
-                                  _vm._s(item.last_name_2)
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "text-muted font-weight-bold text-muted d-block"
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(_vm.calcularEdad(item.birth_date)) +
-                                  " años"
-                              )
-                            ]
-                          )
-                        ]),
+                        _c(
+                          "td",
+                          { staticClass: "pl-0" },
+                          [
+                            _c(
+                              "inertia-link",
+                              {
+                                staticClass:
+                                  "text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg",
+                                attrs: {
+                                  href: _vm.$route("patients.show", item.id)
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(item.first_name_1) +
+                                    " " +
+                                    _vm._s(item.last_name_1)
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "text-muted font-weight-bold text-muted d-block"
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.calcularEdad(item.birth_date)) +
+                                    " años"
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _c(
                           "td",
@@ -4924,10 +5191,10 @@ var render = function() {
                         staticClass:
                           "text-dark-75 font-weight-bolder font-size-h2 mr-2"
                       },
-                      [_vm._v(_vm._s(_vm.successControls) + "%")]
+                      [_vm._v(_vm._s(_vm.controlsSuccessToday) + "%")]
                     ),
                     _vm._v(
-                      _vm._s(_vm.controlsSuccessToday) +
+                      _vm._s(_vm.successControls) +
                         " citas programadas para hoy\n      "
                     )
                   ]
@@ -4939,7 +5206,7 @@ var render = function() {
                   [
                     _c("div", {
                       staticClass: "progress-bar bg-warning",
-                      style: "width: " + _vm.successControls + "%;",
+                      style: "width: " + _vm.controlsSuccessToday + "%;",
                       attrs: {
                         role: "progressbar",
                         "aria-valuenow": "50",

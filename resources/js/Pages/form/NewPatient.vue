@@ -87,18 +87,6 @@
       </b-form-group>
       
       <b-form-group>
-        <label>Describa las aspiraciones o motivo de la consulta</label>
-        <textarea
-        type="text"
-        v-model="form.aspiration"
-        class="form-control"
-        name="aspiration"
-        required
-        ></textarea>
-      </b-form-group>
-      
-      
-      <b-form-group>
         <b-button type="submit" variant="primary">Guardar</b-button>
         <b-button type="reset" variant="danger">Borrar</b-button>
       </b-form-group>
@@ -141,8 +129,7 @@ data() {
       last_name_2: '',
       birth_date: '',
       phone: '',
-      email: '',
-      aspiration: ''
+      email: ''
     },
     show: true,
   }
@@ -187,7 +174,6 @@ methods: {
     this.form.birth_date = ''
     this.form.email = ''
     this.form.phone = ''
-    this.form.aspiration = ''
     // Trick to reset/clear native browser form validation state
     this.show = false
     this.$nextTick(() => {

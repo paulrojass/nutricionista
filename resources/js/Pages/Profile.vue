@@ -30,7 +30,8 @@
                 {{patient.first_name_1}} {{patient.last_name_1}}
               </a>
               <a href="#">
-                <i class="flaticon2-correct text-success font-size-h5"></i>
+                <i v-if="patient.active == 1" class="fa fa-user text-success font-size-h5" title="Activo"></i>
+                <i v-else class="fa fa-user text-danger font-size-h5" title="Prospecto"></i>
               </a>
             </div>
             
@@ -41,13 +42,16 @@
               >
               Crear cita
             </inertia-link>
+            
             <inertia-link
+            v-if="patient.active"
             :href="route('patients.show-history', patient.id)"
             class="btn btn-sm btn-info font-weight-bolder text-uppercase"
             >
             Ver Historial
           </inertia-link>
           <inertia-link
+          v-if="patient.active"
           :href="route('patients.edit', patient.id)"
           class="btn btn-sm btn-info font-weight-bolder text-uppercase"
           >
@@ -64,13 +68,13 @@
           <a
           href="#"
           class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
-          ><i class="flaticon2-new-email mr-2 font-size-lg"></i
+          ><i class="fa fa-envelope mr-2 font-size-lg"></i
             >{{patient.email}}
           </a>
           <a
           href="#"
           class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
-          ><i class="flaticon2-calendar-3 mr-2 font-size-lg"></i>
+          ><i class="fa fa-mobile mr-2 font-size-lg"></i>
           {{patient.phone}}
         </a>
         <a
@@ -95,27 +99,29 @@
 <!--end::Item-->
 </div>
 
-<!--begin::Row-->
-<div class="row">
-  <div class="col-lg-4">
-    <WidgetAdvertising></WidgetAdvertising>
+<div v-if="patient.active">
+  
+  <div class="row">
+    <div class="col-lg-4">
+      <WidgetAdvertising></WidgetAdvertising>
+    </div>
+    <div class="col-lg-8">
+      <WidgetNotes
+      :patient="patient"
+      ></WidgetNotes>
+    </div>
   </div>
-  <div class="col-lg-8">
-    <WidgetNotes
-    :patient="patient"
-    ></WidgetNotes>
+  <!--end::Row-->
+  <!--begin::Row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <WidgetFiles
+      :patient="patient"
+      ></WidgetFiles>
+    </div>
   </div>
 </div>
-<!--end::Row-->
-<!--begin::Row-->
-<div class="row">
-  <div class="col-lg-12">
-    <WidgetFiles
-    :patient="patient"
-    ></WidgetFiles>
-  </div>
-</div>
-<!--end::Row-->
+
 </div>
 </template>
 

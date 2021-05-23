@@ -112,18 +112,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -157,8 +145,7 @@ __webpack_require__.r(__webpack_exports__);
         last_name_2: '',
         birth_date: '',
         phone: '',
-        email: '',
-        aspiration: ''
+        email: ''
       },
       show: true
     };
@@ -204,8 +191,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.last_name_2 = '';
       this.form.birth_date = '';
       this.form.email = '';
-      this.form.phone = '';
-      this.form.aspiration = ''; // Trick to reset/clear native browser form validation state
+      this.form.phone = ''; // Trick to reset/clear native browser form validation state
 
       this.show = false;
       this.$nextTick(function () {
@@ -739,6 +725,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     */
     subheaderDisplay: function subheaderDisplay() {
       return !!this.layoutConfig("subheader.display");
+    },
+    auth_user: function auth_user() {
+      return this.$page.props.auth_user;
     }
     /**
     * Set the subheader display on dashboard page
@@ -3803,34 +3792,6 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("b-form-group", [
-                  _c("label", [
-                    _vm._v("Describa las aspiraciones o motivo de la consulta")
-                  ]),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.aspiration,
-                        expression: "form.aspiration"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "aspiration", required: "" },
-                    domProps: { value: _vm.form.aspiration },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.form, "aspiration", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
                 _c(
                   "b-form-group",
                   [
@@ -4288,37 +4249,44 @@ var render = function() {
                   _vm._l(_vm.inactives, function(item, i) {
                     return [
                       _c("tr", { key: i }, [
-                        _c("td", { staticClass: "pl-0" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg",
-                              attrs: { href: "#" }
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(item.first_name_1) +
-                                  " " +
-                                  _vm._s(item.last_name_2)
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "text-muted font-weight-bold text-muted d-block"
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(_vm.calcularEdad(item.birth_date)) +
-                                  " años"
-                              )
-                            ]
-                          )
-                        ]),
+                        _c(
+                          "td",
+                          { staticClass: "pl-0" },
+                          [
+                            _c(
+                              "inertia-link",
+                              {
+                                staticClass:
+                                  "text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg",
+                                attrs: {
+                                  href: _vm.$route("patients.show", item.id)
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(item.first_name_1) +
+                                    " " +
+                                    _vm._s(item.last_name_1)
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "text-muted font-weight-bold text-muted d-block"
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.calcularEdad(item.birth_date)) +
+                                    " años"
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _c(
                           "td",
@@ -4870,10 +4838,10 @@ var render = function() {
                         staticClass:
                           "text-dark-75 font-weight-bolder font-size-h2 mr-2"
                       },
-                      [_vm._v(_vm._s(_vm.successControls) + "%")]
+                      [_vm._v(_vm._s(_vm.controlsSuccessToday) + "%")]
                     ),
                     _vm._v(
-                      _vm._s(_vm.controlsSuccessToday) +
+                      _vm._s(_vm.successControls) +
                         " citas programadas para hoy\n      "
                     )
                   ]
@@ -4885,7 +4853,7 @@ var render = function() {
                   [
                     _c("div", {
                       staticClass: "progress-bar bg-warning",
-                      style: "width: " + _vm.successControls + "%;",
+                      style: "width: " + _vm.controlsSuccessToday + "%;",
                       attrs: {
                         role: "progressbar",
                         "aria-valuenow": "50",

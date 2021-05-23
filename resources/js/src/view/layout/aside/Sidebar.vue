@@ -96,14 +96,14 @@
       >
       <div class="font-weight-bold text-muted font-size-sm">
         <span class="text-dark-75 font-weight-bolder font-size-h2 mr-2"
-        >{{successControls}}%</span
-        >{{controlsSuccessToday}} citas programadas para hoy
+        >{{controlsSuccessToday}}%</span
+        >{{successControls}} citas programadas para hoy
       </div>
       <div class="progress progress-xs mt-7 bg-warning-o-60">
         <div
         class="progress-bar bg-warning"
         role="progressbar"
-        :style="`width: ${successControls}%;`"
+        :style="`width: ${controlsSuccessToday}%;`"
         aria-valuenow="50"
         aria-valuemin="0"
         aria-valuemax="100"

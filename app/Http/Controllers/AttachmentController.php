@@ -111,6 +111,11 @@ class AttachmentController extends Controller
     
     $name = $attachment->name.'.'.$attachment->format;
     
+    // if($attachment->format == 'pdf'){
+    //   $pdf = PDF::loadView('whateveryourviewname', $data);
+    //   return $pdf->stream('whateveryourviewname.pdf');
+    // }
+    
     return Storage::disk('public')->download($location, $name);
   }
   

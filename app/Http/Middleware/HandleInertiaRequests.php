@@ -40,6 +40,7 @@ class HandleInertiaRequests extends Middleware
   */
   public function share(Request $request)
   {
+    $auth_user = auth()->user();
     $patients = Patient::all()->count();
     $inactives = Patient::where('active', 0)->take(5)->get();
     $inactivesTotal = Patient::where('active', 0)->count();
@@ -51,9 +52,10 @@ class HandleInertiaRequests extends Middleware
       $activePatients = 0;
       $inactivePatients = 0;
     }
-    $successControls = Control::where('date', Carbon::now())
+    $successControls = Control::where('date', Carbon::today())
     ->whereIn('status', ['albahaca', 'verde'])->count();
-    $controls = Control::where('date', Carbon::now())->count();
+    $controls = Control::where('date', Carbon::today())->count();
+    //dd($controls);
     if ($controls > 0) {
       $controlsSuccessToday = round(($successControls*100) / $controls);
     } else {
@@ -61,6 +63,7 @@ class HandleInertiaRequests extends Middleware
       $controls = 0;
     }
     return array_merge(parent::share($request), [
+      'auth_user' => $auth_user ? : null,
       'inactives' => $inactives ? : 0,
       'activesTotal' => $activesTotal ? : 0,
       'inactivesTotal' => $inactivesTotal ? : 0,
