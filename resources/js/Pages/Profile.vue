@@ -102,24 +102,24 @@
 <div v-if="patient.active">
   
   <div class="row">
-    <div class="col-lg-4">
-      <WidgetAdvertising></WidgetAdvertising>
-    </div>
-    <div class="col-lg-8">
-      <WidgetNotes
-      :patient="patient"
-      ></WidgetNotes>
-    </div>
+    <!-- <div class="col-lg-4">
+    <WidgetAdvertising></WidgetAdvertising>
+  </div> -->
+  <div class="col-lg-12">
+    <WidgetNotes
+    :patient="patient"
+    ></WidgetNotes>
   </div>
-  <!--end::Row-->
-  <!--begin::Row-->
-  <div class="row">
-    <div class="col-lg-12">
-      <WidgetFiles
-      :patient="patient"
-      ></WidgetFiles>
-    </div>
+</div>
+<!--end::Row-->
+<!--begin::Row-->
+<div class="row">
+  <div class="col-lg-12">
+    <WidgetFiles
+    :patient="patient"
+    ></WidgetFiles>
   </div>
+</div>
 </div>
 
 </div>
@@ -129,7 +129,7 @@
 import Layout from "../src/view/layout/Layout"
 import { mapGetters } from "vuex"
 import WidgetNotes from "./profile/Notes"
-import WidgetAdvertising from "./profile/Advertising"
+//import WidgetAdvertising from "./profile/Advertising"
 import WidgetFiles from "./profile/Files"
 
 export default {
@@ -143,7 +143,7 @@ export default {
   props: ['patient'],
   components: {
     WidgetNotes,
-    WidgetAdvertising,
+    //WidgetAdvertising,
     WidgetFiles,
   },
   computed: {
