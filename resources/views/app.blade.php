@@ -22,7 +22,7 @@
     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-  <!-- <link rel="icon" href="favicon.ico"> -->
+  <link rel="icon" href="favicon.ico">
   <meta name="csrf-token" value="{{ csrf_token() }}"/>
   <title>Nutricionista</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />

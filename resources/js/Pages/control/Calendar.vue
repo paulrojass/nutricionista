@@ -30,7 +30,7 @@
   </div>
   <div class="card-body responsive-iframe-container big-container">
     <iframe
-    src="https://calendar.google.com/calendar/embed?src=es.pa%23holiday%40group.v.calendar.google.com&ctz=America%2FPanama&amp;src=ZXMucGEjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%237CB342&amp;showPrint=1&amp;title=Mi%20calendario&amp;showNav=1&amp;showTabs=1&amp;showCalendars=0"
+    src="https://calendar.google.com/calendar/embed?src=hn7s0ek35jvo9dafn2jjl52os4%40group.calendar.google.com&ctz=America%2FCaracas"
     style="border: 0"
     width="100%"
     height="600"

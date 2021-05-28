@@ -3523,7 +3523,7 @@ var staticRenderFns = [
           staticStyle: { border: "0" },
           attrs: {
             src:
-              "https://calendar.google.com/calendar/embed?src=es.pa%23holiday%40group.v.calendar.google.com&ctz=America%2FPanama&src=ZXMucGEjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%237CB342&showPrint=1&title=Mi%20calendario&showNav=1&showTabs=1&showCalendars=0",
+              "https://calendar.google.com/calendar/embed?src=hn7s0ek35jvo9dafn2jjl52os4%40group.calendar.google.com&ctz=America%2FCaracas",
             width: "100%",
             height: "600",
             frameborder: "0",
