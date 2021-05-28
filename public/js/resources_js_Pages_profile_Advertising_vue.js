@@ -26,7 +26,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['nextControl']
+});
 
 /***/ }),
 
@@ -118,34 +127,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card card-custom card-stretch gutter-b" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body py-0" }, [
+      _vm.nextControl == null
+        ? _c("p", [_vm._v(" No tiene citas asignadas")])
+        : _c("p", [
+            _vm._v(
+              "Proxima cita: " +
+                _vm._s(_vm._f("formatDate")(_vm.nextControl.date))
+            )
+          ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "card card-custom card-stretch gutter-b" },
-      [
-        _c("div", { staticClass: "card-header border-0 py-5" }, [
-          _c(
-            "h3",
-            { staticClass: "card-title align-items-start flex-column" },
-            [
-              _c(
-                "span",
-                { staticClass: "card-label font-weight-bolder text-dark" },
-                [_vm._v("Anuncios")]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body py-0" })
-      ]
-    )
+    return _c("div", { staticClass: "card-header border-0 py-5" }, [
+      _c("h3", { staticClass: "card-title align-items-start flex-column" }, [
+        _c("span", { staticClass: "card-label font-weight-bolder text-dark" }, [
+          _vm._v("Anuncios")
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true

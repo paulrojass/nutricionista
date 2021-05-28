@@ -1450,6 +1450,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     successControls: function successControls() {
       return this.$page.props.successControls;
+    },
+    controlsCount: function controlsCount() {
+      return this.$page.props.controlsCount;
     }
   }
 });
@@ -6083,7 +6086,7 @@ var render = function() {
                       [_vm._v(_vm._s(_vm.controlsSuccessToday) + "%")]
                     ),
                     _vm._v(
-                      _vm._s(_vm.successControls) +
+                      _vm._s(_vm.controlsCount) +
                         " citas programadas para hoy\n      "
                     )
                   ]

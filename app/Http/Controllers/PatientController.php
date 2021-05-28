@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Redirect;
 use Image;
+use Carbon\Carbon;
+
 
 class PatientController extends Controller
 {
@@ -127,11 +129,16 @@ class PatientController extends Controller
   public function show($id)
   {
     $patient = Patient::where('id', $id)->with('attachments')->
-    with(array('notes' => function($query) {
+      with(array('controls' => function($query) {
+      $query->orderBy('date', 'DESC');
+      }))->
+      with(array('notes' => function($query) {
       $query->orderBy('created_at', 'DESC');
       }))->first();
+      $nextControl = $patient->controls->where('date','>=', Carbon::today() )->first();
       return Inertia::render('Profile', [
         'patient' => $patient,
+        'nextControl' => $nextControl ? : null
       ]);
     }
     
