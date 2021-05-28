@@ -97,7 +97,7 @@
       <div class="font-weight-bold text-muted font-size-sm">
         <span class="text-dark-75 font-weight-bolder font-size-h2 mr-2"
         >{{controlsSuccessToday}}%</span
-        >{{successControls}} citas programadas para hoy
+        >{{controlsCount}} citas programadas para hoy
       </div>
       <div class="progress progress-xs mt-7 bg-warning-o-60">
         <div
@@ -159,6 +159,9 @@ export default {
     },
     successControls() {
       return this.$page.props.successControls
+    },
+   controlsCount() {
+      return this.$page.props.controlsCount
     },
   }
 };

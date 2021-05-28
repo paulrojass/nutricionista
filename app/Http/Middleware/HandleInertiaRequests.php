@@ -54,13 +54,13 @@ class HandleInertiaRequests extends Middleware
     }
     $successControls = Control::where('date', Carbon::today())
     ->whereIn('status', ['albahaca', 'verde'])->count();
-    $controls = Control::where('date', Carbon::today())->count();
-    //dd($controls);
-    if ($controls > 0) {
-      $controlsSuccessToday = round(($successControls*100) / $controls);
+    $controlsCount = Control::where('date', Carbon::today())->count();
+    //dd($controlsCount);
+    if ($controlsCount > 0) {
+      $controlsSuccessToday = round(($successControls*100) / $controlsCount);
     } else {
       $controlsSuccessToday = 0;
-      $controls = 0;
+      $controlsCount = 0;
     }
     return array_merge(parent::share($request), [
       'auth_user' => $auth_user ? : null,
@@ -71,6 +71,7 @@ class HandleInertiaRequests extends Middleware
       'inactivePatients' => $inactivePatients ? : 0,
       'successControls' => $successControls ? : 0,
       'controlsSuccessToday' => $controlsSuccessToday ? : 0,
+      'controlsCount' => $controlsCount ? : 0,
       'flash' => [
         //'message' => fn () => $request->session()->get('message')
         'message' => $request->session()->get('message')

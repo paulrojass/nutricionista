@@ -102,10 +102,10 @@
 <div v-if="patient.active">
   
   <div class="row">
-    <!-- <div class="col-lg-4">
-    <WidgetAdvertising></WidgetAdvertising>
-  </div> -->
-  <div class="col-lg-12">
+  <div class="col-lg-4">
+    <WidgetAdvertising :nextControl="nextControl"></WidgetAdvertising>
+  </div>
+  <div class="col-lg-8">
     <WidgetNotes
     :patient="patient"
     ></WidgetNotes>
@@ -129,7 +129,7 @@
 import Layout from "../src/view/layout/Layout"
 import { mapGetters } from "vuex"
 import WidgetNotes from "./profile/Notes"
-//import WidgetAdvertising from "./profile/Advertising"
+import WidgetAdvertising from "./profile/Advertising"
 import WidgetFiles from "./profile/Files"
 
 export default {
@@ -140,10 +140,10 @@ export default {
       title: `Paciente ${this.patient.first_name_1} ${this.patient.last_name_1}`,
     }
   },
-  props: ['patient'],
+  props: ['patient', 'nextControl'],
   components: {
     WidgetNotes,
-    //WidgetAdvertising,
+    WidgetAdvertising,
     WidgetFiles,
   },
   computed: {

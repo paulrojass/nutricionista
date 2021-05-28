@@ -8,6 +8,13 @@
       </h3>
     </div>
     <div class="card-body py-0">
+
+      <p v-if="nextControl == null"> No tiene citas asignadas</p>
+
+
+        <p v-else>Proxima cita: {{nextControl.date | formatDate}}</p>
+
+
     </div>
     
   </div>
@@ -15,6 +22,6 @@
 
 <script>
 export default {
-  
+  props : ['nextControl']
 };
 </script>
