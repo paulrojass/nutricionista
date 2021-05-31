@@ -9,17 +9,27 @@
     class="btn p-0 symbol symbol-60 symbol-light-primary"
     id="kt_quick_user_toggle"
     >
-    <inertia-link :href="$route('home')">
-      <div class="symbol-label">
-        <inline-svg
-        alt="Logo"
-        src="/media/svg/avatars/001-boy.svg"
-        class="h-75 align-self-end"
-        />
-      </div>
-    </inertia-link>
+    <!--
+    <div class="symbol-label">
+    <inline-svg
+    alt="Logo"
+    src="/media/svg/avatars/001-boy.svg"
+    class="h-75 align-self-end"
+    />
   </div>
-  <!--end::Logo-->
+-->
+<inertia-link :href="$route('my-profile')">
+  <div class="symbol symbol-60">
+    <img :src="`/storage/avatars/users/${this.$page.props.auth_user.avatar}`" alt="image" />
+  </div>
+</inertia-link>
+
+
+
+
+
+</div>
+<!--end::Logo-->
 </div>
 <!--end::Brand-->
 <!--begin::Nav Wrapper-->

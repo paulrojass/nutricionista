@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 use Redirect;
 use DB;
+use Image;
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
@@ -100,12 +102,29 @@ class UserController extends Controller
     return redirect()->route('my-profile');
   }
   
+  public function changeAvatar(Request $request)
+  {
+    $this->validatorAvatar($request->all())->validate();
+    
+    $user = auth()->user();
+    $this->deleteAvatar($user->avatar);
+    $user->avatar = $this->saveAvatar($request);
+    $user->save();
+    return redirect()->route('my-profile')->with('success', 'hello');
+  }
+  
   public function validator(array $data)
   {
     return Validator::make($data, [
       'name' => ['required', 'string', 'max:255'],
       'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
       'password' => ['required', 'string', 'min:8', 'confirmed']
+    ]);
+  }
+  
+  public function validatorAvatar(array $data){
+    return Validator::make($data, [
+      'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:100000'
     ]);
   }
   protected function createUser(array $data)
@@ -120,4 +139,44 @@ class UserController extends Controller
   {
     //
   }
+  
+  public function saveAvatar(Request $request)
+  {
+    $originalImage= $request->file('avatar');
+    $image = Image::make($originalImage);
+    $originalPath = public_path().'/storage/avatars/users/';
+    //Nombre aleatorio para la image
+    $tempName = Str::random(10) . '.' . $originalImage->getClientOriginalExtension();
+    
+    //Redimensinoar la imagen
+    if($image->width() >= $image->height()) $image->heighten(400);
+    else $image->widen(400);
+    $image->resizeCanvas(400,400);
+    
+    $image->save($originalPath.$tempName);
+    
+    return $tempName;
+  }
+  
+  public function deleteAvatar($avatar)
+  {
+    $originalPath = public_path().'/storage/avatars/users/';
+    //dd($originalPath.$avatar);
+    
+    if ($avatar != 'default.jpg') {
+      if (\File::exists($originalPath.$avatar)) {
+        \File::delete($originalPath.$avatar);
+      }
+    }
+  }
+  
+  public function deleteUserAvatar()
+  {
+    $user = auth()->user();
+    $this->deleteAvatar($user->avatar);
+    $user->avatar = 'default.jpg';
+    $user->save();
+    return redirect()->route('my-profile')->with('success', 'hello');
+  }
+  
 }

@@ -760,6 +760,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
  // import KTQuickNotifications from "../extras/offcanvas/QuickNotifications.vue";
 // import KTQuickActions from "../extras/offcanvas/QuickActions.vue";
 // import KTQuickPanel from "../extras/offcanvas/QuickPanel.vue";
@@ -4336,22 +4346,22 @@ var render = function() {
               attrs: { id: "kt_quick_user_toggle" }
             },
             [
-              _c("inertia-link", { attrs: { href: _vm.$route("home") } }, [
-                _c(
-                  "div",
-                  { staticClass: "symbol-label" },
-                  [
-                    _c("inline-svg", {
-                      staticClass: "h-75 align-self-end",
+              _c(
+                "inertia-link",
+                { attrs: { href: _vm.$route("my-profile") } },
+                [
+                  _c("div", { staticClass: "symbol symbol-60" }, [
+                    _c("img", {
                       attrs: {
-                        alt: "Logo",
-                        src: "/media/svg/avatars/001-boy.svg"
+                        src:
+                          "/storage/avatars/users/" +
+                          this.$page.props.auth_user.avatar,
+                        alt: "image"
                       }
                     })
-                  ],
-                  1
-                )
-              ])
+                  ])
+                ]
+              )
             ],
             1
           )

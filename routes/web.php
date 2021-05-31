@@ -39,6 +39,8 @@ Route::prefix('panel')->group(function () {
   Route::get('pacientes/{patient_id}/historial', [App\Http\Controllers\PatientController::class, 'showHistory'] )->name('patients.show-history');
   Route::get('usuarios/mi-perfil', [App\Http\Controllers\UserController::class, 'myProfile'])->name('my-profile');
   Route::post('usuarios/mi-perfil/cambiar-password', [App\Http\Controllers\UserController::class, 'changePassword'])->name('change-password');
+  Route::post('usuarios/mi-perfil/cambiar-avatar', [App\Http\Controllers\UserController::class, 'changeAvatar'])->name('change-avatar');
+  Route::post('usuarios/mi-perfil/eliminar-avatar', [App\Http\Controllers\UserController::class, 'deleteUserAvatar'])->name('delete-avatar');
   Route::resource('usuarios',
   App\Http\Controllers\UserController::class,
   [

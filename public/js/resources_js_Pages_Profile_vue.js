@@ -1169,6 +1169,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
  // import KTQuickNotifications from "../extras/offcanvas/QuickNotifications.vue";
 // import KTQuickActions from "../extras/offcanvas/QuickActions.vue";
 // import KTQuickPanel from "../extras/offcanvas/QuickPanel.vue";
@@ -4168,19 +4178,7 @@ var render = function() {
                           "\n              "
                       )
                     ]
-                  ),
-                  _vm._v(" "),
-                  _c("a", { attrs: { href: "#" } }, [
-                    _vm.patient.active == 1
-                      ? _c("i", {
-                          staticClass: "fa fa-user text-success font-size-h5",
-                          attrs: { title: "Activo" }
-                        })
-                      : _c("i", {
-                          staticClass: "fa fa-user text-danger font-size-h5",
-                          attrs: { title: "Prospecto" }
-                        })
-                  ])
+                  )
                 ]),
                 _vm._v(" "),
                 _c(
@@ -4196,7 +4194,7 @@ var render = function() {
                           href: _vm.$route("controls.create", [_vm.patient.id])
                         }
                       },
-                      [_vm._v("\n              Crear cita\n            ")]
+                      [_vm._v("\n            Crear cita\n          ")]
                     ),
                     _vm._v(" "),
                     _vm.patient.active
@@ -4212,7 +4210,7 @@ var render = function() {
                               )
                             }
                           },
-                          [_vm._v("\n            Ver Historial\n          ")]
+                          [_vm._v("\n          Ver Historial\n        ")]
                         )
                       : _vm._e(),
                     _vm._v(" "),
@@ -4226,7 +4224,7 @@ var render = function() {
                               href: _vm.route("patients.edit", _vm.patient.id)
                             }
                           },
-                          [_vm._v("\n          Editar Historial\n        ")]
+                          [_vm._v("\n        Editar Historial\n      ")]
                         )
                       : _vm._e()
                   ],
@@ -4255,7 +4253,7 @@ var render = function() {
                           _c("i", {
                             staticClass: "fa fa-envelope mr-2 font-size-lg"
                           }),
-                          _vm._v(_vm._s(_vm.patient.email) + "\n          ")
+                          _vm._v(_vm._s(_vm.patient.email) + "\n        ")
                         ]
                       ),
                       _vm._v(" "),
@@ -4271,9 +4269,9 @@ var render = function() {
                             staticClass: "fa fa-mobile mr-2 font-size-lg"
                           }),
                           _vm._v(
-                            "\n          " +
+                            "\n        " +
                               _vm._s(_vm.patient.phone) +
-                              "\n        "
+                              "\n      "
                           )
                         ]
                       ),
@@ -4291,7 +4289,7 @@ var render = function() {
                               "flaticon2-placeholder mr-2 font-size-lg"
                           }),
                           _vm._v(
-                            "\n        " + _vm._s(_vm.patient.city) + "\n      "
+                            "\n      " + _vm._s(_vm.patient.city) + "\n    "
                           )
                         ]
                       )
@@ -4302,7 +4300,7 @@ var render = function() {
                       { staticClass: "font-weight-bold text-dark-50" },
                       [
                         _vm._v(
-                          "\n      " + _vm._s(_vm.patient.aspiration) + "\n    "
+                          "\n    " + _vm._s(_vm.patient.aspiration) + "\n  "
                         )
                       ]
                     )
@@ -5612,22 +5610,22 @@ var render = function() {
               attrs: { id: "kt_quick_user_toggle" }
             },
             [
-              _c("inertia-link", { attrs: { href: _vm.$route("home") } }, [
-                _c(
-                  "div",
-                  { staticClass: "symbol-label" },
-                  [
-                    _c("inline-svg", {
-                      staticClass: "h-75 align-self-end",
+              _c(
+                "inertia-link",
+                { attrs: { href: _vm.$route("my-profile") } },
+                [
+                  _c("div", { staticClass: "symbol symbol-60" }, [
+                    _c("img", {
                       attrs: {
-                        alt: "Logo",
-                        src: "/media/svg/avatars/001-boy.svg"
+                        src:
+                          "/storage/avatars/users/" +
+                          this.$page.props.auth_user.avatar,
+                        alt: "image"
                       }
                     })
-                  ],
-                  1
-                )
-              ])
+                  ])
+                ]
+              )
             ],
             1
           )

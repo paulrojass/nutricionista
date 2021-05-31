@@ -29,66 +29,66 @@
                 class="text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3">
                 {{patient.first_name_1}} {{patient.last_name_1}}
               </a>
-              <a href="#">
-                <i v-if="patient.active == 1" class="fa fa-user text-success font-size-h5" title="Activo"></i>
-                <i v-else class="fa fa-user text-danger font-size-h5" title="Prospecto"></i>
-              </a>
-            </div>
-            
-            <div class="my-lg-0 my-3">
-              <inertia-link
-              :href="$route('controls.create', [patient.id])"
-              class="btn btn-sm btn-info font-weight-bolder text-uppercase"
-              >
-              Crear cita
-            </inertia-link>
-            
+              <!-- <a href="#">
+              <i v-if="patient.active == 1" class="fa fa-user text-success font-size-h5" title="Activo"></i>
+              <i v-else class="fa fa-user text-danger font-size-h5" title="Prospecto"></i>
+            </a> -->
+          </div>
+          
+          <div class="my-lg-0 my-3">
             <inertia-link
-            v-if="patient.active"
-            :href="route('patients.show-history', patient.id)"
+            :href="$route('controls.create', [patient.id])"
             class="btn btn-sm btn-info font-weight-bolder text-uppercase"
             >
-            Ver Historial
+            Crear cita
           </inertia-link>
+          
           <inertia-link
           v-if="patient.active"
-          :href="route('patients.edit', patient.id)"
+          :href="route('patients.show-history', patient.id)"
           class="btn btn-sm btn-info font-weight-bolder text-uppercase"
           >
-          Editar Historial
+          Ver Historial
         </inertia-link>
-      </div>
+        <inertia-link
+        v-if="patient.active"
+        :href="route('patients.edit', patient.id)"
+        class="btn btn-sm btn-info font-weight-bolder text-uppercase"
+        >
+        Editar Historial
+      </inertia-link>
     </div>
-    <!--end::Title-->
-    
-    <!--begin::Content-->
-    <div class="d-flex flex-wrap justify-content-between mt-3">
-      <div class="d-flex flex-column flex-grow-1 pr-8">
-        <div class="d-flex flex-wrap mb-4">
-          <a
-          href="#"
-          class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
-          ><i class="fa fa-envelope mr-2 font-size-lg"></i
-            >{{patient.email}}
-          </a>
-          <a
-          href="#"
-          class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
-          ><i class="fa fa-mobile mr-2 font-size-lg"></i>
-          {{patient.phone}}
+  </div>
+  <!--end::Title-->
+  
+  <!--begin::Content-->
+  <div class="d-flex flex-wrap justify-content-between mt-3">
+    <div class="d-flex flex-column flex-grow-1 pr-8">
+      <div class="d-flex flex-wrap mb-4">
+        <a
+        href="#"
+        class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
+        ><i class="fa fa-envelope mr-2 font-size-lg"></i
+          >{{patient.email}}
         </a>
         <a
         href="#"
-        class="text-dark-50 text-hover-primary font-weight-bold"
-        ><i class="flaticon2-placeholder mr-2 font-size-lg"></i>
-        {{patient.city}}
+        class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"
+        ><i class="fa fa-mobile mr-2 font-size-lg"></i>
+        {{patient.phone}}
       </a>
-    </div>
-    
-    <span class="font-weight-bold text-dark-50">
-      {{patient.aspiration}}
-    </span>
+      <a
+      href="#"
+      class="text-dark-50 text-hover-primary font-weight-bold"
+      ><i class="flaticon2-placeholder mr-2 font-size-lg"></i>
+      {{patient.city}}
+    </a>
   </div>
+  
+  <span class="font-weight-bold text-dark-50">
+    {{patient.aspiration}}
+  </span>
+</div>
 </div>
 <!--end::Content-->
 </div>
@@ -102,24 +102,24 @@
 <div v-if="patient.active">
   
   <div class="row">
-  <div class="col-lg-4">
-    <WidgetAdvertising :nextControl="nextControl"></WidgetAdvertising>
+    <div class="col-lg-4">
+      <WidgetAdvertising :nextControl="nextControl"></WidgetAdvertising>
+    </div>
+    <div class="col-lg-8">
+      <WidgetNotes
+      :patient="patient"
+      ></WidgetNotes>
+    </div>
   </div>
-  <div class="col-lg-8">
-    <WidgetNotes
-    :patient="patient"
-    ></WidgetNotes>
+  <!--end::Row-->
+  <!--begin::Row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <WidgetFiles
+      :patient="patient"
+      ></WidgetFiles>
+    </div>
   </div>
-</div>
-<!--end::Row-->
-<!--begin::Row-->
-<div class="row">
-  <div class="col-lg-12">
-    <WidgetFiles
-    :patient="patient"
-    ></WidgetFiles>
-  </div>
-</div>
 </div>
 
 </div>
