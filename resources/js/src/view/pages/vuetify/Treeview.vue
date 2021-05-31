@@ -873,7 +873,7 @@ export default {
           {
             name: 'static',
             children: [{
-              name: 'logo.png',
+              name: 'logo.svg',
               file: 'png',
             }],
           },
@@ -940,7 +940,7 @@ export default {
                 name: "static",
                 children: [
                   {
-                    name: "logo.png",
+                    name: "logo.svg",
                     file: "png"
                   }
                 ]

@@ -5408,7 +5408,7 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "/" } }, [
       _c("img", {
         staticClass: "logo-default max-h-30px",
-        attrs: { alt: "Logo", src: "/media/theo/logo.png" }
+        attrs: { alt: "Logo", src: "/media/theo/logo.svg" }
       })
     ])
   },

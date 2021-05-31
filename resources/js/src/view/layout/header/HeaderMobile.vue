@@ -9,7 +9,7 @@
   <a href="/">
     <img
     alt="Logo"
-    src="/media/theo/logo.png"
+    src="/media/theo/logo.svg"
     class="logo-default max-h-30px"
     />
   </a>

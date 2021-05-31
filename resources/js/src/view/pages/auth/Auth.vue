@@ -13,7 +13,7 @@
         <div class="d-flex flex-row-fluid flex-column justify-content-between">
           <!--begin: Aside header -->
           <a href="#" class="flex-column-auto">
-            <img src="/media/theo/logo.png" class="h-25" />
+            <img src="/media/theo/logo.svg" class="h-25" />
           </a>
           <!--end: Aside header -->
           <!--begin: Aside content -->
