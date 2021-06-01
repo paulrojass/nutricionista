@@ -21,8 +21,23 @@
       </div>
       <div class="mb-10">
         <p class="text-dark-50 m-0 pt-5 font-weight-normal">
-          <em v-if="patient.aspiration">{{patient.aspiration| truncate(70, '...') }}</em>
-          <!-- <em>{{patient.workplan}}</em> -->
+          <em v-if="!patient.active">{{patient.aspiration| truncate(70, '...') }}</em>
+            <label v-if="patient.active">
+              <strong>Diagnóstico: </strong>
+              <span v-if="patient.bajo_consumo_energetico">bajo consumo energético, </span>
+              <span v-if="patient.bajo_consumo_proteico">bajo consumo proteico, </span>
+              <span v-if="patient.bajo_consumo_carbohidratos">bajo consumo carbohidratos, </span>
+              <span v-if="patient.bajo_consumo_grasas_escenciales">bajo consumo grasas escenciales, </span>
+              <span v-if="patient.bajo_consumo_micronutrientes">bajo consumo micronutrientes, </span>
+              <span v-if="patient.alto_consumo_ultraprcesados">alto consumo ultraprocesados, </span>
+              <span v-if="patient.inadecuado_timming_ingestas">inadecuado timming de ingestas, </span>
+              <span v-if="patient.esquema_hidratacion_inadecuado">esquema de hidratación inadecuado, </span>
+              <span v-if="patient.dieta_alta_fodmaps">dieta alta FODMAPS, </span>
+              <span v-if="patient.excedente_calorico">excedente calórico. </span>
+              <br />
+              <strong>Plan de trabajo: {{patient.workplan}}</strong>
+              <br />
+            </label>
         </p>
         <p class="text-dark-50 m-0 pt-5 font-weight-normal">
           <strong>email: </strong>{{patient.email}}

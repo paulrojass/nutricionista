@@ -30,10 +30,10 @@
       -->
       <!-- end:: Content Head -->
       
-      <div class="d-flex flex-column-fluid">
+      <div class="d-flex container-fluid">
         <div
         :class="{
-          'container-fluid': contentFluid,
+          'container-fluid px-0': contentFluid,
           container: !contentFluid
           }"
           >
@@ -133,7 +133,8 @@ export default {
     * @returns {boolean}
     */
     contentFluid() {
-      return this.layoutConfig("content.width") === "fluid";
+      // return this.layoutConfig("content.width") === "fluid";
+      return true;
     },
     
     /**

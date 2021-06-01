@@ -246,6 +246,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Using a render function
@@ -777,7 +792,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     * @returns {boolean}
     */
     contentFluid: function contentFluid() {
-      return this.layoutConfig("content.width") === "fluid";
+      // return this.layoutConfig("content.width") === "fluid";
+      return true;
     },
 
     /**
@@ -1286,32 +1302,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "KTFooter",
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig"])), {}, {
-    /**
-    * Check if subheader width is fluid
-    */
     widthFluid: function widthFluid() {
       return this.layoutConfig("footer.width") === "fluid";
     }
@@ -4141,13 +4135,69 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "mb-10" }, [
           _c("p", { staticClass: "text-dark-50 m-0 pt-5 font-weight-normal" }, [
-            _vm.patient.aspiration
+            !_vm.patient.active
               ? _c("em", [
                   _vm._v(
                     _vm._s(
                       _vm._f("truncate")(_vm.patient.aspiration, 70, "...")
                     )
                   )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.patient.active
+              ? _c("label", [
+                  _c("strong", [_vm._v("Diagnóstico: ")]),
+                  _vm._v(" "),
+                  _vm.patient.bajo_consumo_energetico
+                    ? _c("span", [_vm._v("bajo consumo energético, ")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.patient.bajo_consumo_proteico
+                    ? _c("span", [_vm._v("bajo consumo proteico, ")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.patient.bajo_consumo_carbohidratos
+                    ? _c("span", [_vm._v("bajo consumo carbohidratos, ")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.patient.bajo_consumo_grasas_escenciales
+                    ? _c("span", [_vm._v("bajo consumo grasas escenciales, ")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.patient.bajo_consumo_micronutrientes
+                    ? _c("span", [_vm._v("bajo consumo micronutrientes, ")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.patient.alto_consumo_ultraprcesados
+                    ? _c("span", [_vm._v("alto consumo ultraprocesados, ")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.patient.inadecuado_timming_ingestas
+                    ? _c("span", [_vm._v("inadecuado timming de ingestas, ")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.patient.esquema_hidratacion_inadecuado
+                    ? _c("span", [
+                        _vm._v("esquema de hidratación inadecuado, ")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.patient.dieta_alta_fodmaps
+                    ? _c("span", [_vm._v("dieta alta FODMAPS, ")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.patient.excedente_calorico
+                    ? _c("span", [_vm._v("excedente calórico. ")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("strong", [
+                    _vm._v("Plan de trabajo: " + _vm._s(_vm.patient.workplan))
+                  ]),
+                  _vm._v(" "),
+                  _c("br")
                 ])
               : _vm._e()
           ]),
@@ -4780,12 +4830,12 @@ var render = function() {
                   attrs: { id: "kt_content" }
                 },
                 [
-                  _c("div", { staticClass: "d-flex flex-column-fluid" }, [
+                  _c("div", { staticClass: "d-flex container-fluid" }, [
                     _c(
                       "div",
                       {
                         class: {
-                          "container-fluid": _vm.contentFluid,
+                          "container-fluid px-0": _vm.contentFluid,
                           container: !_vm.contentFluid
                         }
                       },
@@ -5477,17 +5527,30 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-dark order-2 order-md-1" }, [
-      _c("span", { staticClass: "text-muted font-weight-bold mr-2" }, [
-        _vm._v("2021©")
+      _c("span", { staticClass: "text-muted font-weight-bold mr-1" }, [
+        _vm._v("© 2021, ")
       ]),
       _vm._v(" "),
       _c(
         "a",
         {
-          staticClass: "text-dark-75 text-hover-primary",
-          attrs: { href: "https://digitalmentestudio.com/", target: "_blank" }
+          staticClass: "text-muted text-hover-primary mr-2",
+          attrs: { href: "https://Koshca.com/", target: "_blank" }
         },
-        [_vm._v("Digitalmentestudio")]
+        [_vm._v("Dr. Theo Fit ")]
+      ),
+      _vm._v(" "),
+      _c("span", { staticClass: "text-muted font-weight-bold mr-1" }, [
+        _vm._v(" Power by")
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "text-muted text-hover-primary",
+          attrs: { href: "https://Koshca.com/", target: "_blank" }
+        },
+        [_vm._v("Koshca")]
       )
     ])
   }

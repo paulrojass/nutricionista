@@ -17,7 +17,8 @@
     </div>
     <div class="card-body pt-2 pb-0">
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-        <b-form-group id="input-group-1" label="Primer nombre:" label-for="input-1">
+        <div class="form-group row">
+        <b-form-group id="input-group-1" label="Primer nombre:" label-for="input-1" class="col-lg-6">
           <b-form-input
           id="input-1"
           v-model="form.first_name_1"
@@ -27,7 +28,7 @@
         </b-form-group>
         
         
-        <b-form-group id="input-group-2" label="Segundo nombre:" label-for="input-2">
+        <b-form-group id="input-group-2" label="Segundo nombre:" label-for="input-2" class="col-lg-6">
           <b-form-input
           id="input-2"
           v-model="form.first_name_2"
@@ -35,7 +36,7 @@
           ></b-form-input>
         </b-form-group>
         
-        <b-form-group id="input-group-3" label="Primer apellido:" label-for="input-3">
+        <b-form-group id="input-group-3" label="Primer apellido:" label-for="input-3" class="col-lg-6">
           <b-form-input
           id="input-3"
           v-model="form.last_name_1"
@@ -44,7 +45,7 @@
           ></b-form-input>
         </b-form-group>
         
-        <b-form-group id="input-group-4" label="Segundo apellido:" label-for="input-4">
+        <b-form-group id="input-group-4" label="Segundo apellido:" label-for="input-4" class="col-lg-6">
           <b-form-input
           id="input-4"
           v-model="form.last_name_2"
@@ -52,7 +53,7 @@
           ></b-form-input>
         </b-form-group>
         
-        <b-form-group id="input-date" label="Fecha de nacimiento:" label-for="date">
+        <b-form-group id="input-date" label="Fecha de nacimiento:" label-for="date" class="col-lg-6">
           <b-form-input
           :type="`date`"
           id="date"
@@ -61,7 +62,7 @@
           ></b-form-input>
         </b-form-group>
         
-        <b-form-group id="input-group-5" label="Teléfono:" label-for="input-5">
+        <b-form-group id="input-group-5" label="Teléfono:" label-for="input-5" class="col-lg-6">
           <b-form-input
           id="input-5"
           v-model="form.phone"
@@ -76,6 +77,7 @@
         label-for="input-6"
         required
         description="El campo email debe ser válido."
+        class="col-md-6"
         >
         <b-form-input
         id="input-6"
@@ -83,9 +85,10 @@
         type="email"
         required
         placeholder="ej: usuario@correo.com"
+        class="col-md-6"
         ></b-form-input>
       </b-form-group>
-      
+      </div>
       <b-form-group>
         <b-button type="submit" variant="primary">Guardar</b-button>
         <b-button type="reset" variant="danger">Borrar</b-button>

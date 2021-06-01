@@ -112,6 +112,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -699,7 +702,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     * @returns {boolean}
     */
     contentFluid: function contentFluid() {
-      return this.layoutConfig("content.width") === "fluid";
+      // return this.layoutConfig("content.width") === "fluid";
+      return true;
     },
 
     /**
@@ -1208,32 +1212,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "KTFooter",
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig"])), {}, {
-    /**
-    * Check if subheader width is fluid
-    */
     widthFluid: function widthFluid() {
       return this.layoutConfig("footer.width") === "fluid";
     }
@@ -3613,194 +3595,209 @@ var render = function() {
               { on: { submit: _vm.onSubmit, reset: _vm.onReset } },
               [
                 _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-group-1",
-                      label: "Primer nombre:",
-                      "label-for": "input-1"
-                    }
-                  },
+                  "div",
+                  { staticClass: "form-group row" },
                   [
-                    _c("b-form-input", {
-                      attrs: {
-                        id: "input-1",
-                        required: "",
-                        placeholder: "Ingrese un nombre"
+                    _c(
+                      "b-form-group",
+                      {
+                        staticClass: "col-lg-6",
+                        attrs: {
+                          id: "input-group-1",
+                          label: "Primer nombre:",
+                          "label-for": "input-1"
+                        }
                       },
-                      model: {
-                        value: _vm.form.first_name_1,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "first_name_1", $$v)
-                        },
-                        expression: "form.first_name_1"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-group-2",
-                      label: "Segundo nombre:",
-                      "label-for": "input-2"
-                    }
-                  },
-                  [
-                    _c("b-form-input", {
-                      attrs: {
-                        id: "input-2",
-                        placeholder: "Ingrese un nombre"
+                      [
+                        _c("b-form-input", {
+                          attrs: {
+                            id: "input-1",
+                            required: "",
+                            placeholder: "Ingrese un nombre"
+                          },
+                          model: {
+                            value: _vm.form.first_name_1,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "first_name_1", $$v)
+                            },
+                            expression: "form.first_name_1"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-group",
+                      {
+                        staticClass: "col-lg-6",
+                        attrs: {
+                          id: "input-group-2",
+                          label: "Segundo nombre:",
+                          "label-for": "input-2"
+                        }
                       },
-                      model: {
-                        value: _vm.form.first_name_2,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "first_name_2", $$v)
-                        },
-                        expression: "form.first_name_2"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-group-3",
-                      label: "Primer apellido:",
-                      "label-for": "input-3"
-                    }
-                  },
-                  [
-                    _c("b-form-input", {
-                      attrs: {
-                        id: "input-3",
-                        required: "",
-                        placeholder: "Ingrese un apellido"
+                      [
+                        _c("b-form-input", {
+                          attrs: {
+                            id: "input-2",
+                            placeholder: "Ingrese un nombre"
+                          },
+                          model: {
+                            value: _vm.form.first_name_2,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "first_name_2", $$v)
+                            },
+                            expression: "form.first_name_2"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-group",
+                      {
+                        staticClass: "col-lg-6",
+                        attrs: {
+                          id: "input-group-3",
+                          label: "Primer apellido:",
+                          "label-for": "input-3"
+                        }
                       },
-                      model: {
-                        value: _vm.form.last_name_1,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "last_name_1", $$v)
-                        },
-                        expression: "form.last_name_1"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-group-4",
-                      label: "Segundo apellido:",
-                      "label-for": "input-4"
-                    }
-                  },
-                  [
-                    _c("b-form-input", {
-                      attrs: {
-                        id: "input-4",
-                        placeholder: "Ingrese un apellido"
+                      [
+                        _c("b-form-input", {
+                          attrs: {
+                            id: "input-3",
+                            required: "",
+                            placeholder: "Ingrese un apellido"
+                          },
+                          model: {
+                            value: _vm.form.last_name_1,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "last_name_1", $$v)
+                            },
+                            expression: "form.last_name_1"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-group",
+                      {
+                        staticClass: "col-lg-6",
+                        attrs: {
+                          id: "input-group-4",
+                          label: "Segundo apellido:",
+                          "label-for": "input-4"
+                        }
                       },
-                      model: {
-                        value: _vm.form.last_name_2,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "last_name_2", $$v)
-                        },
-                        expression: "form.last_name_2"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-date",
-                      label: "Fecha de nacimiento:",
-                      "label-for": "date"
-                    }
-                  },
-                  [
-                    _c("b-form-input", {
-                      attrs: { type: "date", id: "date", required: "" },
-                      model: {
-                        value: _vm.form.birth_date,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "birth_date", $$v)
-                        },
-                        expression: "form.birth_date"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-group-5",
-                      label: "Teléfono:",
-                      "label-for": "input-5"
-                    }
-                  },
-                  [
-                    _c("b-form-input", {
-                      attrs: {
-                        id: "input-5",
-                        required: "",
-                        placeholder: "ej. 123456789"
+                      [
+                        _c("b-form-input", {
+                          attrs: {
+                            id: "input-4",
+                            placeholder: "Ingrese un apellido"
+                          },
+                          model: {
+                            value: _vm.form.last_name_2,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "last_name_2", $$v)
+                            },
+                            expression: "form.last_name_2"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-group",
+                      {
+                        staticClass: "col-lg-6",
+                        attrs: {
+                          id: "input-date",
+                          label: "Fecha de nacimiento:",
+                          "label-for": "date"
+                        }
                       },
-                      model: {
-                        value: _vm.form.phone,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "phone", $$v)
-                        },
-                        expression: "form.phone"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "input-group-6",
-                      label: "Correo electónico:",
-                      "label-for": "input-6",
-                      required: "",
-                      description: "El campo email debe ser válido."
-                    }
-                  },
-                  [
-                    _c("b-form-input", {
-                      attrs: {
-                        id: "input-6",
-                        type: "email",
-                        required: "",
-                        placeholder: "ej: usuario@correo.com"
+                      [
+                        _c("b-form-input", {
+                          attrs: { type: "date", id: "date", required: "" },
+                          model: {
+                            value: _vm.form.birth_date,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "birth_date", $$v)
+                            },
+                            expression: "form.birth_date"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-group",
+                      {
+                        staticClass: "col-lg-6",
+                        attrs: {
+                          id: "input-group-5",
+                          label: "Teléfono:",
+                          "label-for": "input-5"
+                        }
                       },
-                      model: {
-                        value: _vm.form.email,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "email", $$v)
-                        },
-                        expression: "form.email"
-                      }
-                    })
+                      [
+                        _c("b-form-input", {
+                          attrs: {
+                            id: "input-5",
+                            required: "",
+                            placeholder: "ej. 123456789"
+                          },
+                          model: {
+                            value: _vm.form.phone,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "phone", $$v)
+                            },
+                            expression: "form.phone"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-group",
+                      {
+                        staticClass: "col-md-6",
+                        attrs: {
+                          id: "input-group-6",
+                          label: "Correo electónico:",
+                          "label-for": "input-6",
+                          required: "",
+                          description: "El campo email debe ser válido."
+                        }
+                      },
+                      [
+                        _c("b-form-input", {
+                          staticClass: "col-md-6",
+                          attrs: {
+                            id: "input-6",
+                            type: "email",
+                            required: "",
+                            placeholder: "ej: usuario@correo.com"
+                          },
+                          model: {
+                            value: _vm.form.email,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "email", $$v)
+                            },
+                            expression: "form.email"
+                          }
+                        })
+                      ],
+                      1
+                    )
                   ],
                   1
                 ),
@@ -4426,12 +4423,12 @@ var render = function() {
                   attrs: { id: "kt_content" }
                 },
                 [
-                  _c("div", { staticClass: "d-flex flex-column-fluid" }, [
+                  _c("div", { staticClass: "d-flex container-fluid" }, [
                     _c(
                       "div",
                       {
                         class: {
-                          "container-fluid": _vm.contentFluid,
+                          "container-fluid px-0": _vm.contentFluid,
                           container: !_vm.contentFluid
                         }
                       },
@@ -5123,17 +5120,30 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-dark order-2 order-md-1" }, [
-      _c("span", { staticClass: "text-muted font-weight-bold mr-2" }, [
-        _vm._v("2021©")
+      _c("span", { staticClass: "text-muted font-weight-bold mr-1" }, [
+        _vm._v("© 2021, ")
       ]),
       _vm._v(" "),
       _c(
         "a",
         {
-          staticClass: "text-dark-75 text-hover-primary",
-          attrs: { href: "https://digitalmentestudio.com/", target: "_blank" }
+          staticClass: "text-muted text-hover-primary mr-2",
+          attrs: { href: "https://Koshca.com/", target: "_blank" }
         },
-        [_vm._v("Digitalmentestudio")]
+        [_vm._v("Dr. Theo Fit ")]
+      ),
+      _vm._v(" "),
+      _c("span", { staticClass: "text-muted font-weight-bold mr-1" }, [
+        _vm._v(" Power by")
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "text-muted text-hover-primary",
+          attrs: { href: "https://Koshca.com/", target: "_blank" }
+        },
+        [_vm._v("Koshca")]
       )
     ])
   }

@@ -151,3 +151,9 @@ a:hover{
   background-color: #CD6C81;
   border-color: #CD6C81;
 }
+.grants{
+  display: none
+}
+a:hover {
+  color: #033466 !important;
+}
