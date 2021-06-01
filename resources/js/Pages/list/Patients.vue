@@ -22,6 +22,7 @@
       <div class="mb-10">
         <p class="text-dark-50 m-0 pt-5 font-weight-normal">
           <em v-if="patient.aspiration">{{patient.aspiration| truncate(70, '...') }}</em>
+          <!-- <em>{{patient.workplan}}</em> -->
         </p>
         <p class="text-dark-50 m-0 pt-5 font-weight-normal">
           <strong>email: </strong>{{patient.email}}

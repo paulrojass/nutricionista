@@ -3536,7 +3536,7 @@ var staticRenderFns = [
           staticStyle: { border: "0" },
           attrs: {
             src:
-              "https://calendar.google.com/calendar/embed?src=hn7s0ek35jvo9dafn2jjl52os4%40group.calendar.google.com&ctz=America%2FCaracas",
+              "https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FPanama&src=YWl0NWNmNDYwbm11M2QzbjRlY3V1aG1nOTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23009688&showTitle=0&showTz=1&showCalendars=0&showPrint=0",
             width: "100%",
             height: "600",
             frameborder: "0",

@@ -11,11 +11,11 @@
               <img :src="`/storage/avatars/${patient.avatar}`" alt="image" />
             </div>
             
-            <div class="symbol symbol-50 symbol-lg-120 symbol-primary d-none">
+            <!-- <div class="symbol symbol-50 symbol-lg-120 symbol-primary d-none">
               <span class="font-size-h3 symbol-label font-weight-boldest">
                 JM
               </span>
-            </div>
+            </div> -->
           </div>
           <!--end::Pic-->
           
@@ -41,6 +41,13 @@
             class="btn btn-sm btn-info font-weight-bolder text-uppercase"
             >
             Crear cita
+          </inertia-link>
+          <inertia-link
+            v-if="!patient.active"
+            :href="route('patients.edit', patient.id)"
+            class="btn btn-sm btn-info font-weight-bolder text-uppercase"
+            >
+            Cargar Historia
           </inertia-link>
           
           <inertia-link
@@ -86,7 +93,24 @@
   </div>
   
   <span class="font-weight-bold text-dark-50">
-    {{patient.aspiration}}
+    <!-- {{patient.aspiration}} -->
+    <!-- {{patient.workplan}} -->
+      <label>
+        <strong>Diagnóstico: </strong>
+        <span v-if="patient.bajo_consumo_energetico">bajo consumo energético, </span>
+        <span v-if="patient.bajo_consumo_proteico">bajo consumo proteico, </span>
+        <span v-if="patient.bajo_consumo_carbohidratos">bajo consumo carbohidratos, </span>
+        <span v-if="patient.bajo_consumo_grasas_escenciales">bajo consumo grasas escenciales, </span>
+        <span v-if="patient.bajo_consumo_micronutrientes">bajo consumo micronutrientes, </span>
+        <span v-if="patient.alto_consumo_ultraprcesados">alto consumo ultraprocesados, </span>
+        <span v-if="patient.inadecuado_timming_ingestas">inadecuado timming de ingestas, </span>
+        <span v-if="patient.esquema_hidratacion_inadecuado">esquema de hidratación inadecuado, </span>
+        <span v-if="patient.dieta_alta_fodmaps">dieta alta FODMAPS, </span>
+        <span v-if="patient.excedente_calorico">excedente calórico. </span>
+        <br />
+        <strong>Plan de trabajo: {{patient.workplan}}</strong>
+        <br />
+      </label>
   </span>
 </div>
 </div>

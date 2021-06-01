@@ -142,6 +142,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4151,9 +4175,7 @@ var render = function() {
                   alt: "image"
                 }
               })
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "flex-grow-1" }, [
@@ -4196,6 +4218,20 @@ var render = function() {
                       },
                       [_vm._v("\n            Crear cita\n          ")]
                     ),
+                    _vm._v(" "),
+                    !_vm.patient.active
+                      ? _c(
+                          "inertia-link",
+                          {
+                            staticClass:
+                              "btn btn-sm btn-info font-weight-bolder text-uppercase",
+                            attrs: {
+                              href: _vm.route("patients.edit", _vm.patient.id)
+                            }
+                          },
+                          [_vm._v("\n            Cargar Historia\n          ")]
+                        )
+                      : _vm._e(),
                     _vm._v(" "),
                     _vm.patient.active
                       ? _c(
@@ -4299,9 +4335,71 @@ var render = function() {
                       "span",
                       { staticClass: "font-weight-bold text-dark-50" },
                       [
-                        _vm._v(
-                          "\n    " + _vm._s(_vm.patient.aspiration) + "\n  "
-                        )
+                        _c("label", [
+                          _c("strong", [_vm._v("Diagnóstico: ")]),
+                          _vm._v(" "),
+                          _vm.patient.bajo_consumo_energetico
+                            ? _c("span", [_vm._v("bajo consumo energético, ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.bajo_consumo_proteico
+                            ? _c("span", [_vm._v("bajo consumo proteico, ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.bajo_consumo_carbohidratos
+                            ? _c("span", [
+                                _vm._v("bajo consumo carbohidratos, ")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.bajo_consumo_grasas_escenciales
+                            ? _c("span", [
+                                _vm._v("bajo consumo grasas escenciales, ")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.bajo_consumo_micronutrientes
+                            ? _c("span", [
+                                _vm._v("bajo consumo micronutrientes, ")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.alto_consumo_ultraprcesados
+                            ? _c("span", [
+                                _vm._v("alto consumo ultraprocesados, ")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.inadecuado_timming_ingestas
+                            ? _c("span", [
+                                _vm._v("inadecuado timming de ingestas, ")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.esquema_hidratacion_inadecuado
+                            ? _c("span", [
+                                _vm._v("esquema de hidratación inadecuado, ")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.dieta_alta_fodmaps
+                            ? _c("span", [_vm._v("dieta alta FODMAPS, ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.excedente_calorico
+                            ? _c("span", [_vm._v("excedente calórico. ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("strong", [
+                            _vm._v(
+                              "Plan de trabajo: " + _vm._s(_vm.patient.workplan)
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("br")
+                        ])
                       ]
                     )
                   ]
@@ -4347,24 +4445,7 @@ var render = function() {
       : _vm._e()
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "symbol symbol-50 symbol-lg-120 symbol-primary d-none" },
-      [
-        _c(
-          "span",
-          { staticClass: "font-size-h3 symbol-label font-weight-boldest" },
-          [_vm._v("\n                JM\n              ")]
-        )
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
