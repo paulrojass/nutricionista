@@ -45,10 +45,10 @@
               class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg"
               >{{ item.first_name_1 }} {{ item.last_name_1 }}</inertia-link
               >
-              <span
-              class="text-muted font-weight-bold text-muted d-block"
-              >{{ calcularEdad(item.birth_date) }} años</span
-              >
+              <span class="text-muted font-weight-bold text-muted d-block">
+                <!-- {{ calcularEdad(item.birth_date) }} años -->
+                Tlf: {{ item.phone }} 
+              </span>
             </td>
             
             <td class="pr-0 text-right">

@@ -40,7 +40,8 @@
                 </span>
               </inertia-link>
               <span class="text-muted font-weight-bold">
-                {{ calcularEdad(candidate.birth_date) }} años
+                <!-- {{ calcularEdad(candidate.birth_date) }} años -->
+                Tlf: {{ item.phone }} 
               </span>
             </td>
             <td>

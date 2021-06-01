@@ -44,7 +44,7 @@
         >
         <span class="svg-icon svg-icon-3x svg-icon-primary m-0">
           <!--begin::Svg Icon-->
-          <inline-svg src="/media/svg/icons/General/user.svg" />
+          <inline-svg src="/media/svg/icons/General/User.svg" />
           <!--end::Svg Icon-->
         </span>
         <span class="d-block font-weight-bold font-size-h6 mt-2"

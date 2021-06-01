@@ -12,7 +12,7 @@
       <!--begin::Aside-->
       <div
       class="login-aside d-flex flex-column flex-row-auto"
-      style="background-color: #F2C98A;"
+      style="background-color: #FFFFFF;"
       >
       <!-- <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
         <a href="#" class="text-center mb-10">
@@ -51,10 +51,10 @@
       <div class="pb-13 pt-lg-0 pt-5">
         <h3
         class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
-        ><a href="#" class="text-center mb-10">
+        ><a href="#" class="text-left mb-10">
           <img
           src="/media/theo/logo.svg"
-          class="max-h-40px"
+          class="max-h-40px max-w-200px"
           alt=""
           />
         </a>

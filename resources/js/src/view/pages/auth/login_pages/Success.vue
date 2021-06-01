@@ -12,26 +12,11 @@
       <!--begin::Aside-->
       <div
       class="login-aside d-flex flex-column flex-row-auto"
-      style="background-color: #F2C98A;"
+      style="background-color: #FFFFFF;"
       >
-      <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
-        <a href="#" class="text-center mb-10">
-          <img
-          src="/media/logos/logo-letter-1.png"
-          class="max-h-70px"
-          alt=""
-          />
-        </a>
-        <h3
-        class="font-weight-bolder text-center font-size-h4 font-size-h1-lg"
-        style="color: #986923;"
-        >
-        Discover Amazing Metronic <br />with great build tools
-      </h3>
-    </div>
     <div
     class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center"
-    :style="{ backgroundImage: `url(${backgroundImage})` }"
+    :style="{ backgroundImage: `url(${backgroundImage})` }" style="background-size: cover"
     ></div>
   </div>
   <!--begin::Aside-->
@@ -47,10 +32,13 @@
       </h4>
       <inertia-link
       :href="route('landing')"
-      class="btn btn-primary font-weight-bolder font-size-h6 px-15 py-4 my-3 mr-3"
+      class="btn btn-primary font-weight-bolder font-size-h6 px-15 py-4 my-5 mr-3"
       >
       Realizar otra solicitud
     </inertia-link>
+      <h4 class="font-weight-bolder text-dark font-size-h5 font-size-h3-lg">
+        Sígueme en instagram <a href="https://instagram.com/drtheofit">@drtheofit</a>
+      </h4>
   </div>
   
   <!--end::Signin-->
@@ -85,7 +73,8 @@ export default {
   computed: {
     backgroundImage() {
       return (
-        "/media/svg/illustrations/working.svg"
+        // "/media/svg/illustrations/working.svg"
+        "/media/theo/theo.jpg"
       );
     }
   },

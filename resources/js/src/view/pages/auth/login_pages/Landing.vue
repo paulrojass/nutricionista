@@ -12,26 +12,11 @@
       <!--begin::Aside-->
       <div
       class="login-aside d-flex flex-column flex-row-auto"
-      style="background-color: #F2C98A;"
+      style="background-color: #FFFFFF;"
       >
-      <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
-        <a href="#" class="text-center mb-10">
-          <img
-          src="/media/logos/logo-letter-1.png"
-          class="max-h-70px"
-          alt=""
-          />
-        </a>
-        <h3
-        class="font-weight-bolder text-center font-size-h4 font-size-h1-lg"
-        style="color: #986923;"
-        >
-        Discover Amazing Metronic <br />with great build tools
-      </h3>
-    </div>
     <div
     class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center"
-    :style="{ backgroundImage: `url(${backgroundImage})` }"
+    :style="{ backgroundImage: `url(${backgroundImage})` }" style="background-size: cover"
     ></div>
   </div>
   <!--begin::Aside-->
@@ -47,10 +32,23 @@
       novalidate="novalidate"
       @submit.prevent="onSubmit"
       >
-      <div class="pb-13 pt-lg-0 pt-5">
+      <div class="pb-5 pt-lg-0 pt-5">
+          <h3
+          class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
+          ><a href="#" class="text-left mb-10">
+            <inline-svg 
+            src="/media/theo/logo.svg"
+            class="max-h-40px max-w-200px"
+            alt=""
+            />
+          </a>
+        </h3>
         <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
           Solicite su consulta
         </h3>
+        <p class="text-muted font-weight-bold font-size-h4">
+          Por favor llena el siguiente formulario, un miembro del equipo se comunicará contigo para reservar tu cita, te esperamos.
+        </p>
       </div>
       
       
@@ -88,7 +86,7 @@
         placeholder="Ingrese un apellido"
         ></b-form-input>
       </b-form-group>
-      
+<!--       
       <b-form-group id="input-date" label="Fecha de nacimiento:" label-for="date">
         <b-form-input
         :type="`date`"
@@ -97,7 +95,7 @@
         required
         ></b-form-input>
       </b-form-group>
-      
+       -->
       <b-form-group id="input-group-5" label="Teléfono:" label-for="input-5">
         <b-form-input
         id="input-5"
@@ -180,7 +178,8 @@ export default {
   computed: {
     backgroundImage() {
       return (
-        "/media/svg/illustrations/working.svg"
+        // "/media/svg/illustrations/working.svg"
+        "/media/theo/theo.jpg"
       );
     }
   },
