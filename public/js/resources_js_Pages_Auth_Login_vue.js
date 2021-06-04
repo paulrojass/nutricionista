@@ -7738,7 +7738,7 @@ var render = function() {
           "div",
           {
             staticClass: "login-aside d-flex flex-column flex-row-auto",
-            staticStyle: { "background-color": "#F2C98A" }
+            staticStyle: { "background-color": "#FFFFFF" }
           },
           [
             _c("div", {
@@ -8079,9 +8079,9 @@ var staticRenderFns = [
             "font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
         },
         [
-          _c("a", { staticClass: "text-center mb-10", attrs: { href: "#" } }, [
+          _c("a", { staticClass: "text-left mb-10", attrs: { href: "#" } }, [
             _c("img", {
-              staticClass: "max-h-40px",
+              staticClass: "max-h-40px max-w-200px",
               attrs: { src: "/media/theo/logo.svg", alt: "" }
             })
           ])

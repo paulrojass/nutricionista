@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Spatie\GoogleCalendar\Event;
 use Carbon\Carbon;
 use App\Http\Resources\ControlResource;
+use App\Mail\ControlDate;
+use Illuminate\Support\Facades\Mail;
 
 
 use Inertia\Inertia;
@@ -150,6 +152,8 @@ class ControlController extends Controller
     $control->note = $request->note;
     $control->status = 'flamenco';
     $control->save();
+
+    Mail::to($patient)->send(new ControlDate($control));
     
     return $this->calendar();
   }

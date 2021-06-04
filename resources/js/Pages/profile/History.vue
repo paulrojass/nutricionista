@@ -55,6 +55,12 @@
         <div class="wizard-bar"></div>
       </div>
     </div>
+    <div class="wizard-step" data-wizard-type="step">
+      <div class="wizard-label">
+        <h3 class="wizard-title"><span>3</span>Diagnóstico</h3>
+        <div class="wizard-bar"></div>
+      </div>
+    </div>    
   </div>
 </div>
 <!--end: Wizard Nav -->
@@ -273,45 +279,6 @@
       <option value="Perdida de % graso">Perdida de % graso</option>
       <option value="Masa muscular">Masa muscular</option>
       <option value="Aumento de peso">Aumento de peso</option>
-    </select>
-  </div>
-</div></div>
-
-
-
-
-<b-form-group label="Diagnósticos dietarios:">
-  <b-form-checkbox name="bajo_consumo_energetico" v-model="form.bajo_consumo_energetico">Bajo cosumo energético</b-form-checkbox>
-  <b-form-checkbox name="bajo_consumo_proteico" v-model="form.bajo_consumo_proteico">Bajo consumo proteico</b-form-checkbox>
-  <b-form-checkbox name="bajo_consumo_carbohidratos" v-model="form.bajo_consumo_carbohidratos">Bajo consumo de carbohidratos</b-form-checkbox>
-  <b-form-checkbox name="bajo_consumo_grasas_escenciales" v-model="form.bajo_consumo_grasas_escenciales">Bajo consumo de grasas escenciales</b-form-checkbox>
-  <b-form-checkbox name="bajo_consumo_micronutrientes" v-model="form.bajo_consumo_micronutrientes">Bajo consumo de micronutrientes</b-form-checkbox>
-  <b-form-checkbox name="alto_consumo_ultraprcesados" v-model="form.alto_consumo_ultraprcesados">Alto consumo de ultraprocesados</b-form-checkbox>
-  <b-form-checkbox name="inadecuado_timming_ingestas" v-model="form.inadecuado_timming_ingestas">Inadecuando TIMMING de ingestas</b-form-checkbox>
-  <b-form-checkbox name="esquema_hidratacion_inadecuado" v-model="form.esquema_hidratacion_inadecuado">Esquea de hidratación inadecuado</b-form-checkbox>
-  <b-form-checkbox name="dieta_alta_fodmaps" v-model="form.dieta_alta_fodmaps">Dieta alta en FODMAPS</b-form-checkbox>
-  <b-form-checkbox name="excedente_calorico" v-model="form.excedente_calorico">Excedente calórico</b-form-checkbox>
-</b-form-group>
-
-<div class="row">
-  <div class="col-xl-6">
-    <div class="form-group">
-      <label>Plan de trabajo</label>
-      <select
-      name="workplan"
-      v-model="form.workplan"
-      class="form-control form-control-solid form-control-lg"
-      >
-      <option value="" selected>-- Seleccione --</option>
-      <option value="Dieta alta en proteinas">Dieta alta en proteinas</option>
-      <option value="Déficit calórico">Déficit calórico</option>
-      <option value="Superavit calórico">Superavit calórico</option>
-      <option value="Ayuno intermitente">Ayuno intermitente</option>
-      <option value="Dietas Keto">Dietas Keto</option>
-      <option value="Dieta baja en FODMAPS">Dieta baja en FODMAPS</option>
-      <option value="Medidas anti inflamatorias">Medidas anti inflamatorias</option>
-      <option value="Deta muy baja en carbohidratos">Deta muy baja en carbohidratos</option>
-      <option value="Esquema de suplementación">Esquema de suplementación</option>
     </select>
   </div>
 </div></div>
@@ -759,6 +726,56 @@ unchecked-value="0"
   </b-form-group>
 </div>
 <!--end: Wizard Step 3-->
+
+<!--begin: Wizard Step 3-->
+<div class="pb-5" data-wizard-type="step-content">
+  <h4 class="mb-10 font-weight-bold text-dark">
+    Hábitos alimenticios
+  </h4>
+
+
+  <div class="col-xl-6">
+    <div class="form-group">
+      <label>Objetivo</label>
+      <select
+      name="goal"
+      v-model="form.goal"
+      class="form-control form-control-solid form-control-lg"
+      >
+        <option value="">Selecccionar</option>
+        <option value="perdida de peso">Perdida de peso</option>
+        <option value="Perdida de % graso">Perdida de % graso</option>
+        <option value="Masa muscular">Masa muscular</option>
+        <option value="Aumento de peso">Aumento de peso</option>
+      </select>
+    </div>
+  </div>
+
+
+
+
+<b-form-group label="Diagnósticos dietarios:">
+  <b-form-checkbox name="bajo_consumo_energetico" v-model="form.bajo_consumo_energetico">Bajo cosumo energético</b-form-checkbox>
+  <b-form-checkbox name="bajo_consumo_proteico" v-model="form.bajo_consumo_proteico">Bajo consumo proteico</b-form-checkbox>
+  <b-form-checkbox name="bajo_consumo_carbohidratos" v-model="form.bajo_consumo_carbohidratos">Bajo consumo de carbohidratos</b-form-checkbox>
+  <b-form-checkbox name="bajo_consumo_grasas_escenciales" v-model="form.bajo_consumo_grasas_escenciales">Bajo consumo de grasas escenciales</b-form-checkbox>
+  <b-form-checkbox name="bajo_consumo_micronutrientes" v-model="form.bajo_consumo_micronutrientes">Bajo consumo de micronutrientes</b-form-checkbox>
+  <b-form-checkbox name="alto_consumo_ultraprcesados" v-model="form.alto_consumo_ultraprcesados">Alto consumo de ultraprocesados</b-form-checkbox>
+  <b-form-checkbox name="inadecuado_timming_ingestas" v-model="form.inadecuado_timming_ingestas">Inadecuando TIMMING de ingestas</b-form-checkbox>
+  <b-form-checkbox name="esquema_hidratacion_inadecuado" v-model="form.esquema_hidratacion_inadecuado">Esquea de hidratación inadecuado</b-form-checkbox>
+  <b-form-checkbox name="dieta_alta_fodmaps" v-model="form.dieta_alta_fodmaps">Dieta alta en FODMAPS</b-form-checkbox>
+  <b-form-checkbox name="excedente_calorico" v-model="form.excedente_calorico">Excedente calórico</b-form-checkbox>
+</b-form-group>
+
+
+
+
+
+</div>
+
+
+
+
 
 <!--begin: Wizard Actions -->
 <div class="d-flex justify-content-between border-top pt-10">

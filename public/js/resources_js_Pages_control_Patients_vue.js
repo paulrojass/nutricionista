@@ -1209,10 +1209,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "KTFooter",
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig"])), {}, {
+    /**
+    * Check if subheader width is fluid
+    */
     widthFluid: function widthFluid() {
       return this.layoutConfig("footer.width") === "fluid";
     }
@@ -4328,8 +4350,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  _vm._s(_vm.calcularEdad(item.birth_date)) +
-                                    " años"
+                                  "\n                Tlf: " +
+                                    _vm._s(item.phone) +
+                                    " \n              "
                                 )
                               ]
                             )
@@ -5159,30 +5182,17 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-dark order-2 order-md-1" }, [
-      _c("span", { staticClass: "text-muted font-weight-bold mr-1" }, [
-        _vm._v("© 2021, ")
+      _c("span", { staticClass: "text-muted font-weight-bold mr-2" }, [
+        _vm._v("2021©")
       ]),
       _vm._v(" "),
       _c(
         "a",
         {
-          staticClass: "text-muted text-hover-primary mr-2",
-          attrs: { href: "https://Koshca.com/", target: "_blank" }
+          staticClass: "text-dark-75 text-hover-primary",
+          attrs: { href: "https://digitalmentestudio.com/", target: "_blank" }
         },
-        [_vm._v("Dr. Theo Fit ")]
-      ),
-      _vm._v(" "),
-      _c("span", { staticClass: "text-muted font-weight-bold mr-1" }, [
-        _vm._v(" Power by")
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "text-muted text-hover-primary",
-          attrs: { href: "https://Koshca.com/", target: "_blank" }
-        },
-        [_vm._v("Koshca")]
+        [_vm._v("Digitalmentestudio")]
       )
     ])
   }

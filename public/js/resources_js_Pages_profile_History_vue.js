@@ -821,6 +821,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2075,10 +2092,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "KTFooter",
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["layoutConfig"])), {}, {
+    /**
+    * Check if subheader width is fluid
+    */
     widthFluid: function widthFluid() {
       return this.layoutConfig("footer.width") === "fluid";
     }
@@ -8282,373 +8321,8 @@ var render = function() {
                                   )
                                 ])
                               ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-form-group",
-                              { attrs: { label: "Diagnósticos dietarios:" } },
-                              [
-                                _c(
-                                  "b-form-checkbox",
-                                  {
-                                    attrs: { name: "bajo_consumo_energetico" },
-                                    model: {
-                                      value: _vm.form.bajo_consumo_energetico,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.form,
-                                          "bajo_consumo_energetico",
-                                          $$v
-                                        )
-                                      },
-                                      expression: "form.bajo_consumo_energetico"
-                                    }
-                                  },
-                                  [_vm._v("Bajo cosumo energético")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-checkbox",
-                                  {
-                                    attrs: { name: "bajo_consumo_proteico" },
-                                    model: {
-                                      value: _vm.form.bajo_consumo_proteico,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.form,
-                                          "bajo_consumo_proteico",
-                                          $$v
-                                        )
-                                      },
-                                      expression: "form.bajo_consumo_proteico"
-                                    }
-                                  },
-                                  [_vm._v("Bajo consumo proteico")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-checkbox",
-                                  {
-                                    attrs: {
-                                      name: "bajo_consumo_carbohidratos"
-                                    },
-                                    model: {
-                                      value:
-                                        _vm.form.bajo_consumo_carbohidratos,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.form,
-                                          "bajo_consumo_carbohidratos",
-                                          $$v
-                                        )
-                                      },
-                                      expression:
-                                        "form.bajo_consumo_carbohidratos"
-                                    }
-                                  },
-                                  [_vm._v("Bajo consumo de carbohidratos")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-checkbox",
-                                  {
-                                    attrs: {
-                                      name: "bajo_consumo_grasas_escenciales"
-                                    },
-                                    model: {
-                                      value:
-                                        _vm.form
-                                          .bajo_consumo_grasas_escenciales,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.form,
-                                          "bajo_consumo_grasas_escenciales",
-                                          $$v
-                                        )
-                                      },
-                                      expression:
-                                        "form.bajo_consumo_grasas_escenciales"
-                                    }
-                                  },
-                                  [_vm._v("Bajo consumo de grasas escenciales")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-checkbox",
-                                  {
-                                    attrs: {
-                                      name: "bajo_consumo_micronutrientes"
-                                    },
-                                    model: {
-                                      value:
-                                        _vm.form.bajo_consumo_micronutrientes,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.form,
-                                          "bajo_consumo_micronutrientes",
-                                          $$v
-                                        )
-                                      },
-                                      expression:
-                                        "form.bajo_consumo_micronutrientes"
-                                    }
-                                  },
-                                  [_vm._v("Bajo consumo de micronutrientes")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-checkbox",
-                                  {
-                                    attrs: {
-                                      name: "alto_consumo_ultraprcesados"
-                                    },
-                                    model: {
-                                      value:
-                                        _vm.form.alto_consumo_ultraprcesados,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.form,
-                                          "alto_consumo_ultraprcesados",
-                                          $$v
-                                        )
-                                      },
-                                      expression:
-                                        "form.alto_consumo_ultraprcesados"
-                                    }
-                                  },
-                                  [_vm._v("Alto consumo de ultraprocesados")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-checkbox",
-                                  {
-                                    attrs: {
-                                      name: "inadecuado_timming_ingestas"
-                                    },
-                                    model: {
-                                      value:
-                                        _vm.form.inadecuado_timming_ingestas,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.form,
-                                          "inadecuado_timming_ingestas",
-                                          $$v
-                                        )
-                                      },
-                                      expression:
-                                        "form.inadecuado_timming_ingestas"
-                                    }
-                                  },
-                                  [_vm._v("Inadecuando TIMMING de ingestas")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-checkbox",
-                                  {
-                                    attrs: {
-                                      name: "esquema_hidratacion_inadecuado"
-                                    },
-                                    model: {
-                                      value:
-                                        _vm.form.esquema_hidratacion_inadecuado,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.form,
-                                          "esquema_hidratacion_inadecuado",
-                                          $$v
-                                        )
-                                      },
-                                      expression:
-                                        "form.esquema_hidratacion_inadecuado"
-                                    }
-                                  },
-                                  [_vm._v("Esquea de hidratación inadecuado")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-checkbox",
-                                  {
-                                    attrs: { name: "dieta_alta_fodmaps" },
-                                    model: {
-                                      value: _vm.form.dieta_alta_fodmaps,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.form,
-                                          "dieta_alta_fodmaps",
-                                          $$v
-                                        )
-                                      },
-                                      expression: "form.dieta_alta_fodmaps"
-                                    }
-                                  },
-                                  [_vm._v("Dieta alta en FODMAPS")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-checkbox",
-                                  {
-                                    attrs: { name: "excedente_calorico" },
-                                    model: {
-                                      value: _vm.form.excedente_calorico,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.form,
-                                          "excedente_calorico",
-                                          $$v
-                                        )
-                                      },
-                                      expression: "form.excedente_calorico"
-                                    }
-                                  },
-                                  [_vm._v("Excedente calórico")]
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-xl-6" }, [
-                                _c("div", { staticClass: "form-group" }, [
-                                  _c("label", [_vm._v("Plan de trabajo")]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "select",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.workplan,
-                                          expression: "form.workplan"
-                                        }
-                                      ],
-                                      staticClass:
-                                        "form-control form-control-solid form-control-lg",
-                                      attrs: { name: "workplan" },
-                                      on: {
-                                        change: function($event) {
-                                          var $$selectedVal = Array.prototype.filter
-                                            .call(
-                                              $event.target.options,
-                                              function(o) {
-                                                return o.selected
-                                              }
-                                            )
-                                            .map(function(o) {
-                                              var val =
-                                                "_value" in o
-                                                  ? o._value
-                                                  : o.value
-                                              return val
-                                            })
-                                          _vm.$set(
-                                            _vm.form,
-                                            "workplan",
-                                            $event.target.multiple
-                                              ? $$selectedVal
-                                              : $$selectedVal[0]
-                                          )
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "", selected: "" } },
-                                        [_vm._v("-- Seleccione --")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        {
-                                          attrs: {
-                                            value: "Dieta alta en proteinas"
-                                          }
-                                        },
-                                        [_vm._v("Dieta alta en proteinas")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        {
-                                          attrs: { value: "Déficit calórico" }
-                                        },
-                                        [_vm._v("Déficit calórico")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        {
-                                          attrs: { value: "Superavit calórico" }
-                                        },
-                                        [_vm._v("Superavit calórico")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        {
-                                          attrs: { value: "Ayuno intermitente" }
-                                        },
-                                        [_vm._v("Ayuno intermitente")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "Dietas Keto" } },
-                                        [_vm._v("Dietas Keto")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        {
-                                          attrs: {
-                                            value: "Dieta baja en FODMAPS"
-                                          }
-                                        },
-                                        [_vm._v("Dieta baja en FODMAPS")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        {
-                                          attrs: {
-                                            value: "Medidas anti inflamatorias"
-                                          }
-                                        },
-                                        [_vm._v("Medidas anti inflamatorias")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        {
-                                          attrs: {
-                                            value:
-                                              "Deta muy baja en carbohidratos"
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "Deta muy baja en carbohidratos"
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        {
-                                          attrs: {
-                                            value: "Esquema de suplementación"
-                                          }
-                                        },
-                                        [_vm._v("Esquema de suplementación")]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ])
                             ])
-                          ],
-                          1
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
@@ -10554,6 +10228,322 @@ var render = function() {
                         _c(
                           "div",
                           {
+                            staticClass: "pb-5",
+                            attrs: { "data-wizard-type": "step-content" }
+                          },
+                          [
+                            _c(
+                              "h4",
+                              {
+                                staticClass: "mb-10 font-weight-bold text-dark"
+                              },
+                              [_vm._v("\n    Hábitos alimenticios\n  ")]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-xl-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _c("label", [_vm._v("Objetivo")]),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.goal,
+                                        expression: "form.goal"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "form-control form-control-solid form-control-lg",
+                                    attrs: { name: "goal" },
+                                    on: {
+                                      change: function($event) {
+                                        var $$selectedVal = Array.prototype.filter
+                                          .call($event.target.options, function(
+                                            o
+                                          ) {
+                                            return o.selected
+                                          })
+                                          .map(function(o) {
+                                            var val =
+                                              "_value" in o ? o._value : o.value
+                                            return val
+                                          })
+                                        _vm.$set(
+                                          _vm.form,
+                                          "goal",
+                                          $event.target.multiple
+                                            ? $$selectedVal
+                                            : $$selectedVal[0]
+                                        )
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("option", { attrs: { value: "" } }, [
+                                      _vm._v("Selecccionar")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "option",
+                                      { attrs: { value: "perdida de peso" } },
+                                      [_vm._v("Perdida de peso")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "option",
+                                      {
+                                        attrs: { value: "Perdida de % graso" }
+                                      },
+                                      [_vm._v("Perdida de % graso")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "option",
+                                      { attrs: { value: "Masa muscular" } },
+                                      [_vm._v("Masa muscular")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "option",
+                                      { attrs: { value: "Aumento de peso" } },
+                                      [_vm._v("Aumento de peso")]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "b-form-group",
+                              { attrs: { label: "Diagnósticos dietarios:" } },
+                              [
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "bajo_consumo_energetico" },
+                                    model: {
+                                      value: _vm.form.bajo_consumo_energetico,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "bajo_consumo_energetico",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "form.bajo_consumo_energetico"
+                                    }
+                                  },
+                                  [_vm._v("Bajo cosumo energético")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "bajo_consumo_proteico" },
+                                    model: {
+                                      value: _vm.form.bajo_consumo_proteico,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "bajo_consumo_proteico",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "form.bajo_consumo_proteico"
+                                    }
+                                  },
+                                  [_vm._v("Bajo consumo proteico")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      name: "bajo_consumo_carbohidratos"
+                                    },
+                                    model: {
+                                      value:
+                                        _vm.form.bajo_consumo_carbohidratos,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "bajo_consumo_carbohidratos",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form.bajo_consumo_carbohidratos"
+                                    }
+                                  },
+                                  [_vm._v("Bajo consumo de carbohidratos")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      name: "bajo_consumo_grasas_escenciales"
+                                    },
+                                    model: {
+                                      value:
+                                        _vm.form
+                                          .bajo_consumo_grasas_escenciales,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "bajo_consumo_grasas_escenciales",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form.bajo_consumo_grasas_escenciales"
+                                    }
+                                  },
+                                  [_vm._v("Bajo consumo de grasas escenciales")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      name: "bajo_consumo_micronutrientes"
+                                    },
+                                    model: {
+                                      value:
+                                        _vm.form.bajo_consumo_micronutrientes,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "bajo_consumo_micronutrientes",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form.bajo_consumo_micronutrientes"
+                                    }
+                                  },
+                                  [_vm._v("Bajo consumo de micronutrientes")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      name: "alto_consumo_ultraprcesados"
+                                    },
+                                    model: {
+                                      value:
+                                        _vm.form.alto_consumo_ultraprcesados,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "alto_consumo_ultraprcesados",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form.alto_consumo_ultraprcesados"
+                                    }
+                                  },
+                                  [_vm._v("Alto consumo de ultraprocesados")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      name: "inadecuado_timming_ingestas"
+                                    },
+                                    model: {
+                                      value:
+                                        _vm.form.inadecuado_timming_ingestas,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "inadecuado_timming_ingestas",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form.inadecuado_timming_ingestas"
+                                    }
+                                  },
+                                  [_vm._v("Inadecuando TIMMING de ingestas")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      name: "esquema_hidratacion_inadecuado"
+                                    },
+                                    model: {
+                                      value:
+                                        _vm.form.esquema_hidratacion_inadecuado,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "esquema_hidratacion_inadecuado",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form.esquema_hidratacion_inadecuado"
+                                    }
+                                  },
+                                  [_vm._v("Esquea de hidratación inadecuado")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "dieta_alta_fodmaps" },
+                                    model: {
+                                      value: _vm.form.dieta_alta_fodmaps,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "dieta_alta_fodmaps",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "form.dieta_alta_fodmaps"
+                                    }
+                                  },
+                                  [_vm._v("Dieta alta en FODMAPS")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "excedente_calorico" },
+                                    model: {
+                                      value: _vm.form.excedente_calorico,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "excedente_calorico",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "form.excedente_calorico"
+                                    }
+                                  },
+                                  [_vm._v("Excedente calórico")]
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
                             staticClass:
                               "d-flex justify-content-between border-top pt-10"
                           },
@@ -10648,6 +10638,21 @@ var staticRenderFns = [
               _c("h3", { staticClass: "wizard-title" }, [
                 _c("span", [_vm._v("3")]),
                 _vm._v("Alimentación")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "wizard-bar" })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "wizard-step", attrs: { "data-wizard-type": "step" } },
+          [
+            _c("div", { staticClass: "wizard-label" }, [
+              _c("h3", { staticClass: "wizard-title" }, [
+                _c("span", [_vm._v("3")]),
+                _vm._v("Diagnóstico")
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "wizard-bar" })
@@ -11138,8 +11143,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  _vm._s(_vm.calcularEdad(item.birth_date)) +
-                                    " años"
+                                  "\n                Tlf: " +
+                                    _vm._s(item.phone) +
+                                    " \n              "
                                 )
                               ]
                             )
@@ -11969,30 +11975,17 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-dark order-2 order-md-1" }, [
-      _c("span", { staticClass: "text-muted font-weight-bold mr-1" }, [
-        _vm._v("© 2021, ")
+      _c("span", { staticClass: "text-muted font-weight-bold mr-2" }, [
+        _vm._v("2021©")
       ]),
       _vm._v(" "),
       _c(
         "a",
         {
-          staticClass: "text-muted text-hover-primary mr-2",
-          attrs: { href: "https://Koshca.com/", target: "_blank" }
+          staticClass: "text-dark-75 text-hover-primary",
+          attrs: { href: "https://digitalmentestudio.com/", target: "_blank" }
         },
-        [_vm._v("Dr. Theo Fit ")]
-      ),
-      _vm._v(" "),
-      _c("span", { staticClass: "text-muted font-weight-bold mr-1" }, [
-        _vm._v(" Power by")
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "text-muted text-hover-primary",
-          attrs: { href: "https://Koshca.com/", target: "_blank" }
-        },
-        [_vm._v("Koshca")]
+        [_vm._v("Digitalmentestudio")]
       )
     ])
   }

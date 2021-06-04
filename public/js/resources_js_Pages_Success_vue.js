@@ -95,18 +95,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
  // FormValidation plugins
 // import Trigger from "../../../../assets/plugins/formvalidation/dist/es6/plugins/Trigger";
 // import Bootstrap from "../../../../assets/plugins/formvalidation/dist/es6/plugins/Bootstrap";
@@ -122,7 +110,9 @@ __webpack_require__.r(__webpack_exports__);
   name: "solicitud-successfully",
   computed: {
     backgroundImage: function backgroundImage() {
-      return "/media/svg/illustrations/working.svg";
+      return (// "/media/svg/illustrations/working.svg"
+        "/media/theo/theo.jpg"
+      );
     }
   },
   methods: {// showForm(form) {
@@ -6086,14 +6076,13 @@ var render = function() {
           "div",
           {
             staticClass: "login-aside d-flex flex-column flex-row-auto",
-            staticStyle: { "background-color": "#F2C98A" }
+            staticStyle: { "background-color": "#FFFFFF" }
           },
           [
-            _vm._m(0),
-            _vm._v(" "),
             _c("div", {
               staticClass:
                 "aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center",
+              staticStyle: { "background-size": "cover" },
               style: { backgroundImage: "url(" + _vm.backgroundImage + ")" }
             })
           ]
@@ -6128,11 +6117,13 @@ var render = function() {
                     "inertia-link",
                     {
                       staticClass:
-                        "btn btn-primary font-weight-bolder font-size-h6 px-15 py-4 my-3 mr-3",
+                        "btn btn-primary font-weight-bolder font-size-h6 px-15 py-4 my-5 mr-3",
                       attrs: { href: _vm.route("landing") }
                     },
                     [_vm._v("\n      Realizar otra solicitud\n    ")]
-                  )
+                  ),
+                  _vm._v(" "),
+                  _vm._m(0)
                 ],
                 1
               )
@@ -6149,29 +6140,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "div",
-      { staticClass: "d-flex flex-column-auto flex-column pt-lg-40 pt-15" },
+      "h4",
+      {
+        staticClass: "font-weight-bolder text-dark font-size-h5 font-size-h3-lg"
+      },
       [
-        _c("a", { staticClass: "text-center mb-10", attrs: { href: "#" } }, [
-          _c("img", {
-            staticClass: "max-h-70px",
-            attrs: { src: "/media/logos/logo-letter-1.png", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "h3",
-          {
-            staticClass:
-              "font-weight-bolder text-center font-size-h4 font-size-h1-lg",
-            staticStyle: { color: "#986923" }
-          },
-          [
-            _vm._v("\n        Discover Amazing Metronic "),
-            _c("br"),
-            _vm._v("with great build tools\n      ")
-          ]
-        )
+        _vm._v("\n        Sígueme en instagram "),
+        _c("a", { attrs: { href: "https://instagram.com/drtheofit" } }, [
+          _vm._v("@drtheofit")
+        ])
       ]
     )
   }

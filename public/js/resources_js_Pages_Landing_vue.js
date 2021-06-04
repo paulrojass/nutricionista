@@ -190,8 +190,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
  // FormValidation plugins
 // import Trigger from "../../../../assets/plugins/formvalidation/dist/es6/plugins/Trigger";
 // import Bootstrap from "../../../../assets/plugins/formvalidation/dist/es6/plugins/Bootstrap";
@@ -223,7 +221,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     backgroundImage: function backgroundImage() {
-      return "/media/svg/illustrations/working.svg";
+      return (// "/media/svg/illustrations/working.svg"
+        "/media/theo/theo.jpg"
+      );
     }
   },
   mounted: function mounted() {
@@ -6284,14 +6284,13 @@ var render = function() {
           "div",
           {
             staticClass: "login-aside d-flex flex-column flex-row-auto",
-            staticStyle: { "background-color": "#F2C98A" }
+            staticStyle: { "background-color": "#FFFFFF" }
           },
           [
-            _vm._m(0),
-            _vm._v(" "),
             _c("div", {
               staticClass:
                 "aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center",
+              staticStyle: { "background-size": "cover" },
               style: { backgroundImage: "url(" + _vm.backgroundImage + ")" }
             })
           ]
@@ -6319,7 +6318,53 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._m(1),
+                    _c("div", { staticClass: "pb-5 pt-lg-0 pt-5" }, [
+                      _c(
+                        "h3",
+                        {
+                          staticClass:
+                            "font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "text-left mb-10",
+                              attrs: { href: "#" }
+                            },
+                            [
+                              _c("inline-svg", {
+                                staticClass: "max-h-40px max-w-200px",
+                                attrs: { src: "/media/theo/logo.svg", alt: "" }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h3",
+                        {
+                          staticClass:
+                            "font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
+                        },
+                        [_vm._v("\n          Solicite su consulta\n        ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "text-muted font-weight-bold font-size-h4"
+                        },
+                        [
+                          _vm._v(
+                            "\n          Por favor llena el siguiente formulario, un miembro del equipo se comunicará contigo para reservar tu cita, te esperamos.\n        "
+                          )
+                        ]
+                      )
+                    ]),
                     _vm._v(" "),
                     _c(
                       "b-form-group",
@@ -6435,30 +6480,6 @@ var render = function() {
                       "b-form-group",
                       {
                         attrs: {
-                          id: "input-date",
-                          label: "Fecha de nacimiento:",
-                          "label-for": "date"
-                        }
-                      },
-                      [
-                        _c("b-form-input", {
-                          attrs: { type: "date", id: "date", required: "" },
-                          model: {
-                            value: _vm.form.birth_date,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "birth_date", $$v)
-                            },
-                            expression: "form.birth_date"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-group",
-                      {
-                        attrs: {
                           id: "input-group-5",
                           label: "Teléfono:",
                           "label-for": "input-5"
@@ -6514,7 +6535,7 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _vm._m(2)
+                    _vm._m(0)
                   ],
                   1
                 )
@@ -6527,52 +6548,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex flex-column-auto flex-column pt-lg-40 pt-15" },
-      [
-        _c("a", { staticClass: "text-center mb-10", attrs: { href: "#" } }, [
-          _c("img", {
-            staticClass: "max-h-70px",
-            attrs: { src: "/media/logos/logo-letter-1.png", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "h3",
-          {
-            staticClass:
-              "font-weight-bolder text-center font-size-h4 font-size-h1-lg",
-            staticStyle: { color: "#986923" }
-          },
-          [
-            _vm._v("\n        Discover Amazing Metronic "),
-            _c("br"),
-            _vm._v("with great build tools\n      ")
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pb-13 pt-lg-0 pt-5" }, [
-      _c(
-        "h3",
-        {
-          staticClass:
-            "font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
-        },
-        [_vm._v("\n          Solicite su consulta\n        ")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
