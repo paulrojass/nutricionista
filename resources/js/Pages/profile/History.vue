@@ -267,23 +267,6 @@
     </div>
   </div>
 
-<div class="col-xl-6">
-  <div class="form-group">
-    <label>Objetivo</label>
-    <select
-    name="goal"
-    v-model="form.goal"
-    class="form-control form-control-solid form-control-lg"
-    >
-      <option value="">Selecccionar</option>
-      <option value="perdida de peso">Perdida de peso</option>
-      <option value="Perdida de % graso">Perdida de % graso</option>
-      <option value="Masa muscular">Masa muscular</option>
-      <option value="Aumento de peso">Aumento de peso</option>
-    </select>
-  </div>
-</div>
-
 </div>
 
 
@@ -305,7 +288,7 @@ name="aspiration"
 <div class="pb-5" data-wizard-type="step-content">
 
   <h4 class="mb-10 font-weight-bold text-dark">
-    Estado físico del paciente
+    Valoración física
   </h4>
 
   <div class="row">
@@ -398,7 +381,7 @@ name="aspiration"
 </div>
 <div class="col-xl-12" v-if="chk_medicine == 1">
   <div class="form-group">
-    <label>Indique cuales toma</label>
+    <label>Indique cuáles toma</label>
     <input
     type="text"
     v-model="form.medicine"
@@ -484,6 +467,33 @@ name="aspiration"
 </div>
 </div>
 
+<div class="row">
+  <div class="col-xl-12">
+    <b-form-checkbox
+    id="chk_otro_valoracion"
+    v-model="chk_otro_valoracion"
+    name="chk_otro_valoracion"
+    value="1"
+    unchecked-value="0"
+    >
+    Otro
+  </b-form-checkbox>
+</div>
+<div class="col-xl-12" v-if="chk_otro_valoracion == 1">
+  <div class="form-group">
+    <label>Especifíque</label>
+    <input
+    type="text"
+    v-model="form.otro_valoracion"
+    class="form-control form-control-solid form-control-lg"
+    name="otro_valoracion"
+    />
+  </div>
+</div>
+</div>
+
+
+
 <h4 class="mb-10 mt-10 font-weight-bold text-dark">
   Actividad física
 </h4>
@@ -564,6 +574,48 @@ unchecked-value="0"
     </div>
   </div>
 </div>
+
+  <h4 class="mb-10 mt-10 font-weight-bold text-dark">
+  Recuento funcional
+</h4>
+<div class="row">
+  <div class="col-xl-12">
+    <div class="form-group">
+      <label>Menstruaciones</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="menses"
+      v-model="form.menses"
+      />
+    </div>
+  </div>
+  <div class="col-xl-12">
+    <div class="form-group">
+      <label>Intestinal</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="intestinal"
+      v-model="form.intestinal"
+      />
+    </div>
+  </div>
+  <div class="col-xl-12">
+    <div class="form-group">
+      <label>Calidad del sueño</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="sleep_quality"
+      v-model="form.sleep_quality"
+      />
+    </div>
+  </div>
+  
+</div>
+
+
 </div>
 <!--end: Wizard Step 2-->
 
@@ -576,7 +628,7 @@ unchecked-value="0"
   <b-form-group
     label="Desayuno"
     label-for="breakfast"
-    class="mb-0"
+    class="mt-5"
   >
     <b-form-textarea
         name="breakfast"
@@ -591,7 +643,7 @@ unchecked-value="0"
   <b-form-group
     label="Media mañana"
     label-for="brunch"
-    class="mb-0"
+    class="mb-0 mt-5"
   >
     <b-form-textarea
         name="brunch"
@@ -606,7 +658,7 @@ unchecked-value="0"
   <b-form-group
     label="Almuerzo"
     label-for="lunch"
-    class="mb-0"
+    class="mb-0 mt-5"
   >
     <b-form-textarea
         name="lunch"
@@ -621,7 +673,7 @@ unchecked-value="0"
   <b-form-group
     label="Merienda"
     label-for="snack"
-    class="mb-0"
+    class="mb-0 mt-5"
   >
     <b-form-textarea
         name="snack"
@@ -636,7 +688,7 @@ unchecked-value="0"
   <b-form-group
     label="Cena"
     label-for="dinner"
-    class="mb-0"
+    class="mb-0 mt-5"
   >
     <b-form-textarea
         name="dinner"
@@ -651,7 +703,7 @@ unchecked-value="0"
   <b-form-group
     label="Cuando come fuera de casa ¿Qué suele comer?"
     label-for="street_food"
-    class="mb-0"
+    class="mt-5"
   >
     <b-form-textarea
         name="street_food"
@@ -678,14 +730,26 @@ unchecked-value="0"
     <b-form-checkbox inline  name="pavo" v-model="form.pavo">Pavo</b-form-checkbox>
     <b-form-checkbox inline  name="salmon" v-model="form.salmon">Salmón</b-form-checkbox>
     <b-form-checkbox inline  name="whey_protein" v-model="form.whey_protein">Whey Protein</b-form-checkbox>
+    <b-form-checkbox inline  name="chk_otros_proteinas" v-model="chk_proteinas_vegetales" id="chk_proteinas_vegetales" value="1" unchecked-value="0">Opciones Vegetarianas</b-form-checkbox>
     <b-form-checkbox inline  name="chk_otros_proteinas" v-model="chk_otros_proteinas" id="chk_otros_proteinas" value="1" unchecked-value="0">Otros</b-form-checkbox>
 
   </b-form-group>
 
 <div class="row">
+  <div class="col-xl-12" v-if="chk_proteinas_vegetales == 1">
+    <div class="form-group">
+      <label>Especifique las opciones vegetarianas</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="proteinas_vegetales"
+      v-model="form.proteinas_vegetales"
+      />
+    </div>
+  </div>
   <div class="col-xl-12" v-if="chk_otros_proteinas == 1">
     <div class="form-group">
-      <label>Indique cuales otras proteinas</label>
+      <label>Indique cuáles otras proteinas</label>
       <input
       type="text"
       class="form-control form-control-solid form-control-lg"
@@ -716,7 +780,7 @@ unchecked-value="0"
 <div class="row">
   <div class="col-xl-12" v-if="chk_otros_carbohidratos == 1">
     <div class="form-group">
-      <label>Indique cuales otros carbohidratos</label>
+      <label>Indique cuáles otros carbohidratos</label>
       <input
       type="text"
       class="form-control form-control-solid form-control-lg"
@@ -740,7 +804,7 @@ unchecked-value="0"
 <div class="row">
   <div class="col-xl-12" v-if="chk_otros_frutas == 1">
     <div class="form-group">
-      <label>Indique cuales otras frutas</label>
+      <label>Indique cuáles otras frutas</label>
       <input
       type="text"
       class="form-control form-control-solid form-control-lg"
@@ -761,7 +825,7 @@ unchecked-value="0"
 <div class="row">
   <div class="col-xl-12" v-if="chk_otros_vegetales == 1">
     <div class="form-group">
-      <label>Indique cuales otros vegetales</label>
+      <label>Indique cuáles otros vegetales</label>
       <input
       type="text"
       class="form-control form-control-solid form-control-lg"
@@ -786,7 +850,7 @@ unchecked-value="0"
 <div class="row">
   <div class="col-xl-12" v-if="chk_otros_lacteos == 1">
     <div class="form-group">
-      <label>Indique cuales otros lácteos</label>
+      <label>Indique cuáles otros lácteos</label>
       <input
       type="text"
       class="form-control form-control-solid form-control-lg"
@@ -809,7 +873,7 @@ unchecked-value="0"
 <div class="row">
   <div class="col-xl-12" v-if="chk_otros_grasas == 1">
     <div class="form-group">
-      <label>Indique cuales otras grasas</label>
+      <label>Indique cuáles otras grasas</label>
       <input
       type="text"
       class="form-control form-control-solid form-control-lg"
@@ -875,11 +939,46 @@ unchecked-value="0"
   </h4>
 
 
+<div class="row">  
+<div class="col-xl-12">
+  <div class="form-group">
+    <label>Objetivo</label>
+    <select
+    name="goal"
+    v-model="form.goal"
+    class="form-control form-control-solid form-control-lg"
+    >
+      <option value="">Selecccionar</option>
+      <option value="perdida de peso">Perdida de peso</option>
+      <option value="Perdida de % graso">Perdida de % graso</option>
+      <option value="Masa muscular">Masa muscular</option>
+      <option value="Aumento de peso">Aumento de peso</option>
+    </select>
+  </div>
+</div>
+</div>
+
+</b-form-group class="mb-5">
+  <b-form-checkbox inline  name="chk_otro_objetivo" v-model="chk_otro_objetivo" id="chk_otro_objetivo" value="1" unchecked-value="0">Otro Objetivo</b-form-checkbox>
+</b-form-group>
+
+<div class="row mt-5">
+  <div class="col-xl-12" v-if="chk_otro_objetivo == 1">
+    <div class="form-group">
+      <label>Especifique los otros objetivos</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="otro_objetivo"
+      v-model="form.otro_objetivo"
+      />
+    </div>
+  </div>
+</div>
 
 
 
-
-<b-form-group label="Diagnósticos dietarios:">
+<b-form-group label="Diagnósticos dietarios:" class="mt-15">
   <b-form-checkbox name="bajo_consumo_energetico" v-model="form.bajo_consumo_energetico">Bajo cosumo energético</b-form-checkbox>
   <b-form-checkbox name="bajo_consumo_proteico" v-model="form.bajo_consumo_proteico">Bajo consumo proteico</b-form-checkbox>
   <b-form-checkbox name="bajo_consumo_carbohidratos" v-model="form.bajo_consumo_carbohidratos">Bajo consumo de carbohidratos</b-form-checkbox>
@@ -995,6 +1094,9 @@ export default {
         goal : this.patient.goal,
         avatar : this.patient.avatar,
         laboratory : this.patient.laboratory,
+        otro_valoracion : this.patient.otro_valoracion,
+        proteinas_vegetales : this.patient.proteinas_vegetales,
+        otro_objetivo : this.patient.otro_objetivo,
         otros_proteinas : this.patient.otros_proteinas,
         otros_carbohidratos : this.patient.otros_carbohidratos,
         otros_frutas : this.patient.otros_frutas,
@@ -1096,13 +1198,16 @@ export default {
       chk_supplement: this.habilitado(this.patient.supplement),
       chk_previous_supplement: this.habilitado(this.patient.supplement),
       chk_weight_variation: this.habilitado(this.patient.weight_variation),
+      chk_otro_valoracion: this.habilitado(this.patient.otro_valoracion),
       rad_athletic_discipline: this.habilitado(this.patient.athletic_discipline),
+      chk_proteinas_vegetales: this.habilitado(this.patient.proteinas_vegetales),
       chk_otros_proteinas: this.habilitado(this.patient.otros_proteinas),
       chk_otros_carbohidratos: this.habilitado(this.patient.otros_carbohidratos),
       chk_otros_frutas: this.habilitado(this.patient.otros_frutas),
       chk_otros_vegetales: this.habilitado(this.patient.otros_vegetales),
       chk_otros_lacteos: this.habilitado(this.patient.otros_lacteos),
       chk_otros_grasas: this.habilitado(this.patient.otros_grasas),
+      chk_otro_objetivo: this.habilitado(this.patient.otro_objetivo),
       athletic_discipline_options: [
         { text: 'Crossfit', value: 'Crossfit' },
         { text: 'Programación de atleta', value: 'Programación de atleta' },

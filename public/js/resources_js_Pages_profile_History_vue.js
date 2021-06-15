@@ -978,6 +978,105 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1011,6 +1110,9 @@ __webpack_require__.r(__webpack_exports__);
         goal: this.patient.goal,
         avatar: this.patient.avatar,
         laboratory: this.patient.laboratory,
+        otro_valoracion: this.patient.otro_valoracion,
+        proteinas_vegetales: this.patient.proteinas_vegetales,
+        otro_objetivo: this.patient.otro_objetivo,
         otros_proteinas: this.patient.otros_proteinas,
         otros_carbohidratos: this.patient.otros_carbohidratos,
         otros_frutas: this.patient.otros_frutas,
@@ -1112,13 +1214,16 @@ __webpack_require__.r(__webpack_exports__);
       chk_supplement: this.habilitado(this.patient.supplement),
       chk_previous_supplement: this.habilitado(this.patient.supplement),
       chk_weight_variation: this.habilitado(this.patient.weight_variation),
+      chk_otro_valoracion: this.habilitado(this.patient.otro_valoracion),
       rad_athletic_discipline: this.habilitado(this.patient.athletic_discipline),
+      chk_proteinas_vegetales: this.habilitado(this.patient.proteinas_vegetales),
       chk_otros_proteinas: this.habilitado(this.patient.otros_proteinas),
       chk_otros_carbohidratos: this.habilitado(this.patient.otros_carbohidratos),
       chk_otros_frutas: this.habilitado(this.patient.otros_frutas),
       chk_otros_vegetales: this.habilitado(this.patient.otros_vegetales),
       chk_otros_lacteos: this.habilitado(this.patient.otros_lacteos),
       chk_otros_grasas: this.habilitado(this.patient.otros_grasas),
+      chk_otro_objetivo: this.habilitado(this.patient.otro_objetivo),
       athletic_discipline_options: [{
         text: 'Crossfit',
         value: 'Crossfit'
@@ -8404,85 +8509,6 @@ var render = function() {
                                         }
                                       })
                                 ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-xl-6" }, [
-                                _c("div", { staticClass: "form-group" }, [
-                                  _c("label", [_vm._v("Objetivo")]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "select",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.goal,
-                                          expression: "form.goal"
-                                        }
-                                      ],
-                                      staticClass:
-                                        "form-control form-control-solid form-control-lg",
-                                      attrs: { name: "goal" },
-                                      on: {
-                                        change: function($event) {
-                                          var $$selectedVal = Array.prototype.filter
-                                            .call(
-                                              $event.target.options,
-                                              function(o) {
-                                                return o.selected
-                                              }
-                                            )
-                                            .map(function(o) {
-                                              var val =
-                                                "_value" in o
-                                                  ? o._value
-                                                  : o.value
-                                              return val
-                                            })
-                                          _vm.$set(
-                                            _vm.form,
-                                            "goal",
-                                            $event.target.multiple
-                                              ? $$selectedVal
-                                              : $$selectedVal[0]
-                                          )
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("option", { attrs: { value: "" } }, [
-                                        _vm._v("Selecccionar")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "perdida de peso" } },
-                                        [_vm._v("Perdida de peso")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        {
-                                          attrs: { value: "Perdida de % graso" }
-                                        },
-                                        [_vm._v("Perdida de % graso")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "Masa muscular" } },
-                                        [_vm._v("Masa muscular")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "Aumento de peso" } },
-                                        [_vm._v("Aumento de peso")]
-                                      )
-                                    ]
-                                  )
-                                ])
                               ])
                             ])
                           ]
@@ -8500,7 +8526,7 @@ var render = function() {
                               {
                                 staticClass: "mb-10 font-weight-bold text-dark"
                               },
-                              [_vm._v("\n    Estado físico del paciente\n  ")]
+                              [_vm._v("\n    Valoración física\n  ")]
                             ),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
@@ -8769,7 +8795,7 @@ var render = function() {
                                 ? _c("div", { staticClass: "col-xl-12" }, [
                                     _c("div", { staticClass: "form-group" }, [
                                       _c("label", [
-                                        _vm._v("Indique cuales toma")
+                                        _vm._v("Indique cuáles toma")
                                       ]),
                                       _vm._v(" "),
                                       _c("input", {
@@ -9030,6 +9056,75 @@ var render = function() {
                                 : _vm._e()
                             ]),
                             _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _c(
+                                "div",
+                                { staticClass: "col-xl-12" },
+                                [
+                                  _c(
+                                    "b-form-checkbox",
+                                    {
+                                      attrs: {
+                                        id: "chk_otro_valoracion",
+                                        name: "chk_otro_valoracion",
+                                        value: "1",
+                                        "unchecked-value": "0"
+                                      },
+                                      model: {
+                                        value: _vm.chk_otro_valoracion,
+                                        callback: function($$v) {
+                                          _vm.chk_otro_valoracion = $$v
+                                        },
+                                        expression: "chk_otro_valoracion"
+                                      }
+                                    },
+                                    [_vm._v("\n    Otro\n  ")]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _vm.chk_otro_valoracion == 1
+                                ? _c("div", { staticClass: "col-xl-12" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [_vm._v("Especifíque")]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.otro_valoracion,
+                                            expression: "form.otro_valoracion"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control form-control-solid form-control-lg",
+                                        attrs: {
+                                          type: "text",
+                                          name: "otro_valoracion"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.otro_valoracion
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "otro_valoracion",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ]),
+                            _vm._v(" "),
                             _c(
                               "h4",
                               {
@@ -9277,6 +9372,119 @@ var render = function() {
                                   })
                                 ])
                               ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "h4",
+                              {
+                                staticClass:
+                                  "mb-10 mt-10 font-weight-bold text-dark"
+                              },
+                              [_vm._v("\n  Recuento funcional\n")]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col-xl-12" }, [
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c("label", [_vm._v("Menstruaciones")]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.menses,
+                                        expression: "form.menses"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "form-control form-control-solid form-control-lg",
+                                    attrs: { type: "text", name: "menses" },
+                                    domProps: { value: _vm.form.menses },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "menses",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-xl-12" }, [
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c("label", [_vm._v("Intestinal")]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.intestinal,
+                                        expression: "form.intestinal"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "form-control form-control-solid form-control-lg",
+                                    attrs: { type: "text", name: "intestinal" },
+                                    domProps: { value: _vm.form.intestinal },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "intestinal",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-xl-12" }, [
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c("label", [_vm._v("Calidad del sueño")]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.sleep_quality,
+                                        expression: "form.sleep_quality"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "form-control form-control-solid form-control-lg",
+                                    attrs: {
+                                      type: "text",
+                                      name: "sleep_quality"
+                                    },
+                                    domProps: { value: _vm.form.sleep_quality },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "sleep_quality",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ])
                             ])
                           ],
                           1
@@ -9300,7 +9508,7 @@ var render = function() {
                             _c(
                               "b-form-group",
                               {
-                                staticClass: "mb-0",
+                                staticClass: "mt-5",
                                 attrs: {
                                   label: "Desayuno",
                                   "label-for": "breakfast"
@@ -9331,7 +9539,7 @@ var render = function() {
                             _c(
                               "b-form-group",
                               {
-                                staticClass: "mb-0",
+                                staticClass: "mb-0 mt-5",
                                 attrs: {
                                   label: "Media mañana",
                                   "label-for": "brunch"
@@ -9362,7 +9570,7 @@ var render = function() {
                             _c(
                               "b-form-group",
                               {
-                                staticClass: "mb-0",
+                                staticClass: "mb-0 mt-5",
                                 attrs: {
                                   label: "Almuerzo",
                                   "label-for": "lunch"
@@ -9393,7 +9601,7 @@ var render = function() {
                             _c(
                               "b-form-group",
                               {
-                                staticClass: "mb-0",
+                                staticClass: "mb-0 mt-5",
                                 attrs: {
                                   label: "Merienda",
                                   "label-for": "snack"
@@ -9424,7 +9632,7 @@ var render = function() {
                             _c(
                               "b-form-group",
                               {
-                                staticClass: "mb-0",
+                                staticClass: "mb-0 mt-5",
                                 attrs: { label: "Cena", "label-for": "dinner" }
                               },
                               [
@@ -9452,7 +9660,7 @@ var render = function() {
                             _c(
                               "b-form-group",
                               {
-                                staticClass: "mb-0",
+                                staticClass: "mt-5",
                                 attrs: {
                                   label:
                                     "Cuando come fuera de casa ¿Qué suele comer?",
@@ -9671,6 +9879,27 @@ var render = function() {
                                     attrs: {
                                       inline: "",
                                       name: "chk_otros_proteinas",
+                                      id: "chk_proteinas_vegetales",
+                                      value: "1",
+                                      "unchecked-value": "0"
+                                    },
+                                    model: {
+                                      value: _vm.chk_proteinas_vegetales,
+                                      callback: function($$v) {
+                                        _vm.chk_proteinas_vegetales = $$v
+                                      },
+                                      expression: "chk_proteinas_vegetales"
+                                    }
+                                  },
+                                  [_vm._v("Opciones Vegetarianas")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      inline: "",
+                                      name: "chk_otros_proteinas",
                                       id: "chk_otros_proteinas",
                                       value: "1",
                                       "unchecked-value": "0"
@@ -9690,11 +9919,56 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
+                              _vm.chk_proteinas_vegetales == 1
+                                ? _c("div", { staticClass: "col-xl-12" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Especifique las opciones vegetarianas"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.proteinas_vegetales,
+                                            expression:
+                                              "form.proteinas_vegetales"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control form-control-solid form-control-lg",
+                                        attrs: {
+                                          type: "text",
+                                          name: "proteinas_vegetales"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.proteinas_vegetales
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "proteinas_vegetales",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
                               _vm.chk_otros_proteinas == 1
                                 ? _c("div", { staticClass: "col-xl-12" }, [
                                     _c("div", { staticClass: "form-group" }, [
                                       _c("label", [
-                                        _vm._v("Indique cuales otras proteinas")
+                                        _vm._v("Indique cuáles otras proteinas")
                                       ]),
                                       _vm._v(" "),
                                       _c("input", {
@@ -9923,7 +10197,7 @@ var render = function() {
                                     _c("div", { staticClass: "form-group" }, [
                                       _c("label", [
                                         _vm._v(
-                                          "Indique cuales otros carbohidratos"
+                                          "Indique cuáles otros carbohidratos"
                                         )
                                       ]),
                                       _vm._v(" "),
@@ -10089,7 +10363,7 @@ var render = function() {
                                 ? _c("div", { staticClass: "col-xl-12" }, [
                                     _c("div", { staticClass: "form-group" }, [
                                       _c("label", [
-                                        _vm._v("Indique cuales otras frutas")
+                                        _vm._v("Indique cuáles otras frutas")
                                       ]),
                                       _vm._v(" "),
                                       _c("input", {
@@ -10205,7 +10479,7 @@ var render = function() {
                                 ? _c("div", { staticClass: "col-xl-12" }, [
                                     _c("div", { staticClass: "form-group" }, [
                                       _c("label", [
-                                        _vm._v("Indique cuales otros vegetales")
+                                        _vm._v("Indique cuáles otros vegetales")
                                       ]),
                                       _vm._v(" "),
                                       _c("input", {
@@ -10388,7 +10662,7 @@ var render = function() {
                                 ? _c("div", { staticClass: "col-xl-12" }, [
                                     _c("div", { staticClass: "form-group" }, [
                                       _c("label", [
-                                        _vm._v("Indique cuales otros lácteos")
+                                        _vm._v("Indique cuáles otros lácteos")
                                       ]),
                                       _vm._v(" "),
                                       _c("input", {
@@ -10530,7 +10804,7 @@ var render = function() {
                                 ? _c("div", { staticClass: "col-xl-12" }, [
                                     _c("div", { staticClass: "form-group" }, [
                                       _c("label", [
-                                        _vm._v("Indique cuales otras grasas")
+                                        _vm._v("Indique cuáles otras grasas")
                                       ]),
                                       _vm._v(" "),
                                       _c("input", {
@@ -10824,9 +11098,160 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col-xl-12" }, [
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c("label", [_vm._v("Objetivo")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.goal,
+                                          expression: "form.goal"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "form-control form-control-solid form-control-lg",
+                                      attrs: { name: "goal" },
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.form,
+                                            "goal",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("option", { attrs: { value: "" } }, [
+                                        _vm._v("Selecccionar")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        { attrs: { value: "perdida de peso" } },
+                                        [_vm._v("Perdida de peso")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        {
+                                          attrs: { value: "Perdida de % graso" }
+                                        },
+                                        [_vm._v("Perdida de % graso")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        { attrs: { value: "Masa muscular" } },
+                                        [_vm._v("Masa muscular")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "option",
+                                        { attrs: { value: "Aumento de peso" } },
+                                        [_vm._v("Aumento de peso")]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "b-form-checkbox",
+                              {
+                                attrs: {
+                                  inline: "",
+                                  name: "chk_otro_objetivo",
+                                  id: "chk_otro_objetivo",
+                                  value: "1",
+                                  "unchecked-value": "0"
+                                },
+                                model: {
+                                  value: _vm.chk_otro_objetivo,
+                                  callback: function($$v) {
+                                    _vm.chk_otro_objetivo = $$v
+                                  },
+                                  expression: "chk_otro_objetivo"
+                                }
+                              },
+                              [_vm._v("Otro Objetivo")]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row mt-5" }, [
+                              _vm.chk_otro_objetivo == 1
+                                ? _c("div", { staticClass: "col-xl-12" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Especifique los otros objetivos"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.otro_objetivo,
+                                            expression: "form.otro_objetivo"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control form-control-solid form-control-lg",
+                                        attrs: {
+                                          type: "text",
+                                          name: "otro_objetivo"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.otro_objetivo
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "otro_objetivo",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ]),
+                            _vm._v(" "),
                             _c(
                               "b-form-group",
-                              { attrs: { label: "Diagnósticos dietarios:" } },
+                              {
+                                staticClass: "mt-15",
+                                attrs: { label: "Diagnósticos dietarios:" }
+                              },
                               [
                                 _c(
                                   "b-form-checkbox",

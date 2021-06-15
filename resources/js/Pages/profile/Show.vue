@@ -43,10 +43,6 @@
       <strong>Telefono: {{patient.phone}}</strong>
       <br />
       <strong>Correo electrónico: {{patient.email}}</strong>
-      <br />
-      <strong>Aspiraciones o motivo de consulta: </strong> {{patient.aspiration}}
-      <br />
-      <strong>Objetivo: </strong>{{patient.goal}}
     </div>
   </div>
   <div class="border-bottom mb-5 pb-5">
@@ -67,6 +63,8 @@
       <strong>Tomaba algún suplemento anteriormente: </strong><span v-if="patient.previous_supplement"> {{patient.previous_supplement}}</span> <span v-else> No</span>
       <br />
       <strong>Variación de peso en los ultimos años: </strong><span v-if="patient.weight_variation"> {{patient.weight_variation}}</span> <span v-else> No</span>
+      <br />
+      <strong>Otros datos de valoración física: </strong><span v-if="patient.otro_valoracion"> {{patient.otro_valoracion}}</span> <span v-else> No</span>
       <br /><br />
       <strong>Trabajo:</strong>{{patient.job}}
       <br />
@@ -80,6 +78,20 @@
       <br />
       <strong>Horas diarias de entrenamiento: </strong>{{patient.training_hours}}
       <br />
+      <br />
+    <div class="font-weight-bold mb-3">
+      Recuento funcional:
+    </div>
+
+
+
+      <strong>Menstruaciones: </strong><span v-if="patient.menses"> {{patient.menses}}</span> <span v-else> No</span>
+      <br />
+      <strong>Intestinal: </strong><span v-if="patient.intestinal"> {{patient.intestinal}}</span> <span v-else> No</span>
+      <br />
+      <strong>Calidad del sueño: </strong><span v-if="patient.sleep_quality"> {{patient.sleep_quality}}</span> <span v-else> No</span>
+      <br />
+      <br />      
     </div>
   </div>
   <div class="border-bottom mb-5 pb-5">
@@ -108,9 +120,13 @@
       <span v-if="patient.carne_de_res">carne de res, </span>
       <span v-if="patient.lomo_de_cerdo">lomo de cerdo, </span>
       <span v-if="patient.atun">atun, </span>
+      <span v-if="patient.pavo">pavo, </span>
+      <span v-if="patient.salmon">salmón, </span>
       <span v-if="patient.huevos">huevos, </span>
       <span v-if="patient.claras_de_huevos">claras de huevos, </span>
-      <span v-if="patient.whey_protein">whey protein. </span>
+      <span v-if="patient.whey_protein">whey protein, </span>
+      <span v-if="patient.proteinas_vegetales != ''">{{patient.proteinas_vegetales}}, </span>
+      <span v-if="patient.otros_proteinas != ''">{{patient.otros_proteinas}}, </span>
       <br /><br />
       <strong>Harinas / Carbohidratos: </strong>
       <span v-if="patient.arroz">arroz, </span>
@@ -123,6 +139,7 @@
       <span v-if="patient.pan">pan, </span>
       <span v-if="patient.avena">avena, </span>
       <span v-if="patient.tostadas_de_arroz">tostadas de arroz. </span>
+      <span v-if="patient.otros_carbohidratos != ''">{{patient.otros_carbohidratos}}, </span>
       <br /><br />
       <strong>Frutas: </strong>
       <span v-if="patient.frutos_rojos">frutos rojos, </span>
@@ -130,10 +147,12 @@
       <span v-if="patient.frutos_verdes">frutos verdes, </span>
       <span v-if="patient.banano">banano, </span>
       <span v-if="patient.frutas_deshidratadas">frutas deshidratadas. </span>
+      <span v-if="patient.otros_frutas != ''">{{patient.otros_frutas}}, </span>
       <br /><br />
       <strong>Vegetales: </strong>
       <span v-if="patient.verduras_cocidas">verduras cocidas, </span>
       <span v-if="patient.vegetales_frescos">vegetales frescos. </span>
+      <span v-if="patient.otros_vegetales != ''">{{patient.otros_vegetales}}, </span>
       <br /><br />
       <strong>Lacteos: </strong>
       <span v-if="patient.quesos_frescos">quesos frescos, </span>
@@ -142,6 +161,7 @@
       <span v-if="patient.leche">leche, </span>
       <span v-if="patient.crema_de_leche">crema de leche, </span>
       <span v-if="patient.mantequilla">mantequilla. </span>
+      <span v-if="patient.otros_lacteos != ''">{{patient.otros_lacteos}}, </span>
       <br /><br />
       <strong>Grasas: </strong>
       <span v-if="patient.grasas">grasas, </span>
@@ -149,6 +169,7 @@
       <span v-if="patient.frutos_secos">frutos secos, </span>
       <span v-if="patient.aceites_adicionados">aceites adicionados, </span>
       <span v-if="patient.crema_de_mani">crema de mani. </span>
+      <span v-if="patient.otros_grasas != ''">{{patient.otros_grasas}}, </span>
       <br /><br />
       <strong>Alimetos que no toleras: </strong>{{patient.unwanted_food}}
       <br />
@@ -165,11 +186,14 @@
     
   </div>
   <div class="border-bottom mb-5 pb-5">
-    <div class="font-weight-bold mb-3">
-      Diagnóstico y Plan de trabajo:
-    </div>
+
+      <strong>Objetivo: </strong>{{patient.goal}}
+      <span v-if="patient.otro_objetivo != ''">, {{patient.otro_objetivo}} </span>
+      <br />
     <div class="line-height-xl">
       <strong>Diagnóstico: </strong>
+      <br />
+
       <span v-if="patient.bajo_consumo_energetico">bajo consumo energético, </span>
       <span v-if="patient.bajo_consumo_proteico">bajo consumo proteico, </span>
       <span v-if="patient.bajo_consumo_carbohidratos">bajo consumo carbohidratos, </span>
@@ -181,8 +205,22 @@
       <span v-if="patient.dieta_alta_fodmaps">dieta alta FODMAPS, </span>
       <span v-if="patient.excedente_calorico">excedente calórico. </span>
       <br />
-      <strong>Plan de trabajo: {{patient.workplan}}</strong>
+      <strong>Plan de trabajo:</strong>
       <br />
+        <span v-if="patient.dieta_alta_proteinas">Dieta alta en Proteinas, </span>
+        <span v-if="patient.deficit_calorico">Déficit Calórico, </span>
+        <span v-if="patient.dieta_de_mantenimiento">Dieta de mantenimiento, </span>
+        <span v-if="patient.superavit_calorico">Superavit Calórico, </span>
+        <span v-if="patient.ayuno_intermitente">Ayuno Intermintente, </span>
+        <span v-if="patient.dietas_keto">Dietas Keto, </span>
+        <span v-if="patient.dieta_baja_en_fodmaps">Dieta Baja en FODMAPS, </span>
+        <span v-if="patient.medidas_anti_inflamatorias">Medias Anti inflamatorias, </span>
+        <span v-if="patient.dieta_muy_baja_en_carbohidratos">Dieta muy baja en carbohidratos, </span>
+        <span v-if="patient.esquema_de_suplementacion">Esquema de Suplementación. </span>
+
+
+
+
     </div>
   </div>
 </div>

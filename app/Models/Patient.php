@@ -109,12 +109,18 @@ class Patient extends Model
     'medidas_anti_inflamatorias',
     'dieta_muy_baja_en_carbohidratos',
     'esquema_de_suplementacion',
+    'proteinas_vegetales',
     'otros_proteinas',
     'otros_carbohidratos',
     'otros_frutas',
     'otros_vegetales',
     'otros_lacteos',
-    'otros_grasas'
+    'otros_grasas',
+    'menses',
+    'intestinal',
+    'sleep_quality',
+    'otro_valoracion',
+    'otro_objetivo'
     ];
 
   /**

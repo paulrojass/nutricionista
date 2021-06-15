@@ -233,7 +233,8 @@ class PatientController extends Controller
       }
       $patient->active = 1;
       $patient->save();
-      return $this->edit($id);
+
+      return $this->show($id);
     }
 
     public function destroyCandidate($id)

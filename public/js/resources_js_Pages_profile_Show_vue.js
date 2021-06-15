@@ -203,6 +203,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Using a render function
@@ -3756,16 +3794,7 @@ var render = function() {
           _vm._v(" "),
           _c("strong", [
             _vm._v("Correo electrónico: " + _vm._s(_vm.patient.email))
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("strong", [_vm._v("Aspiraciones o motivo de consulta: ")]),
-          _vm._v(" " + _vm._s(_vm.patient.aspiration) + "\n      "),
-          _c("br"),
-          _vm._v(" "),
-          _c("strong", [_vm._v("Objetivo: ")]),
-          _vm._v(_vm._s(_vm.patient.goal) + "\n    ")
+          ])
         ])
       ]),
       _vm._v(" "),
@@ -3827,6 +3856,13 @@ var render = function() {
             : _c("span", [_vm._v(" No")]),
           _vm._v(" "),
           _c("br"),
+          _vm._v(" "),
+          _c("strong", [_vm._v("Otros datos de valoración física: ")]),
+          _vm.patient.otro_valoracion
+            ? _c("span", [_vm._v(" " + _vm._s(_vm.patient.otro_valoracion))])
+            : _c("span", [_vm._v(" No")]),
+          _vm._v(" "),
+          _c("br"),
           _c("br"),
           _vm._v(" "),
           _c("strong", [_vm._v("Trabajo:")]),
@@ -3854,6 +3890,35 @@ var render = function() {
           _vm._v(" "),
           _c("strong", [_vm._v("Horas diarias de entrenamiento: ")]),
           _vm._v(_vm._s(_vm.patient.training_hours) + "\n      "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("div", { staticClass: "font-weight-bold mb-3" }, [
+            _vm._v("\n      Recuento funcional:\n    ")
+          ]),
+          _vm._v(" "),
+          _c("strong", [_vm._v("Menstruaciones: ")]),
+          _vm.patient.menses
+            ? _c("span", [_vm._v(" " + _vm._s(_vm.patient.menses))])
+            : _c("span", [_vm._v(" No")]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("strong", [_vm._v("Intestinal: ")]),
+          _vm.patient.intestinal
+            ? _c("span", [_vm._v(" " + _vm._s(_vm.patient.intestinal))])
+            : _c("span", [_vm._v(" No")]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("strong", [_vm._v("Calidad del sueño: ")]),
+          _vm.patient.sleep_quality
+            ? _c("span", [_vm._v(" " + _vm._s(_vm.patient.sleep_quality))])
+            : _c("span", [_vm._v(" No")]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
           _c("br")
         ])
       ]),
@@ -3908,6 +3973,10 @@ var render = function() {
           _vm._v(" "),
           _vm.patient.atun ? _c("span", [_vm._v("atun, ")]) : _vm._e(),
           _vm._v(" "),
+          _vm.patient.pavo ? _c("span", [_vm._v("pavo, ")]) : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.salmon ? _c("span", [_vm._v("salmón, ")]) : _vm._e(),
+          _vm._v(" "),
           _vm.patient.huevos ? _c("span", [_vm._v("huevos, ")]) : _vm._e(),
           _vm._v(" "),
           _vm.patient.claras_de_huevos
@@ -3915,7 +3984,17 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _vm.patient.whey_protein
-            ? _c("span", [_vm._v("whey protein. ")])
+            ? _c("span", [_vm._v("whey protein, ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.proteinas_vegetales != ""
+            ? _c("span", [
+                _vm._v(_vm._s(_vm.patient.proteinas_vegetales) + ", ")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.otros_proteinas != ""
+            ? _c("span", [_vm._v(_vm._s(_vm.patient.otros_proteinas) + ", ")])
             : _vm._e(),
           _vm._v(" "),
           _c("br"),
@@ -3949,6 +4028,12 @@ var render = function() {
             ? _c("span", [_vm._v("tostadas de arroz. ")])
             : _vm._e(),
           _vm._v(" "),
+          _vm.patient.otros_carbohidratos != ""
+            ? _c("span", [
+                _vm._v(_vm._s(_vm.patient.otros_carbohidratos) + ", ")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("br"),
           _c("br"),
           _vm._v(" "),
@@ -3972,6 +4057,10 @@ var render = function() {
             ? _c("span", [_vm._v("frutas deshidratadas. ")])
             : _vm._e(),
           _vm._v(" "),
+          _vm.patient.otros_frutas != ""
+            ? _c("span", [_vm._v(_vm._s(_vm.patient.otros_frutas) + ", ")])
+            : _vm._e(),
+          _vm._v(" "),
           _c("br"),
           _c("br"),
           _vm._v(" "),
@@ -3983,6 +4072,10 @@ var render = function() {
           _vm._v(" "),
           _vm.patient.vegetales_frescos
             ? _c("span", [_vm._v("vegetales frescos. ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.otros_vegetales != ""
+            ? _c("span", [_vm._v(_vm._s(_vm.patient.otros_vegetales) + ", ")])
             : _vm._e(),
           _vm._v(" "),
           _c("br"),
@@ -4010,6 +4103,10 @@ var render = function() {
             ? _c("span", [_vm._v("mantequilla. ")])
             : _vm._e(),
           _vm._v(" "),
+          _vm.patient.otros_lacteos != ""
+            ? _c("span", [_vm._v(_vm._s(_vm.patient.otros_lacteos) + ", ")])
+            : _vm._e(),
+          _vm._v(" "),
           _c("br"),
           _c("br"),
           _vm._v(" "),
@@ -4029,6 +4126,10 @@ var render = function() {
           _vm._v(" "),
           _vm.patient.crema_de_mani
             ? _c("span", [_vm._v("crema de mani. ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.otros_grasas != ""
+            ? _c("span", [_vm._v(_vm._s(_vm.patient.otros_grasas) + ", ")])
             : _vm._e(),
           _vm._v(" "),
           _c("br"),
@@ -4063,12 +4164,18 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "border-bottom mb-5 pb-5" }, [
-        _c("div", { staticClass: "font-weight-bold mb-3" }, [
-          _vm._v("\n      Diagnóstico y Plan de trabajo:\n    ")
-        ]),
+        _c("strong", [_vm._v("Objetivo: ")]),
+        _vm._v(_vm._s(_vm.patient.goal) + "\n      "),
+        _vm.patient.otro_objetivo != ""
+          ? _c("span", [_vm._v(", " + _vm._s(_vm.patient.otro_objetivo) + " ")])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("br"),
         _vm._v(" "),
         _c("div", { staticClass: "line-height-xl" }, [
           _c("strong", [_vm._v("Diagnóstico: ")]),
+          _vm._v(" "),
+          _c("br"),
           _vm._v(" "),
           _vm.patient.bajo_consumo_energetico
             ? _c("span", [_vm._v("bajo consumo energético, ")])
@@ -4112,11 +4219,49 @@ var render = function() {
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
-          _c("strong", [
-            _vm._v("Plan de trabajo: " + _vm._s(_vm.patient.workplan))
-          ]),
+          _c("strong", [_vm._v("Plan de trabajo:")]),
           _vm._v(" "),
-          _c("br")
+          _c("br"),
+          _vm._v(" "),
+          _vm.patient.dieta_alta_proteinas
+            ? _c("span", [_vm._v("Dieta alta en Proteinas, ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.deficit_calorico
+            ? _c("span", [_vm._v("Déficit Calórico, ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.dieta_de_mantenimiento
+            ? _c("span", [_vm._v("Dieta de mantenimiento, ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.superavit_calorico
+            ? _c("span", [_vm._v("Superavit Calórico, ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.ayuno_intermitente
+            ? _c("span", [_vm._v("Ayuno Intermintente, ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.dietas_keto
+            ? _c("span", [_vm._v("Dietas Keto, ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.dieta_baja_en_fodmaps
+            ? _c("span", [_vm._v("Dieta Baja en FODMAPS, ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.medidas_anti_inflamatorias
+            ? _c("span", [_vm._v("Medias Anti inflamatorias, ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.dieta_muy_baja_en_carbohidratos
+            ? _c("span", [_vm._v("Dieta muy baja en carbohidratos, ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.patient.esquema_de_suplementacion
+            ? _c("span", [_vm._v("Esquema de Suplementación. ")])
+            : _vm._e()
         ])
       ])
     ])

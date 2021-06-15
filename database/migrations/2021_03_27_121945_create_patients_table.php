@@ -114,6 +114,7 @@ class CreatePatientsTable extends Migration
       $table->boolean('dieta_muy_baja_en_carbohidratos')->default(0);
       $table->boolean('esquema_de_suplementacion')->default(0);
 
+      $table->text('proteinas_vegetales')->nullable();
       $table->text('otros_proteinas')->nullable();
       $table->text('otros_carbohidratos')->nullable();
       $table->text('otros_frutas')->nullable();
@@ -121,6 +122,11 @@ class CreatePatientsTable extends Migration
       $table->text('otros_lacteos')->nullable();
       $table->text('otros_grasas')->nullable();
 
+      $table->text('menses')->nullable();
+      $table->text('intestinal')->nullable();
+      $table->text('sleep_quality')->nullable();
+      $table->text('otro_valoracion')->nullable();
+      $table->text('otro_objetivo')->nullable();
 
 
       $table->timestamps();
