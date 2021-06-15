@@ -166,6 +166,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4393,11 +4414,55 @@ var render = function() {
                           _vm._v(" "),
                           _c("br"),
                           _vm._v(" "),
-                          _c("strong", [
-                            _vm._v(
-                              "Plan de trabajo: " + _vm._s(_vm.patient.workplan)
-                            )
-                          ]),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("strong", [_vm._v("Plan de trabajo: ")]),
+                          _vm._v(" "),
+                          _vm.patient.dieta_alta_proteinas
+                            ? _c("span", [_vm._v("Dieta alta en Proteinas, ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.deficit_calorico
+                            ? _c("span", [_vm._v("Déficit Calórico, ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.dieta_de_mantenimiento
+                            ? _c("span", [_vm._v("Dieta de mantenimiento, ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.superavit_calorico
+                            ? _c("span", [_vm._v("Superavit Calórico, ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.ayuno_intermitente
+                            ? _c("span", [_vm._v("Ayuno Intermintente, ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.dietas_keto
+                            ? _c("span", [_vm._v("Dietas Keto, ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.dieta_baja_en_fodmaps
+                            ? _c("span", [_vm._v("Dieta Baja en FODMAPS, ")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.medidas_anti_inflamatorias
+                            ? _c("span", [
+                                _vm._v("Medias Anti inflamatorias, ")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.dieta_muy_baja_en_carbohidratos
+                            ? _c("span", [
+                                _vm._v("Dieta muy baja en carbohidratos, ")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.patient.esquema_de_suplementacion
+                            ? _c("span", [
+                                _vm._v("Esquema de Suplementación. ")
+                              ])
+                            : _vm._e(),
                           _vm._v(" "),
                           _c("br")
                         ])

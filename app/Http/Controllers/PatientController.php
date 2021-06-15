@@ -29,7 +29,7 @@ class PatientController extends Controller
       'workplan' => 'todos'
     ]);
   }
-  
+
   public function candidates()
   {
     $candidates = Patient::where('active', 0)->get();
@@ -37,19 +37,19 @@ class PatientController extends Controller
       'candidates' => $candidates
     ]);
   }
-  
+
   public function search(Request $request)
   {
     $query = trim($request->get('search'));
-    
+
     $patients = Patient::withName($query)->get();
-    
+
     return Inertia::render('Patients', [
       'patients' => $patients
     ]);
-    
+
   }
-  
+
   public function searchStatus(Request $request)
   {
     $patients = Patient::all();
@@ -81,25 +81,25 @@ class PatientController extends Controller
     }
     if ($request->workplan != 'todos') {
       $patients = $patients->where('workplan', $request->workplan);
-      
+
     }
     if ($request->diagnostic != 'todos') {
       $patients = $patients->where($request->diagnostic, 1);
-      
-      
+
+
     }
     //dd($patients);
-    
+
     return Inertia::render('Patients', [
       'patients' => $patients,
       'status' => $request->status,
       'diagnostic' => $request->diagnostic,
       'workplan' => $request->workplan
     ]);
-    
-    
+
+
   }
-  
+
   /**
   * Show the form for creating a new resource.
   *
@@ -112,7 +112,7 @@ class PatientController extends Controller
       'cities' => $cities,
     ]);
   }
-  
+
   /**
   * Show the form for creating a new resource.
   *
@@ -125,7 +125,7 @@ class PatientController extends Controller
       'cities' => $cities,
     ]);
   }
-  
+
   public function show($id)
   {
     $patient = Patient::where('id', $id)->with('attachments')->
@@ -141,7 +141,7 @@ class PatientController extends Controller
         'nextControl' => $nextControl ? : null
       ]);
     }
-    
+
     public function showHistory($id)
     {
       $patient = Patient::find($id);
@@ -149,7 +149,7 @@ class PatientController extends Controller
         'patient' => $patient,
       ]);
     }
-    
+
     public function edit($id)
     {
       $patient = Patient::find($id);
@@ -175,13 +175,12 @@ class PatientController extends Controller
       $patient->birth_date = $request->birth_date;
       $patient->email = $request->email;
       $patient->phone = $request->phone;
-      $patient->aspiration = $request->aspiration;
       $patient->active = 0;
       $patient->save();
-      
+
       return $this->index();
     }
-    
+
     public function storeCandidate(Request $request)
     {
       $patient = new Patient();
@@ -196,7 +195,7 @@ class PatientController extends Controller
       $patient->save();
       return $this->index();
     }
-    
+
     /**
     * Update the specified resource in storage.
     *
@@ -211,7 +210,7 @@ class PatientController extends Controller
         'last_name_1' => ['required', 'max:50'],
         'email' => ['required', 'max:50', 'email']
       ]);
-      
+
       $patient = Patient::find($id);
       if($request->file('avatar')) {
         $this->deleteAvatar($patient->avatar);
@@ -232,18 +231,18 @@ class PatientController extends Controller
       } else {
         $patient->athletic_discipline = $request->rad_athletic_discipline;
       }
-      
+      $patient->active = 1;
       $patient->save();
       return $this->edit($id);
     }
-    
+
     public function destroyCandidate($id)
     {
       $patient = Patient::find($id);
       $patient->delete();
       return redirect()->route('candidates.index');
     }
-    
+
     /**
     * Remove the specified resource from storage.
     *
@@ -257,7 +256,7 @@ class PatientController extends Controller
       $patient->delete();
       return Redirect::route('patients.index');
     }
-    
+
     public function saveAvatar(Request $request)
     {
       $originalImage= $request->file('avatar');
@@ -265,21 +264,21 @@ class PatientController extends Controller
       $originalPath = public_path().'/storage/avatars/';
       //Nombre aleatorio para la image
       $tempName = Str::random(10) . '.' . $originalImage->getClientOriginalExtension();
-      
+
       //Redimensinoar la imagen
       if($image->width() >= $image->height()) $image->heighten(400);
       else $image->widen(400);
       $image->resizeCanvas(400,400);
-      
+
       $image->save($originalPath.$tempName);
-      
+
       return $tempName;
     }
-    
+
     public function deleteAvatar($avatar)
     {
       $originalPath = public_path().'/storage/avatars/';
-      
+
       if ($avatar != 'default.jpg') {
         if (\File::exists($originalPath.$avatar)) {
           \File::delete($originalPath.$avatar);
@@ -287,4 +286,3 @@ class PatientController extends Controller
       }
     }
   }
-  

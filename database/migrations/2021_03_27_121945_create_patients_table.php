@@ -52,6 +52,8 @@ class CreatePatientsTable extends Migration
       $table->boolean('atun')->default(0);
       $table->boolean('huevos')->default(0);
       $table->boolean('claras_de_huevos')->default(0);
+      $table->boolean('pavo')->default(0);
+      $table->boolean('salmon')->default(0);
       $table->boolean('whey_protein')->default(0);
       $table->boolean('arroz')->default(0);
       $table->boolean('arroz_integral')->default(0);
@@ -81,7 +83,7 @@ class CreatePatientsTable extends Migration
       $table->boolean('frutos_secos')->default(0);
       $table->boolean('aceites_adicionados')->default(0);
       $table->boolean('crema_de_mani')->default(0);
-      
+
       $table->string('unwanted_food')->nullable();
       $table->string('desired_food')->nullable();
       $table->string('water')->nullable();
@@ -89,7 +91,7 @@ class CreatePatientsTable extends Migration
       $table->boolean('alcoholic_drinks')->default(0);
       $table->boolean('coffee')->default(0);
       $table->boolean('tea')->default(0);
-      
+
       $table->boolean('bajo_consumo_energetico')->default(0);
       $table->boolean('bajo_consumo_proteico')->default(0);
       $table->boolean('bajo_consumo_carbohidratos')->default(0);
@@ -100,13 +102,31 @@ class CreatePatientsTable extends Migration
       $table->boolean('esquema_hidratacion_inadecuado')->default(0);
       $table->boolean('dieta_alta_fodmaps')->default(0);
       $table->boolean('excedente_calorico')->default(0);
-      
-      $table->string('workplan')->nullable();
-      
+
+      $table->boolean('dieta_alta_proteinas')->default(0);
+      $table->boolean('deficit_calorico')->default(0);
+      $table->boolean('dieta_de_mantenimiento')->default(0);
+      $table->boolean('superavit_calorico')->default(0);
+      $table->boolean('ayuno_intermitente')->default(0);
+      $table->boolean('dietas_keto')->default(0);
+      $table->boolean('dieta_baja_en_fodmaps')->default(0);
+      $table->boolean('medidas_anti_inflamatorias')->default(0);
+      $table->boolean('dieta_muy_baja_en_carbohidratos')->default(0);
+      $table->boolean('esquema_de_suplementacion')->default(0);
+
+      $table->text('otros_proteinas')->nullable();
+      $table->text('otros_carbohidratos')->nullable();
+      $table->text('otros_frutas')->nullable();
+      $table->text('otros_vegetales')->nullable();
+      $table->text('otros_lacteos')->nullable();
+      $table->text('otros_grasas')->nullable();
+
+
+
       $table->timestamps();
     });
   }
-  
+
   /**
   * Reverse the migrations.
   *

@@ -60,7 +60,7 @@
         <h3 class="wizard-title"><span>3</span>Diagnóstico</h3>
         <div class="wizard-bar"></div>
       </div>
-    </div>    
+    </div>
   </div>
 </div>
 <!--end: Wizard Nav -->
@@ -79,7 +79,7 @@
       <h4 class="mb-10 font-weight-bold text-dark">
         Datos básicos del paciente
       </h4>
-      
+
       <div class="row">
         <div class="col-xl-12">
           <div class="form-group row">
@@ -133,8 +133,8 @@
       </div>
     </div>
   </div>
-  
-  
+
+
   <div class="col-xl-6">
     <div class="form-group">
       <label for="fist">Primer nombre</label>
@@ -154,8 +154,8 @@
       <b-form-invalid-feedback id="first-feedback">
         Campo obligatorio
       </b-form-invalid-feedback>
-      
-      
+
+
       <span class="form-text text-muted"
       >Por favor ingrese el primer nombre.</span
       >
@@ -266,14 +266,15 @@
       />
     </div>
   </div>
-  <div class="col-xl-6">
-    <div class="form-group">
-      <label>Objetivo</label>
-      <select
-      name="goal"
-      v-model="form.goal"
-      class="form-control form-control-solid form-control-lg"
-      >
+
+<div class="col-xl-6">
+  <div class="form-group">
+    <label>Objetivo</label>
+    <select
+    name="goal"
+    v-model="form.goal"
+    class="form-control form-control-solid form-control-lg"
+    >
       <option value="">Selecccionar</option>
       <option value="perdida de peso">Perdida de peso</option>
       <option value="Perdida de % graso">Perdida de % graso</option>
@@ -281,7 +282,11 @@
       <option value="Aumento de peso">Aumento de peso</option>
     </select>
   </div>
-</div></div>
+</div>
+
+</div>
+
+
 
 <!-- <div class="form-group">
 <label>Describa las aspiraciones o motivo de la consulta</label>
@@ -298,11 +303,11 @@ name="aspiration"
 
 <!--begin: Wizard Step 2-->
 <div class="pb-5" data-wizard-type="step-content">
-  
+
   <h4 class="mb-10 font-weight-bold text-dark">
     Estado físico del paciente
   </h4>
-  
+
   <div class="row">
     <div class="col-xl-12">
       <b-form-checkbox
@@ -567,66 +572,101 @@ unchecked-value="0"
   <h4 class="mb-10 font-weight-bold text-dark">
     Hábitos alimenticios
   </h4>
-  
-  <div class="form-group">
-    <label>Desayuno</label>
-    <input
-    type="text"
-    class="form-control form-control-solid form-control-lg"
-    name="breakfast"
-    v-model="form.breakfast"
-    />
-  </div>
-  <div class="form-group">
-    <label>Media mañana</label>
-    <input
-    type="text"
-    class="form-control form-control-solid form-control-lg"
-    name="brunch"
-    v-model="form.brunch"
-    />
-  </div>
-  <div class="form-group">
-    <label>Almuerzo</label>
-    <input
-    type="text"
-    class="form-control form-control-solid form-control-lg"
-    name="lunch"
-    v-model="form.lunch"
-    />
-  </div>
-  <div class="form-group">
-    <label>Merienda</label>
-    <input
-    type="text"
-    class="form-control form-control-solid form-control-lg"
-    name="snack"
-    v-model="form.snack"
-    />
-  </div>
-  <div class="form-group">
-    <label>Cena</label>
-    <input
-    type="text"
-    class="form-control form-control-solid form-control-lg"
-    name="dinner"
-    v-model="form.dinner"
-    />
-  </div>
-  <div class="form-group">
-    <label>Cuando come fuera de casa ¿Qué suele comer?</label>
-    <input
-    type="text"
-    class="form-control form-control-solid form-control-lg"
-    name="street_food"
-    v-model="form.street_food"
-    />
-  </div>
-  
+
+  <b-form-group
+    label="Desayuno"
+    label-for="breakfast"
+    class="mb-0"
+  >
+    <b-form-textarea
+        name="breakfast"
+      id="breakfast"
+      v-model="form.breakfast"
+      class="form-control form-control-solid form-control-lg"
+      rows="3"
+      max-rows="6"
+    ></b-form-textarea>
+  </b-form-group>
+
+  <b-form-group
+    label="Media mañana"
+    label-for="brunch"
+    class="mb-0"
+  >
+    <b-form-textarea
+        name="brunch"
+      id="brunch"
+      v-model="form.brunch"
+      class="form-control form-control-solid form-control-lg"
+      rows="3"
+      max-rows="6"
+    ></b-form-textarea>
+  </b-form-group>
+
+  <b-form-group
+    label="Almuerzo"
+    label-for="lunch"
+    class="mb-0"
+  >
+    <b-form-textarea
+        name="lunch"
+      id="lunch"
+      v-model="form.lunch"
+      class="form-control form-control-solid form-control-lg"
+      rows="3"
+      max-rows="6"
+    ></b-form-textarea>
+  </b-form-group>
+
+  <b-form-group
+    label="Merienda"
+    label-for="snack"
+    class="mb-0"
+  >
+    <b-form-textarea
+        name="snack"
+      id="snack"
+      v-model="form.snack"
+      class="form-control form-control-solid form-control-lg"
+      rows="3"
+      max-rows="6"
+    ></b-form-textarea>
+  </b-form-group>
+
+  <b-form-group
+    label="Cena"
+    label-for="dinner"
+    class="mb-0"
+  >
+    <b-form-textarea
+        name="dinner"
+      id="dinner"
+      v-model="form.dinner"
+      class="form-control form-control-solid form-control-lg"
+      rows="3"
+      max-rows="6"
+    ></b-form-textarea>
+  </b-form-group>
+
+  <b-form-group
+    label="Cuando come fuera de casa ¿Qué suele comer?"
+    label-for="street_food"
+    class="mb-0"
+  >
+    <b-form-textarea
+        name="street_food"
+      id="street_food"
+      v-model="form.street_food"
+      class="form-control form-control-solid form-control-lg"
+      rows="3"
+      max-rows="6"
+    ></b-form-textarea>
+  </b-form-group>
+
   <h4 class="mb-10 mt-10 font-weight-bold text-dark">
     Haga una descripción de sus comidas por grupo
   </h4>
-  
+
   <b-form-group label="Proteinas:">
     <b-form-checkbox inline  name="pollo" v-model="form.pollo">Pollo</b-form-checkbox>
     <b-form-checkbox inline  name="pescado_blanco" v-model="form.pescado_blanco">Pescado blanco</b-form-checkbox>
@@ -635,9 +675,30 @@ unchecked-value="0"
     <b-form-checkbox inline  name="atun" v-model="form.atun">Atún</b-form-checkbox>
     <b-form-checkbox inline  name="huevos" v-model="form.huevos">Huevos</b-form-checkbox>
     <b-form-checkbox inline  name="claras_de_huevos" v-model="form.claras_de_huevos">Claras de huevos</b-form-checkbox>
+    <b-form-checkbox inline  name="pavo" v-model="form.pavo">Pavo</b-form-checkbox>
+    <b-form-checkbox inline  name="salmon" v-model="form.salmon">Salmón</b-form-checkbox>
     <b-form-checkbox inline  name="whey_protein" v-model="form.whey_protein">Whey Protein</b-form-checkbox>
+    <b-form-checkbox inline  name="chk_otros_proteinas" v-model="chk_otros_proteinas" id="chk_otros_proteinas" value="1" unchecked-value="0">Otros</b-form-checkbox>
+
   </b-form-group>
-  
+
+<div class="row">
+  <div class="col-xl-12" v-if="chk_otros_proteinas == 1">
+    <div class="form-group">
+      <label>Indique cuales otras proteinas</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="otros_proteinas"
+      v-model="form.otros_proteinas"
+      />
+    </div>
+  </div>
+</div>
+
+
+
+
   <b-form-group label="Harinas / Carbohidratos:">
     <b-form-checkbox inline v-model="form.arroz" name="arroz">Arroz</b-form-checkbox>
     <b-form-checkbox inline v-model="form.arroz_integral" name="arroz_integral">Arroz integral</b-form-checkbox>
@@ -648,21 +709,69 @@ unchecked-value="0"
     <b-form-checkbox inline v-model="form.arepa" name="arepa">Arepa</b-form-checkbox>
     <b-form-checkbox inline v-model="form.pan" name="pan">Pan</b-form-checkbox>
     <b-form-checkbox inline v-model="form.tostadas_de_arroz" name="tostadas_de_arroz">Tostadas de arroz</b-form-checkbox>
+    <b-form-checkbox inline  name="chk_otros_carbohidratos" v-model="chk_otros_carbohidratos" id="chk_otros_carbohidratos" value="1" unchecked-value="0">Otros</b-form-checkbox>
+
   </b-form-group>
-  
+
+<div class="row">
+  <div class="col-xl-12" v-if="chk_otros_carbohidratos == 1">
+    <div class="form-group">
+      <label>Indique cuales otros carbohidratos</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="otros_carbohidratos"
+      v-model="form.otros_carbohidratos"
+      />
+    </div>
+  </div>
+</div>
+
   <b-form-group label="Frutas:">
     <b-form-checkbox inline name="frutos_rojos" v-model="form.frutos_rojos">Frutos rojos</b-form-checkbox>
     <b-form-checkbox inline name="frutos_amarillos" v-model="form.frutos_amarillos">Frutos amarillos</b-form-checkbox>
     <b-form-checkbox inline name="frutos_verdes" v-model="form.frutos_verdes">Frutos verdes</b-form-checkbox>
     <b-form-checkbox inline name="banano" v-model="form.banano">Banano</b-form-checkbox>
     <b-form-checkbox inline name="frutas_deshidratadas" v-model="form.frutas_deshidratadas">Frutas deshidratadas</b-form-checkbox>
+    <b-form-checkbox inline  name="chk_otros_frutas" v-model="chk_otros_frutas" id="chk_otros_frutas" value="1" unchecked-value="0">Otros</b-form-checkbox>
+
   </b-form-group>
-  
+
+<div class="row">
+  <div class="col-xl-12" v-if="chk_otros_frutas == 1">
+    <div class="form-group">
+      <label>Indique cuales otras frutas</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="otros_frutas"
+      v-model="form.otros_frutas"
+      />
+    </div>
+  </div>
+</div>
+
   <b-form-group label="Vegetales:">
     <b-form-checkbox inline name="verduras_cocidas" v-model="form.verduras_cocidas">Verduras cocidas</b-form-checkbox>
     <b-form-checkbox inline name="vegetales_frescos" v-model="form.vegetales_frescos">Vegetales frescos</b-form-checkbox>
+    <b-form-checkbox inline  name="chk_otros_vegetales" v-model="chk_otros_vegetales" id="chk_otros_vegetales" value="1" unchecked-value="0">Otros</b-form-checkbox>
+
   </b-form-group>
-  
+
+<div class="row">
+  <div class="col-xl-12" v-if="chk_otros_vegetales == 1">
+    <div class="form-group">
+      <label>Indique cuales otros vegetales</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="otros_vegetales"
+      v-model="form.otros_vegetales"
+      />
+    </div>
+  </div>
+</div>
+
   <b-form-group label="Lacteos:">
     <b-form-checkbox inline name="quesos_frescos" v-model="form.quesos_frescos">Quesos frescos</b-form-checkbox>
     <b-form-checkbox inline name="quesos_madurados" v-model="form.quesos_madurados">Quesos madurados</b-form-checkbox>
@@ -670,15 +779,47 @@ unchecked-value="0"
     <b-form-checkbox inline name="leche" v-model="form.leche">Leche</b-form-checkbox>
     <b-form-checkbox inline name="crema_de_leche" v-model="form.crema_de_leche">Crema de leche</b-form-checkbox>
     <b-form-checkbox inline name="mantequilla" v-model="form.mantequilla">Mantequilla</b-form-checkbox>
+    <b-form-checkbox inline  name="chk_otros_lacteos" v-model="chk_otros_lacteos" id="chk_otros_lacteos" value="1" unchecked-value="0">Otros</b-form-checkbox>
+
   </b-form-group>
-  
+
+<div class="row">
+  <div class="col-xl-12" v-if="chk_otros_lacteos == 1">
+    <div class="form-group">
+      <label>Indique cuales otros lácteos</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="otros_lacteos"
+      v-model="form.otros_lacteos"
+      />
+    </div>
+  </div>
+</div>
+
   <b-form-group label="Grasas:">
     <b-form-checkbox inline name="aguacate" v-model="form.aguacate">Aguacate</b-form-checkbox>
     <b-form-checkbox inline name="frutos_secos" v-model="form.frutos_secos">Frutos secos</b-form-checkbox>
     <b-form-checkbox inline name="aceites_adicionados" v-model="form.aceites_adicionados">Aceites adicionados</b-form-checkbox>
     <b-form-checkbox inline name="crema_de_mani" v-model="form.crema_de_mani">Crema de maní</b-form-checkbox>
+    <b-form-checkbox inline  name="chk_otros_grasas" v-model="chk_otros_grasas" id="chk_otros_grasas" value="1" unchecked-value="0">Otros</b-form-checkbox>
+
   </b-form-group>
-  
+
+<div class="row">
+  <div class="col-xl-12" v-if="chk_otros_grasas == 1">
+    <div class="form-group">
+      <label>Indique cuales otras grasas</label>
+      <input
+      type="text"
+      class="form-control form-control-solid form-control-lg"
+      name="otros_grasas"
+      v-model="form.otros_grasas"
+      />
+    </div>
+  </div>
+</div>
+
   <div class="form-group">
     <label>Menciona los alimentos que no toleras, no te gustan o no prefieras</label>
     <input
@@ -688,7 +829,7 @@ unchecked-value="0"
     name="unwanted_food"
     />
   </div>
-  
+
   <div class="form-group">
     <label>Menciona alimentos que son indispensables para ti, que si se eliminan de su dieta, los volvería a comer</label>
     <input
@@ -698,8 +839,8 @@ unchecked-value="0"
     name="desired_food"
     />
   </div>
-  
-  
+
+
   <div class="row">
     <div class="col-xl-6">
       <div class="form-group">
@@ -717,7 +858,7 @@ unchecked-value="0"
       </select>
     </div>
   </div></div>
-  
+
   <b-form-group label="Otra bebidas:">
     <b-form-checkbox inline name="soda" v-model="form.soda">Gaseosas</b-form-checkbox>
     <b-form-checkbox inline name="alcoholic_drinks" v-model="form.alcoholic_drinks">Bebidas alchoolicas</b-form-checkbox>
@@ -730,26 +871,10 @@ unchecked-value="0"
 <!--begin: Wizard Step 3-->
 <div class="pb-5" data-wizard-type="step-content">
   <h4 class="mb-10 font-weight-bold text-dark">
-    Hábitos alimenticios
+    Diagnóstico y Plan de trabajo
   </h4>
 
 
-  <div class="col-xl-6">
-    <div class="form-group">
-      <label>Objetivo</label>
-      <select
-      name="goal"
-      v-model="form.goal"
-      class="form-control form-control-solid form-control-lg"
-      >
-        <option value="">Selecccionar</option>
-        <option value="perdida de peso">Perdida de peso</option>
-        <option value="Perdida de % graso">Perdida de % graso</option>
-        <option value="Masa muscular">Masa muscular</option>
-        <option value="Aumento de peso">Aumento de peso</option>
-      </select>
-    </div>
-  </div>
 
 
 
@@ -766,6 +891,21 @@ unchecked-value="0"
   <b-form-checkbox name="dieta_alta_fodmaps" v-model="form.dieta_alta_fodmaps">Dieta alta en FODMAPS</b-form-checkbox>
   <b-form-checkbox name="excedente_calorico" v-model="form.excedente_calorico">Excedente calórico</b-form-checkbox>
 </b-form-group>
+
+<b-form-group label="Plan de Trabajo:">
+  <b-form-checkbox name="dieta_alta_proteinas" v-model="form.dieta_alta_proteinas">Dieta alta en Proteinas</b-form-checkbox>
+  <b-form-checkbox name="deficit_calorico" v-model="form.deficit_calorico">Déficit Calórico</b-form-checkbox>
+  <b-form-checkbox name="dieta_de_mantenimiento" v-model="form.dieta_de_mantenimiento">Dieta de mantenimiento</b-form-checkbox>
+  <b-form-checkbox name="superavit_calorico" v-model="form.superavit_calorico">Superavit Calórico</b-form-checkbox>
+  <b-form-checkbox name="ayuno_intermitente" v-model="form.ayuno_intermitente">Ayuno Intermintente</b-form-checkbox>
+  <b-form-checkbox name="dietas_keto" v-model="form.dietas_keto">Dietas Keto</b-form-checkbox>
+  <b-form-checkbox name="dieta_baja_en_fodmaps" v-model="form.dieta_baja_en_fodmaps">Dieta Baja en FODMAPS</b-form-checkbox>
+  <b-form-checkbox name="medidas_anti_inflamatorias" v-model="form.medidas_anti_inflamatorias">Medias Anti inflamatorias</b-form-checkbox>
+  <b-form-checkbox name="dieta_muy_baja_en_carbohidratos" v-model="form.dieta_muy_baja_en_carbohidratos">Dieta muy baja en carbohidratos</b-form-checkbox>
+  <b-form-checkbox name="esquema_de_suplementacion" v-model="form.esquema_de_suplementacion">Esquema de Suplementación</b-form-checkbox>
+</b-form-group>
+
+
 
 
 
@@ -855,6 +995,12 @@ export default {
         goal : this.patient.goal,
         avatar : this.patient.avatar,
         laboratory : this.patient.laboratory,
+        otros_proteinas : this.patient.otros_proteinas,
+        otros_carbohidratos : this.patient.otros_carbohidratos,
+        otros_frutas : this.patient.otros_frutas,
+        otros_vegetales : this.patient.otros_vegetales,
+        otros_lacteos : this.patient.otros_lacteos,
+        otros_grasas : this.patient.otros_grasas,
         previous_experience : this.patient.previous_experience,
         medical_condition : this.patient.medical_condition,
         medicine : this.patient.medicine,
@@ -881,6 +1027,8 @@ export default {
         atun : this.checked(this.patient.atun),
         huevos : this.checked(this.patient.huevos),
         claras_de_huevos : this.checked(this.patient.claras_de_huevos),
+        pavo : this.checked(this.patient.pavo),
+        salmon : this.checked(this.patient.salmon),
         whey_protein : this.checked(this.patient.whey_protein),
         arroz : this.checked(this.patient.arroz),
         arroz_integral : this.checked(this.patient.arroz_integral),
@@ -927,7 +1075,16 @@ export default {
         esquema_hidratacion_inadecuado : this.checked(this.patient.esquema_hidratacion_inadecuado),
         dieta_alta_fodmaps : this.checked(this.patient.dieta_alta_fodmaps),
         excedente_calorico : this.checked(this.patient.excedente_calorico),
-        workplan : this.patient.workplan,
+        dieta_alta_proteinas : this.checked(this.patient.dieta_alta_proteinas),
+        deficit_calorico : this.checked(this.patient.deficit_calorico),
+        dieta_de_mantenimiento : this.checked(this.patient.dieta_de_mantenimiento),
+        superavit_calorico : this.checked(this.patient.superavit_calorico),
+        ayuno_intermitente : this.checked(this.patient.ayuno_intermitente),
+        dietas_keto : this.checked(this.patient.dietas_keto),
+        dieta_baja_en_fodmaps : this.checked(this.patient.dieta_baja_en_fodmaps),
+        medidas_anti_inflamatorias : this.checked(this.patient.medidas_anti_inflamatorias),
+        dieta_muy_baja_en_carbohidratos : this.checked(this.patient.dieta_muy_baja_en_carbohidratos),
+        esquema_de_suplementacion : this.checked(this.patient.esquema_de_suplementacion),
       }),
       show:true,
       default_photo: "/storage/avatars/default.jpg",
@@ -940,6 +1097,12 @@ export default {
       chk_previous_supplement: this.habilitado(this.patient.supplement),
       chk_weight_variation: this.habilitado(this.patient.weight_variation),
       rad_athletic_discipline: this.habilitado(this.patient.athletic_discipline),
+      chk_otros_proteinas: this.habilitado(this.patient.otros_proteinas),
+      chk_otros_carbohidratos: this.habilitado(this.patient.otros_carbohidratos),
+      chk_otros_frutas: this.habilitado(this.patient.otros_frutas),
+      chk_otros_vegetales: this.habilitado(this.patient.otros_vegetales),
+      chk_otros_lacteos: this.habilitado(this.patient.otros_lacteos),
+      chk_otros_grasas: this.habilitado(this.patient.otros_grasas),
       athletic_discipline_options: [
         { text: 'Crossfit', value: 'Crossfit' },
         { text: 'Programación de atleta', value: 'Programación de atleta' },
@@ -961,14 +1124,14 @@ export default {
       // validate the form and use below function to stop the wizard's step
       wizardObj.stop();
     });
-    
+
     // Change event
     wizard.on("change", function(/*wizardObj*/) {
       setTimeout(() => {
         KTUtil.scrollTop();
       }, 500);
     });
-    
+
     //this.current_photo = this.patient.avatar;
   },
   methods: {
@@ -1000,14 +1163,14 @@ export default {
         this.form.avatar = e.target.files[0]
         console.log(e.target.files[0])
         //const file = e.target.files[0];
-        
+
         if (typeof FileReader === "function") {
           const reader = new FileReader();
-          
+
           reader.onload = event => {
             this.current_photo = event.target.result;
           };
-          
+
           reader.readAsDataURL(this.form.avatar);
         } else {
           alert("Sorry, FileReader API not supported");
@@ -1060,8 +1223,7 @@ export default {
         return this.form.email.length > 2 ? true : false
       }
     },
-    
-    
+
+
   }
   </script>
-  

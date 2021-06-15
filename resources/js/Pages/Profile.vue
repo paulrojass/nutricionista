@@ -10,7 +10,7 @@
             <div class="symbol symbol-50 symbol-lg-120">
               <img :src="`/storage/avatars/${patient.avatar}`" alt="image" />
             </div>
-            
+
             <!-- <div class="symbol symbol-50 symbol-lg-120 symbol-primary d-none">
               <span class="font-size-h3 symbol-label font-weight-boldest">
                 JM
@@ -18,7 +18,7 @@
             </div> -->
           </div>
           <!--end::Pic-->
-          
+
           <!--begin::Info-->
           <div class="flex-grow-1">
             <!--begin::Title-->
@@ -34,7 +34,7 @@
               <i v-else class="fa fa-user text-danger font-size-h5" title="Prospecto"></i>
             </a> -->
           </div>
-          
+
           <div class="my-lg-0 my-3">
             <inertia-link
             :href="$route('controls.create', [patient.id])"
@@ -49,7 +49,7 @@
             >
             Cargar Historia
           </inertia-link>
-          
+
           <inertia-link
           v-if="patient.active"
           :href="route('patients.show-history', patient.id)"
@@ -67,7 +67,7 @@
     </div>
   </div>
   <!--end::Title-->
-  
+
   <!--begin::Content-->
   <div class="d-flex flex-wrap justify-content-between mt-3">
     <div class="d-flex flex-column flex-grow-1 pr-8">
@@ -91,7 +91,7 @@
       {{patient.city}}
     </a>
   </div>
-  
+
   <span class="font-weight-bold text-dark-50">
     <!-- {{patient.aspiration}} -->
     <!-- {{patient.workplan}} -->
@@ -108,7 +108,28 @@
         <span v-if="patient.dieta_alta_fodmaps">dieta alta FODMAPS, </span>
         <span v-if="patient.excedente_calorico">excedente calórico. </span>
         <br />
-        <strong>Plan de trabajo: {{patient.workplan}}</strong>
+        <br />
+        <strong>Plan de trabajo: </strong>
+
+        <span v-if="patient.dieta_alta_proteinas">Dieta alta en Proteinas, </span>
+        <span v-if="patient.deficit_calorico">Déficit Calórico, </span>
+        <span v-if="patient.dieta_de_mantenimiento">Dieta de mantenimiento, </span>
+        <span v-if="patient.superavit_calorico">Superavit Calórico, </span>
+        <span v-if="patient.ayuno_intermitente">Ayuno Intermintente, </span>
+        <span v-if="patient.dietas_keto">Dietas Keto, </span>
+        <span v-if="patient.dieta_baja_en_fodmaps">Dieta Baja en FODMAPS, </span>
+        <span v-if="patient.medidas_anti_inflamatorias">Medias Anti inflamatorias, </span>
+        <span v-if="patient.dieta_muy_baja_en_carbohidratos">Dieta muy baja en carbohidratos, </span>
+        <span v-if="patient.esquema_de_suplementacion">Esquema de Suplementación. </span>
+      </b-form-group>
+
+
+
+
+
+
+
+
         <br />
       </label>
   </span>
@@ -124,7 +145,7 @@
 </div>
 
 <div v-if="patient.active">
-  
+
   <div class="row">
     <div class="col-lg-4">
       <WidgetAdvertising :nextControl="nextControl"></WidgetAdvertising>

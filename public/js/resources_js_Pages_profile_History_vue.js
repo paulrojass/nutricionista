@@ -838,6 +838,146 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -871,6 +1011,12 @@ __webpack_require__.r(__webpack_exports__);
         goal: this.patient.goal,
         avatar: this.patient.avatar,
         laboratory: this.patient.laboratory,
+        otros_proteinas: this.patient.otros_proteinas,
+        otros_carbohidratos: this.patient.otros_carbohidratos,
+        otros_frutas: this.patient.otros_frutas,
+        otros_vegetales: this.patient.otros_vegetales,
+        otros_lacteos: this.patient.otros_lacteos,
+        otros_grasas: this.patient.otros_grasas,
         previous_experience: this.patient.previous_experience,
         medical_condition: this.patient.medical_condition,
         medicine: this.patient.medicine,
@@ -897,6 +1043,8 @@ __webpack_require__.r(__webpack_exports__);
         atun: this.checked(this.patient.atun),
         huevos: this.checked(this.patient.huevos),
         claras_de_huevos: this.checked(this.patient.claras_de_huevos),
+        pavo: this.checked(this.patient.pavo),
+        salmon: this.checked(this.patient.salmon),
         whey_protein: this.checked(this.patient.whey_protein),
         arroz: this.checked(this.patient.arroz),
         arroz_integral: this.checked(this.patient.arroz_integral),
@@ -943,7 +1091,16 @@ __webpack_require__.r(__webpack_exports__);
         esquema_hidratacion_inadecuado: this.checked(this.patient.esquema_hidratacion_inadecuado),
         dieta_alta_fodmaps: this.checked(this.patient.dieta_alta_fodmaps),
         excedente_calorico: this.checked(this.patient.excedente_calorico),
-        workplan: this.patient.workplan
+        dieta_alta_proteinas: this.checked(this.patient.dieta_alta_proteinas),
+        deficit_calorico: this.checked(this.patient.deficit_calorico),
+        dieta_de_mantenimiento: this.checked(this.patient.dieta_de_mantenimiento),
+        superavit_calorico: this.checked(this.patient.superavit_calorico),
+        ayuno_intermitente: this.checked(this.patient.ayuno_intermitente),
+        dietas_keto: this.checked(this.patient.dietas_keto),
+        dieta_baja_en_fodmaps: this.checked(this.patient.dieta_baja_en_fodmaps),
+        medidas_anti_inflamatorias: this.checked(this.patient.medidas_anti_inflamatorias),
+        dieta_muy_baja_en_carbohidratos: this.checked(this.patient.dieta_muy_baja_en_carbohidratos),
+        esquema_de_suplementacion: this.checked(this.patient.esquema_de_suplementacion)
       }),
       show: true,
       default_photo: "/storage/avatars/default.jpg",
@@ -956,6 +1113,12 @@ __webpack_require__.r(__webpack_exports__);
       chk_previous_supplement: this.habilitado(this.patient.supplement),
       chk_weight_variation: this.habilitado(this.patient.weight_variation),
       rad_athletic_discipline: this.habilitado(this.patient.athletic_discipline),
+      chk_otros_proteinas: this.habilitado(this.patient.otros_proteinas),
+      chk_otros_carbohidratos: this.habilitado(this.patient.otros_carbohidratos),
+      chk_otros_frutas: this.habilitado(this.patient.otros_frutas),
+      chk_otros_vegetales: this.habilitado(this.patient.otros_vegetales),
+      chk_otros_lacteos: this.habilitado(this.patient.otros_lacteos),
+      chk_otros_grasas: this.habilitado(this.patient.otros_grasas),
       athletic_discipline_options: [{
         text: 'Crossfit',
         value: 'Crossfit'
@@ -9134,195 +9297,189 @@ var render = function() {
                               [_vm._v("\n    Hábitos alimenticios\n  ")]
                             ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "form-group" }, [
-                              _c("label", [_vm._v("Desayuno")]),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
+                            _c(
+                              "b-form-group",
+                              {
+                                staticClass: "mb-0",
+                                attrs: {
+                                  label: "Desayuno",
+                                  "label-for": "breakfast"
+                                }
+                              },
+                              [
+                                _c("b-form-textarea", {
+                                  staticClass:
+                                    "form-control form-control-solid form-control-lg",
+                                  attrs: {
+                                    name: "breakfast",
+                                    id: "breakfast",
+                                    rows: "3",
+                                    "max-rows": "6"
+                                  },
+                                  model: {
                                     value: _vm.form.breakfast,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "breakfast", $$v)
+                                    },
                                     expression: "form.breakfast"
                                   }
-                                ],
-                                staticClass:
-                                  "form-control form-control-solid form-control-lg",
-                                attrs: { type: "text", name: "breakfast" },
-                                domProps: { value: _vm.form.breakfast },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.form,
-                                      "breakfast",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
+                                })
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "form-group" }, [
-                              _c("label", [_vm._v("Media mañana")]),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
+                            _c(
+                              "b-form-group",
+                              {
+                                staticClass: "mb-0",
+                                attrs: {
+                                  label: "Media mañana",
+                                  "label-for": "brunch"
+                                }
+                              },
+                              [
+                                _c("b-form-textarea", {
+                                  staticClass:
+                                    "form-control form-control-solid form-control-lg",
+                                  attrs: {
+                                    name: "brunch",
+                                    id: "brunch",
+                                    rows: "3",
+                                    "max-rows": "6"
+                                  },
+                                  model: {
                                     value: _vm.form.brunch,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "brunch", $$v)
+                                    },
                                     expression: "form.brunch"
                                   }
-                                ],
-                                staticClass:
-                                  "form-control form-control-solid form-control-lg",
-                                attrs: { type: "text", name: "brunch" },
-                                domProps: { value: _vm.form.brunch },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.form,
-                                      "brunch",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
+                                })
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "form-group" }, [
-                              _c("label", [_vm._v("Almuerzo")]),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
+                            _c(
+                              "b-form-group",
+                              {
+                                staticClass: "mb-0",
+                                attrs: {
+                                  label: "Almuerzo",
+                                  "label-for": "lunch"
+                                }
+                              },
+                              [
+                                _c("b-form-textarea", {
+                                  staticClass:
+                                    "form-control form-control-solid form-control-lg",
+                                  attrs: {
+                                    name: "lunch",
+                                    id: "lunch",
+                                    rows: "3",
+                                    "max-rows": "6"
+                                  },
+                                  model: {
                                     value: _vm.form.lunch,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "lunch", $$v)
+                                    },
                                     expression: "form.lunch"
                                   }
-                                ],
-                                staticClass:
-                                  "form-control form-control-solid form-control-lg",
-                                attrs: { type: "text", name: "lunch" },
-                                domProps: { value: _vm.form.lunch },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.form,
-                                      "lunch",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
+                                })
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "form-group" }, [
-                              _c("label", [_vm._v("Merienda")]),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
+                            _c(
+                              "b-form-group",
+                              {
+                                staticClass: "mb-0",
+                                attrs: {
+                                  label: "Merienda",
+                                  "label-for": "snack"
+                                }
+                              },
+                              [
+                                _c("b-form-textarea", {
+                                  staticClass:
+                                    "form-control form-control-solid form-control-lg",
+                                  attrs: {
+                                    name: "snack",
+                                    id: "snack",
+                                    rows: "3",
+                                    "max-rows": "6"
+                                  },
+                                  model: {
                                     value: _vm.form.snack,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "snack", $$v)
+                                    },
                                     expression: "form.snack"
                                   }
-                                ],
-                                staticClass:
-                                  "form-control form-control-solid form-control-lg",
-                                attrs: { type: "text", name: "snack" },
-                                domProps: { value: _vm.form.snack },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.form,
-                                      "snack",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
+                                })
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "form-group" }, [
-                              _c("label", [_vm._v("Cena")]),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
+                            _c(
+                              "b-form-group",
+                              {
+                                staticClass: "mb-0",
+                                attrs: { label: "Cena", "label-for": "dinner" }
+                              },
+                              [
+                                _c("b-form-textarea", {
+                                  staticClass:
+                                    "form-control form-control-solid form-control-lg",
+                                  attrs: {
+                                    name: "dinner",
+                                    id: "dinner",
+                                    rows: "3",
+                                    "max-rows": "6"
+                                  },
+                                  model: {
                                     value: _vm.form.dinner,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "dinner", $$v)
+                                    },
                                     expression: "form.dinner"
                                   }
-                                ],
-                                staticClass:
-                                  "form-control form-control-solid form-control-lg",
-                                attrs: { type: "text", name: "dinner" },
-                                domProps: { value: _vm.form.dinner },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.form,
-                                      "dinner",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
+                                })
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "form-group" }, [
-                              _c("label", [
-                                _vm._v(
-                                  "Cuando come fuera de casa ¿Qué suele comer?"
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
+                            _c(
+                              "b-form-group",
+                              {
+                                staticClass: "mb-0",
+                                attrs: {
+                                  label:
+                                    "Cuando come fuera de casa ¿Qué suele comer?",
+                                  "label-for": "street_food"
+                                }
+                              },
+                              [
+                                _c("b-form-textarea", {
+                                  staticClass:
+                                    "form-control form-control-solid form-control-lg",
+                                  attrs: {
+                                    name: "street_food",
+                                    id: "street_food",
+                                    rows: "3",
+                                    "max-rows": "6"
+                                  },
+                                  model: {
                                     value: _vm.form.street_food,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "street_food", $$v)
+                                    },
                                     expression: "form.street_food"
                                   }
-                                ],
-                                staticClass:
-                                  "form-control form-control-solid form-control-lg",
-                                attrs: { type: "text", name: "street_food" },
-                                domProps: { value: _vm.form.street_food },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.form,
-                                      "street_food",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
+                                })
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
                             _c(
                               "h4",
@@ -9466,6 +9623,36 @@ var render = function() {
                                 _c(
                                   "b-form-checkbox",
                                   {
+                                    attrs: { inline: "", name: "pavo" },
+                                    model: {
+                                      value: _vm.form.pavo,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "pavo", $$v)
+                                      },
+                                      expression: "form.pavo"
+                                    }
+                                  },
+                                  [_vm._v("Pavo")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { inline: "", name: "salmon" },
+                                    model: {
+                                      value: _vm.form.salmon,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "salmon", $$v)
+                                      },
+                                      expression: "form.salmon"
+                                    }
+                                  },
+                                  [_vm._v("Salmón")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
                                     attrs: { inline: "", name: "whey_protein" },
                                     model: {
                                       value: _vm.form.whey_protein,
@@ -9476,10 +9663,75 @@ var render = function() {
                                     }
                                   },
                                   [_vm._v("Whey Protein")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      inline: "",
+                                      name: "chk_otros_proteinas",
+                                      id: "chk_otros_proteinas",
+                                      value: "1",
+                                      "unchecked-value": "0"
+                                    },
+                                    model: {
+                                      value: _vm.chk_otros_proteinas,
+                                      callback: function($$v) {
+                                        _vm.chk_otros_proteinas = $$v
+                                      },
+                                      expression: "chk_otros_proteinas"
+                                    }
+                                  },
+                                  [_vm._v("Otros")]
                                 )
                               ],
                               1
                             ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _vm.chk_otros_proteinas == 1
+                                ? _c("div", { staticClass: "col-xl-12" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v("Indique cuales otras proteinas")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.otros_proteinas,
+                                            expression: "form.otros_proteinas"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control form-control-solid form-control-lg",
+                                        attrs: {
+                                          type: "text",
+                                          name: "otros_proteinas"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.otros_proteinas
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "otros_proteinas",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ]),
                             _vm._v(" "),
                             _c(
                               "b-form-group",
@@ -9639,10 +9891,78 @@ var render = function() {
                                     }
                                   },
                                   [_vm._v("Tostadas de arroz")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      inline: "",
+                                      name: "chk_otros_carbohidratos",
+                                      id: "chk_otros_carbohidratos",
+                                      value: "1",
+                                      "unchecked-value": "0"
+                                    },
+                                    model: {
+                                      value: _vm.chk_otros_carbohidratos,
+                                      callback: function($$v) {
+                                        _vm.chk_otros_carbohidratos = $$v
+                                      },
+                                      expression: "chk_otros_carbohidratos"
+                                    }
+                                  },
+                                  [_vm._v("Otros")]
                                 )
                               ],
                               1
                             ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _vm.chk_otros_carbohidratos == 1
+                                ? _c("div", { staticClass: "col-xl-12" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Indique cuales otros carbohidratos"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.otros_carbohidratos,
+                                            expression:
+                                              "form.otros_carbohidratos"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control form-control-solid form-control-lg",
+                                        attrs: {
+                                          type: "text",
+                                          name: "otros_carbohidratos"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.otros_carbohidratos
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "otros_carbohidratos",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ]),
                             _vm._v(" "),
                             _c(
                               "b-form-group",
@@ -9738,10 +10058,75 @@ var render = function() {
                                     }
                                   },
                                   [_vm._v("Frutas deshidratadas")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      inline: "",
+                                      name: "chk_otros_frutas",
+                                      id: "chk_otros_frutas",
+                                      value: "1",
+                                      "unchecked-value": "0"
+                                    },
+                                    model: {
+                                      value: _vm.chk_otros_frutas,
+                                      callback: function($$v) {
+                                        _vm.chk_otros_frutas = $$v
+                                      },
+                                      expression: "chk_otros_frutas"
+                                    }
+                                  },
+                                  [_vm._v("Otros")]
                                 )
                               ],
                               1
                             ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _vm.chk_otros_frutas == 1
+                                ? _c("div", { staticClass: "col-xl-12" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v("Indique cuales otras frutas")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.otros_frutas,
+                                            expression: "form.otros_frutas"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control form-control-solid form-control-lg",
+                                        attrs: {
+                                          type: "text",
+                                          name: "otros_frutas"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.otros_frutas
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "otros_frutas",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ]),
                             _vm._v(" "),
                             _c(
                               "b-form-group",
@@ -9789,10 +10174,75 @@ var render = function() {
                                     }
                                   },
                                   [_vm._v("Vegetales frescos")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      inline: "",
+                                      name: "chk_otros_vegetales",
+                                      id: "chk_otros_vegetales",
+                                      value: "1",
+                                      "unchecked-value": "0"
+                                    },
+                                    model: {
+                                      value: _vm.chk_otros_vegetales,
+                                      callback: function($$v) {
+                                        _vm.chk_otros_vegetales = $$v
+                                      },
+                                      expression: "chk_otros_vegetales"
+                                    }
+                                  },
+                                  [_vm._v("Otros")]
                                 )
                               ],
                               1
                             ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _vm.chk_otros_vegetales == 1
+                                ? _c("div", { staticClass: "col-xl-12" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v("Indique cuales otros vegetales")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.otros_vegetales,
+                                            expression: "form.otros_vegetales"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control form-control-solid form-control-lg",
+                                        attrs: {
+                                          type: "text",
+                                          name: "otros_vegetales"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.otros_vegetales
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "otros_vegetales",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ]),
                             _vm._v(" "),
                             _c(
                               "b-form-group",
@@ -9907,10 +10357,75 @@ var render = function() {
                                     }
                                   },
                                   [_vm._v("Mantequilla")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      inline: "",
+                                      name: "chk_otros_lacteos",
+                                      id: "chk_otros_lacteos",
+                                      value: "1",
+                                      "unchecked-value": "0"
+                                    },
+                                    model: {
+                                      value: _vm.chk_otros_lacteos,
+                                      callback: function($$v) {
+                                        _vm.chk_otros_lacteos = $$v
+                                      },
+                                      expression: "chk_otros_lacteos"
+                                    }
+                                  },
+                                  [_vm._v("Otros")]
                                 )
                               ],
                               1
                             ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _vm.chk_otros_lacteos == 1
+                                ? _c("div", { staticClass: "col-xl-12" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v("Indique cuales otros lácteos")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.otros_lacteos,
+                                            expression: "form.otros_lacteos"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control form-control-solid form-control-lg",
+                                        attrs: {
+                                          type: "text",
+                                          name: "otros_lacteos"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.otros_lacteos
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "otros_lacteos",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ]),
                             _vm._v(" "),
                             _c(
                               "b-form-group",
@@ -9984,10 +10499,75 @@ var render = function() {
                                     }
                                   },
                                   [_vm._v("Crema de maní")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      inline: "",
+                                      name: "chk_otros_grasas",
+                                      id: "chk_otros_grasas",
+                                      value: "1",
+                                      "unchecked-value": "0"
+                                    },
+                                    model: {
+                                      value: _vm.chk_otros_grasas,
+                                      callback: function($$v) {
+                                        _vm.chk_otros_grasas = $$v
+                                      },
+                                      expression: "chk_otros_grasas"
+                                    }
+                                  },
+                                  [_vm._v("Otros")]
                                 )
                               ],
                               1
                             ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _vm.chk_otros_grasas == 1
+                                ? _c("div", { staticClass: "col-xl-12" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v("Indique cuales otras grasas")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.otros_grasas,
+                                            expression: "form.otros_grasas"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control form-control-solid form-control-lg",
+                                        attrs: {
+                                          type: "text",
+                                          name: "otros_grasas"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.otros_grasas
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "otros_grasas",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "form-group" }, [
                               _c("label", [
@@ -10237,84 +10817,12 @@ var render = function() {
                               {
                                 staticClass: "mb-10 font-weight-bold text-dark"
                               },
-                              [_vm._v("\n    Hábitos alimenticios\n  ")]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-xl-6" }, [
-                              _c("div", { staticClass: "form-group" }, [
-                                _c("label", [_vm._v("Objetivo")]),
-                                _vm._v(" "),
-                                _c(
-                                  "select",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.form.goal,
-                                        expression: "form.goal"
-                                      }
-                                    ],
-                                    staticClass:
-                                      "form-control form-control-solid form-control-lg",
-                                    attrs: { name: "goal" },
-                                    on: {
-                                      change: function($event) {
-                                        var $$selectedVal = Array.prototype.filter
-                                          .call($event.target.options, function(
-                                            o
-                                          ) {
-                                            return o.selected
-                                          })
-                                          .map(function(o) {
-                                            var val =
-                                              "_value" in o ? o._value : o.value
-                                            return val
-                                          })
-                                        _vm.$set(
-                                          _vm.form,
-                                          "goal",
-                                          $event.target.multiple
-                                            ? $$selectedVal
-                                            : $$selectedVal[0]
-                                        )
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("option", { attrs: { value: "" } }, [
-                                      _vm._v("Selecccionar")
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "option",
-                                      { attrs: { value: "perdida de peso" } },
-                                      [_vm._v("Perdida de peso")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "option",
-                                      {
-                                        attrs: { value: "Perdida de % graso" }
-                                      },
-                                      [_vm._v("Perdida de % graso")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "option",
-                                      { attrs: { value: "Masa muscular" } },
-                                      [_vm._v("Masa muscular")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "option",
-                                      { attrs: { value: "Aumento de peso" } },
-                                      [_vm._v("Aumento de peso")]
-                                    )
-                                  ]
+                              [
+                                _vm._v(
+                                  "\n    Diagnóstico y Plan de trabajo\n  "
                                 )
-                              ])
-                            ]),
+                              ]
+                            ),
                             _vm._v(" "),
                             _c(
                               "b-form-group",
@@ -10533,6 +11041,211 @@ var render = function() {
                                     }
                                   },
                                   [_vm._v("Excedente calórico")]
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "b-form-group",
+                              { attrs: { label: "Plan de Trabajo:" } },
+                              [
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "dieta_alta_proteinas" },
+                                    model: {
+                                      value: _vm.form.dieta_alta_proteinas,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "dieta_alta_proteinas",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "form.dieta_alta_proteinas"
+                                    }
+                                  },
+                                  [_vm._v("Dieta alta en Proteinas")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "deficit_calorico" },
+                                    model: {
+                                      value: _vm.form.deficit_calorico,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "deficit_calorico",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "form.deficit_calorico"
+                                    }
+                                  },
+                                  [_vm._v("Déficit Calórico")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "dieta_de_mantenimiento" },
+                                    model: {
+                                      value: _vm.form.dieta_de_mantenimiento,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "dieta_de_mantenimiento",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "form.dieta_de_mantenimiento"
+                                    }
+                                  },
+                                  [_vm._v("Dieta de mantenimiento")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "superavit_calorico" },
+                                    model: {
+                                      value: _vm.form.superavit_calorico,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "superavit_calorico",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "form.superavit_calorico"
+                                    }
+                                  },
+                                  [_vm._v("Superavit Calórico")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "ayuno_intermitente" },
+                                    model: {
+                                      value: _vm.form.ayuno_intermitente,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "ayuno_intermitente",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "form.ayuno_intermitente"
+                                    }
+                                  },
+                                  [_vm._v("Ayuno Intermintente")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "dietas_keto" },
+                                    model: {
+                                      value: _vm.form.dietas_keto,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "dietas_keto", $$v)
+                                      },
+                                      expression: "form.dietas_keto"
+                                    }
+                                  },
+                                  [_vm._v("Dietas Keto")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: { name: "dieta_baja_en_fodmaps" },
+                                    model: {
+                                      value: _vm.form.dieta_baja_en_fodmaps,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "dieta_baja_en_fodmaps",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "form.dieta_baja_en_fodmaps"
+                                    }
+                                  },
+                                  [_vm._v("Dieta Baja en FODMAPS")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      name: "medidas_anti_inflamatorias"
+                                    },
+                                    model: {
+                                      value:
+                                        _vm.form.medidas_anti_inflamatorias,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "medidas_anti_inflamatorias",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form.medidas_anti_inflamatorias"
+                                    }
+                                  },
+                                  [_vm._v("Medias Anti inflamatorias")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      name: "dieta_muy_baja_en_carbohidratos"
+                                    },
+                                    model: {
+                                      value:
+                                        _vm.form
+                                          .dieta_muy_baja_en_carbohidratos,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "dieta_muy_baja_en_carbohidratos",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form.dieta_muy_baja_en_carbohidratos"
+                                    }
+                                  },
+                                  [_vm._v("Dieta muy baja en carbohidratos")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-checkbox",
+                                  {
+                                    attrs: {
+                                      name: "esquema_de_suplementacion"
+                                    },
+                                    model: {
+                                      value: _vm.form.esquema_de_suplementacion,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.form,
+                                          "esquema_de_suplementacion",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "form.esquema_de_suplementacion"
+                                    }
+                                  },
+                                  [_vm._v("Esquema de Suplementación")]
                                 )
                               ],
                               1

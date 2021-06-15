@@ -7,14 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
-  use HasFactory;
-  
+    use HasFactory;
   /**
   * Lista de atributos que pueden ser asignados masivamente
   *
   * @var array $fillable
   */
-  protected $fillable = [
+    protected $fillable = [
     'first_name_1',
     'first_name_2',
     'last_name_1',
@@ -52,6 +51,8 @@ class Patient extends Model
     'atun',
     'huevos',
     'claras_de_huevos',
+    'pavo',
+    'salmon',
     'whey_protein',
     'arroz',
     'arroz_integral',
@@ -98,9 +99,24 @@ class Patient extends Model
     'esquema_hidratacion_inadecuado',
     'dieta_alta_fodmaps',
     'excedente_calorico',
-    'workplan',
-  ];
-  
+    'dieta_alta_proteinas',
+    'deficit_calorico',
+    'dieta_de_mantenimiento',
+    'superavit_calorico',
+    'ayuno_intermitente',
+    'dietas_keto',
+    'dieta_baja_en_fodmaps',
+    'medidas_anti_inflamatorias',
+    'dieta_muy_baja_en_carbohidratos',
+    'esquema_de_suplementacion',
+    'otros_proteinas',
+    'otros_carbohidratos',
+    'otros_frutas',
+    'otros_vegetales',
+    'otros_lacteos',
+    'otros_grasas'
+    ];
+
   /**
   * Método que obtiene los controles asociadas con el paciente
   *
@@ -111,7 +127,7 @@ class Patient extends Model
   {
     return $this->hasMany(Control::class);
   }
-  
+
   /**
   * Método que obtiene los archivos asociadas con el paciente
   *
@@ -132,14 +148,14 @@ class Patient extends Model
   {
     return $this->hasMany(Note::class);
   }
-  
+
   // Funciones scope
-  
+
   function scopeWithName($query, $name)
   {
     // Split each Name by Spaces
     $names = explode(" ", $name);
-    
+
     // Search each Name Field for any specified Name
     return Patient::where(function($query) use ($names) {
       $query->whereIn('first_name_1', $names);
